@@ -8,6 +8,7 @@ export type RawOpsProduct = {
   name: string;
   sku?: string;
   type?: string;
+  enable_stock?: number | string;
   image_url?: string;
   product_description?: string | null;
   is_inactive?: number;
@@ -60,6 +61,9 @@ export function normalizeProduct(raw: RawOpsProduct): Product {
   const brand = raw.brand?.name ?? "Velyn";
   const category = raw.category?.name ?? undefined;
   const wantedLocation = opsConfig.locationId;
+  // When stock tracking is off in ops, items are always purchasable; when on,
+  // availability comes from the location's qty_available.
+  const stockManaged = Number(raw.enable_stock) === 1;
 
   const variations: ProductVariation[] = (raw.product_variations ?? [])
     .flatMap((g) => g.variations ?? [])
@@ -77,7 +81,7 @@ export function normalizeProduct(raw: RawOpsProduct): Product {
         name: v.name || "Default",
         sku: v.sub_sku || raw.sku || String(v.id),
         price,
-        inStock: qty > 0,
+        inStock: stockManaged ? qty > 0 : true,
         qtyAvailable: qty,
       };
     })
