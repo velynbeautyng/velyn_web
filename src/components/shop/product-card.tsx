@@ -1,9 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Product } from "@/lib/ops/types";
-import { cn, formatNaira } from "@/lib/utils";
+import { cn } from "@/lib/utils";
 import { VelynMark } from "@/components/brand/velyn-mark";
 import { IconCheck } from "@/components/ui/icons";
+import { Price } from "@/components/ui/price";
 import { AddToCartButton } from "./add-to-cart-button";
 
 export function ProductCard({
@@ -57,9 +58,11 @@ export function ProductCard({
       </Link>
 
       <div className="flex flex-1 flex-col p-4">
-        <p className="text-[0.6rem] font-semibold uppercase tracking-[0.16em] text-gold-dim">
-          {product.brand}
-        </p>
+        {product.brand && (
+          <p className="text-[0.6rem] font-semibold uppercase tracking-[0.16em] text-gold-dim">
+            {product.brand}
+          </p>
+        )}
         <h3 className="mt-1 font-serif text-[0.95rem] leading-snug text-espresso">
           <Link href={href} className="hover:text-gold-dim">
             {product.name}
@@ -72,18 +75,19 @@ export function ProductCard({
           </span>
         )}
 
-        <div className="mt-auto flex items-center justify-between gap-2 border-t border-ivory-mid pt-3.5">
+        <div className="mt-auto flex flex-col gap-2.5 border-t border-ivory-mid pt-3.5 sm:flex-row sm:items-center sm:justify-between sm:gap-2">
           <div className="flex flex-col leading-none">
-            <span className="font-serif text-lg text-espresso">
-              {formatNaira(product.price)}
-            </span>
+            <Price
+              amount={product.price}
+              className="font-serif text-lg text-espresso"
+            />
             {discounted && (
               <span className="mt-0.5 text-xs text-mocha line-through">
-                {formatNaira(product.compareAtPrice!)}
+                <Price amount={product.compareAtPrice!} />
               </span>
             )}
           </div>
-          <AddToCartButton product={product} />
+          <AddToCartButton product={product} full className="sm:w-auto" />
         </div>
       </div>
     </article>

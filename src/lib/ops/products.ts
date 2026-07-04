@@ -176,6 +176,7 @@ export async function getBrands(): Promise<Brand[]> {
   // Derive brands from the live catalogue.
   const map = new Map<string, Brand>();
   for (const p of all) {
+    if (!p.brandSlug) continue; // skip brandless products
     const existing = map.get(p.brandSlug);
     if (existing) {
       existing.productCount = (existing.productCount ?? 0) + 1;

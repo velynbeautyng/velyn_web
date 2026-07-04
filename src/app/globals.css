@@ -226,6 +226,14 @@ body {
   background: var(--color-gold);
 }
 
+/* Naira symbol: force a font with the correct double-bar ₦ glyph
+   (EB Garamond and some system fallbacks draw it with a single bar). */
+.naira-symbol {
+  font-family: "Segoe UI", Roboto, "Noto Sans", Arial, var(--font-manrope),
+    sans-serif;
+  margin-right: 0.02em;
+}
+
 /* Ambient float (hero brand mark / badge) */
 @keyframes velyn-float {
   0%,

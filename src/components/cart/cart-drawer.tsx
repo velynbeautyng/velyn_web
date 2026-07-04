@@ -8,7 +8,8 @@ import {
   useCart,
   type CartItem,
 } from "@/lib/cart-store";
-import { cn, formatNaira } from "@/lib/utils";
+import { cn } from "@/lib/utils";
+import { Price } from "@/components/ui/price";
 import { IconClose, IconMinus, IconPlus, IconTrash } from "@/components/ui/icons";
 import { ButtonLink } from "@/components/ui/button";
 import { VelynMark } from "@/components/brand/velyn-mark";
@@ -87,9 +88,10 @@ export function CartDrawer() {
                 <span className="text-sm uppercase tracking-[0.14em] text-mocha">
                   Subtotal
                 </span>
-                <span className="font-serif text-2xl text-espresso">
-                  {formatNaira(subtotal)}
-                </span>
+                <Price
+                  amount={subtotal}
+                  className="font-serif text-2xl text-espresso"
+                />
               </div>
               <p className="mb-4 text-xs text-mocha">
                 Shipping &amp; taxes calculated at checkout.
@@ -180,9 +182,10 @@ function CartLine({ item }: { item: CartItem }) {
               <IconPlus width={14} height={14} />
             </button>
           </div>
-          <span className="font-serif text-base text-espresso">
-            {formatNaira(item.price * item.quantity)}
-          </span>
+          <Price
+            amount={item.price * item.quantity}
+            className="font-serif text-base text-espresso"
+          />
         </div>
       </div>
     </li>

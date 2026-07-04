@@ -8,6 +8,7 @@ import {
   type CartItem,
 } from "@/lib/cart-store";
 import { formatNaira } from "@/lib/utils";
+import { Price } from "@/components/ui/price";
 import { ButtonLink } from "@/components/ui/button";
 import { VelynMark } from "@/components/brand/velyn-mark";
 import { IconMinus, IconPlus, IconTrash } from "@/components/ui/icons";
@@ -86,9 +87,10 @@ export function CartView() {
           <span className="text-sm uppercase tracking-[0.1em] text-mocha">
             Total
           </span>
-          <span className="font-serif text-2xl text-espresso">
-            {formatNaira(subtotal)}
-          </span>
+          <Price
+            amount={subtotal}
+            className="font-serif text-2xl text-espresso"
+          />
         </div>
         <ButtonLink
           href="/checkout"
@@ -177,9 +179,10 @@ function CartRow({ item }: { item: CartItem }) {
               <IconPlus width={14} height={14} />
             </button>
           </div>
-          <span className="font-serif text-base text-espresso">
-            {formatNaira(item.price * item.quantity)}
-          </span>
+          <Price
+            amount={item.price * item.quantity}
+            className="font-serif text-base text-espresso"
+          />
         </div>
       </div>
     </li>

@@ -3,7 +3,8 @@
 import { useState } from "react";
 import type { Product } from "@/lib/ops/types";
 import { useCart } from "@/lib/cart-store";
-import { cn, formatNaira } from "@/lib/utils";
+import { cn } from "@/lib/utils";
+import { Price } from "@/components/ui/price";
 import { Button } from "@/components/ui/button";
 import { IconCheck, IconMinus, IconPlus } from "@/components/ui/icons";
 import { whatsappLink } from "@/lib/site";
@@ -46,12 +47,13 @@ export function ProductBuyPanel({ product }: { product: Product }) {
   return (
     <div className="flex flex-col gap-5">
       <div className="flex items-end gap-3">
-        <span className="font-serif text-3xl text-espresso">
-          {formatNaira(variation?.price ?? product.price)}
-        </span>
+        <Price
+          amount={variation?.price ?? product.price}
+          className="font-serif text-3xl text-espresso"
+        />
         {product.compareAtPrice && product.compareAtPrice > product.price && (
           <span className="pb-1 text-base text-mocha line-through">
-            {formatNaira(product.compareAtPrice)}
+            <Price amount={product.compareAtPrice} />
           </span>
         )}
       </div>

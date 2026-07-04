@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { cartSubtotal, useCart } from "@/lib/cart-store";
 import { formatNaira } from "@/lib/utils";
+import { Price } from "@/components/ui/price";
 import { NIGERIAN_STATES } from "@/lib/ng-states";
 import { Button, ButtonLink } from "@/components/ui/button";
 import { VelynMark } from "@/components/brand/velyn-mark";
@@ -190,9 +191,10 @@ export function CheckoutView() {
         </dl>
         <div className="mt-3 flex justify-between border-t border-ivory-mid pt-3">
           <span className="text-sm uppercase tracking-[0.1em] text-mocha">Total</span>
-          <span className="font-serif text-2xl text-espresso">
-            {formatNaira(total)}
-          </span>
+          <Price
+            amount={total}
+            className="font-serif text-2xl text-espresso"
+          />
         </div>
 
         {error && (

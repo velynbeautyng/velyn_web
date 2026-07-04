@@ -58,7 +58,9 @@ function inferConcerns(name: string, category?: string): SkinConcern[] {
 }
 
 export function normalizeProduct(raw: RawOpsProduct): Product {
-  const brand = raw.brand?.name ?? "Velyn";
+  // Brands are managed in ops. A product with no brand there stays brandless
+  // (rather than inventing a fake "Velyn" brand on the storefront).
+  const brand = raw.brand?.name?.trim() ?? "";
   const category = raw.category?.name ?? undefined;
   const wantedLocation = opsConfig.locationId;
   // When stock tracking is off in ops, items are always purchasable; when on,
