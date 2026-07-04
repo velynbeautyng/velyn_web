@@ -6,7 +6,7 @@ import type {
   Product,
   ProductQuery,
 } from "./types";
-import { opsFetch, OpsError } from "./client";
+import { opsFetch } from "./client";
 import { normalizeProduct, type RawOpsProduct } from "./normalize";
 import { isDemoFallbackEnabled, isOpsConfigured } from "./config";
 import { demoBrands, demoCategories, demoProducts } from "./demo-data";
@@ -48,8 +48,12 @@ async function getAllProducts(): Promise<Product[]> {
         return markFeatured(live);
       }
     } catch (err) {
-      if (!(err instanceof OpsError)) throw err;
-      // fall through to demo
+      // Any ops failure (API error, network/DNS outage, timeout) degrades
+      // gracefully to the demo catalogue rather than 500-ing the storefront.
+      console.error(
+        "[ops] product fetch failed, falling back to demo catalogue:",
+        err instanceof Error ? err.message : err,
+      );
     }
   }
   usingDemo = true;
