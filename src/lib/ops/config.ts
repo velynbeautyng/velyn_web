@@ -25,6 +25,11 @@ export const opsConfig = {
   username: process.env.OPS_USERNAME || "",
   password: process.env.OPS_PASSWORD || "",
   locationId: process.env.OPS_LOCATION_ID || "",
+  /** Connector route prefix. Standard UltimatePOS is "connector/api". */
+  apiPrefix: (process.env.OPS_API_PREFIX || "connector/api").replace(
+    /^\/|\/$/g,
+    "",
+  ),
   /** Seconds to cache product data via Next's fetch revalidation. */
   revalidate: Number(process.env.OPS_REVALIDATE ?? 300),
 };
