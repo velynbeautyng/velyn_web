@@ -20,6 +20,7 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       { protocol: "https", hostname: opsHost },
       { protocol: "https", hostname: "velynbeauty.com" },
+      { protocol: "https", hostname: "www.velynbeauty.com" },
     ],
   },
   poweredByHeader: false,
