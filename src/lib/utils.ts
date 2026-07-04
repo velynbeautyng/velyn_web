@@ -5,11 +5,14 @@ export function cn(...inputs: ClassValue[]): string {
   return clsx(inputs);
 }
 
-/** Format a Naira amount from a numeric value. */
+/** Format a Naira amount with the ₦ symbol (for plain strings: WhatsApp, alt text). */
 export function formatNaira(amount: number): string {
+  return "₦" + nairaAmount(amount);
+}
+
+/** Grouped number only, no currency symbol (for the <Price> component). */
+export function nairaAmount(amount: number): string {
   return new Intl.NumberFormat("en-NG", {
-    style: "currency",
-    currency: "NGN",
     maximumFractionDigits: 0,
   }).format(amount);
 }

@@ -14,6 +14,7 @@ export function AddToCartButton({
   size = "sm",
   full = false,
   label = "Add to Cart",
+  className,
 }: {
   product: Product;
   variationId?: string;
@@ -21,6 +22,7 @@ export function AddToCartButton({
   size?: "sm" | "md" | "lg";
   full?: boolean;
   label?: string;
+  className?: string;
 }) {
   const add = useCart((s) => s.add);
   const [added, setAdded] = useState(false);
@@ -57,6 +59,7 @@ export function AddToCartButton({
         className={cn(
           "inline-flex items-center justify-center border border-ivory-mid px-3 py-2 text-[0.6rem] font-semibold uppercase tracking-[0.1em] text-mocha",
           full && "w-full",
+          className,
         )}
       >
         Sold Out
@@ -72,7 +75,11 @@ export function AddToCartButton({
       className={buttonClass({
         variant: size === "sm" ? "outline" : "gold",
         size,
-        className: cn(full && "w-full", added && "!bg-olive !border-olive !text-white"),
+        className: cn(
+          full && "w-full",
+          added && "!bg-olive !border-olive !text-white",
+          className,
+        ),
       })}
     >
       {added ? (
