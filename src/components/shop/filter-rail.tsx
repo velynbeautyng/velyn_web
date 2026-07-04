@@ -1,0 +1,118 @@
+import Link from "next/link";
+import type { Brand } from "@/lib/ops/types";
+import { CONCERN_OPTIONS } from "@/lib/ops/constants";
+import { cn } from "@/lib/utils";
+
+type Active = { concern?: string; brand?: string };
+
+function buildHref(base: Active, patch: Partial<Active>) {
+  const merged = { ...base, ...patch };
+  const params = new URLSearchParams();
+  if (merged.concern) params.set("concern", merged.concern);
+  if (merged.brand) params.set("brand", merged.brand);
+  const qs = params.toString();
+  return qs ? `/shop?${qs}` : "/shop";
+}
+
+function Group({
+  title,
+  children,
+}: {
+  title: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <div className="border-b border-ivory-mid pb-6">
+      <h3 className="mb-3 text-[0.62rem] font-bold uppercase tracking-[0.18em] text-gold-dim">
+        {title}
+      </h3>
+      {children}
+    </div>
+  );
+}
+
+/** Server-rendered filter rail (SEO-friendly links). */
+export function FilterRail({
+  brands,
+  active,
+}: {
+  brands: Brand[];
+  active: Active;
+}) {
+  return (
+    <aside className="flex flex-col gap-6">
+      <Group title="Skin Concern">
+        <ul className="flex flex-col gap-1.5">
+          <li>
+            <Link
+              href={buildHref(active, { concern: undefined })}
+              className={cn(
+                "text-[0.85rem]",
+                !active.concern
+                  ? "font-semibold text-espresso"
+                  : "text-cocoa hover:text-espresso",
+              )}
+            >
+              All Concerns
+            </Link>
+          </li>
+          {CONCERN_OPTIONS.map((c) => (
+            <li key={c.slug}>
+              <Link
+                href={buildHref(active, {
+                  concern: active.concern === c.slug ? undefined : c.slug,
+                })}
+                className={cn(
+                  "text-[0.85rem]",
+                  active.concern === c.slug
+                    ? "font-semibold text-gold-dim"
+                    : "text-cocoa hover:text-espresso",
+                )}
+              >
+                {c.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </Group>
+
+      <Group title="Brand">
+        <ul className="flex max-h-72 flex-col gap-1.5 overflow-y-auto pr-1">
+          <li>
+            <Link
+              href={buildHref(active, { brand: undefined })}
+              className={cn(
+                "text-[0.85rem]",
+                !active.brand
+                  ? "font-semibold text-espresso"
+                  : "text-cocoa hover:text-espresso",
+              )}
+            >
+              All Brands
+            </Link>
+          </li>
+          {brands.map((b) => (
+            <li key={b.slug}>
+              <Link
+                href={buildHref(active, {
+                  brand: active.brand === b.slug ? undefined : b.slug,
+                })}
+                className={cn(
+                  "flex items-center justify-between gap-2 text-[0.85rem]",
+                  active.brand === b.slug
+                    ? "font-semibold text-gold-dim"
+                    : "text-cocoa hover:text-espresso",
+                )}
+              >
+                {b.name}
+                {typeof b.productCount === "number" && (
+                  <span className="text-[0.7rem] text-mocha">{b.productCount}</span>
+                )}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </Group>
+    </aside>
+  );
+}
