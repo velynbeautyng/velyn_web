@@ -83,7 +83,7 @@ export async function opsFetch<T>(
 
   const token = await getAccessToken();
   const url = new URL(
-    `${opsConfig.baseUrl}/connector/api/${path.replace(/^\//, "")}`,
+    `${opsConfig.baseUrl}/${opsConfig.apiPrefix}/${path.replace(/^\//, "")}`,
   );
   if (query) {
     for (const [k, v] of Object.entries(query)) {
