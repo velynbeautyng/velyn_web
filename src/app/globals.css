@@ -1,0 +1,325 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------
+   VELYN BEAUTY & ESSENTIALS — Design System
+   Aesthetic: Espresso Editorial Luxury
+   Palette committed by brand: espresso / gold / ivory / olive / white
+------------------------------------------------------------------ */
+
+@theme {
+  /* Brand palette */
+  --color-espresso: #2c1a0e;
+  --color-espresso-mid: #3d2410;
+  --color-espresso-lift: #4e2f14;
+  --color-espresso-surface: #1e1108;
+
+  --color-gold: #bd9468;
+  --color-gold-dim: #a07a52;
+  --color-gold-pale: #ede0ce;
+  --color-gold-faint: #f7f0e6;
+
+  --color-ivory: #f7f4ef;
+  --color-ivory-mid: #ede9e0;
+
+  --color-olive: #676700;
+  --color-olive-mid: #8a8a00;
+  --color-olive-pale: #ebebcc;
+
+  /* Contrast-safe body inks (>= 4.5:1 on ivory/white) */
+  --color-cocoa: #5c4636;
+  --color-mocha: #6e5647;
+
+  /* Type — map Tailwind's font tokens onto the next/font families */
+  --font-serif: var(--font-eb-garamond), Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-manrope), system-ui, sans-serif;
+
+  /* Motion */
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Z-scale */
+  --z-header: 40;
+  --z-dropdown: 50;
+  --z-backdrop: 60;
+  --z-modal: 70;
+  --z-toast: 80;
+}
+
+:root {
+  --header-h: 108px;
+}
+
+@media (max-width: 1024px) {
+  :root {
+    --header-h: 96px;
+  }
+}
+
+* {
+  min-width: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--color-gold);
+  color: #fff;
+}
+
+/* Serif display defaults */
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+/* Focus visibility */
+:where(a, button, input, textarea, select, [tabindex]):focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.skip-link {
+  position: fixed;
+  top: -100px;
+  left: 16px;
+  z-index: 100;
+  background: var(--color-espresso);
+  color: #fff;
+  padding: 10px 18px;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: top 0.2s var(--ease-out-quart);
+}
+.skip-link:focus {
+  top: 16px;
+}
+
+/* ------------------------------------------------------------------
+   Reusable brand primitives (the deliberate wireframe design language)
+------------------------------------------------------------------ */
+
+/* Section kicker: gold hairline + tracked label */
+.kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-gold-dim);
+}
+.kicker::before {
+  content: "";
+  width: 1.75rem;
+  height: 1px;
+  background: var(--color-gold);
+}
+.kicker--center::after {
+  content: "";
+  width: 1.75rem;
+  height: 1px;
+  background: var(--color-gold);
+}
+.kicker--onDark {
+  color: color-mix(in srgb, var(--color-gold) 82%, white);
+}
+
+/* Corner-tick frame — the brand differentiation anchor */
+.tick-frame {
+  position: relative;
+}
+.tick-frame::before,
+.tick-frame::after,
+.tick-frame > .tick-bl,
+.tick-frame > .tick-br {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  pointer-events: none;
+}
+.tick-frame::before {
+  top: -1px;
+  left: -1px;
+  border-top: 2px solid var(--color-gold);
+  border-left: 2px solid var(--color-gold);
+}
+.tick-frame::after {
+  top: -1px;
+  right: -1px;
+  border-top: 2px solid var(--color-gold);
+  border-right: 2px solid var(--color-gold);
+}
+.tick-frame > .tick-bl {
+  bottom: -1px;
+  left: -1px;
+  border-bottom: 2px solid var(--color-gold);
+  border-left: 2px solid var(--color-gold);
+}
+.tick-frame > .tick-br {
+  bottom: -1px;
+  right: -1px;
+  border-bottom: 2px solid var(--color-gold);
+  border-right: 2px solid var(--color-gold);
+}
+
+/* Authenticity verification tag (recurring trust motif) */
+.auth-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: var(--color-olive-pale);
+  border: 1px solid var(--color-olive-mid);
+  color: var(--color-olive);
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.55rem;
+}
+
+/* Fluid section container */
+.section {
+  padding-inline: clamp(1.25rem, 5vw, 4rem);
+}
+.section-y {
+  padding-block: clamp(3.5rem, 7vw, 6.5rem);
+}
+
+/* Display heading */
+.display {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+.display em {
+  font-style: italic;
+  color: var(--color-gold-dim);
+}
+
+/* Long-form prose niceties */
+.prose-body {
+  color: var(--color-cocoa);
+  line-height: 1.75;
+  text-wrap: pretty;
+  max-width: 68ch;
+}
+
+/* Gold hairline rule */
+.hairline {
+  height: 2px;
+  width: 1.75rem;
+  background: var(--color-gold);
+}
+
+/* Ambient float (hero brand mark / badge) */
+@keyframes velyn-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+.animate-float {
+  animation: velyn-float 6s ease-in-out infinite;
+}
+.still .animate-float {
+  animation: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .animate-float {
+    animation: none;
+  }
+}
+
+/* ------------------------------------------------------------------
+   Reveal system
+   Content is VISIBLE BY DEFAULT. The hidden pre-animation state is applied
+   only when scripting is enabled, so no-JS clients and crawlers always see
+   content, and there is no flash (the rule is evaluated at parse time).
+------------------------------------------------------------------ */
+@media (scripting: enabled) {
+  [data-anim] {
+    opacity: 0;
+    transform: translateY(30px);
+    will-change: opacity, transform;
+  }
+  [data-anim="left"] {
+    transform: translateX(30px);
+  }
+  [data-anim="right"] {
+    transform: translateX(-30px);
+  }
+  [data-anim="fade"] {
+    transform: none;
+  }
+  [data-anim].is-in {
+    opacity: 1;
+    transform: none;
+    transition:
+      opacity 0.75s var(--ease-out-expo),
+      transform 0.75s var(--ease-out-expo);
+    transition-delay: var(--anim-delay, 0s);
+  }
+
+  [data-stagger] > * {
+    opacity: 0;
+    transform: translateY(26px);
+  }
+  [data-stagger].is-in > * {
+    opacity: 1;
+    transform: none;
+    transition:
+      opacity 0.65s var(--ease-out-expo),
+      transform 0.65s var(--ease-out-expo);
+  }
+  [data-stagger].is-in > *:nth-child(1) { transition-delay: 0.04s; }
+  [data-stagger].is-in > *:nth-child(2) { transition-delay: 0.12s; }
+  [data-stagger].is-in > *:nth-child(3) { transition-delay: 0.2s; }
+  [data-stagger].is-in > *:nth-child(4) { transition-delay: 0.28s; }
+  [data-stagger].is-in > *:nth-child(5) { transition-delay: 0.36s; }
+  [data-stagger].is-in > *:nth-child(6) { transition-delay: 0.44s; }
+  [data-stagger].is-in > *:nth-child(n + 7) { transition-delay: 0.5s; }
+}
+
+/* Still mode (screenshots / print): force everything to its final state. */
+.still [data-anim],
+.still [data-stagger] > * {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+  animation: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-anim],
+  [data-stagger] > * {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
