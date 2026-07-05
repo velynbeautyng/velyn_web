@@ -2,19 +2,19 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { cartSubtotal, useCart } from "@/lib/cart-store";
 import { formatNaira } from "@/lib/utils";
+import {
+  computeShipping,
+  DEFAULT_SHIPPING_CONFIG,
+  type ShippingConfig,
+} from "@/lib/shipping";
 import { Price } from "@/components/ui/price";
 import { NIGERIAN_STATES } from "@/lib/ng-states";
 import { Button, ButtonLink } from "@/components/ui/button";
 import { VelynMark } from "@/components/brand/velyn-mark";
 import { IconShield } from "@/components/ui/icons";
-
-const FREE_SHIPPING = Number(
-  process.env.NEXT_PUBLIC_FREE_SHIPPING_THRESHOLD ?? 50000,
-);
-const DELIVERY_FEE = Number(process.env.NEXT_PUBLIC_DELIVERY_FEE ?? 3500);
 
 const field =
   "w-full border border-ivory-mid bg-white px-3.5 py-2.5 text-sm text-espresso placeholder:text-mocha/60 outline-none transition-colors focus:border-gold";
@@ -24,12 +24,28 @@ const label =
 export function CheckoutView() {
   const items = useCart((s) => s.items);
   const subtotal = cartSubtotal(items);
-  const shipping =
-    subtotal <= 0 ? 0 : subtotal >= FREE_SHIPPING ? 0 : DELIVERY_FEE;
-  const total = subtotal + shipping;
 
+  const [config, setConfig] = useState<ShippingConfig>(DEFAULT_SHIPPING_CONFIG);
+  const [state, setState] = useState("");
   const [status, setStatus] = useState<"idle" | "submitting">("idle");
   const [error, setError] = useState("");
+
+  // Live delivery pricing from the ops shipping config + selected state.
+  useEffect(() => {
+    let alive = true;
+    fetch("/api/shipping")
+      .then((r) => (r.ok ? r.json() : null))
+      .then((c) => {
+        if (alive && c) setConfig(c as ShippingConfig);
+      })
+      .catch(() => {});
+    return () => {
+      alive = false;
+    };
+  }, []);
+
+  const shipping = computeShipping(subtotal, state, config);
+  const total = subtotal + shipping;
 
   if (items.length === 0) {
     return (
@@ -128,7 +144,7 @@ export function CheckoutView() {
             </div>
             <div>
               <label htmlFor="co-state" className={label}>State</label>
-              <select id="co-state" name="state" required defaultValue="" className={`${field} cursor-pointer appearance-none`}>
+              <select id="co-state" name="state" required value={state} onChange={(e) => setState(e.target.value)} className={`${field} cursor-pointer appearance-none`}>
                 <option value="" disabled>Select state</option>
                 {NIGERIAN_STATES.map((s) => (
                   <option key={s} value={s}>{s}</option>
