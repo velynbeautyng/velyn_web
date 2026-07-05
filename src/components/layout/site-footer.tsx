@@ -98,6 +98,18 @@ export function SiteFooter() {
             </Link>
           </div>
         </div>
+
+        <p className="mt-6 border-t border-gold/10 pt-6 text-center text-xs text-ivory/25">
+          Built with Love by{" "}
+          <a
+            href="https://wa.me/2348090520578?text=I%20will%20like%20a%20website%20designed"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-semibold text-gold/70 transition-colors hover:text-gold"
+          >
+            PhoenixITNg
+          </a>
+        </p>
       </div>
     </footer>
   );
