@@ -43,42 +43,42 @@ export async function recordOrder(order: OrderRecord): Promise<{
   }
 
   try {
+    // Post to our custom storefront order endpoint (auth:api). It creates a
+    // native UltimatePOS sale — CRM contact, stock deduction, payment and an
+    // admin bell notification — and is idempotent on `reference`.
     const payload = {
-      sells: [
-        {
-          location_id: opsConfig.locationId
-            ? Number(opsConfig.locationId)
-            : undefined,
-          contact_id: process.env.OPS_DEFAULT_CONTACT_ID
-            ? Number(process.env.OPS_DEFAULT_CONTACT_ID)
-            : undefined,
-          status: "final",
-          payment_status: "paid",
-          sale_note: `Website order ${order.reference} — ${order.customer.name}, ${order.customer.phone}, ${order.customer.address}, ${order.customer.city}, ${order.customer.state}`,
-          shipping_charges: order.cart.shipping,
-          products: order.cart.lines.map((l) => ({
-            product_id: Number(l.slug.split("-").pop()) || undefined,
-            variation_id: Number(l.id) || undefined,
-            quantity: l.quantity,
-            unit_price: l.unitPrice,
-          })),
-          payments: [
-            {
-              amount: order.cart.total,
-              method: "card",
-              note: `Paystack ${order.reference}`,
-            },
-          ],
-        },
-      ],
+      reference: order.reference,
+      location_id: opsConfig.locationId
+        ? Number(opsConfig.locationId)
+        : undefined,
+      paid_at: order.paidAt,
+      shipping: order.cart.shipping,
+      customer: order.customer,
+      items: order.cart.lines
+        .map((l) => ({
+          variation_id: Number(l.id),
+          quantity: l.quantity,
+        }))
+        .filter((i) => Number.isFinite(i.variation_id) && i.variation_id > 0),
     };
 
-    await opsFetch("sell", { method: "POST", body: payload });
+    const res = await opsFetch<{
+      data?: { transaction_id?: number; invoice_no?: string };
+    }>("order", { method: "POST", body: payload });
+
+    console.info("[order] recorded in ops:", {
+      reference: order.reference,
+      invoice_no: res.data?.invoice_no,
+      transaction_id: res.data?.transaction_id,
+    });
     return { recorded: true };
   } catch (err) {
     const reason = err instanceof OpsError ? err.message : "unknown";
-    console.error("[order] ops sell failed, logged for manual entry:", reason, {
+    console.error("[order] ops order failed, logged for manual entry:", reason, {
       reference: order.reference,
+      customer: order.customer,
+      lines: order.cart.lines.map((l) => `${l.quantity}× ${l.name}`),
+      total: order.cart.total,
     });
     return { recorded: false, reason };
   }
