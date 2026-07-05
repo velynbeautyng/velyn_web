@@ -10,8 +10,16 @@ export type Article = {
   excerpt: string;
   readMinutes: number;
   date: string;
-  /** Ordered content blocks, kept simple for now. */
+  /** Ordered content blocks (in-repo articles). */
   body: { heading?: string; paragraphs: string[] }[];
+  /** Pre-rendered HTML (ops posts authored in markdown). Rendered instead of `body`. */
+  bodyHtml?: string;
+  coverImage?: string;
+  author?: string;
+  metaTitle?: string;
+  metaDescription?: string;
+  /** Where the article came from — lets the UI/pages adapt when needed. */
+  source?: "ops" | "local";
 };
 
 export const articles: Article[] = [

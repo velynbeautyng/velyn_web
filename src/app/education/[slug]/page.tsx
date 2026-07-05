@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { articles, getArticle } from "@/lib/education";
+import { getEducationArticle, getEducationArticles } from "@/lib/ops/blog";
 import { site } from "@/lib/site";
 import { PageHero } from "@/components/ui/page-hero";
 import { Prose } from "@/components/ui/prose";
@@ -12,7 +12,10 @@ import { JsonLd, BreadcrumbJsonLd } from "@/components/seo/json-ld";
 
 type Params = Promise<{ slug: string }>;
 
-export function generateStaticParams() {
+export const revalidate = 300;
+
+export async function generateStaticParams() {
+  const articles = await getEducationArticles();
   return articles.map((a) => ({ slug: a.slug }));
 }
 
@@ -22,26 +25,28 @@ export async function generateMetadata({
   params: Params;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const article = getArticle(slug);
+  const article = await getEducationArticle(slug);
   if (!article) return { title: "Article Not Found" };
   return {
-    title: article.title,
-    description: article.excerpt,
+    title: article.metaTitle || article.title,
+    description: article.metaDescription || article.excerpt,
     alternates: { canonical: `${site.url}/education/${article.slug}` },
     openGraph: {
       type: "article",
       title: article.title,
-      description: article.excerpt,
+      description: article.metaDescription || article.excerpt,
     },
   };
 }
 
 export default async function ArticlePage({ params }: { params: Params }) {
   const { slug } = await params;
-  const article = getArticle(slug);
+  const article = await getEducationArticle(slug);
   if (!article) notFound();
 
-  const related = articles.filter((a) => a.slug !== slug).slice(0, 3);
+  const related = (await getEducationArticles())
+    .filter((a) => a.slug !== slug)
+    .slice(0, 3);
 
   return (
     <>
@@ -97,14 +102,18 @@ export default async function ArticlePage({ params }: { params: Params }) {
 
         <Reveal>
           <Prose>
-            {article.body.map((block, i) => (
-              <div key={i}>
-                {block.heading && <h2>{block.heading}</h2>}
-                {block.paragraphs.map((p, j) => (
-                  <p key={j}>{p}</p>
-                ))}
-              </div>
-            ))}
+            {article.bodyHtml ? (
+              <div dangerouslySetInnerHTML={{ __html: article.bodyHtml }} />
+            ) : (
+              article.body.map((block, i) => (
+                <div key={i}>
+                  {block.heading && <h2>{block.heading}</h2>}
+                  {block.paragraphs.map((p, j) => (
+                    <p key={j}>{p}</p>
+                  ))}
+                </div>
+              ))
+            )}
           </Prose>
         </Reveal>
 

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { articles } from "@/lib/education";
+import { getEducationArticles } from "@/lib/ops/blog";
 import { site } from "@/lib/site";
 import { PageHero } from "@/components/ui/page-hero";
 import { CtaBand } from "@/components/ui/cta-band";
@@ -16,7 +16,10 @@ export const metadata: Metadata = {
   alternates: { canonical: `${site.url}/education` },
 };
 
-export default function EducationPage() {
+export const revalidate = 300;
+
+export default async function EducationPage() {
+  const articles = await getEducationArticles();
   const [lead, ...rest] = articles;
 
   return (
@@ -48,10 +51,19 @@ export default function EducationPage() {
           className="group grid overflow-hidden border border-ivory-mid bg-white md:grid-cols-2"
         >
           <div className="relative flex min-h-56 items-center justify-center overflow-hidden bg-espresso">
-            <VelynMark
-              className="h-16 w-auto opacity-20 transition-transform duration-500 group-hover:scale-110"
-              tone="gold"
-            />
+            {lead.coverImage ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src={lead.coverImage}
+                alt={lead.title}
+                className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+            ) : (
+              <VelynMark
+                className="h-16 w-auto opacity-20 transition-transform duration-500 group-hover:scale-110"
+                tone="gold"
+              />
+            )}
           </div>
           <div className="flex flex-col justify-center p-8 lg:p-12">
             <span className="w-fit bg-olive-pale px-2.5 py-1 text-[0.6rem] font-bold uppercase tracking-[0.1em] text-olive">
@@ -75,11 +87,20 @@ export default function EducationPage() {
                 href={`/education/${post.slug}`}
                 className="group flex h-full flex-col border border-ivory-mid bg-white transition-shadow duration-300 hover:shadow-[0_20px_40px_-28px_rgba(44,26,14,0.4)]"
               >
-                <div className="flex h-32 items-center justify-center overflow-hidden border-b border-ivory-mid bg-espresso">
-                  <VelynMark
-                    className="h-10 w-auto opacity-20 transition-transform duration-500 group-hover:scale-110"
-                    tone="gold"
-                  />
+                <div className="relative flex h-32 items-center justify-center overflow-hidden border-b border-ivory-mid bg-espresso">
+                  {post.coverImage ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      src={post.coverImage}
+                      alt={post.title}
+                      className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                  ) : (
+                    <VelynMark
+                      className="h-10 w-auto opacity-20 transition-transform duration-500 group-hover:scale-110"
+                      tone="gold"
+                    />
+                  )}
                 </div>
                 <div className="flex flex-1 flex-col p-5">
                   <span className="w-fit bg-olive-pale px-2 py-1 text-[0.55rem] font-bold uppercase tracking-[0.1em] text-olive">
