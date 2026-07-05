@@ -1,10 +1,12 @@
 import { NextResponse } from "next/server";
+import { recordEnquiry } from "@/lib/ops/enquiries";
 
 /**
- * Contact / inquiry endpoint. Validates the payload and dispatches a
- * notification. Email delivery is wired via RESEND_API_KEY when present;
- * otherwise the submission is logged so nothing is lost during setup and the
- * user still receives a success response.
+ * Contact / inquiry endpoint. Validates the payload, records it in ops (so it
+ * shows under Enquiries with an admin notification) and dispatches an email.
+ * Email delivery is wired via RESEND_API_KEY when present; otherwise the
+ * submission is logged so nothing is lost during setup and the user still
+ * receives a success response. Both channels are best-effort and independent.
  */
 
 type Payload = {
@@ -50,6 +52,15 @@ export async function POST(request: Request) {
     message,
     receivedAt: new Date().toISOString(),
   };
+
+  // Durable record in ops (best-effort — never blocks the email or response).
+  await recordEnquiry({
+    name,
+    email,
+    phone: body.phone?.trim() || undefined,
+    inquiryType: inquiry.inquiryType,
+    message,
+  });
 
   const apiKey = process.env.RESEND_API_KEY;
   const to = process.env.CONTACT_INBOX || "hello@velynbeauty.com";
