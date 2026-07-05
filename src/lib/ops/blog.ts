@@ -1,5 +1,5 @@
 import "server-only";
-import { opsFetch } from "./client";
+import { opsFetch, OpsError } from "./client";
 import { isOpsConfigured } from "./config";
 import { renderMarkdown } from "@/lib/markdown";
 import { articles as localArticles, getArticle, type Article } from "@/lib/education";
@@ -63,7 +63,22 @@ export async function getEducationArticles(): Promise<Article[]> {
   return localArticles;
 }
 
-/** A single article by slug — ops first, then in-repo fallback. */
+/** True once at least one post is published in ops (i.e. the hub is "live"). */
+async function opsHasPublishedPosts(): Promise<boolean> {
+  try {
+    const res = await opsFetch<{ data: RawOpsPost[] }>("blog");
+    return (res.data ?? []).length > 0;
+  } catch {
+    return false;
+  }
+}
+
+/**
+ * A single article by slug. Ops posts win. Once ops has *any* published post,
+ * the in-repo sample articles are retired — an unknown slug 404s instead of
+ * falling back. The in-repo articles only serve while ops is empty or
+ * unreachable, so publishing your first post cleanly replaces the samples.
+ */
 export async function getEducationArticle(slug: string): Promise<Article | null> {
   if (isOpsConfigured()) {
     try {
@@ -71,8 +86,13 @@ export async function getEducationArticle(slug: string): Promise<Article | null>
         `blog/${encodeURIComponent(slug)}`,
       );
       if (res.data) return toArticle(res.data, true);
-    } catch {
-      // 404 or ops down — fall through to the in-repo article.
+    } catch (err) {
+      // Ops reachable but no such published post: honour "ops mode" — if any
+      // posts exist, the samples are gone (404). Only a truly-empty or
+      // unreachable ops falls through to the in-repo article.
+      if (err instanceof OpsError && err.status === 404) {
+        if (await opsHasPublishedPosts()) return null;
+      }
     }
   }
   return getArticle(slug) ?? null;
