@@ -28,7 +28,7 @@ export default function TrackPage() {
             Track Your <em>Order</em>
           </>
         }
-        intro="Enter your order number and we'll connect you with a specialist for a real-time update."
+        intro="Enter your order reference and email to see exactly where your order is — from confirmed to delivered."
         breadcrumb={[
           { name: "Home", href: "/" },
           { name: "Track Order", href: "/track" },
@@ -39,8 +39,9 @@ export default function TrackPage() {
           <div className="border border-ivory-mid bg-white p-6 sm:p-8">
             <TrackForm />
             <p className="mt-5 border-t border-ivory-mid pt-5 text-[0.83rem] leading-relaxed text-cocoa">
-              You can find your order number in your confirmation email or
-              message. Prefer to talk? Reach us directly at{" "}
+              Your order reference is on your confirmation page and email (it
+              starts with <strong className="text-espresso">VB-</strong>). Prefer
+              to talk? Reach us directly at{" "}
               <a
                 href={`mailto:${site.contact.email}`}
                 className="text-gold-dim underline underline-offset-2 hover:text-espresso"

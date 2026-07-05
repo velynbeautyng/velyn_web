@@ -47,8 +47,9 @@ export async function POST(request: Request) {
     );
   }
 
-  // Authoritative re-pricing — client amounts are never trusted.
-  const cart = await resolveCart(items);
+  // Authoritative re-pricing — client amounts are never trusted. Delivery is
+  // priced from the ops shipping config using the destination state.
+  const cart = await resolveCart(items, c.state);
   if (cart.lines.length === 0) {
     return NextResponse.json(
       { error: "None of the items in your cart are available." },
