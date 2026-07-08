@@ -106,7 +106,7 @@ export function CheckoutView() {
         return;
       }
       if (data.mode === "manual" && data.whatsapp) {
-        // Payment gateway not live yet — hand off to WhatsApp to finalise.
+        // Payment gateway not live yet, hand off to WhatsApp to finalise.
         window.location.href = data.whatsapp;
         return;
       }

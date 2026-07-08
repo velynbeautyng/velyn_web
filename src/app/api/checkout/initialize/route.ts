@@ -57,7 +57,7 @@ export async function POST(request: Request) {
     );
   }
 
-  // Authoritative re-pricing — client amounts are never trusted. Delivery is
+  // Authoritative re-pricing, client amounts are never trusted. Delivery is
   // priced from the ops shipping config using the destination state; pickup is
   // always free.
   const cart = await resolveCart(items, method === "pickup" ? undefined : c.state);
@@ -87,7 +87,7 @@ export async function POST(request: Request) {
   // customer is never blocked while keys are being set up.
   if (!isPaystackConfigured()) {
     const summary = cart.lines
-      .map((l) => `• ${l.quantity}× ${l.brand} ${l.name} — ${formatNaira(l.lineTotal)}`)
+      .map((l) => `• ${l.quantity}× ${l.brand} ${l.name}, ${formatNaira(l.lineTotal)}`)
       .join("\n");
     const fulfilment =
       method === "pickup"

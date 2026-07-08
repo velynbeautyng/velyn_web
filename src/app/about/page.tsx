@@ -11,7 +11,7 @@ import { BreadcrumbJsonLd } from "@/components/seo/json-ld";
 export const metadata: Metadata = {
   title: "About Us",
   description:
-    "Velyn Beauty & Essentials is a Nigerian skincare distribution company built on authenticity, effectiveness and trust — bridging global manufacturers and the African market.",
+    "Velyn Beauty & Essentials is a Nigerian skincare distribution company built on authenticity, effectiveness and trust, bridging global manufacturers and the African market.",
   alternates: { canonical: `${site.url}/about` },
 };
 
@@ -24,12 +24,12 @@ const values = [
   {
     n: "02",
     title: "Results-Driven Skincare",
-    body: "We focus on products that work — solutions for acne, blemishes, hyperpigmentation and uneven tone, not passing trends.",
+    body: "We focus on products that work, solutions for acne, blemishes, hyperpigmentation and uneven tone, not passing trends.",
   },
   {
     n: "03",
     title: "Education & Trust",
-    body: "We don't just sell skincare — we educate. Knowledge builds confidence, and confidence builds trust.",
+    body: "We don't just sell skincare, we educate. Knowledge builds confidence, and confidence builds trust.",
   },
   {
     n: "04",
@@ -39,12 +39,12 @@ const values = [
   {
     n: "05",
     title: "Seamless Distribution",
-    body: "A smooth, reliable flow from manufacturer to distributor to retailer to consumer — integrity protected at every stage.",
+    body: "A smooth, reliable flow from manufacturer to distributor to retailer to consumer, integrity protected at every stage.",
   },
   {
     n: "06",
     title: "Sustainability",
-    body: "We align with the UN SDGs — responsible sourcing, reduced packaging waste, and partners who share our environmental values.",
+    body: "We align with the UN SDGs, responsible sourcing, reduced packaging waste, and partners who share our environmental values.",
   },
 ];
 
@@ -72,7 +72,7 @@ export default function AboutPage() {
             <em>Distribution Ecosystem</em>
           </>
         }
-        intro="Velyn Beauty & Essentials is a Nigerian skincare distribution company built on authenticity, effectiveness and trust — connecting global brands to African consumers with integrity."
+        intro="Velyn Beauty & Essentials is a Nigerian skincare distribution company built on authenticity, effectiveness and trust, connecting global brands to African consumers with integrity."
         breadcrumb={[
           { name: "Home", href: "/" },
           { name: "About", href: "/about" },
@@ -99,7 +99,7 @@ export default function AboutPage() {
             manufacturer intended.
           </p>
           <p className="prose-body mt-4">
-            We are not just selling skincare — we are building a trusted
+            We are not just selling skincare, we are building a trusted
             distribution ecosystem defined by authenticity, sustainability,
             education, and scalable partnerships.
           </p>
@@ -112,7 +112,7 @@ export default function AboutPage() {
               <h3 className="font-serif text-lg text-espresso">Our Vision</h3>
               <p className="mt-2 text-[0.85rem] leading-relaxed text-cocoa">
                 To become one of Nigeria&apos;s most trusted beauty distribution
-                platforms — recognised for sustainability, quality, and as a
+                platforms, recognised for sustainability, quality, and as a
                 channel for global beauty brands entering the Nigerian market.
               </p>
             </div>
@@ -123,7 +123,7 @@ export default function AboutPage() {
               <h3 className="font-serif text-lg">Our Mission</h3>
               <p className="mt-2 text-[0.85rem] leading-relaxed text-ivory/55">
                 To deliver quality, results-driven beauty products and seamless
-                access by partnering directly with trusted global manufacturers —
+                access by partnering directly with trusted global manufacturers,
                 serving Nigerian consumers with integrity, education and
                 excellence.
               </p>
@@ -178,7 +178,7 @@ export default function AboutPage() {
             <p className="prose-body mt-5">
               Sustainability is integrated into our long-term strategy. We align
               our operations with the United Nations Sustainable Development
-              Goals — ensuring access to safe, authentic products, discouraging
+              Goals, ensuring access to safe, authentic products, discouraging
               counterfeit circulation, and supporting partners who prioritise
               ethical sourcing and responsible manufacturing.
             </p>

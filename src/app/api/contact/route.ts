@@ -47,7 +47,7 @@ export async function POST(request: Request) {
   const inquiry = {
     name,
     email,
-    phone: body.phone?.trim() || "—",
+    phone: body.phone?.trim() || "Not provided",
     inquiryType: body.inquiryType?.trim() || "General Inquiry",
     message,
     receivedAt: new Date().toISOString(),
@@ -77,7 +77,7 @@ export async function POST(request: Request) {
           from: process.env.CONTACT_FROM || "Velyn Website <noreply@velynbeauty.com>",
           to: [to],
           reply_to: email,
-          subject: `New ${inquiry.inquiryType} — ${name}`,
+          subject: `New ${inquiry.inquiryType}: ${name}`,
           text: [
             `Name: ${name}`,
             `Email: ${email}`,

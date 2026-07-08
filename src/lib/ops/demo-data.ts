@@ -2,7 +2,7 @@ import type { Brand, Product, SkinConcern } from "./types";
 import { slugify } from "@/lib/utils";
 
 /**
- * DEMO CATALOGUE — placeholder data shown while the live ops.velynbeauty.com
+ * DEMO CATALOGUE, placeholder data shown while the live ops.velynbeauty.com
  * catalogue is being imported. Every entry is replaced automatically once the
  * Connector API returns products. Real Velyn brands; representative pricing.
  */
@@ -10,7 +10,7 @@ import { slugify } from "@/lib/utils";
 export const demoBrands: Brand[] = [
   { name: "CeraVe", origin: "USA", description: "Dermatologist-developed with essential ceramides and hyaluronic acid." },
   { name: "La Roche-Posay", origin: "France", description: "Dermatological skincare formulated with prebiotic thermal water." },
-  { name: "The Ordinary", origin: "Canada", description: "Clinical formulations with integrity — potent actives, honest pricing." },
+  { name: "The Ordinary", origin: "Canada", description: "Clinical formulations with integrity, potent actives, honest pricing." },
   { name: "COSRX", origin: "South Korea", description: "Minimalist K-beauty built around snail mucin and gentle actives." },
   { name: "Anua", origin: "South Korea", description: "Heartleaf-based Korean skincare for sensitive, blemish-prone skin." },
   { name: "Beauty of Joseon", origin: "South Korea", description: "Hanbang skincare pairing traditional herbs with modern formulation." },

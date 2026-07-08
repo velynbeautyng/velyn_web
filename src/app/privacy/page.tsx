@@ -43,7 +43,7 @@ export default function PrivacyPage() {
             <ul>
               <li>Contact details you provide (name, email, phone) when you order, enquire or apply for wholesale.</li>
               <li>Order and delivery information needed to fulfil your purchase.</li>
-              <li>Payment information, processed securely by our payment provider — we do not store full card details.</li>
+              <li>Payment information, processed securely by our payment provider, we do not store full card details.</li>
               <li>Basic usage data (such as pages visited) to improve the site.</li>
             </ul>
 
@@ -59,7 +59,7 @@ export default function PrivacyPage() {
             <h2>Sharing your information</h2>
             <p>
               We share information only with trusted service providers who help us
-              operate — such as payment processors and delivery partners — and only
+              operate, such as payment processors and delivery partners, and only
               to the extent necessary. We do not sell your personal information.
             </p>
 

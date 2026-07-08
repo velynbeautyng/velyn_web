@@ -38,7 +38,7 @@ export function WholesaleForm() {
         `Business: ${fd.get("businessName")}`,
         `Type: ${fd.get("businessType")}`,
         `Location: ${fd.get("location")}`,
-        `Products of interest: ${fd.get("interests") || "—"}`,
+        `Products of interest: ${fd.get("interests") || "Not specified"}`,
         "",
         String(fd.get("message") || ""),
       ].join("\n"),

@@ -13,7 +13,7 @@ import { BreadcrumbJsonLd } from "@/components/seo/json-ld";
 export const metadata: Metadata = {
   title: "Our Brands",
   description:
-    "The trusted global skincare brands Velyn distributes in Nigeria — from CeraVe and La Roche-Posay to COSRX, Anua and Beauty of Joseon. Every product verified authentic.",
+    "The trusted global skincare brands Velyn distributes in Nigeria, from CeraVe and La Roche-Posay to COSRX, Anua and Beauty of Joseon. Every product verified authentic.",
   alternates: { canonical: `${site.url}/brands` },
 };
 
@@ -37,7 +37,7 @@ export default async function BrandsPage() {
             <em>One Authentic Source</em>
           </>
         }
-        intro="We partner with established names and emerging international brands alike — every one sourced directly and verified original before it reaches the Nigerian market."
+        intro="We partner with established names and emerging international brands alike, every one sourced directly and verified original before it reaches the Nigerian market."
         breadcrumb={[
           { name: "Home", href: "/" },
           { name: "Brands", href: "/brands" },
@@ -106,7 +106,7 @@ export default async function BrandsPage() {
             Bring Your Brand to <span className="italic text-white/70">Nigeria</span>
           </>
         }
-        body="Velyn offers international skincare brands a credible, structured route into the African market — with distribution, brand protection and real customer intelligence."
+        body="Velyn offers international skincare brands a credible, structured route into the African market, with distribution, brand protection and real customer intelligence."
         primary={{ label: "Partner With Velyn", href: "/partner" }}
         secondary={{ label: "Talk to Us", href: "/contact" }}
         tone="olive"

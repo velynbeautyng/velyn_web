@@ -37,7 +37,7 @@ export function Hero() {
 
           <Reveal delay={0.15}>
             <p className="mt-5 max-w-md text-[0.95rem] leading-relaxed text-ivory/55">
-              Sourcing 100% original skincare directly from manufacturers —
+              Sourcing 100% original skincare directly from manufacturers,
               connecting the world&apos;s most trusted brands to the African
               market, with authenticity you can verify.
             </p>

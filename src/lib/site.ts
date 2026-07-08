@@ -10,7 +10,7 @@ export const site = {
   tagline: "Beauty & Essentials",
   slogan: "Beauty you can trust",
   description:
-    "Velyn Beauty & Essentials is Nigeria's trusted distributor of authentic skincare — sourced directly from manufacturers and curated for real results. Retail, wholesale and brand partnerships across all 36 states.",
+    "Velyn Beauty & Essentials is Nigeria's trusted distributor of authentic skincare, sourced directly from manufacturers and curated for real results. Retail, wholesale and brand partnerships across all 36 states.",
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://velynbeauty.com",
   locale: "en_NG",
 

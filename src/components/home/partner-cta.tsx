@@ -31,7 +31,7 @@ export function PartnerCta() {
         </h2>
         <p className="mx-auto mt-4 max-w-xl text-[0.95rem] leading-relaxed text-white/60">
           Velyn provides market entry strategy, distribution infrastructure,
-          brand protection, and real customer intelligence — everything a global
+          brand protection, and real customer intelligence, everything a global
           skincare brand needs to grow in Nigeria.
         </p>
         <div className="mt-8 flex flex-wrap justify-center gap-3">

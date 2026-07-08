@@ -26,8 +26,8 @@ const sans = Manrope({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} — Authentic Skincare, Sourced Directly`,
-    template: `%s — ${site.name}`,
+    default: `${site.name}, Authentic Skincare, Sourced Directly`,
+    template: `%s, ${site.name}`,
   },
   description: site.description,
   keywords: [
@@ -46,12 +46,12 @@ export const metadata: Metadata = {
     locale: "en_NG",
     url: site.url,
     siteName: site.name,
-    title: `${site.name} — Authentic Skincare, Sourced Directly`,
+    title: `${site.name}, Authentic Skincare, Sourced Directly`,
     description: site.description,
   },
   twitter: {
     card: "summary_large_image",
-    title: `${site.name} — Authentic Skincare, Sourced Directly`,
+    title: `${site.name}, Authentic Skincare, Sourced Directly`,
     description: site.description,
   },
   alternates: { canonical: site.url },

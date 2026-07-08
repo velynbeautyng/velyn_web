@@ -28,7 +28,7 @@ export default function TrackPage() {
             Track Your <em>Order</em>
           </>
         }
-        intro="Enter your order reference and email to see exactly where your order is — from confirmed to delivered."
+        intro="Enter your order reference and email to see exactly where your order is, from confirmed to delivered."
         breadcrumb={[
           { name: "Home", href: "/" },
           { name: "Track Order", href: "/track" },

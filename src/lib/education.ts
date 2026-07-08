@@ -18,7 +18,7 @@ export type Article = {
   author?: string;
   metaTitle?: string;
   metaDescription?: string;
-  /** Where the article came from — lets the UI/pages adapt when needed. */
+  /** Where the article came from, lets the UI/pages adapt when needed. */
   source?: "ops" | "local";
 };
 
@@ -40,14 +40,14 @@ export const articles: Article[] = [
       {
         heading: "Start with the first five",
         paragraphs: [
-          "The first five ingredients usually make up the bulk of the formula. Water, humectants like glycerin, and emollients typically lead. If an advertised active — say niacinamide or vitamin C — sits near the top, the product is likely formulated around it.",
+          "The first five ingredients usually make up the bulk of the formula. Water, humectants like glycerin, and emollients typically lead. If an advertised active, say niacinamide or vitamin C, sits near the top, the product is likely formulated around it.",
           "When the star ingredient appears only after the fragrance and preservatives, treat the claim with caution.",
         ],
       },
       {
         heading: "Know your actives and their friends",
         paragraphs: [
-          "Actives work best in the right company and at the right pH. Vitamin C prefers a low pH; niacinamide is happy across a range. Barrier ingredients — ceramides, cholesterol, fatty acids — support almost everything else and rarely cause trouble.",
+          "Actives work best in the right company and at the right pH. Vitamin C prefers a low pH; niacinamide is happy across a range. Barrier ingredients, ceramides, cholesterol, fatty acids, support almost everything else and rarely cause trouble.",
         ],
       },
     ],
@@ -85,13 +85,13 @@ export const articles: Article[] = [
     title: "How to Spot a Counterfeit Skincare Product in Nigeria",
     tag: "Authenticity",
     excerpt:
-      "Counterfeits have become sophisticated. Learn the checks Velyn runs on every batch — and how to protect yourself when buying elsewhere.",
+      "Counterfeits have become sophisticated. Learn the checks Velyn runs on every batch, and how to protect yourself when buying elsewhere.",
     readMinutes: 5,
     date: "2026-04-10",
     body: [
       {
         paragraphs: [
-          "The counterfeit skincare market is well-funded and increasingly convincing. At Velyn, authenticity is verified before a product is ever listed — but knowing the checks yourself protects you everywhere you shop.",
+          "The counterfeit skincare market is well-funded and increasingly convincing. At Velyn, authenticity is verified before a product is ever listed, but knowing the checks yourself protects you everywhere you shop.",
         ],
       },
       {

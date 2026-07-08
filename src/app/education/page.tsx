@@ -10,7 +10,7 @@ import { IconArrowRight } from "@/components/ui/icons";
 import { BreadcrumbJsonLd } from "@/components/seo/json-ld";
 
 export const metadata: Metadata = {
-  title: "Education Hub — Skincare Guides",
+  title: "Education Hub, Skincare Guides",
   description:
     "Evidence-based skincare education from Velyn: ingredient guides, treating hyperpigmentation on Nigerian skin, spotting counterfeits, and building effective routines.",
   alternates: { canonical: `${site.url}/education` },
@@ -37,7 +37,7 @@ export default async function EducationPage() {
             Know Your Skin, <em>Trust Your Routine</em>
           </>
         }
-        intro="Evidence-based insights that translate complex dermatology into clear, practical guidance — so you can make confident, well-informed choices."
+        intro="Evidence-based insights that translate complex dermatology into clear, practical guidance, so you can make confident, well-informed choices."
         breadcrumb={[
           { name: "Home", href: "/" },
           { name: "Education", href: "/education" },
