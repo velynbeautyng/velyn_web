@@ -19,6 +19,7 @@ export type OrderRecord = {
   cart: ResolvedCart;
   customer: Customer;
   paidAt?: string;
+  deliveryMethod?: "delivery" | "pickup";
 };
 
 /**
@@ -53,6 +54,7 @@ export async function recordOrder(order: OrderRecord): Promise<{
         : undefined,
       paid_at: order.paidAt,
       shipping: order.cart.shipping,
+      delivery_method: order.deliveryMethod ?? "delivery",
       customer: order.customer,
       items: order.cart.lines
         .map((l) => ({

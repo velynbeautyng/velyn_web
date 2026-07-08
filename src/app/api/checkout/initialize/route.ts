@@ -9,6 +9,7 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 type Body = {
   items?: ClientCartItem[];
+  deliveryMethod?: "delivery" | "pickup";
   customer?: {
     name?: string;
     email?: string;
@@ -30,11 +31,20 @@ export async function POST(request: Request) {
 
   const items = Array.isArray(body.items) ? body.items : [];
   const c = body.customer ?? {};
+  const method = body.deliveryMethod === "pickup" ? "pickup" : "delivery";
 
   if (items.length === 0) {
     return NextResponse.json({ error: "Your cart is empty." }, { status: 422 });
   }
-  if (!c.name || !c.email || !c.phone || !c.address || !c.city || !c.state) {
+  // Contact details are always required; a delivery address only when the
+  // customer chose home delivery (self pickup collects from the store).
+  if (!c.name || !c.email || !c.phone) {
+    return NextResponse.json(
+      { error: "Please complete your name, email and phone." },
+      { status: 422 },
+    );
+  }
+  if (method === "delivery" && (!c.address || !c.city || !c.state)) {
     return NextResponse.json(
       { error: "Please complete all delivery details." },
       { status: 422 },
@@ -48,8 +58,9 @@ export async function POST(request: Request) {
   }
 
   // Authoritative re-pricing — client amounts are never trusted. Delivery is
-  // priced from the ops shipping config using the destination state.
-  const cart = await resolveCart(items, c.state);
+  // priced from the ops shipping config using the destination state; pickup is
+  // always free.
+  const cart = await resolveCart(items, method === "pickup" ? undefined : c.state);
   if (cart.lines.length === 0) {
     return NextResponse.json(
       { error: "None of the items in your cart are available." },
@@ -57,15 +68,18 @@ export async function POST(request: Request) {
     );
   }
 
+  const shipping = method === "pickup" ? 0 : cart.shipping;
+  const total = cart.subtotal + shipping;
+
   const reference = `VB-${Date.now().toString(36).toUpperCase()}-${randomUUID().slice(0, 6).toUpperCase()}`;
 
   const customer = {
-    name: c.name,
+    name: c.name.slice(0, 50),
     email: c.email,
     phone: c.phone,
-    address: c.address,
-    city: c.city,
-    state: c.state,
+    address: method === "pickup" ? "" : (c.address ?? ""),
+    city: method === "pickup" ? "" : (c.city ?? ""),
+    state: method === "pickup" ? "" : (c.state ?? ""),
     notes: c.notes ?? "",
   };
 
@@ -75,32 +89,36 @@ export async function POST(request: Request) {
     const summary = cart.lines
       .map((l) => `• ${l.quantity}× ${l.brand} ${l.name} — ${formatNaira(l.lineTotal)}`)
       .join("\n");
+    const fulfilment =
+      method === "pickup"
+        ? "Fulfilment: Self Pickup (collect from store)"
+        : `Deliver to: ${customer.address}, ${customer.city}, ${customer.state}`;
     const message = [
       `New order ${reference}`,
       "",
       summary,
       "",
       `Subtotal: ${formatNaira(cart.subtotal)}`,
-      `Delivery: ${cart.shipping === 0 ? "Free" : formatNaira(cart.shipping)}`,
-      `Total: ${formatNaira(cart.total)}`,
+      `${method === "pickup" ? "Pickup" : "Delivery"}: ${shipping === 0 ? "Free" : formatNaira(shipping)}`,
+      `Total: ${formatNaira(total)}`,
       "",
       `Name: ${customer.name}`,
       `Phone: ${customer.phone}`,
-      `Deliver to: ${customer.address}, ${customer.city}, ${customer.state}`,
+      fulfilment,
     ].join("\n");
 
     return NextResponse.json({
       mode: "manual",
       reference,
       whatsapp: whatsappLink(message),
-      total: cart.total,
+      total,
     });
   }
 
   try {
     const { authorizationUrl } = await initializeTransaction({
       email: customer.email,
-      amount: Math.round(cart.total * 100), // kobo
+      amount: Math.round(total * 100), // kobo
       reference,
       callbackUrl: `${site.url}/checkout/success`,
       metadata: {
@@ -108,7 +126,8 @@ export async function POST(request: Request) {
         customer,
         lines: cart.lines,
         subtotal: cart.subtotal,
-        shipping: cart.shipping,
+        shipping,
+        deliveryMethod: method,
       },
     });
 

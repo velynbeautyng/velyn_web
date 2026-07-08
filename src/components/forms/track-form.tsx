@@ -12,6 +12,7 @@ type Order = {
   invoiceNo?: string;
   placedAt?: string;
   cancelled: boolean;
+  deliveryMethod: "delivery" | "pickup";
   stage: number;
   stageLabel: string;
   trackingNote?: string | null;
@@ -27,7 +28,12 @@ type Result =
   | { kind: "manual"; reference: string }
   | { kind: "error"; message: string };
 
-const STAGES = ["Confirmed", "Preparing", "Shipped", "Delivered"];
+const DELIVERY_STAGES = ["Confirmed", "Preparing", "Shipped", "Delivered"];
+const PICKUP_STAGES = ["Confirmed", "Preparing", "Ready for Pickup", "Collected"];
+
+function stagesFor(method: "delivery" | "pickup"): string[] {
+  return method === "pickup" ? PICKUP_STAGES : DELIVERY_STAGES;
+}
 
 const fieldClass =
   "w-full border border-ivory-mid bg-white px-3.5 py-3 text-sm text-espresso placeholder:text-mocha/60 outline-none transition-colors focus:border-gold";
@@ -142,6 +148,11 @@ function OrderResult({ order }: { order: Order }) {
       })
     : null;
 
+  const stages = stagesFor(order.deliveryMethod);
+  const statusLabel = order.cancelled
+    ? "Cancelled"
+    : (stages[order.stage - 1] ?? order.stageLabel);
+
   return (
     <div className="mt-8 border-t border-ivory-mid pt-8">
       <div className="flex flex-wrap items-baseline justify-between gap-2">
@@ -161,7 +172,7 @@ function OrderResult({ order }: { order: Order }) {
               : "bg-olive-pale text-olive",
           )}
         >
-          {order.stageLabel}
+          {statusLabel}
         </span>
       </div>
 
@@ -171,7 +182,7 @@ function OrderResult({ order }: { order: Order }) {
           contact us.
         </p>
       ) : (
-        <Stepper stage={order.stage} />
+        <Stepper stage={order.stage} stages={stages} />
       )}
 
       {order.trackingNote && !order.cancelled && (
@@ -208,10 +219,10 @@ function OrderResult({ order }: { order: Order }) {
   );
 }
 
-function Stepper({ stage }: { stage: number }) {
+function Stepper({ stage, stages }: { stage: number; stages: string[] }) {
   return (
     <ol className="mt-7 grid grid-cols-4 gap-1">
-      {STAGES.map((label, i) => {
+      {stages.map((label, i) => {
         const stepNo = i + 1;
         const done = stepNo < stage;
         const current = stepNo === stage;
@@ -247,7 +258,7 @@ function Stepper({ stage }: { stage: number }) {
               <span
                 className={cn(
                   "h-0.5 flex-1",
-                  i === STAGES.length - 1
+                  i === stages.length - 1
                     ? "bg-transparent"
                     : stepNo < stage
                       ? "bg-gold"

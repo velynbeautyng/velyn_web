@@ -77,7 +77,8 @@ export function FilterRail({
       </Group>
 
       <Group title="Brand">
-        <ul className="flex max-h-72 flex-col gap-1.5 overflow-y-auto pr-1">
+        <div className="relative">
+          <ul className="flex max-h-72 flex-col gap-1.5 overflow-y-auto pr-1 [scrollbar-color:var(--color-gold-dim)_transparent] [scrollbar-width:thin]">
           <li>
             <Link
               href={buildHref(active, { brand: undefined })}
@@ -111,7 +112,32 @@ export function FilterRail({
               </Link>
             </li>
           ))}
-        </ul>
+          </ul>
+          {brands.length > 8 && (
+            <div
+              aria-hidden
+              className="pointer-events-none absolute inset-x-0 bottom-0 h-8 bg-gradient-to-t from-ivory to-transparent"
+            />
+          )}
+        </div>
+        {brands.length > 8 && (
+          <p className="mt-2 flex items-center gap-1 text-[0.65rem] font-medium text-mocha">
+            <svg
+              width="12"
+              height="12"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.4"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="animate-bounce"
+            >
+              <path d="M6 9l6 6 6-6" />
+            </svg>
+            Scroll to see all {brands.length} brands
+          </p>
+        )}
       </Group>
     </aside>
   );

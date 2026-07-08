@@ -70,7 +70,7 @@ export function ProductBuyPanel({ product }: { product: Product }) {
             ? "Currently out of stock"
             : max <= 5
               ? `Only ${max} left in stock`
-              : "In stock — ready to ship"}
+              : "In stock, ready to ship"}
         </span>
       </div>
 
