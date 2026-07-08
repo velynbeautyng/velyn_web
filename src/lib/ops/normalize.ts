@@ -80,7 +80,10 @@ export function normalizeProduct(raw: RawOpsProduct): Product {
         .reduce((sum, d) => sum + num(d.qty_available), 0);
       return {
         id: String(v.id),
-        name: v.name || "Default",
+        // UltimatePOS names a single product's only variation "DUMMY"; treat
+        // that (and empty) as the no-variant default so no phantom option
+        // button renders on the product page.
+        name: v.name && v.name !== "DUMMY" ? v.name : "Default",
         sku: v.sub_sku || raw.sku || String(v.id),
         price,
         inStock: stockManaged ? qty > 0 : true,

@@ -7,7 +7,8 @@ export type OrderStatus = {
   invoiceNo?: string;
   placedAt?: string;
   cancelled: boolean;
-  /** 1..4 (Confirmed → Preparing → Shipped → Delivered); 0 = cancelled. */
+  deliveryMethod: "delivery" | "pickup";
+  /** 1..4; 0 = cancelled. Labels depend on deliveryMethod. */
   stage: number;
   stageLabel: string;
   trackingNote?: string | null;
@@ -20,6 +21,7 @@ type RawOrderStatus = {
   invoice_no?: string | null;
   placed_at?: string | null;
   cancelled?: boolean;
+  delivery_method?: string;
   stage?: number;
   stage_label?: string;
   tracking_note?: string | null;
@@ -49,6 +51,7 @@ export async function getOrderStatus(
         invoiceNo: d.invoice_no ?? undefined,
         placedAt: d.placed_at ?? undefined,
         cancelled: Boolean(d.cancelled),
+        deliveryMethod: d.delivery_method === "pickup" ? "pickup" : "delivery",
         stage: Number(d.stage ?? 1),
         stageLabel: d.stage_label ?? "Confirmed",
         trackingNote: d.tracking_note ?? null,

@@ -35,6 +35,7 @@ export async function GET(request: Request) {
       lines?: ResolvedCart["lines"];
       subtotal?: number;
       shipping?: number;
+      deliveryMethod?: "delivery" | "pickup";
     };
 
     let recorded = false;
@@ -51,6 +52,7 @@ export async function GET(request: Request) {
         cart,
         customer: meta.customer,
         paidAt: result.paidAt,
+        deliveryMethod: meta.deliveryMethod ?? "delivery",
       });
       recorded = outcome.recorded;
     }

@@ -46,7 +46,7 @@ export default async function ProductPage({ params }: { params: Params }) {
   const related = await getRelatedProducts(product, 4);
 
   const trust = [
-    { icon: IconShield, text: "100% authentic — verified before dispatch" },
+    { icon: IconShield, text: "100% authentic, verified before dispatch" },
     { icon: IconTruck, text: "Nationwide delivery across all 36 states" },
     { icon: IconCheck, text: "Sourced directly from authorised suppliers" },
   ];

@@ -108,29 +108,16 @@ body {
    Reusable brand primitives (the deliberate wireframe design language)
 ------------------------------------------------------------------ */
 
-/* Section kicker: gold hairline + tracked label */
+/* Section kicker: tracked gold label */
 .kicker {
   display: inline-flex;
   align-items: center;
-  gap: 0.6rem;
   font-family: var(--font-sans);
   font-size: 0.6875rem;
   font-weight: 600;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--color-gold-dim);
-}
-.kicker::before {
-  content: "";
-  width: 1.75rem;
-  height: 1px;
-  background: var(--color-gold);
-}
-.kicker--center::after {
-  content: "";
-  width: 1.75rem;
-  height: 1px;
-  background: var(--color-gold);
 }
 .kicker--onDark {
   color: color-mix(in srgb, var(--color-gold) 82%, white);
