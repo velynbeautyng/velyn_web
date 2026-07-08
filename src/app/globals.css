@@ -123,6 +123,49 @@ body {
   color: color-mix(in srgb, var(--color-gold) 82%, white);
 }
 
+/* Product description: renders the sanitized ops HTML with clear sub-headings
+   (Benefits, Key Ingredients, Targeted Concerns, How to Use, ...). */
+.product-desc > * + * {
+  margin-top: 0.65rem;
+}
+.product-desc h2,
+.product-desc h3,
+.product-desc h4 {
+  margin-top: 1.4rem;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 0.72rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--color-espresso);
+}
+.product-desc p {
+  color: var(--color-cocoa);
+  line-height: 1.75;
+}
+.product-desc strong {
+  color: var(--color-espresso);
+  font-weight: 600;
+}
+.product-desc ul {
+  list-style: disc;
+  padding-left: 1.15rem;
+}
+.product-desc ol {
+  list-style: decimal;
+  padding-left: 1.15rem;
+}
+.product-desc li {
+  color: var(--color-cocoa);
+  line-height: 1.7;
+  margin-top: 0.2rem;
+}
+.product-desc a {
+  color: var(--color-gold-dim);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
 /* Corner-tick frame — the brand differentiation anchor */
 .tick-frame {
   position: relative;

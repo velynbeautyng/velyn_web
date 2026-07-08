@@ -33,7 +33,10 @@ export type Product = {
   brandSlug: string;
   category?: string;
   categorySlug?: string;
+  /** Plain-text description (for cards, meta, SEO). */
   description?: string;
+  /** Sanitized rich HTML description with sub-headings (for the product page). */
+  descriptionHtml?: string;
   shortDescription?: string;
   concerns: SkinConcern[];
   image?: string;

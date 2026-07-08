@@ -140,9 +140,14 @@ export default async function ProductPage({ params }: { params: Params }) {
             </div>
           )}
 
-          {product.description && (
+          {product.descriptionHtml ? (
+            <div
+              className="product-desc mt-5 text-[0.95rem]"
+              dangerouslySetInnerHTML={{ __html: product.descriptionHtml }}
+            />
+          ) : product.description ? (
             <p className="prose-body mt-5 text-[0.95rem]">{product.description}</p>
-          )}
+          ) : null}
 
           <div className="mt-7 border-t border-ivory-mid pt-7">
             <ProductBuyPanel product={product} />

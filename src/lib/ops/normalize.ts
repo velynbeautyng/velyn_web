@@ -1,5 +1,6 @@
 import type { Product, ProductVariation, SkinConcern } from "./types";
 import { slugify } from "@/lib/utils";
+import { cleanProductHtml } from "@/lib/product-html";
 import { opsConfig } from "./config";
 
 /** Raw shapes from the UltimatePOS Connector API (only fields we consume). */
@@ -98,9 +99,11 @@ export function normalizeProduct(raw: RawOpsProduct): Product {
     ? raw.image_url
     : undefined;
 
-  const description = raw.product_description
-    ? raw.product_description.replace(/<[^>]+>/g, "").trim()
+  const rawDesc = raw.product_description ?? "";
+  const plainDescription = rawDesc
+    ? rawDesc.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim()
     : undefined;
+  const descriptionHtml = rawDesc ? cleanProductHtml(rawDesc) : undefined;
 
   return {
     id: String(raw.id),
@@ -110,8 +113,9 @@ export function normalizeProduct(raw: RawOpsProduct): Product {
     brandSlug: slugify(brand),
     category,
     categorySlug: category ? slugify(category) : undefined,
-    description,
-    shortDescription: description?.slice(0, 140),
+    description: plainDescription,
+    descriptionHtml,
+    shortDescription: plainDescription?.slice(0, 140),
     concerns: inferConcerns(raw.name, category),
     image,
     gallery: image ? [image] : [],
