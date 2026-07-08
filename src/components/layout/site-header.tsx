@@ -68,7 +68,7 @@ export function SiteHeader() {
         )}
       >
         <div className="section flex items-center justify-between gap-4 py-3.5">
-          <Link href="/" aria-label={`${site.name} home`}>
+          <Link href="/" aria-label={`${site.name} home`} className="shrink-0">
             <VelynLockup />
           </Link>
 
@@ -91,23 +91,19 @@ export function SiteHeader() {
             ))}
           </nav>
 
-          <div className="flex items-center gap-2">
-            <ButtonLink
-              href="/wholesale"
-              variant="outline"
-              size="sm"
-              className="hidden lg:inline-flex"
-            >
-              Wholesale
-            </ButtonLink>
-            <ButtonLink
-              href="/shop"
-              variant="espresso"
-              size="sm"
-              className="hidden sm:inline-flex"
-            >
-              Shop Now
-            </ButtonLink>
+          <div className="flex shrink-0 items-center gap-2">
+            {/* Visibility is controlled on the wrapper — putting `hidden` on the
+                ButtonLink itself loses to its base `inline-flex`. */}
+            <span className="hidden xl:inline-flex">
+              <ButtonLink href="/wholesale" variant="outline" size="sm">
+                Wholesale
+              </ButtonLink>
+            </span>
+            <span className="hidden sm:inline-flex">
+              <ButtonLink href="/shop" variant="espresso" size="sm">
+                Shop Now
+              </ButtonLink>
+            </span>
 
             <button
               type="button"
