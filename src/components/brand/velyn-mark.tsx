@@ -44,7 +44,7 @@ export function VelynLockup({ className }: { className?: string }) {
       role="img"
       aria-label="Velyn Beauty & Essentials"
       className={cn(
-        "inline-block [&>svg]:block [&>svg]:h-8 [&>svg]:w-auto sm:[&>svg]:h-9",
+        "inline-block [&>svg]:block [&>svg]:h-7 [&>svg]:w-auto sm:[&>svg]:h-8",
         className,
       )}
       dangerouslySetInnerHTML={{ __html: VELYN_LOCKUP_SVG }}
