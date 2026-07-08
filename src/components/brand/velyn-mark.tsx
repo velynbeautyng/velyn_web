@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import { VELYN_LOCKUP_SVG } from "./velyn-lockup-svg";
 
 /**
  * The Velyn "V" chalice-and-droplet icon, redrawn from the official brand SVG.
@@ -32,31 +33,21 @@ export function VelynMark({
   );
 }
 
-/** Full lockup: mark + wordmark, used in the header and footer. */
-export function VelynLockup({
-  tone = "espresso",
-  className,
-}: {
-  tone?: "espresso" | "white";
-  className?: string;
-}) {
-  const name = tone === "white" ? "text-ivory" : "text-espresso";
+/**
+ * Full lockup used in the header/nav, rendered from the official secondary
+ * logo SVG. The VELYN wordmark uses the site serif (EB Garamond) via the
+ * inlined SVG's font-family so it renders consistently on every device.
+ */
+export function VelynLockup({ className }: { className?: string }) {
   return (
-    <span className={cn("flex items-center gap-2.5", className)}>
-      <VelynMark className="h-8 w-auto" tone="gold" />
-      <span className="flex flex-col leading-none">
-        <span
-          className={cn(
-            "font-serif text-[1.15rem] font-semibold tracking-[0.14em]",
-            name,
-          )}
-        >
-          VELYN
-        </span>
-        <span className="mt-0.5 text-[0.5rem] uppercase tracking-[0.22em] text-gold-dim">
-          Beauty &amp; Essentials
-        </span>
-      </span>
-    </span>
+    <span
+      role="img"
+      aria-label="Velyn Beauty & Essentials"
+      className={cn(
+        "inline-block [&>svg]:block [&>svg]:h-8 [&>svg]:w-auto sm:[&>svg]:h-9",
+        className,
+      )}
+      dangerouslySetInnerHTML={{ __html: VELYN_LOCKUP_SVG }}
+    />
   );
 }
