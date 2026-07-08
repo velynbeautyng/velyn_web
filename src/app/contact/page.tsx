@@ -14,7 +14,7 @@ import { BreadcrumbJsonLd } from "@/components/seo/json-ld";
 export const metadata: Metadata = {
   title: "Contact Us",
   description:
-    "Get in touch with Velyn Beauty & Essentials. Email, call or WhatsApp our team in Abuja — we respond within 24 business hours (wholesale within 48).",
+    "Get in touch with Velyn Beauty & Essentials. Email, call or WhatsApp our team in Abuja, we respond within 24 business hours (wholesale within 48).",
   alternates: { canonical: `${site.url}/contact` },
 };
 
@@ -58,7 +58,7 @@ export default function ContactPage() {
             Let&apos;s Talk <em>Skincare</em>
           </>
         }
-        intro="Whether you're a customer, a retailer, or a global brand — we'd love to hear from you."
+        intro="Whether you're a customer, a retailer, or a global brand, we'd love to hear from you."
         breadcrumb={[
           { name: "Home", href: "/" },
           { name: "Contact", href: "/contact" },

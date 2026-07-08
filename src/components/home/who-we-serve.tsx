@@ -7,7 +7,7 @@ const audiences = [
   {
     accent: "border-t-gold",
     title: "Individual Customers",
-    body: "Shop authentic skincare curated for Nigerian skin concerns. Every product verified original — no fakes, no compromises.",
+    body: "Shop authentic skincare curated for Nigerian skin concerns. Every product verified original, no fakes, no compromises.",
     cta: "Shop Products",
     href: "/shop",
     ctaClass: "text-gold",
@@ -26,7 +26,7 @@ const audiences = [
   {
     accent: "border-t-olive",
     title: "Retailers & Wholesalers",
-    body: "Pharmacies, clinics, beauty stores — guaranteed supply, verified authenticity, competitive wholesale pricing and product education.",
+    body: "Pharmacies, clinics, beauty stores, guaranteed supply, verified authenticity, competitive wholesale pricing and product education.",
     cta: "Apply for Wholesale",
     href: "/wholesale",
     ctaClass: "text-olive-mid",
@@ -73,7 +73,7 @@ export function WhoWeServe() {
           }
         />
         <p className="max-w-xs text-[0.85rem] leading-relaxed text-ivory/35 lg:pb-2">
-          Whether buying for yourself, running retail, or entering a new market —
+          Whether buying for yourself, running retail, or entering a new market,
           Velyn is built for you.
         </p>
       </div>

@@ -141,7 +141,7 @@ export function ProductBuyPanel({ product }: { product: Product }) {
 
       <a
         href={whatsappLink(
-          `Hi Velyn, I'm interested in ${product.brand} — ${product.name}. Is it available?`,
+          `Hi Velyn, I'm interested in ${product.brand}, ${product.name}. Is it available?`,
         )}
         target="_blank"
         rel="noopener noreferrer"

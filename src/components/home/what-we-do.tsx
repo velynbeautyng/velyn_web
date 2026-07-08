@@ -5,12 +5,12 @@ const pillars = [
   {
     n: "01",
     title: "Authentic Distribution",
-    body: "Direct-from-manufacturer sourcing. Every product verified before it reaches your hands — no counterfeits, no compromise.",
+    body: "Direct-from-manufacturer sourcing. Every product verified before it reaches your hands, no counterfeits, no compromise.",
   },
   {
     n: "02",
     title: "Results-Driven Brands",
-    body: "We curate skincare that treats real concerns — acne, hyperpigmentation, uneven tone — formulated for Nigerian skin.",
+    body: "We curate skincare that treats real concerns, acne, hyperpigmentation, uneven tone, formulated for Nigerian skin.",
   },
   {
     n: "03",
@@ -35,7 +35,7 @@ export function WhatWeDo() {
         />
         <p className="prose-body max-w-md text-[0.95rem] lg:pb-2">
           We bridge the gap between global skincare innovation and Nigerian
-          consumers who deserve access to authentic, effective products —
+          consumers who deserve access to authentic, effective products,
           directly from manufacturers.
         </p>
       </div>

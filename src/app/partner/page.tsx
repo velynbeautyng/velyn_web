@@ -8,7 +8,7 @@ import { IconCheck } from "@/components/ui/icons";
 import { BreadcrumbJsonLd } from "@/components/seo/json-ld";
 
 export const metadata: Metadata = {
-  title: "Partner With Us — Foreign Brand Partners",
+  title: "Partner With Us, Foreign Brand Partners",
   description:
     "Entering Africa the right way. Velyn offers international skincare brands market-entry strategy, distribution infrastructure, brand protection and real customer intelligence in Nigeria.",
   alternates: { canonical: `${site.url}/partner` },
@@ -53,7 +53,7 @@ export default function PartnerPage() {
             Entering Africa <em>the Right Way</em>
           </>
         }
-        intro="Velyn provides everything a global skincare brand needs to grow in Nigeria — market-entry strategy, distribution infrastructure, brand protection and real customer intelligence."
+        intro="Velyn provides everything a global skincare brand needs to grow in Nigeria, market-entry strategy, distribution infrastructure, brand protection and real customer intelligence."
         breadcrumb={[
           { name: "Home", href: "/" },
           { name: "Partner With Us", href: "/partner" },

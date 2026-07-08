@@ -16,7 +16,7 @@ import { CONCERN_OPTIONS } from "@/lib/ops/constants";
 export const metadata: Metadata = {
   title: "Shop Authentic Skincare",
   description:
-    "Browse 100% authentic skincare from the world's most trusted brands — verified original, curated for Nigerian skin concerns, delivered nationwide.",
+    "Browse 100% authentic skincare from the world's most trusted brands, verified original, curated for Nigerian skin concerns, delivered nationwide.",
   alternates: { canonical: `${site.url}/shop` },
 };
 

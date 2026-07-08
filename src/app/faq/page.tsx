@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 const faqs: QA[] = [
   {
     q: "Are your products 100% authentic?",
-    a: "Yes. Every product is sourced directly from manufacturers or authorised outlets and verified — printing, holograms, tamper seals and batch codes — before it is listed. Authenticity is built into our standard operating procedure.",
+    a: "Yes. Every product is sourced directly from manufacturers or authorised outlets and verified, printing, holograms, tamper seals and batch codes, before it is listed. Authenticity is built into our standard operating procedure.",
   },
   {
     q: "Do you deliver nationwide?",
@@ -39,7 +39,7 @@ const faqs: QA[] = [
     a: "Submit the wholesale application on our Wholesale page. We verify business credentials within 48 hours and send your pricing catalogue and onboarding details.",
   },
   {
-    q: "I represent an international brand — how do I partner with Velyn?",
+    q: "I represent an international brand, how do I partner with Velyn?",
     a: "Visit our Partner With Us page and start a partnership conversation. We provide market-entry strategy, distribution, brand protection and customer intelligence for the Nigerian market.",
   },
 ];
@@ -91,7 +91,7 @@ export default function FaqPage() {
             Still Have a <em className="text-white/70">Question?</em>
           </>
         }
-        body="Our team responds within 24 business hours — or reach a specialist instantly on WhatsApp."
+        body="Our team responds within 24 business hours, or reach a specialist instantly on WhatsApp."
         primary={{ label: "Contact Us", href: "/contact" }}
       />
     </>

@@ -8,7 +8,7 @@ import { BreadcrumbJsonLd } from "@/components/seo/json-ld";
 export const metadata: Metadata = {
   title: "Returns Policy",
   description:
-    "Velyn Beauty & Essentials returns policy — eligibility, timelines and how to request a return for authentic skincare purchased in Nigeria.",
+    "Velyn Beauty & Essentials returns policy, eligibility, timelines and how to request a return for authentic skincare purchased in Nigeria.",
   alternates: { canonical: `${site.url}/returns` },
 };
 

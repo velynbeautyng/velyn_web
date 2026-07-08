@@ -27,7 +27,7 @@ export async function generateMetadata({
   const product = await getProductBySlug(slug);
   if (!product) return { title: "Product Not Found" };
   return {
-    title: `${product.name} — ${product.brand}`,
+    title: `${product.name}, ${product.brand}`,
     description:
       product.shortDescription ||
       `Authentic ${product.brand} ${product.name}, verified original and available from Velyn Beauty & Essentials.`,

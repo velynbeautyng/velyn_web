@@ -10,12 +10,12 @@ import { BreadcrumbJsonLd } from "@/components/seo/json-ld";
 export const metadata: Metadata = {
   title: "Authenticity Guarantee",
   description:
-    "How Velyn verifies every product: direct sourcing, printing and holographic checks, tamper-evident seals and batch-code verification — authenticity as a practised commitment.",
+    "How Velyn verifies every product: direct sourcing, printing and holographic checks, tamper-evident seals and batch-code verification, authenticity as a practised commitment.",
   alternates: { canonical: `${site.url}/authenticity` },
 };
 
 const checks = [
-  { title: "Direct Sourcing", body: "Every product comes from the manufacturer or an authorised outlet — never grey-market channels." },
+  { title: "Direct Sourcing", body: "Every product comes from the manufacturer or an authorised outlet, never grey-market channels." },
   { title: "Printing & Holograms", body: "We inspect printing quality and holographic codes against manufacturer references." },
   { title: "Tamper-Evident Seals", body: "Seals are checked intact so you know nothing has been opened or altered." },
   { title: "Batch-Code Verification", body: "Unique batch codes are cross-checked to confirm genuine, in-date product." },
@@ -34,7 +34,7 @@ export default function AuthenticityPage() {
         kicker="Authenticity Assurance"
         title={
           <>
-            Authenticity Is Not a Policy —{" "}
+            Authenticity Is Not a Policy,{" "}
             <em>It&apos;s a Practice</em>
           </>
         }
@@ -64,7 +64,7 @@ export default function AuthenticityPage() {
             product is genuine, safe, and exactly what it claims to be.
           </p>
           <p className="prose-body mt-4">
-            Our authenticity process is not reactive — it is built into our
+            Our authenticity process is not reactive, it is built into our
             standard operating procedure. Each product batch goes through a
             structured quality-assurance review before it is made available,
             ensuring integrity is maintained at every stage of the supply chain.

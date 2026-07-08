@@ -44,7 +44,7 @@ export function CheckoutSuccess() {
             amount: data.amount,
           });
         } else if (data.status === "unconfigured") {
-          // Gateway not live — treat the returned reference as a placed order.
+          // Gateway not live, treat the returned reference as a placed order.
           clear();
           setState({ kind: "success", reference });
         } else {

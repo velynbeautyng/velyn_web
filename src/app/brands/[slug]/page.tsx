@@ -19,10 +19,10 @@ export async function generateMetadata({
   const brand = await getBrandBySlug(slug);
   if (!brand) return { title: "Brand Not Found" };
   return {
-    title: `${brand.name} — Authentic in Nigeria`,
+    title: `${brand.name}, Authentic in Nigeria`,
     description:
       brand.description ||
-      `Shop authentic ${brand.name} skincare from Velyn Beauty & Essentials — verified original, delivered nationwide.`,
+      `Shop authentic ${brand.name} skincare from Velyn Beauty & Essentials, verified original, delivered nationwide.`,
     alternates: { canonical: `${site.url}/brands/${brand.slug}` },
   };
 }
