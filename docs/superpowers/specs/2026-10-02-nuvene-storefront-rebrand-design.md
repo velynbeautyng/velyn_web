@@ -53,8 +53,11 @@ happens on Vercel preview deployments and locally.
 
 | Token | Value | Use |
 |---|---|---|
-| `black` | `#000000` | Hero, Who we serve, footer, primary buttons |
-| `ink` / `ink-soft` | `#161616` / `#242424` | Raised surfaces on black |
+| `ink` | `#000000` (brand black) | Contact band, primary buttons, body ink |
+| `ink-mid` / `ink-lift` / `ink-surface` | `#161616` / `#242424` / `#0B0B0B` | Raised surfaces on black, footer |
+| `sage-shade` | deeper sage, tuned to 4.5:1 with white | Hero and partner bands |
+| `sage-dusk` / `sage-night` | `#4F6A54` / `#3F5744` | Announcement bar / Who we serve |
+| `sage-mid` | `#8FA893` | Accents on dark grounds |
 | `gold` | `#BD9468` | Accents, rules, stats band, large text |
 | `gold-deep` | darker gold, chosen to reach 4.5:1 on linen and white | Small gold text (kickers, brand names on cards) |
 | `gold-pale` | `#EDE0CE` | Hairlines, large pillar numerals |
@@ -91,7 +94,45 @@ inlined lockup SVG are deleted.
 
 ## 2. Home page
 
-Same sections and order as the prototype:
+Same sections and order as the prototype. Section grounds follow the
+prototype's final override block ("NUVENE V2: sage hero, deep sage serve,
+black kept for contact and footer only"):
+
+| Section | Ground |
+|---|---|
+| Announcement bar | deep sage (`sage-dusk` #4F6A54) |
+| Nav | white |
+| Hero | sage (`sage-shade`, see below), image column one step darker |
+| Stats | gold, ink text |
+| What we do | white |
+| Featured products | linen |
+| Who we serve | deepest sage (`sage-night` #3F5744) |
+| Brand portfolio | linen |
+| Wholesale | white |
+| Brand partners | sage (`sage-shade`) |
+| Education hub | linen |
+| Contact | black |
+| Footer | near-black (`ink-surface` #0B0B0B) |
+
+White on brand sage #708E74 is 3.6:1, which fails WCAG AA for body text.
+Bands that carry white body copy therefore use `sage-shade`, a slightly
+deeper sage tuned to reach 4.5:1 with white. Brand sage #708E74 stays for
+accents, tags, icons and large type. This sits in the same family as the
+prototype's own tints (#62806A, #4F6A54, #3F5744). Gold buttons use ink
+text, since white on gold is 2.8:1.
+
+Deliberate departures from the prototype, to meet the taste and
+accessibility rules:
+
+- The hero trust row under the CTAs moves out of the hero (its points live
+  in the stats band and announcement bar), keeping the hero to kicker,
+  headline, subtext and CTAs.
+- Section kickers are rationed to four on the home page (hero, Who we
+  serve, Wholesale, Contact) instead of one above every section.
+- The WhatsApp card drops the pulsing "online" dot and the "responds
+  within 30 minutes" promise, which the business has not committed to.
+
+Section by section:
 
 1. Announcement bar (black): "Concern matched. Transparently sourced." plus
    "Nationwide delivery", and a link to the sourcing promise.
@@ -99,19 +140,18 @@ Same sections and order as the prototype:
    Partner With Us, Education, Contact; active item underlined in gold; ghost
    "Wholesale" and filled "Shop now" buttons; cart. Below `lg`, a full-height
    drawer.
-3. Hero (black, two columns): kicker "Beauty you can trust"; H1 "The right
-   skincare for your real concern", with "real concern" in gold; body
-   from the charter's "Who we are"; CTAs "Shop by concern" and "Partner with
-   us"; trust row "Named distributors / Replace or refund guarantee /
-   Nationwide delivery". Right column: lifestyle photo in a thin gold frame
-   with corner ticks and a gold badge ("Replace or refund").
+3. Hero (sage, two columns): kicker "Beauty you can trust"; H1 "The right
+   skincare for your real concern", with "real concern" set in ink for
+   emphasis; body from the charter's "Who we are"; CTAs "Shop by concern"
+   and "Partner with us". Right column: lifestyle photo in a thin linen
+   frame with corner ticks and a gold badge ("Replace or refund").
 4. Stats band (gold): 200+ products, 50+ brands, 5 concerns matched, 1
    guarantee (replace or refund on confirmed counterfeits).
 5. What we do (white): three numbered pillars, Match, Disclose, Guarantee,
    with charter copy.
 6. Featured products (linen): concern chips for the charter's five concerns,
    four product cards, "View all products".
-7. Who we serve (black): Individual customers, Retailers & wholesalers,
+7. Who we serve (deepest sage): Individual customers, Retailers & wholesalers,
    International brand partners. Copy from the charter's audiences; no claims
    of verification powers.
 8. Brand portfolio: logo or wordmark row for brands Nuvene carries, "View all
