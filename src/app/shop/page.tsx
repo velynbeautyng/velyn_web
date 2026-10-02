@@ -12,6 +12,7 @@ import { DemoNotice } from "@/components/shop/demo-notice";
 import { Stagger, StaggerItem } from "@/components/motion/reveal";
 import { BreadcrumbJsonLd } from "@/components/seo/json-ld";
 import { CONCERN_OPTIONS } from "@/lib/ops/constants";
+import { resolveConcernSlug } from "@/lib/ops/concerns";
 
 export const metadata: Metadata = {
   title: "Shop Authentic Skincare",
@@ -34,7 +35,7 @@ export default async function ShopPage({
     Array.isArray(v) ? v[0] : v;
 
   const query: ProductQuery = {
-    concern: str(sp.concern),
+    concern: resolveConcernSlug(str(sp.concern)),
     brand: str(sp.brand),
     search: str(sp.q),
     sort: (str(sp.sort) as ProductQuery["sort"]) ?? "featured",
@@ -130,7 +131,7 @@ export default async function ShopPage({
                     : "border border-ivory-mid bg-white text-mocha"
                 }`}
               >
-                {c.label}
+                {c.short}
               </Link>
             ))}
           </div>

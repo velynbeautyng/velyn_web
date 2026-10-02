@@ -6,6 +6,7 @@ import type {
   Product,
   ProductQuery,
 } from "./types";
+import { concernSlug } from "./concerns";
 import { opsFetch } from "./client";
 import { normalizeProduct, type RawOpsProduct } from "./normalize";
 import { isDemoFallbackEnabled, isOpsConfigured } from "./config";
@@ -81,7 +82,7 @@ function applyQuery(all: Product[], q: ProductQuery): Paginated<Product> {
   if (q.category) items = items.filter((p) => p.categorySlug === q.category);
   if (q.concern) {
     items = items.filter((p) =>
-      p.concerns.some((c) => slugifyConcern(c) === q.concern),
+      p.concerns.some((c) => concernSlug(c) === q.concern),
     );
   }
   if (q.search) {
@@ -123,10 +124,6 @@ function applyQuery(all: Product[], q: ProductQuery): Paginated<Product> {
     perPage,
     totalPages,
   };
-}
-
-export function slugifyConcern(concern: string): string {
-  return concern.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 }
 
 export async function getProducts(

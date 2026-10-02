@@ -4,14 +4,8 @@
  * onto these clean shapes so the rest of the app never touches raw ops data.
  */
 
-export type SkinConcern =
-  | "Acne-Prone"
-  | "Hyperpigmentation"
-  | "Dry Skin"
-  | "Sensitive Skin"
-  | "Oily Skin"
-  | "Anti-Ageing"
-  | "All Skin Types";
+import type { SkinConcern } from "./concerns";
+export type { SkinConcern } from "./concerns";
 
 export type ProductVariation = {
   /** ops variation id — stable per purchasable unit. */
@@ -47,7 +41,7 @@ export type Product = {
   variations: ProductVariation[];
   inStock: boolean;
   featured: boolean;
-  /** Every product Velyn sells is authenticity-verified. */
+  /** Nuvene sells only original products bought through named distributors. */
   authentic: boolean;
 };
 
