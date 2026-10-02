@@ -7,6 +7,7 @@ import type {
   ProductQuery,
 } from "./types";
 import { concernSlug } from "./concerns";
+import { pickFeatured } from "./featured";
 import { opsFetch } from "./client";
 import { normalizeProduct, type RawOpsProduct } from "./normalize";
 import { isDemoFallbackEnabled, isOpsConfigured } from "./config";
@@ -62,16 +63,17 @@ async function getAllProducts(): Promise<Product[]> {
   return demoProducts;
 }
 
-/** Live ops has no "featured" flag; feature one strong product per brand. */
+/** Live ops has no "featured" flag; feature one product per brand, headline brands first. */
 function markFeatured(products: Product[]): Product[] {
-  const seen = new Set<string>();
-  return products.map((p) => {
-    if (!seen.has(p.brandSlug) && seen.size < 8) {
-      seen.add(p.brandSlug);
-      return { ...p, featured: true };
-    }
-    return p;
-  });
+  const order = pickFeatured(products, 8);
+  const featured = new Set(order);
+  return products
+    .map((p) => (featured.has(p.id) ? { ...p, featured: true } : p))
+    .sort((a, b) => {
+      const ia = order.indexOf(a.id);
+      const ib = order.indexOf(b.id);
+      return (ia === -1 ? order.length : ia) - (ib === -1 ? order.length : ib);
+    });
 }
 
 function applyQuery(all: Product[], q: ProductQuery): Paginated<Product> {

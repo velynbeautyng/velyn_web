@@ -23,7 +23,7 @@ const RULES: [RegExp, ConcernSlug][] = [
     "acne-oily",
   ],
   [
-    /dark spot|spots? fading|pigment|bright|arbutin|vitamin c|\bvit\.? ?c\b|vita c|tranexamic|\btxa\b|kojic|niacin|azelaic|azealic|\btone\b|glutathione|lightening|whitening|turmeric|glow|glycolic|lactic|\baha\b|exfoliat/i,
+    /dark spot|spots? fading|pigment|hydroquinone|melasma|licorice|bright|arbutin|vitamin c|\bvit\.? ?c\b|vita c|tranexamic|\btxa\b|kojic|niacin|azelaic|azealic|\btone\b|glutathione|lightening|whitening|turmeric|glow|glycolic|lactic|\baha\b|exfoliat/i,
     "dark-spots",
   ],
   [

@@ -1,15 +1,14 @@
 import Link from "next/link";
 import { getFeaturedProducts } from "@/lib/ops/products";
+import { CONCERNS } from "@/lib/ops/concerns";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { ProductCard } from "@/components/shop/product-card";
 import { Stagger, StaggerItem } from "@/components/motion/reveal";
 import { ButtonLink } from "@/components/ui/button";
 
-const concernChips = [
+const chips = [
   { label: "All", href: "/shop" },
-  { label: "Acne", href: "/shop?concern=acne-prone" },
-  { label: "Hyperpigmentation", href: "/shop?concern=hyperpigmentation" },
-  { label: "Sensitive Skin", href: "/shop?concern=sensitive-skin" },
+  ...CONCERNS.map((c) => ({ label: c.short, href: `/shop?concern=${c.slug}` })),
 ];
 
 export async function FeaturedProducts() {
@@ -18,33 +17,35 @@ export async function FeaturedProducts() {
 
   return (
     <section className="section section-y bg-linen">
-      <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
+      <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
         <SectionHeading
-          kicker="Featured Products"
           title={
             <>
-              Shop <em>Authenticated</em> Skincare
+              Shop by <em>skin concern</em>
             </>
           }
         />
-        <div className="flex flex-wrap gap-1.5">
-          {concernChips.map((chip, i) => (
+        <nav
+          aria-label="Shop by concern"
+          className="-mx-5 flex gap-1.5 overflow-x-auto px-5 pb-1 sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0"
+        >
+          {chips.map((chip, i) => (
             <Link
-              key={chip.label}
+              key={chip.href}
               href={chip.href}
-              className={`px-3 py-1.5 text-[0.58rem] font-semibold uppercase tracking-[0.1em] transition-colors ${
+              className={
                 i === 0
-                  ? "bg-ink text-white"
-                  : "border border-linen-mid bg-white text-stone hover:border-gold hover:text-ink"
-              }`}
+                  ? "shrink-0 border border-ink bg-ink px-3.5 py-2 text-[0.62rem] font-semibold uppercase tracking-[0.1em] text-white"
+                  : "shrink-0 border border-linen-mid bg-white px-3.5 py-2 text-[0.62rem] font-semibold uppercase tracking-[0.1em] text-stone transition-colors hover:border-ink hover:text-ink"
+              }
             >
               {chip.label}
             </Link>
           ))}
-        </div>
+        </nav>
       </div>
 
-      <Stagger className="mt-10 grid grid-cols-2 gap-3.5 sm:gap-4 lg:grid-cols-4">
+      <Stagger className="mt-10 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
         {products.slice(0, 4).map((p) => (
           <StaggerItem key={p.id}>
             <ProductCard product={p} className="h-full" />
@@ -53,8 +54,8 @@ export async function FeaturedProducts() {
       </Stagger>
 
       <div className="mt-10 text-center">
-        <ButtonLink href="/shop" variant="outlineLight" size="md">
-          View All Products
+        <ButtonLink href="/shop" variant="outlineGold" size="md">
+          View all products
         </ButtonLink>
       </div>
     </section>
