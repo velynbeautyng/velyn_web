@@ -100,6 +100,7 @@ body {
   top: 16px;
 }
 
+@layer components {
 /* ------------------------------------------------------------------
    Brand primitives
 ------------------------------------------------------------------ */
@@ -268,6 +269,7 @@ body {
   font-family: "Segoe UI", Roboto, "Noto Sans", Arial, var(--font-poppins),
     sans-serif;
   margin-right: 0.02em;
+}
 }
 
 @keyframes drift {
