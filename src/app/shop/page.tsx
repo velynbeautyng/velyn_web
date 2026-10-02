@@ -15,9 +15,9 @@ import { CONCERN_OPTIONS } from "@/lib/ops/constants";
 import { resolveConcernSlug } from "@/lib/ops/concerns";
 
 export const metadata: Metadata = {
-  title: "Shop Authentic Skincare",
+  title: "Shop skincare by concern",
   description:
-    "Browse 100% authentic skincare from the world's most trusted brands, verified original, curated for Nigerian skin concerns, delivered nationwide.",
+    "Original skincare from CeraVe, The Ordinary, COSRX and 50+ more brands, matched to your skin concern and delivered across Nigeria.",
   alternates: { canonical: `${site.url}/shop` },
 };
 
@@ -72,11 +72,10 @@ export default async function ShopPage({
         kicker="Shop"
         title={
           <>
-            Authenticated Skincare,{" "}
-            <em>Curated for Real Results</em>
+            Skincare matched <em>to your concern</em>
           </>
         }
-        intro="Every product is verified original before it reaches you. Filter by concern or brand to find your match."
+        intro="Every product is bought through a named distributor. Filter by concern or brand to find your match."
         breadcrumb={[
           { name: "Home", href: "/" },
           { name: "Shop", href: "/shop" },

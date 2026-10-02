@@ -18,17 +18,16 @@ export function CheckoutSuccess() {
   const params = useSearchParams();
   const reference = params.get("reference") || params.get("trxref") || "";
   const clear = useCart((s) => s.clear);
-  const [state, setState] = useState<State>({ kind: "verifying" });
+  const [state, setState] = useState<State>(() =>
+    reference
+      ? { kind: "verifying" }
+      : { kind: "failed", message: "No payment reference was found." },
+  );
   const ran = useRef(false);
 
   useEffect(() => {
-    if (ran.current) return;
+    if (ran.current || !reference) return;
     ran.current = true;
-
-    if (!reference) {
-      setState({ kind: "failed", message: "No payment reference was found." });
-      return;
-    }
 
     (async () => {
       try {

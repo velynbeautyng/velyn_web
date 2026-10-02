@@ -8,7 +8,7 @@ import { BreadcrumbJsonLd } from "@/components/seo/json-ld";
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
-    "How Velyn Beauty & Essentials collects, uses and protects your personal information.",
+    "How Nuvene Beauty collects, uses and protects your personal information.",
   alternates: { canonical: `${site.url}/privacy` },
 };
 
@@ -34,7 +34,7 @@ export default function PrivacyPage() {
         <Reveal>
           <Prose>
             <p>
-              This Privacy Policy explains how {site.legalName} (&ldquo;Velyn&rdquo;,
+              This Privacy Policy explains how {site.legalName} (&ldquo;Nuvene&rdquo;,
               &ldquo;we&rdquo;, &ldquo;us&rdquo;) collects, uses and safeguards your
               information when you use our website and services.
             </p>

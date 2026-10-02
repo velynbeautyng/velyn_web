@@ -30,7 +30,7 @@ export async function generateMetadata({
     title: `${product.name}, ${product.brand}`,
     description:
       product.shortDescription ||
-      `Authentic ${product.brand} ${product.name}, verified original and available from Velyn Beauty & Essentials.`,
+      `${product.brand} ${product.name}, an original product from Nuvene Beauty, bought through a named distributor.`,
     alternates: { canonical: `${site.url}/shop/${product.slug}` },
     openGraph: product.image
       ? { images: [{ url: product.image, alt: product.name }] }
@@ -46,9 +46,9 @@ export default async function ProductPage({ params }: { params: Params }) {
   const related = await getRelatedProducts(product, 4);
 
   const trust = [
-    { icon: IconShield, text: "100% authentic, verified before dispatch" },
-    { icon: IconTruck, text: "Nationwide delivery across all 36 states" },
-    { icon: IconCheck, text: "Sourced directly from authorised suppliers" },
+    { icon: IconShield, text: "Replace or refund if ever confirmed counterfeit" },
+    { icon: IconTruck, text: "Delivery across Nigeria from Abuja" },
+    { icon: IconCheck, text: "Bought through a named distributor" },
   ];
 
   return (
@@ -96,7 +96,7 @@ export default async function ProductPage({ params }: { params: Params }) {
         <Reveal>
           <div className="relative aspect-square overflow-hidden border border-linen-mid bg-linen">
             <span className="auth-tag absolute left-3 top-3 z-10">
-              <IconCheck width={12} height={12} strokeWidth={2.5} /> Authentic
+              <IconCheck width={12} height={12} strokeWidth={2.5} /> Original
             </span>
             {product.image ? (
               <Image

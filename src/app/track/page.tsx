@@ -8,7 +8,7 @@ import { BreadcrumbJsonLd } from "@/components/seo/json-ld";
 export const metadata: Metadata = {
   title: "Track Your Order",
   description:
-    "Check the status of your Velyn Beauty & Essentials order. Enter your order number and we'll help you track it.",
+    "Check the status of your Nuvene Beauty order. Enter your order number and we'll help you track it.",
   alternates: { canonical: `${site.url}/track` },
 };
 

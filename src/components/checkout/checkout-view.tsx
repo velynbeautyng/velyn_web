@@ -247,7 +247,7 @@ export function CheckoutView() {
                     {item.name}
                   </p>
                 </div>
-                <span className="whitespace-nowrap text-[0.82rem] text-ink">
+                <span className="shrink-0 whitespace-nowrap text-[0.82rem] text-ink">
                   {formatNaira(item.price * item.quantity)}
                 </span>
               </div>

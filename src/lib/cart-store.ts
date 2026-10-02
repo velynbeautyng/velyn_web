@@ -29,6 +29,16 @@ type CartState = {
   toggle: () => void;
 };
 
+// Only the items survive a reload; the drawer always starts closed.
+export const cartPersistence = {
+  name: "nuvene-cart",
+  partialize: (state: CartState) => ({ items: state.items }),
+  merge: (persisted: unknown, current: CartState): CartState => ({
+    ...current,
+    items: (persisted as Partial<CartState> | undefined)?.items ?? current.items,
+  }),
+};
+
 export const useCart = create<CartState>()(
   persist(
     (set) => ({
@@ -71,7 +81,7 @@ export const useCart = create<CartState>()(
       close: () => set({ isOpen: false }),
       toggle: () => set((state) => ({ isOpen: !state.isOpen })),
     }),
-    { name: "nuvene-cart" },
+    cartPersistence,
   ),
 );
 

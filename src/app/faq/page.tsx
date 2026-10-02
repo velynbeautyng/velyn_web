@@ -9,18 +9,18 @@ import { JsonLd, BreadcrumbJsonLd } from "@/components/seo/json-ld";
 export const metadata: Metadata = {
   title: "Frequently Asked Questions",
   description:
-    "Answers about authenticity, ordering, delivery across Nigeria, payments, returns and wholesale with Velyn Beauty & Essentials.",
+    "Answers about our sourcing, ordering, delivery across Nigeria, payments, returns and wholesale at Nuvene Beauty.",
   alternates: { canonical: `${site.url}/faq` },
 };
 
 const faqs: QA[] = [
   {
-    q: "Are your products 100% authentic?",
-    a: "Yes. Every product is sourced directly from manufacturers or authorised outlets and verified, printing, holograms, tamper seals and batch codes, before it is listed. Authenticity is built into our standard operating procedure.",
+    q: "Are your products original?",
+    a: "Yes. We buy only through established distributors and authorised suppliers, and we tell you which one each product came from. Where a brand offers a batch checker, we run it with you. If a product you bought from us is ever confirmed counterfeit, we replace it or refund you.",
   },
   {
     q: "Do you deliver nationwide?",
-    a: "We deliver across all 36 states of Nigeria. Delivery timelines and fees are confirmed at checkout based on your location.",
+    a: "We deliver across Nigeria from Abuja. Delivery fees and timelines are confirmed at checkout based on your location.",
   },
   {
     q: "What payment methods do you accept?",
@@ -39,8 +39,8 @@ const faqs: QA[] = [
     a: "Submit the wholesale application on our Wholesale page. We verify business credentials within 48 hours and send your pricing catalogue and onboarding details.",
   },
   {
-    q: "I represent an international brand, how do I partner with Velyn?",
-    a: "Visit our Partner With Us page and start a partnership conversation. We provide market-entry strategy, distribution, brand protection and customer intelligence for the Nigerian market.",
+    q: "I represent an international brand. How do I partner with Nuvene?",
+    a: "Visit our Partner With Us page and start a conversation. We help effective international brands reach Nigerian customers, retailers and skincare professionals through a structured rollout.",
   },
 ];
 
@@ -72,7 +72,7 @@ export default function FaqPage() {
             Frequently Asked <em>Questions</em>
           </>
         }
-        intro="Everything you need to know about authenticity, ordering, delivery and partnerships."
+        intro="Everything you need to know about our sourcing, ordering, delivery and partnerships."
         breadcrumb={[
           { name: "Home", href: "/" },
           { name: "FAQ", href: "/faq" },

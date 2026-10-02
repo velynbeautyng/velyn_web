@@ -121,7 +121,7 @@ export default async function ArticlePage({ params }: { params: Params }) {
           <div className="flex flex-col items-start justify-between gap-5 bg-linen-soft p-7 sm:flex-row sm:items-center">
             <div>
               <h2 className="font-serif text-xl text-ink">
-                Shop verified-authentic skincare
+                Shop original skincare
               </h2>
               <p className="mt-1 text-[0.85rem] text-stone">
                 Put this into practice with products curated for your concerns.

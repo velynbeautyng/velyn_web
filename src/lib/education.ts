@@ -1,6 +1,7 @@
 /**
- * Education Hub articles. Currently authored in-repo; will migrate to the ops
- * CMS module later. Each article renders at /education/[slug].
+ * In-repo Education Hub articles. These are the fallback: once ops has at
+ * least one published post, the hub reads from ops instead (src/lib/ops/blog.ts).
+ * Each article renders at /education/[slug].
  */
 
 export type Article = {
@@ -83,27 +84,33 @@ export const articles: Article[] = [
   {
     slug: "spot-a-counterfeit-skincare-product",
     title: "How to Spot a Counterfeit Skincare Product in Nigeria",
-    tag: "Authenticity",
+    tag: "Sourcing",
     excerpt:
-      "Counterfeits have become sophisticated. Learn the checks Velyn runs on every batch, and how to protect yourself when buying elsewhere.",
+      "Fakes have become convincing. Here are the warning signs you can check yourself, and what we do to keep the risk off you.",
     readMinutes: 5,
     date: "2026-04-10",
     body: [
       {
         paragraphs: [
-          "The counterfeit skincare market is well-funded and increasingly convincing. At Velyn, authenticity is verified before a product is ever listed, but knowing the checks yourself protects you everywhere you shop.",
+          "Counterfeit skincare is well funded and increasingly convincing. Knowing a few checks yourself protects you wherever you shop.",
         ],
       },
       {
-        heading: "What we verify on every batch",
+        heading: "Checks you can do yourself",
         paragraphs: [
-          "Printing quality and colour accuracy, holographic codes, tamper-evident seals, and unique batch codes cross-checked against the manufacturer. Genuine packaging is sharp, consistent, and correctly spelled.",
+          "Look at the printing: genuine packaging is sharp, evenly coloured and correctly spelled. Find the batch number and expiry date and make sure they match on the box and the product. Some brands, COSRX among them, offer an online batch checker, so use it when one exists.",
         ],
       },
       {
-        heading: "Red flags when buying elsewhere",
+        heading: "Red flags",
         paragraphs: [
-          "Prices dramatically below market, blurry or peeling labels, missing batch numbers, and unusual textures or scents are the clearest warning signs. When in doubt, buy from a distributor that can trace the product to its source.",
+          "Prices far below what other sellers charge, blurry or peeling labels, missing batch numbers, broken seals, and a texture or scent that is different from what you know are the clearest warning signs.",
+        ],
+      },
+      {
+        heading: "What we do",
+        paragraphs: [
+          "We buy only through distributors and suppliers we can name, and we tell you which one a product came from. Where a brand offers a checker, we run it with you. If a product you bought from us is ever confirmed counterfeit, we replace it or refund you.",
         ],
       },
     ],
