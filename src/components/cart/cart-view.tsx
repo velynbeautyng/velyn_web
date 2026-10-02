@@ -31,10 +31,10 @@ export function CartView() {
             Your cart is empty
           </h1>
           <p className="prose-body text-center">
-            Discover authenticated skincare curated for your concerns.
+            Find original skincare matched to your concern.
           </p>
           <ButtonLink href="/shop" variant="ink" size="lg">
-            Shop Authentic Skincare
+            Shop by concern
           </ButtonLink>
         </div>
       </div>
@@ -101,7 +101,7 @@ export function CartView() {
           Proceed to Checkout
         </ButtonLink>
         <p className="mt-3 text-center text-[0.7rem] text-stone">
-          Secure payment · 100% authentic products
+          Secure payment with Paystack. Replace or refund on confirmed counterfeits.
         </p>
       </aside>
     </div>
@@ -151,7 +151,7 @@ function CartRow({ item }: { item: CartItem }) {
           <button
             type="button"
             onClick={() => remove(item.id)}
-            className="h-fit text-stone hover:text-ink cursor-pointer"
+            className="h-fit shrink-0 cursor-pointer text-stone hover:text-ink"
             aria-label={`Remove ${item.name}`}
           >
             <IconTrash width={16} height={16} />

@@ -8,7 +8,7 @@ import { BreadcrumbJsonLd } from "@/components/seo/json-ld";
 export const metadata: Metadata = {
   title: "Terms of Use",
   description:
-    "The terms governing your use of the Velyn Beauty & Essentials website and services.",
+    "The terms governing your use of the Nuvene Beauty website and services.",
   alternates: { canonical: `${site.url}/terms` },
 };
 
@@ -50,15 +50,16 @@ export default function TermsPage() {
             <p>
               Placing an order constitutes an offer to purchase. We may accept or
               decline any order, and an order is confirmed once payment is received
-              and verified. We reserve the right to cancel orders in cases of
+              and confirmed. We reserve the right to cancel orders in cases of
               suspected fraud or pricing errors.
             </p>
 
-            <h2>Authenticity</h2>
+            <h2>Sourcing</h2>
             <p>
-              We guarantee that products sold through Velyn are authentic and
-              sourced from manufacturers or authorised outlets. See our{" "}
-              <a href="/authenticity">Authenticity Guarantee</a> for details.
+              We sell only products bought through established distributors and
+              authorised suppliers. If a product you bought from us is confirmed
+              counterfeit, we replace it or refund you. See our{" "}
+              <a href="/authenticity">sourcing promise</a> for details.
             </p>
 
             <h2>Acceptable use</h2>
@@ -76,7 +77,7 @@ export default function TermsPage() {
 
             <h2>Limitation of liability</h2>
             <p>
-              To the extent permitted by law, Velyn is not liable for indirect or
+              To the extent permitted by law, Nuvene Beauty is not liable for indirect or
               consequential losses arising from use of the site. Nothing in these
               terms excludes liability that cannot be excluded under Nigerian law.
             </p>

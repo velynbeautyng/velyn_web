@@ -12,7 +12,7 @@ import { BreadcrumbJsonLd } from "@/components/seo/json-ld";
 export const metadata: Metadata = {
   title: "Education Hub, Skincare Guides",
   description:
-    "Evidence-based skincare education from Velyn: ingredient guides, treating hyperpigmentation on Nigerian skin, spotting counterfeits, and building effective routines.",
+    "Skincare education from Nuvene Beauty: ingredient guides, dark spots and uneven tone on Nigerian skin, spotting fakes, and simple routines that work.",
   alternates: { canonical: `${site.url}/education` },
 };
 
@@ -120,7 +120,7 @@ export default async function EducationPage() {
             Ready to Build Your <em className="text-white/70">Routine?</em>
           </>
         }
-        body="Shop authenticated skincare curated for your concerns, or talk to a specialist on WhatsApp."
+        body="Shop original skincare matched to your concern, or ask us on WhatsApp."
         primary={{ label: "Shop Skincare", href: "/shop" }}
         secondary={{ label: "Contact a Specialist", href: "/contact" }}
       />

@@ -11,7 +11,7 @@ export function DemoNotice() {
             Catalogue preview.
           </strong>{" "}
           These are sample products shown while our full range is being loaded
-          from the Velyn inventory system. Live pricing and stock go live
+          from the Nuvene inventory system. Live pricing and stock go live
           automatically once import completes.
         </p>
       </div>

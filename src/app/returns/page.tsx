@@ -8,7 +8,7 @@ import { BreadcrumbJsonLd } from "@/components/seo/json-ld";
 export const metadata: Metadata = {
   title: "Returns Policy",
   description:
-    "Velyn Beauty & Essentials returns policy, eligibility, timelines and how to request a return for authentic skincare purchased in Nigeria.",
+    "Nuvene Beauty returns policy: eligibility, timelines and how to request a return for skincare bought from us.",
   alternates: { canonical: `${site.url}/returns` },
 };
 
@@ -36,7 +36,7 @@ export default function ReturnsPage() {
             <h2>Our approach</h2>
             <p>
               Because skincare is a personal, hygiene-sensitive category and
-              authenticity is central to what we do, our returns policy balances
+              honest sourcing is central to what we do, our returns policy balances
               customer protection with product safety. Please read the eligibility
               conditions below before requesting a return.
             </p>
@@ -52,7 +52,7 @@ export default function ReturnsPage() {
             <ul>
               <li>Opened or used skincare products (for hygiene and authenticity reasons), except in the case of a verified defect.</li>
               <li>Products reported after the returns window has closed.</li>
-              <li>Items without proof of purchase from Velyn.</li>
+              <li>Items without proof of purchase from Nuvene Beauty.</li>
             </ul>
 
             <h2>Returns window</h2>
