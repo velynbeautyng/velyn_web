@@ -58,7 +58,7 @@ export default async function BrandsPage() {
             <StaggerItem key={b.slug}>
               <Link
                 href={`/brands/${b.slug}`}
-                className="group flex h-full flex-col justify-between border border-ivory-mid bg-white p-6 transition-shadow duration-300 hover:shadow-[0_20px_40px_-28px_rgba(44,26,14,0.4)]"
+                className="group flex h-full flex-col justify-between border border-linen-mid bg-white p-6 transition-shadow duration-300 hover:shadow-[0_20px_40px_-28px_rgba(0,0,0,0.4)]"
               >
                 <div>
                   {logo && (
@@ -72,21 +72,21 @@ export default async function BrandsPage() {
                       />
                     </div>
                   )}
-                  <h2 className="font-serif text-lg text-espresso group-hover:text-gold-dim">
+                  <h2 className="font-serif text-lg text-ink group-hover:text-gold-deep">
                     {b.name}
                   </h2>
                   {b.origin && (
-                    <p className="mt-1 text-[0.62rem] uppercase tracking-[0.14em] text-gold-dim">
+                    <p className="mt-1 text-[0.62rem] uppercase tracking-[0.14em] text-gold-deep">
                       {b.origin}
                     </p>
                   )}
                   {b.description && (
-                    <p className="mt-3 text-[0.82rem] leading-relaxed text-cocoa">
+                    <p className="mt-3 text-[0.82rem] leading-relaxed text-stone">
                       {b.description}
                     </p>
                   )}
                 </div>
-                <span className="mt-5 inline-flex items-center gap-1.5 text-[0.62rem] font-bold uppercase tracking-[0.12em] text-gold-dim">
+                <span className="mt-5 inline-flex items-center gap-1.5 text-[0.62rem] font-bold uppercase tracking-[0.12em] text-gold-deep">
                   {typeof b.productCount === "number"
                     ? `${b.productCount} product${b.productCount === 1 ? "" : "s"}`
                     : "View range"}
@@ -109,7 +109,7 @@ export default async function BrandsPage() {
         body="Velyn offers international skincare brands a credible, structured route into the African market, with distribution, brand protection and real customer intelligence."
         primary={{ label: "Partner With Velyn", href: "/partner" }}
         secondary={{ label: "Talk to Us", href: "/contact" }}
-        tone="olive"
+        tone="sage"
       />
     </>
   );

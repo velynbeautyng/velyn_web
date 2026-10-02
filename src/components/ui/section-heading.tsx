@@ -4,7 +4,7 @@ import { Reveal } from "@/components/motion/reveal";
 
 /**
  * Kicker + serif display heading, the recurring section header from the brand
- * wireframe. `tone` adapts colours for dark (espresso/olive) section bands.
+ * wireframe. `tone` adapts colours for dark (ink/sage) section bands.
  */
 export function SectionHeading({
   kicker,
@@ -41,7 +41,7 @@ export function SectionHeading({
       <h2
         className={cn(
           "display text-[clamp(1.85rem,3.6vw,2.85rem)]",
-          tone === "dark" ? "text-ivory" : "text-espresso",
+          tone === "dark" ? "text-linen" : "text-ink",
         )}
       >
         {title}
@@ -51,7 +51,7 @@ export function SectionHeading({
           className={cn(
             "prose-body mt-1 text-[0.95rem]",
             align === "center" && "mx-auto",
-            tone === "dark" && "text-ivory/55",
+            tone === "dark" && "text-linen/55",
           )}
         >
           {intro}

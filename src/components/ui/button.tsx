@@ -2,19 +2,19 @@ import Link from "next/link";
 import type { ComponentProps, ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
-type Variant = "gold" | "espresso" | "outline" | "outlineLight" | "white" | "ghost";
+type Variant = "gold" | "ink" | "outline" | "outlineLight" | "white" | "ghost";
 type Size = "sm" | "md" | "lg";
 
 const variants: Record<Variant, string> = {
-  gold: "bg-gold text-white border border-gold hover:bg-gold-dim",
-  espresso:
-    "bg-espresso text-ivory border border-espresso hover:bg-espresso-mid",
+  gold: "bg-gold text-white border border-gold hover:bg-gold-deep",
+  ink:
+    "bg-ink text-linen border border-ink hover:bg-ink-mid",
   outline:
-    "bg-transparent text-espresso border border-espresso hover:bg-espresso hover:text-ivory",
+    "bg-transparent text-ink border border-ink hover:bg-ink hover:text-linen",
   outlineLight:
-    "bg-transparent text-gold-dim border border-gold/60 hover:border-gold hover:text-gold",
-  white: "bg-white text-espresso border border-white hover:bg-ivory-mid",
-  ghost: "bg-transparent text-espresso hover:text-gold-dim",
+    "bg-transparent text-gold-deep border border-gold/60 hover:border-gold hover:text-gold",
+  white: "bg-white text-ink border border-white hover:bg-linen-mid",
+  ghost: "bg-transparent text-ink hover:text-gold-deep",
 };
 
 const sizes: Record<Size, string> = {
@@ -27,7 +27,7 @@ const baseClass =
   "inline-flex items-center justify-center gap-2 font-semibold uppercase tracking-[0.14em] cursor-pointer transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed select-none";
 
 export function buttonClass({
-  variant = "espresso",
+  variant = "ink",
   size = "md",
   className,
 }: {

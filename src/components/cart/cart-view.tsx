@@ -26,14 +26,14 @@ export function CartView() {
     return (
       <div className="section section-y">
         <div className="mx-auto flex max-w-md flex-col items-center gap-5 py-16 text-center">
-          <VelynMark className="h-12 w-auto opacity-20" tone="espresso" />
-          <h1 className="font-serif text-2xl text-espresso">
+          <VelynMark className="h-12 w-auto opacity-20" tone="ink" />
+          <h1 className="font-serif text-2xl text-ink">
             Your cart is empty
           </h1>
           <p className="prose-body text-center">
             Discover authenticated skincare curated for your concerns.
           </p>
-          <ButtonLink href="/shop" variant="espresso" size="lg">
+          <ButtonLink href="/shop" variant="ink" size="lg">
             Shop Authentic Skincare
           </ButtonLink>
         </div>
@@ -45,51 +45,51 @@ export function CartView() {
     <div className="section section-y grid gap-10 lg:grid-cols-[1fr_20rem]">
       <div>
         {remaining > 0 ? (
-          <p className="mb-5 border border-gold-pale bg-gold-faint px-4 py-2.5 text-[0.82rem] text-cocoa">
+          <p className="mb-5 border border-gold-pale bg-linen-soft px-4 py-2.5 text-[0.82rem] text-stone">
             You&apos;re {formatNaira(remaining)} away from{" "}
-            <strong className="text-espresso">free delivery.</strong>
+            <strong className="text-ink">free delivery.</strong>
           </p>
         ) : (
-          <p className="mb-5 border border-olive-mid/30 bg-olive-pale/40 px-4 py-2.5 text-[0.82rem] text-olive">
+          <p className="mb-5 border border-sage-mid/30 bg-sage-pale/40 px-4 py-2.5 text-[0.82rem] text-sage-deep">
             You&apos;ve unlocked <strong>free delivery.</strong>
           </p>
         )}
 
-        <ul className="divide-y divide-ivory-mid border-y border-ivory-mid">
+        <ul className="divide-y divide-linen-mid border-y border-linen-mid">
           {items.map((item) => (
             <CartRow key={item.id} item={item} />
           ))}
         </ul>
         <Link
           href="/shop"
-          className="mt-6 inline-block text-[0.7rem] font-bold uppercase tracking-[0.12em] text-gold-dim hover:text-espresso"
+          className="mt-6 inline-block text-[0.7rem] font-bold uppercase tracking-[0.12em] text-gold-deep hover:text-ink"
         >
           ← Continue Shopping
         </Link>
       </div>
 
       {/* Summary */}
-      <aside className="h-fit border border-ivory-mid bg-ivory p-6 lg:sticky lg:top-[calc(var(--header-h)+1rem)]">
-        <h2 className="font-serif text-xl text-espresso">Order Summary</h2>
+      <aside className="h-fit border border-linen-mid bg-linen p-6 lg:sticky lg:top-[calc(var(--header-h)+1rem)]">
+        <h2 className="font-serif text-xl text-ink">Order Summary</h2>
         <dl className="mt-5 flex flex-col gap-2.5 text-[0.88rem]">
           <div className="flex justify-between">
-            <dt className="text-mocha">Subtotal</dt>
-            <dd className="text-espresso">{formatNaira(subtotal)}</dd>
+            <dt className="text-stone">Subtotal</dt>
+            <dd className="text-ink">{formatNaira(subtotal)}</dd>
           </div>
           <div className="flex justify-between">
-            <dt className="text-mocha">Delivery</dt>
-            <dd className="text-espresso">
+            <dt className="text-stone">Delivery</dt>
+            <dd className="text-ink">
               {subtotal >= FREE_SHIPPING ? "Free" : "Calculated at checkout"}
             </dd>
           </div>
         </dl>
-        <div className="mt-4 flex justify-between border-t border-ivory-mid pt-4">
-          <span className="text-sm uppercase tracking-[0.1em] text-mocha">
+        <div className="mt-4 flex justify-between border-t border-linen-mid pt-4">
+          <span className="text-sm uppercase tracking-[0.1em] text-stone">
             Total
           </span>
           <Price
             amount={subtotal}
-            className="font-serif text-2xl text-espresso"
+            className="font-serif text-2xl text-ink"
           />
         </div>
         <ButtonLink
@@ -100,7 +100,7 @@ export function CartView() {
         >
           Proceed to Checkout
         </ButtonLink>
-        <p className="mt-3 text-center text-[0.7rem] text-mocha">
+        <p className="mt-3 text-center text-[0.7rem] text-stone">
           Secure payment · 100% authentic products
         </p>
       </aside>
@@ -116,7 +116,7 @@ function CartRow({ item }: { item: CartItem }) {
     <li className="flex gap-4 py-5">
       <Link
         href={`/shop/${item.slug}`}
-        className="relative h-24 w-20 shrink-0 overflow-hidden border border-ivory-mid bg-white"
+        className="relative h-24 w-20 shrink-0 overflow-hidden border border-linen-mid bg-white"
       >
         {item.image ? (
           <Image
@@ -128,41 +128,41 @@ function CartRow({ item }: { item: CartItem }) {
           />
         ) : (
           <div className="flex h-full items-center justify-center">
-            <VelynMark className="h-6 w-auto opacity-20" tone="espresso" />
+            <VelynMark className="h-6 w-auto opacity-20" tone="ink" />
           </div>
         )}
       </Link>
       <div className="flex flex-1 flex-col">
         <div className="flex justify-between gap-3">
           <div>
-            <p className="text-[0.6rem] font-semibold uppercase tracking-[0.14em] text-gold-dim">
+            <p className="text-[0.6rem] font-semibold uppercase tracking-[0.14em] text-gold-deep">
               {item.brand}
             </p>
             <Link
               href={`/shop/${item.slug}`}
-              className="font-serif text-[0.95rem] text-espresso hover:text-gold-dim"
+              className="font-serif text-[0.95rem] text-ink hover:text-gold-deep"
             >
               {item.name}
             </Link>
             {item.variationName && (
-              <p className="text-[0.75rem] text-mocha">{item.variationName}</p>
+              <p className="text-[0.75rem] text-stone">{item.variationName}</p>
             )}
           </div>
           <button
             type="button"
             onClick={() => remove(item.id)}
-            className="h-fit text-mocha hover:text-espresso cursor-pointer"
+            className="h-fit text-stone hover:text-ink cursor-pointer"
             aria-label={`Remove ${item.name}`}
           >
             <IconTrash width={16} height={16} />
           </button>
         </div>
         <div className="mt-auto flex items-center justify-between pt-3">
-          <div className="flex items-center border border-ivory-mid">
+          <div className="flex items-center border border-linen-mid">
             <button
               type="button"
               onClick={() => setQuantity(item.id, item.quantity - 1)}
-              className="flex h-8 w-8 items-center justify-center text-espresso hover:bg-ivory-mid cursor-pointer"
+              className="flex h-8 w-8 items-center justify-center text-ink hover:bg-linen-mid cursor-pointer"
               aria-label="Decrease quantity"
             >
               <IconMinus width={14} height={14} />
@@ -173,7 +173,7 @@ function CartRow({ item }: { item: CartItem }) {
             <button
               type="button"
               onClick={() => setQuantity(item.id, item.quantity + 1)}
-              className="flex h-8 w-8 items-center justify-center text-espresso hover:bg-ivory-mid cursor-pointer"
+              className="flex h-8 w-8 items-center justify-center text-ink hover:bg-linen-mid cursor-pointer"
               aria-label="Increase quantity"
             >
               <IconPlus width={14} height={14} />
@@ -181,7 +181,7 @@ function CartRow({ item }: { item: CartItem }) {
           </div>
           <Price
             amount={item.price * item.quantity}
-            className="font-serif text-base text-espresso"
+            className="font-serif text-base text-ink"
           />
         </div>
       </div>

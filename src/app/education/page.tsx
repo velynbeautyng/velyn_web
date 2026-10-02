@@ -48,9 +48,9 @@ export default async function EducationPage() {
         {/* Featured */}
         <Link
           href={`/education/${lead.slug}`}
-          className="group grid overflow-hidden border border-ivory-mid bg-white md:grid-cols-2"
+          className="group grid overflow-hidden border border-linen-mid bg-white md:grid-cols-2"
         >
-          <div className="relative flex min-h-56 items-center justify-center overflow-hidden bg-espresso">
+          <div className="relative flex min-h-56 items-center justify-center overflow-hidden bg-ink">
             {lead.coverImage ? (
               // eslint-disable-next-line @next/next/no-img-element
               <img
@@ -66,14 +66,14 @@ export default async function EducationPage() {
             )}
           </div>
           <div className="flex flex-col justify-center p-8 lg:p-12">
-            <span className="w-fit bg-olive-pale px-2.5 py-1 text-[0.6rem] font-bold uppercase tracking-[0.1em] text-olive">
+            <span className="w-fit bg-sage-pale px-2.5 py-1 text-[0.6rem] font-bold uppercase tracking-[0.1em] text-sage-deep">
               {lead.tag}
             </span>
-            <h2 className="mt-4 font-serif text-2xl leading-tight text-espresso group-hover:text-gold-dim lg:text-3xl">
+            <h2 className="mt-4 font-serif text-2xl leading-tight text-ink group-hover:text-gold-deep lg:text-3xl">
               {lead.title}
             </h2>
             <p className="prose-body mt-3 text-[0.9rem]">{lead.excerpt}</p>
-            <span className="mt-5 inline-flex items-center gap-1.5 text-[0.65rem] font-bold uppercase tracking-[0.12em] text-gold-dim">
+            <span className="mt-5 inline-flex items-center gap-1.5 text-[0.65rem] font-bold uppercase tracking-[0.12em] text-gold-deep">
               Read Article <IconArrowRight width={14} height={14} />
             </span>
           </div>
@@ -85,9 +85,9 @@ export default async function EducationPage() {
             <StaggerItem key={post.slug}>
               <Link
                 href={`/education/${post.slug}`}
-                className="group flex h-full flex-col border border-ivory-mid bg-white transition-shadow duration-300 hover:shadow-[0_20px_40px_-28px_rgba(44,26,14,0.4)]"
+                className="group flex h-full flex-col border border-linen-mid bg-white transition-shadow duration-300 hover:shadow-[0_20px_40px_-28px_rgba(0,0,0,0.4)]"
               >
-                <div className="relative flex h-32 items-center justify-center overflow-hidden border-b border-ivory-mid bg-espresso">
+                <div className="relative flex h-32 items-center justify-center overflow-hidden border-b border-linen-mid bg-ink">
                   {post.coverImage ? (
                     // eslint-disable-next-line @next/next/no-img-element
                     <img
@@ -103,13 +103,13 @@ export default async function EducationPage() {
                   )}
                 </div>
                 <div className="flex flex-1 flex-col p-5">
-                  <span className="w-fit bg-olive-pale px-2 py-1 text-[0.55rem] font-bold uppercase tracking-[0.1em] text-olive">
+                  <span className="w-fit bg-sage-pale px-2 py-1 text-[0.55rem] font-bold uppercase tracking-[0.1em] text-sage-deep">
                     {post.tag}
                   </span>
-                  <h3 className="mt-3 font-serif text-base leading-snug text-espresso group-hover:text-gold-dim">
+                  <h3 className="mt-3 font-serif text-base leading-snug text-ink group-hover:text-gold-deep">
                     {post.title}
                   </h3>
-                  <span className="mt-auto flex items-center gap-1.5 pt-4 text-[0.6rem] font-bold uppercase tracking-[0.12em] text-gold-dim">
+                  <span className="mt-auto flex items-center gap-1.5 pt-4 text-[0.6rem] font-bold uppercase tracking-[0.12em] text-gold-deep">
                     {post.readMinutes} min read
                     <IconArrowRight width={13} height={13} />
                   </span>

@@ -15,7 +15,7 @@ export default function OpengraphImage() {
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
-          background: "#2C1A0E",
+          background: "#000000",
           position: "relative",
           fontFamily: "sans-serif",
         }}
@@ -48,7 +48,7 @@ export default function OpengraphImage() {
             marginTop: 28,
             fontSize: 76,
             letterSpacing: 14,
-            color: "#F7F4EF",
+            color: "#E1DAC6",
             fontWeight: 700,
           }}
         >
@@ -57,7 +57,7 @@ export default function OpengraphImage() {
         <div style={{ marginTop: 6, fontSize: 20, letterSpacing: 10, color: "#BD9468", textTransform: "uppercase" }}>
           Beauty &amp; Essentials
         </div>
-        <div style={{ marginTop: 40, fontSize: 30, color: "rgba(247,244,239,0.72)" }}>
+        <div style={{ marginTop: 40, fontSize: 30, color: "rgba(225,218,198,0.72)" }}>
           Authentic skincare, sourced directly.
         </div>
         <div style={{ marginTop: 10, fontSize: 18, letterSpacing: 4, color: "rgba(189,148,104,0.75)", textTransform: "uppercase" }}>

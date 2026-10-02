@@ -40,14 +40,14 @@ export function WhatWeDo() {
         </p>
       </div>
 
-      <Stagger className="mt-12 grid gap-px border border-ivory-mid bg-ivory-mid sm:grid-cols-3">
+      <Stagger className="mt-12 grid gap-px border border-linen-mid bg-linen-mid sm:grid-cols-3">
         {pillars.map((p) => (
           <StaggerItem key={p.n} className="group bg-white p-8">
             <div className="font-serif text-[2.6rem] leading-none text-gold-pale transition-colors duration-300 group-hover:text-gold">
               {p.n}
             </div>
-            <h3 className="mt-3 font-serif text-lg text-espresso">{p.title}</h3>
-            <p className="mt-2 text-[0.85rem] leading-relaxed text-cocoa">
+            <h3 className="mt-3 font-serif text-lg text-ink">{p.title}</h3>
+            <p className="mt-2 text-[0.85rem] leading-relaxed text-stone">
               {p.body}
             </p>
             <div className="mt-4 h-0.5 w-7 bg-gold transition-all duration-300 group-hover:w-12" />

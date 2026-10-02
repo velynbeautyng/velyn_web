@@ -28,12 +28,12 @@ export function ContactForm({
   const fieldClass = cn(
     "w-full border px-3.5 py-2.5 text-sm outline-none transition-colors",
     dark
-      ? "border-gold/15 bg-ivory/[0.04] text-ivory placeholder:text-ivory/35 focus:border-gold"
-      : "border-ivory-mid bg-white text-espresso placeholder:text-mocha/60 focus:border-gold",
+      ? "border-gold/15 bg-linen/[0.04] text-linen placeholder:text-linen/35 focus:border-gold"
+      : "border-linen-mid bg-white text-ink placeholder:text-stone/60 focus:border-gold",
   );
   const labelClass = cn(
     "mb-1.5 block text-[0.6rem] font-bold uppercase tracking-[0.14em]",
-    dark ? "text-ivory/45" : "text-mocha",
+    dark ? "text-linen/45" : "text-stone",
   );
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -63,18 +63,18 @@ export function ContactForm({
       <div
         className={cn(
           "flex flex-col items-center justify-center gap-3 border p-10 text-center",
-          dark ? "border-gold/15 bg-ivory/[0.03]" : "border-ivory-mid bg-white",
+          dark ? "border-gold/15 bg-linen/[0.03]" : "border-linen-mid bg-white",
         )}
       >
-        <div className="flex h-12 w-12 items-center justify-center rounded-full bg-olive text-white">
+        <div className="flex h-12 w-12 items-center justify-center rounded-full bg-sage text-white">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <path d="M4 12.5 9 17.5 20 6.5" />
           </svg>
         </div>
-        <h3 className={cn("font-serif text-xl", dark ? "text-ivory" : "text-espresso")}>
+        <h3 className={cn("font-serif text-xl", dark ? "text-linen" : "text-ink")}>
           Message received
         </h3>
-        <p className={cn("max-w-xs text-sm", dark ? "text-ivory/50" : "text-cocoa")}>
+        <p className={cn("max-w-xs text-sm", dark ? "text-linen/50" : "text-stone")}>
           Thank you for reaching out. Our team responds within 24 business hours
           (wholesale inquiries within 48 hours).
         </p>
@@ -119,7 +119,7 @@ export function ContactForm({
             Select inquiry type
           </option>
           {inquiryTypes.map((t) => (
-            <option key={t} value={t} className="text-espresso">
+            <option key={t} value={t} className="text-ink">
               {t}
             </option>
           ))}
@@ -147,7 +147,7 @@ export function ContactForm({
       >
         {status === "submitting" ? "Sending…" : "Send Message"}
       </Button>
-      <p className={cn("text-center text-[0.7rem] leading-relaxed", dark ? "text-ivory/30" : "text-mocha")}>
+      <p className={cn("text-center text-[0.7rem] leading-relaxed", dark ? "text-linen/30" : "text-stone")}>
         We respond within 24 business hours. Wholesale inquiries: 48 hours.
       </p>
     </form>

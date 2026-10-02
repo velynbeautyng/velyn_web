@@ -17,7 +17,7 @@ export async function FeaturedProducts() {
   if (products.length === 0) return null;
 
   return (
-    <section className="section section-y bg-ivory">
+    <section className="section section-y bg-linen">
       <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
         <SectionHeading
           kicker="Featured Products"
@@ -34,8 +34,8 @@ export async function FeaturedProducts() {
               href={chip.href}
               className={`px-3 py-1.5 text-[0.58rem] font-semibold uppercase tracking-[0.1em] transition-colors ${
                 i === 0
-                  ? "bg-espresso text-white"
-                  : "border border-ivory-mid bg-white text-mocha hover:border-gold hover:text-espresso"
+                  ? "bg-ink text-white"
+                  : "border border-linen-mid bg-white text-stone hover:border-gold hover:text-ink"
               }`}
             >
               {chip.label}

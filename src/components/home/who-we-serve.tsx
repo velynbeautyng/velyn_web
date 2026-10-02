@@ -24,32 +24,32 @@ const audiences = [
     ),
   },
   {
-    accent: "border-t-olive",
+    accent: "border-t-sage",
     title: "Retailers & Wholesalers",
     body: "Pharmacies, clinics, beauty stores, guaranteed supply, verified authenticity, competitive wholesale pricing and product education.",
     cta: "Apply for Wholesale",
     href: "/wholesale",
-    ctaClass: "text-olive-mid",
+    ctaClass: "text-sage-mid",
     icon: (
       <svg width="18" height="18" viewBox="0 0 16 16" fill="none">
-        <rect x="2" y="7" width="12" height="7" rx="1" stroke="#8A8A00" strokeWidth="1.3" />
-        <path d="M5 7V5a3 3 0 016 0v2" stroke="#8A8A00" strokeWidth="1.3" strokeLinecap="round" />
+        <rect x="2" y="7" width="12" height="7" rx="1" stroke="#8FA893" strokeWidth="1.3" />
+        <path d="M5 7V5a3 3 0 016 0v2" stroke="#8FA893" strokeWidth="1.3" strokeLinecap="round" />
       </svg>
     ),
   },
   {
-    accent: "border-t-ivory/25",
+    accent: "border-t-linen/25",
     title: "Foreign Brand Partners",
     body: "International brands entering Africa gain a trusted partner with deep market knowledge, brand protection and distribution infrastructure.",
     cta: "Start a Conversation",
     href: "/partner",
-    ctaClass: "text-ivory/60",
+    ctaClass: "text-linen/60",
     icon: (
       <svg width="18" height="18" viewBox="0 0 16 16" fill="none">
-        <circle cx="8" cy="8" r="6" stroke="rgba(247,244,239,0.5)" strokeWidth="1.3" />
+        <circle cx="8" cy="8" r="6" stroke="rgba(225,218,198,0.5)" strokeWidth="1.3" />
         <path
           d="M2 8h12M8 2c-1.5 2-2 4-2 6s.5 4 2 6"
-          stroke="rgba(247,244,239,0.5)"
+          stroke="rgba(225,218,198,0.5)"
           strokeWidth="1.3"
           strokeLinecap="round"
         />
@@ -60,7 +60,7 @@ const audiences = [
 
 export function WhoWeServe() {
   return (
-    <section className="section section-y bg-espresso">
+    <section className="section section-y bg-ink">
       <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
         <SectionHeading
           tone="dark"
@@ -72,7 +72,7 @@ export function WhoWeServe() {
             </>
           }
         />
-        <p className="max-w-xs text-[0.85rem] leading-relaxed text-ivory/35 lg:pb-2">
+        <p className="max-w-xs text-[0.85rem] leading-relaxed text-linen/35 lg:pb-2">
           Whether buying for yourself, running retail, or entering a new market,
           Velyn is built for you.
         </p>
@@ -82,13 +82,13 @@ export function WhoWeServe() {
         {audiences.map((a) => (
           <StaggerItem
             key={a.title}
-            className={`flex flex-col gap-4 border border-gold/10 border-t-2 ${a.accent} bg-espresso-mid/30 p-7 transition-colors duration-300 hover:bg-espresso-mid/60`}
+            className={`flex flex-col gap-4 border border-gold/10 border-t-2 ${a.accent} bg-ink-mid/30 p-7 transition-colors duration-300 hover:bg-ink-mid/60`}
           >
             <span className="flex h-11 w-11 items-center justify-center border border-gold/15">
               {a.icon}
             </span>
-            <h3 className="font-serif text-lg text-ivory">{a.title}</h3>
-            <p className="text-[0.85rem] leading-relaxed text-ivory/40">
+            <h3 className="font-serif text-lg text-linen">{a.title}</h3>
+            <p className="text-[0.85rem] leading-relaxed text-linen/40">
               {a.body}
             </p>
             <Link

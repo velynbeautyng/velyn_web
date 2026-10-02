@@ -17,9 +17,9 @@ const businessTypes = [
 type Status = "idle" | "submitting" | "success" | "error";
 
 const field =
-  "w-full border border-ivory-mid bg-white px-3.5 py-2.5 text-sm text-espresso placeholder:text-mocha/60 outline-none transition-colors focus:border-gold";
+  "w-full border border-linen-mid bg-white px-3.5 py-2.5 text-sm text-ink placeholder:text-stone/60 outline-none transition-colors focus:border-gold";
 const label =
-  "mb-1.5 block text-[0.6rem] font-bold uppercase tracking-[0.14em] text-mocha";
+  "mb-1.5 block text-[0.6rem] font-bold uppercase tracking-[0.14em] text-stone";
 
 export function WholesaleForm() {
   const [status, setStatus] = useState<Status>("idle");
@@ -60,12 +60,12 @@ export function WholesaleForm() {
 
   if (status === "success") {
     return (
-      <div className="flex flex-col items-center gap-3 border border-ivory-mid bg-white p-10 text-center">
-        <div className="flex h-12 w-12 items-center justify-center rounded-full bg-olive text-white">
+      <div className="flex flex-col items-center gap-3 border border-linen-mid bg-white p-10 text-center">
+        <div className="flex h-12 w-12 items-center justify-center rounded-full bg-sage text-white">
           <IconCheck width={22} height={22} strokeWidth={2.2} />
         </div>
-        <h3 className="font-serif text-xl text-espresso">Application received</h3>
-        <p className="max-w-sm text-sm text-cocoa">
+        <h3 className="font-serif text-xl text-ink">Application received</h3>
+        <p className="max-w-sm text-sm text-stone">
           Thank you. Our wholesale team verifies business credentials within 48
           hours and will be in touch with pricing and next steps.
         </p>
@@ -125,10 +125,10 @@ export function WholesaleForm() {
         </p>
       )}
 
-      <Button type="submit" variant="espresso" size="lg" disabled={status === "submitting"} className="mt-1 w-full">
+      <Button type="submit" variant="ink" size="lg" disabled={status === "submitting"} className="mt-1 w-full">
         {status === "submitting" ? "Submitting…" : "Submit Application"}
       </Button>
-      <p className="text-center text-[0.7rem] text-mocha">
+      <p className="text-center text-[0.7rem] text-stone">
         Business credentials verified within 48 hours.
       </p>
     </form>

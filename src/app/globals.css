@@ -1,43 +1,41 @@
 @import "tailwindcss";
 
 /* ------------------------------------------------------------------
-   VELYN BEAUTY & ESSENTIALS — Design System
-   Aesthetic: Espresso Editorial Luxury
-   Palette committed by brand: espresso / gold / ivory / olive / white
+   NUVENE BEAUTY design system
+   Brand guide palette: black, muted gold, beige linen, sage, white.
+   Extra tints exist only where text contrast needs them.
 ------------------------------------------------------------------ */
 
 @theme {
-  /* Brand palette */
-  --color-espresso: #2c1a0e;
-  --color-espresso-mid: #3d2410;
-  --color-espresso-lift: #4e2f14;
-  --color-espresso-surface: #1e1108;
+  --color-ink: #000000;
+  --color-ink-mid: #161616;
+  --color-ink-lift: #242424;
+  --color-ink-surface: #0b0b0b;
 
   --color-gold: #bd9468;
-  --color-gold-dim: #a07a52;
+  --color-gold-deep: #735333;
   --color-gold-pale: #ede0ce;
-  --color-gold-faint: #f7f0e6;
 
-  --color-ivory: #f7f4ef;
-  --color-ivory-mid: #ede9e0;
+  --color-linen: #e1dac6;
+  --color-linen-mid: #cfc6ae;
+  --color-linen-soft: #efeadd;
 
-  --color-olive: #676700;
-  --color-olive-mid: #8a8a00;
-  --color-olive-pale: #ebebcc;
+  --color-sage: #708e74;
+  --color-sage-mid: #8fa893;
+  --color-sage-pale: #dde6de;
+  --color-sage-deep: #435e49;
+  --color-sage-shade: #5e7c63;
+  --color-sage-dusk: #4f6a54;
+  --color-sage-night: #3f5744;
 
-  /* Contrast-safe body inks (>= 4.5:1 on ivory/white) */
-  --color-cocoa: #5c4636;
-  --color-mocha: #6e5647;
+  --color-stone: #5f5a50;
 
-  /* Type — map Tailwind's font tokens onto the next/font families */
-  --font-serif: var(--font-eb-garamond), Georgia, "Times New Roman", serif;
-  --font-sans: var(--font-manrope), system-ui, sans-serif;
+  --font-serif: var(--font-cinzel), "Times New Roman", serif;
+  --font-sans: var(--font-poppins), system-ui, sans-serif;
 
-  /* Motion */
   --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 
-  /* Z-scale */
   --z-header: 40;
   --z-dropdown: 50;
   --z-backdrop: 60;
@@ -72,15 +70,13 @@ body {
 
 ::selection {
   background: var(--color-gold);
-  color: #fff;
+  color: var(--color-ink);
 }
 
-/* Serif display defaults */
 .font-serif {
   font-family: var(--font-serif);
 }
 
-/* Focus visibility */
 :where(a, button, input, textarea, select, [tabindex]):focus-visible {
   outline: 2px solid var(--color-gold);
   outline-offset: 2px;
@@ -92,7 +88,7 @@ body {
   top: -100px;
   left: 16px;
   z-index: 100;
-  background: var(--color-espresso);
+  background: var(--color-ink);
   color: #fff;
   padding: 10px 18px;
   font-size: 12px;
@@ -105,22 +101,30 @@ body {
 }
 
 /* ------------------------------------------------------------------
-   Reusable brand primitives (the deliberate wireframe design language)
+   Brand primitives
 ------------------------------------------------------------------ */
 
-/* Section kicker: tracked gold label */
+/* Section kicker: tracked label behind a short gold rule */
 .kicker {
   display: inline-flex;
   align-items: center;
+  gap: 0.65rem;
   font-family: var(--font-sans);
   font-size: 0.6875rem;
   font-weight: 600;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--color-gold-dim);
+  color: var(--color-gold-deep);
+}
+.kicker::before,
+.kicker--center::after {
+  content: "";
+  width: 1.5rem;
+  height: 1px;
+  background: var(--color-gold);
 }
 .kicker--onDark {
-  color: color-mix(in srgb, var(--color-gold) 82%, white);
+  color: var(--color-linen);
 }
 
 /* Product description: renders the sanitized ops HTML with clear sub-headings
@@ -137,14 +141,14 @@ body {
   font-size: 0.72rem;
   letter-spacing: 0.13em;
   text-transform: uppercase;
-  color: var(--color-espresso);
+  color: var(--color-ink);
 }
 .product-desc p {
-  color: var(--color-cocoa);
+  color: var(--color-stone);
   line-height: 1.75;
 }
 .product-desc strong {
-  color: var(--color-espresso);
+  color: var(--color-ink);
   font-weight: 600;
 }
 .product-desc ul {
@@ -156,17 +160,17 @@ body {
   padding-left: 1.15rem;
 }
 .product-desc li {
-  color: var(--color-cocoa);
+  color: var(--color-stone);
   line-height: 1.7;
   margin-top: 0.2rem;
 }
 .product-desc a {
-  color: var(--color-gold-dim);
+  color: var(--color-gold-deep);
   text-decoration: underline;
   text-underline-offset: 2px;
 }
 
-/* Corner-tick frame — the brand differentiation anchor */
+/* Corner-tick frame, carried over from the prototype's hero frame */
 .tick-frame {
   position: relative;
 }
@@ -204,20 +208,25 @@ body {
   border-bottom: 2px solid var(--color-gold);
   border-right: 2px solid var(--color-gold);
 }
+.tick-frame--linen::before,
+.tick-frame--linen::after,
+.tick-frame--linen > .tick-bl,
+.tick-frame--linen > .tick-br {
+  border-color: var(--color-linen);
+}
 
-/* Authenticity verification tag (recurring trust motif) */
+/* "Original" product tag */
 .auth-tag {
   display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
-  background: var(--color-olive-pale);
-  border: 1px solid var(--color-olive-mid);
-  color: var(--color-olive);
-  font-size: 0.625rem;
-  font-weight: 700;
+  gap: 0.3rem;
+  background: var(--color-sage-pale);
+  color: var(--color-sage-deep);
+  font-size: 0.58rem;
+  font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  padding: 0.25rem 0.55rem;
+  padding: 0.22rem 0.5rem;
 }
 
 /* Fluid section container */
@@ -228,44 +237,40 @@ body {
   padding-block: clamp(3.5rem, 7vw, 6.5rem);
 }
 
-/* Display heading */
+/* Display heading (Cinzel has no italic, so emphasis is colour only) */
 .display {
   font-family: var(--font-serif);
   font-weight: 400;
-  line-height: 1.08;
-  letter-spacing: -0.01em;
+  line-height: 1.14;
+  letter-spacing: 0.01em;
   text-wrap: balance;
 }
 .display em {
-  font-style: italic;
-  color: var(--color-gold-dim);
+  font-style: normal;
+  color: var(--color-gold-deep);
 }
 
-/* Long-form prose niceties */
 .prose-body {
-  color: var(--color-cocoa);
+  color: var(--color-stone);
   line-height: 1.75;
   text-wrap: pretty;
   max-width: 68ch;
 }
 
-/* Gold hairline rule */
 .hairline {
   height: 2px;
   width: 1.75rem;
   background: var(--color-gold);
 }
 
-/* Naira symbol: force a font with the correct double-bar ₦ glyph
-   (EB Garamond and some system fallbacks draw it with a single bar). */
+/* Naira symbol: force a font with the correct double-bar glyph. */
 .naira-symbol {
-  font-family: "Segoe UI", Roboto, "Noto Sans", Arial, var(--font-manrope),
+  font-family: "Segoe UI", Roboto, "Noto Sans", Arial, var(--font-poppins),
     sans-serif;
   margin-right: 0.02em;
 }
 
-/* Ambient float (hero brand mark / badge) */
-@keyframes velyn-float {
+@keyframes drift {
   0%,
   100% {
     transform: translateY(0);
@@ -275,7 +280,7 @@ body {
   }
 }
 .animate-float {
-  animation: velyn-float 6s ease-in-out infinite;
+  animation: drift 6s ease-in-out infinite;
 }
 .still .animate-float {
   animation: none;
@@ -284,6 +289,47 @@ body {
   .animate-float {
     animation: none;
   }
+}
+
+/* Hero headline: each line rises out of its own mask on first paint. */
+.hero-lines .line {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.06em;
+}
+.hero-lines .line > span {
+  display: inline-block;
+}
+@media (scripting: enabled) and (prefers-reduced-motion: no-preference) {
+  .hero-lines .line > span {
+    animation: line-up 0.95s var(--ease-out-expo) both;
+    animation-delay: calc(var(--i, 0) * 110ms + 120ms);
+  }
+  .hero-photo {
+    animation: photo-in 1.4s var(--ease-out-expo) both;
+  }
+}
+@keyframes line-up {
+  from {
+    transform: translateY(105%);
+  }
+  to {
+    transform: none;
+  }
+}
+@keyframes photo-in {
+  from {
+    opacity: 0;
+    transform: scale(1.06);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.still .hero-lines .line > span,
+.still .hero-photo {
+  animation: none !important;
 }
 
 /* ------------------------------------------------------------------

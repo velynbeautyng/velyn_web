@@ -79,15 +79,15 @@ export default function WholesalePage() {
           {benefits.map((b) => (
             <StaggerItem
               key={b.title}
-              className="border border-ivory-mid bg-white p-6"
+              className="border border-linen-mid bg-white p-6"
             >
-              <span className="flex h-9 w-9 items-center justify-center bg-olive-pale text-olive">
+              <span className="flex h-9 w-9 items-center justify-center bg-sage-pale text-sage-deep">
                 <IconCheck width={18} height={18} strokeWidth={2.4} />
               </span>
-              <h3 className="mt-4 font-serif text-base text-espresso">
+              <h3 className="mt-4 font-serif text-base text-ink">
                 {b.title}
               </h3>
-              <p className="mt-2 text-[0.83rem] leading-relaxed text-cocoa">
+              <p className="mt-2 text-[0.83rem] leading-relaxed text-stone">
                 {b.body}
               </p>
             </StaggerItem>
@@ -96,7 +96,7 @@ export default function WholesalePage() {
       </section>
 
       {/* Steps + Form */}
-      <section id="apply" className="section section-y bg-ivory">
+      <section id="apply" className="section section-y bg-linen">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
           <div>
             <SectionHeading
@@ -111,18 +111,18 @@ export default function WholesalePage() {
               {steps.map((s, i) => (
                 <li key={s.n} className="flex gap-4">
                   <div className="flex flex-col items-center">
-                    <span className="flex h-8 w-8 items-center justify-center bg-espresso text-xs font-bold text-white">
+                    <span className="flex h-8 w-8 items-center justify-center bg-ink text-xs font-bold text-white">
                       {s.n}
                     </span>
                     {i < steps.length - 1 && (
-                      <span className="my-1 w-px flex-1 bg-ivory-mid" />
+                      <span className="my-1 w-px flex-1 bg-linen-mid" />
                     )}
                   </div>
                   <div className="pb-7 pt-1">
-                    <h3 className="font-serif text-base text-espresso">
+                    <h3 className="font-serif text-base text-ink">
                       {s.title}
                     </h3>
-                    <p className="mt-1 text-[0.85rem] leading-relaxed text-cocoa">
+                    <p className="mt-1 text-[0.85rem] leading-relaxed text-stone">
                       {s.body}
                     </p>
                   </div>
@@ -132,11 +132,11 @@ export default function WholesalePage() {
           </div>
 
           <Reveal direction="left">
-            <div id="terms" className="border border-ivory-mid bg-white p-6 sm:p-8">
-              <h2 className="mb-1 font-serif text-2xl text-espresso">
+            <div id="terms" className="border border-linen-mid bg-white p-6 sm:p-8">
+              <h2 className="mb-1 font-serif text-2xl text-ink">
                 Apply for Wholesale Access
               </h2>
-              <p className="mb-6 text-[0.85rem] text-cocoa">
+              <p className="mb-6 text-[0.85rem] text-stone">
                 Tell us about your business and we&apos;ll get you set up.
               </p>
               <WholesaleForm />

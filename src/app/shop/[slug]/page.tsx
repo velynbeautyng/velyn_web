@@ -94,7 +94,7 @@ export default async function ProductPage({ params }: { params: Params }) {
       <section className="section section-y grid gap-10 lg:grid-cols-2 lg:gap-14">
         {/* Gallery */}
         <Reveal>
-          <div className="relative aspect-square overflow-hidden border border-ivory-mid bg-ivory">
+          <div className="relative aspect-square overflow-hidden border border-linen-mid bg-linen">
             <span className="auth-tag absolute left-3 top-3 z-10">
               <IconCheck width={12} height={12} strokeWidth={2.5} /> Authentic
             </span>
@@ -109,8 +109,8 @@ export default async function ProductPage({ params }: { params: Params }) {
               />
             ) : (
               <div className="flex h-full flex-col items-center justify-center gap-4">
-                <VelynMark className="h-16 w-auto opacity-15" tone="espresso" />
-                <span className="text-[0.7rem] uppercase tracking-[0.14em] text-espresso/25">
+                <VelynMark className="h-16 w-auto opacity-15" tone="ink" />
+                <span className="text-[0.7rem] uppercase tracking-[0.14em] text-ink/25">
                   {product.brand}
                 </span>
               </div>
@@ -120,10 +120,10 @@ export default async function ProductPage({ params }: { params: Params }) {
 
         {/* Details */}
         <Reveal direction="left" className="flex flex-col">
-          <p className="text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-gold-dim">
+          <p className="text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-gold-deep">
             {product.brand}
           </p>
-          <h2 className="mt-2 font-serif text-[clamp(1.6rem,3vw,2.2rem)] leading-tight text-espresso">
+          <h2 className="mt-2 font-serif text-[clamp(1.6rem,3vw,2.2rem)] leading-tight text-ink">
             {product.name}
           </h2>
 
@@ -132,7 +132,7 @@ export default async function ProductPage({ params }: { params: Params }) {
               {product.concerns.map((c) => (
                 <span
                   key={c}
-                  className="bg-olive-pale px-2.5 py-1 text-[0.6rem] font-semibold uppercase tracking-[0.08em] text-olive"
+                  className="bg-sage-pale px-2.5 py-1 text-[0.6rem] font-semibold uppercase tracking-[0.08em] text-sage-deep"
                 >
                   {c}
                 </span>
@@ -149,14 +149,14 @@ export default async function ProductPage({ params }: { params: Params }) {
             <p className="prose-body mt-5 text-[0.95rem]">{product.description}</p>
           ) : null}
 
-          <div className="mt-7 border-t border-ivory-mid pt-7">
+          <div className="mt-7 border-t border-linen-mid pt-7">
             <ProductBuyPanel product={product} />
           </div>
 
-          <ul className="mt-7 flex flex-col gap-3 border-t border-ivory-mid pt-7">
+          <ul className="mt-7 flex flex-col gap-3 border-t border-linen-mid pt-7">
             {trust.map(({ icon: Icon, text }) => (
-              <li key={text} className="flex items-center gap-3 text-[0.85rem] text-cocoa">
-                <span className="flex h-8 w-8 shrink-0 items-center justify-center bg-gold-faint text-gold-dim">
+              <li key={text} className="flex items-center gap-3 text-[0.85rem] text-stone">
+                <span className="flex h-8 w-8 shrink-0 items-center justify-center bg-linen-soft text-gold-deep">
                   <Icon width={16} height={16} />
                 </span>
                 {text}
@@ -167,7 +167,7 @@ export default async function ProductPage({ params }: { params: Params }) {
       </section>
 
       {related.length > 0 && (
-        <section className="section section-y bg-ivory">
+        <section className="section section-y bg-linen">
           <SectionHeading
             kicker="You May Also Like"
             title={
@@ -186,7 +186,7 @@ export default async function ProductPage({ params }: { params: Params }) {
           <div className="mt-10 text-center">
             <Link
               href="/shop"
-              className="text-[0.7rem] font-bold uppercase tracking-[0.12em] text-gold-dim hover:text-espresso"
+              className="text-[0.7rem] font-bold uppercase tracking-[0.12em] text-gold-deep hover:text-ink"
             >
               Back to Shop
             </Link>

@@ -45,7 +45,7 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-40">
       {/* Announcement */}
-      <div className="bg-espresso-surface">
+      <div className="bg-ink-surface">
         <div className="section flex items-center justify-between py-2.5">
           <p className="text-[0.62rem] font-medium uppercase tracking-[0.18em] text-gold">
             <span aria-hidden>✦</span> Authentic · Sourced Directly from
@@ -64,7 +64,7 @@ export function SiteHeader() {
       <div
         className={cn(
           "border-b border-gold-pale bg-white transition-shadow duration-300",
-          scrolled && "shadow-[0_8px_30px_-18px_rgba(44,26,14,0.35)]",
+          scrolled && "shadow-[0_8px_30px_-18px_rgba(0,0,0,0.35)]",
         )}
       >
         <div className="section flex items-center justify-between gap-4 py-3.5">
@@ -82,8 +82,8 @@ export function SiteHeader() {
                 className={cn(
                   "border-b-2 border-transparent px-3 py-2 text-[0.66rem] font-medium uppercase tracking-[0.06em] transition-colors",
                   isActive(item.href)
-                    ? "border-gold text-espresso"
-                    : "text-mocha hover:text-espresso",
+                    ? "border-gold text-ink"
+                    : "text-stone hover:text-ink",
                 )}
               >
                 {item.label}
@@ -100,7 +100,7 @@ export function SiteHeader() {
               </ButtonLink>
             </span>
             <span className="hidden sm:inline-flex">
-              <ButtonLink href="/shop" variant="espresso" size="sm">
+              <ButtonLink href="/shop" variant="ink" size="sm">
                 Shop Now
               </ButtonLink>
             </span>
@@ -108,7 +108,7 @@ export function SiteHeader() {
             <button
               type="button"
               onClick={openCart}
-              className="relative flex h-10 w-10 items-center justify-center text-espresso transition-colors hover:text-gold-dim cursor-pointer"
+              className="relative flex h-10 w-10 items-center justify-center text-ink transition-colors hover:text-gold-deep cursor-pointer"
               aria-label={`Open cart, ${count} item${count === 1 ? "" : "s"}`}
             >
               <IconBag />
@@ -122,7 +122,7 @@ export function SiteHeader() {
             <button
               type="button"
               onClick={() => setOpen(true)}
-              className="flex h-10 w-10 items-center justify-center text-espresso xl:hidden cursor-pointer"
+              className="flex h-10 w-10 items-center justify-center text-ink xl:hidden cursor-pointer"
               aria-label="Open menu"
               aria-expanded={open}
             >
@@ -142,14 +142,14 @@ export function SiteHeader() {
       >
         <div
           className={cn(
-            "absolute inset-0 bg-espresso-surface/60 backdrop-blur-sm transition-opacity duration-300",
+            "absolute inset-0 bg-ink-surface/60 backdrop-blur-sm transition-opacity duration-300",
             open ? "opacity-100" : "opacity-0",
           )}
           onClick={() => setOpen(false)}
         />
         <div
           className={cn(
-            "absolute right-0 top-0 flex h-full w-[min(88vw,22rem)] flex-col bg-ivory shadow-2xl transition-transform duration-[400ms] ease-[cubic-bezier(0.16,1,0.3,1)]",
+            "absolute right-0 top-0 flex h-full w-[min(88vw,22rem)] flex-col bg-linen shadow-2xl transition-transform duration-[400ms] ease-[cubic-bezier(0.16,1,0.3,1)]",
             open ? "translate-x-0" : "translate-x-full",
           )}
           role="dialog"
@@ -161,7 +161,7 @@ export function SiteHeader() {
             <button
               type="button"
               onClick={() => setOpen(false)}
-              className="flex h-10 w-10 items-center justify-center text-espresso cursor-pointer"
+              className="flex h-10 w-10 items-center justify-center text-ink cursor-pointer"
               aria-label="Close menu"
             >
               <IconClose />
@@ -175,8 +175,8 @@ export function SiteHeader() {
                 className={cn(
                   "flex items-center justify-between px-4 py-3.5 font-serif text-lg transition-colors",
                   isActive(item.href)
-                    ? "text-gold-dim"
-                    : "text-espresso hover:text-gold-dim",
+                    ? "text-gold-deep"
+                    : "text-ink hover:text-gold-deep",
                 )}
               >
                 {item.label}
@@ -184,7 +184,7 @@ export function SiteHeader() {
             ))}
           </nav>
           <div className="mt-auto flex flex-col gap-3 border-t border-gold-pale p-6">
-            <ButtonLink href="/shop" variant="espresso" size="md" className="w-full">
+            <ButtonLink href="/shop" variant="ink" size="md" className="w-full">
               Shop Authentic Skincare
             </ButtonLink>
             <ButtonLink href="/wholesale" variant="outline" size="md" className="w-full">

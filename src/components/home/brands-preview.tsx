@@ -42,7 +42,7 @@ export async function BrandsPreview() {
             <StaggerItem key={b.slug}>
               <Link
                 href={`/brands/${b.slug}`}
-                className="group flex h-20 items-center justify-center border border-ivory-mid bg-white px-3 text-center transition-colors duration-300 hover:border-gold hover:bg-gold-faint"
+                className="group flex h-20 items-center justify-center border border-linen-mid bg-white px-3 text-center transition-colors duration-300 hover:border-gold hover:bg-linen-soft"
               >
                 {logo ? (
                   // eslint-disable-next-line @next/next/no-img-element
@@ -53,7 +53,7 @@ export async function BrandsPreview() {
                     className="max-h-9 w-auto max-w-[85%] object-contain opacity-90 transition-opacity duration-300 group-hover:opacity-100"
                   />
                 ) : (
-                  <span className="font-serif text-sm tracking-wide text-espresso/70 transition-colors group-hover:text-espresso">
+                  <span className="font-serif text-sm tracking-wide text-ink/70 transition-colors group-hover:text-ink">
                     {b.name}
                   </span>
                 )}
@@ -63,12 +63,12 @@ export async function BrandsPreview() {
         })}
       </Stagger>
 
-      <div className="mt-4 flex flex-col items-start justify-between gap-4 border border-gold-pale bg-gold-faint px-6 py-6 sm:flex-row sm:items-center">
+      <div className="mt-4 flex flex-col items-start justify-between gap-4 border border-gold-pale bg-linen-soft px-6 py-6 sm:flex-row sm:items-center">
         <div>
-          <h3 className="font-serif text-lg text-espresso">
+          <h3 className="font-serif text-lg text-ink">
             Looking to enter the African market?
           </h3>
-          <p className="mt-1 text-[0.85rem] text-cocoa">
+          <p className="mt-1 text-[0.85rem] text-stone">
             Velyn provides proven market entry, distribution infrastructure, and
             brand protection for international skincare brands.
           </p>
