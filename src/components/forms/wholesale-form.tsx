@@ -129,7 +129,7 @@ export function WholesaleForm() {
         {status === "submitting" ? "Submitting…" : "Submit Application"}
       </Button>
       <p className="text-center text-[0.7rem] text-stone">
-        Business credentials verified within 48 hours.
+        We review every application and reply by email or phone.
       </p>
     </form>
   );

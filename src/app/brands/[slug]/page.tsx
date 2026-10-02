@@ -17,12 +17,12 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const brand = await getBrandBySlug(slug);
-  if (!brand) return { title: "Brand Not Found" };
+  if (!brand) return { title: "Brand not found" };
   return {
-    title: `${brand.name}, Authentic in Nigeria`,
+    title: `${brand.name} in Nigeria`,
     description:
       brand.description ||
-      `Shop authentic ${brand.name} skincare from Velyn Beauty & Essentials, verified original, delivered nationwide.`,
+      `Shop original ${brand.name} skincare from Nuvene Beauty, bought through named distributors and delivered across Nigeria.`,
     alternates: { canonical: `${site.url}/brands/${brand.slug}` },
   };
 }
@@ -44,7 +44,7 @@ export default async function BrandPage({ params }: { params: Params }) {
         ]}
       />
       <PageHero
-        kicker={brand.origin ? `${brand.origin} · Skincare` : "Brand"}
+        kicker={brand.origin ? `${brand.origin} skincare` : "Brand"}
         title={brand.name}
         intro={brand.description}
         breadcrumb={[
@@ -64,7 +64,7 @@ export default async function BrandPage({ params }: { params: Params }) {
             href="/shop"
             className="text-[0.68rem] font-bold uppercase tracking-[0.12em] text-gold-deep hover:text-ink"
           >
-            All Products
+            View all products
           </Link>
         </div>
 
