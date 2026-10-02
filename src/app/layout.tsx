@@ -67,6 +67,11 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${display.variable} ${sans.variable}`}>
       <body className="min-h-dvh flex flex-col bg-linen text-ink antialiased">
+        <div
+          id="top-sentinel"
+          aria-hidden
+          className="pointer-events-none absolute left-0 top-0 h-2 w-px"
+        />
         <OrganizationJsonLd />
         <SmoothScroll />
         <a href="#main" className="skip-link">
