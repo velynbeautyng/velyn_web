@@ -71,7 +71,7 @@ export const useCart = create<CartState>()(
       close: () => set({ isOpen: false }),
       toggle: () => set((state) => ({ isOpen: !state.isOpen })),
     }),
-    { name: "velyn-cart" },
+    { name: "nuvene-cart" },
   ),
 );
 

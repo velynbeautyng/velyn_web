@@ -22,21 +22,20 @@ const sans = Poppins({
   weight: ["300", "400", "500", "600"],
 });
 
+const defaultTitle = `${site.name}, skincare matched to your concern`;
+
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
-  title: {
-    default: `${site.name}, Authentic Skincare, Sourced Directly`,
-    template: `%s, ${site.name}`,
-  },
+  title: { default: defaultTitle, template: `%s | ${site.name}` },
   description: site.description,
   keywords: [
-    "authentic skincare Nigeria",
-    "original skincare distributor",
-    "CeraVe Nigeria",
+    "original skincare Nigeria",
+    "skincare Abuja",
+    "CeraVe Abuja",
     "The Ordinary Nigeria",
+    "COSRX Nigeria",
     "wholesale skincare Nigeria",
-    "Korean skincare Nigeria",
-    "Velyn Beauty",
+    "Nuvene Beauty",
   ],
   authors: [{ name: site.legalName }],
   creator: site.legalName,
@@ -45,12 +44,12 @@ export const metadata: Metadata = {
     locale: "en_NG",
     url: site.url,
     siteName: site.name,
-    title: `${site.name}, Authentic Skincare, Sourced Directly`,
+    title: defaultTitle,
     description: site.description,
   },
   twitter: {
     card: "summary_large_image",
-    title: `${site.name}, Authentic Skincare, Sourced Directly`,
+    title: defaultTitle,
     description: site.description,
   },
   alternates: { canonical: site.url },

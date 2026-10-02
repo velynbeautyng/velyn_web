@@ -23,7 +23,7 @@ export type OrderRecord = {
 };
 
 /**
- * Record a completed order in ops.velynbeauty.com (UltimatePOS `sell` API).
+ * Record a completed order in ops (UltimatePOS `sell` API).
  * Best-effort and never throws to the caller: a failure here must not prevent
  * the customer from seeing their confirmation. When the catalogue is still in
  * demo mode (non-numeric product ids) or the API isn't configured, the order

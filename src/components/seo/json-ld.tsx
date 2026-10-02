@@ -39,9 +39,9 @@ export function OrganizationJsonLd() {
         legalName: site.legalName,
         slogan: site.slogan,
         url: site.url,
-        logo: `${site.url}/brand/PNG/PRIMARY%20LOGO/COLORED%201.png`,
+        logo: `${site.url}/brand/nuvene-primary.png`,
         email: site.contact.email,
-        telephone: site.contact.phoneMtn,
+        telephone: site.contact.phones[0].tel,
         address: {
           "@type": "PostalAddress",
           streetAddress: `${site.contact.address.line1}, ${site.contact.address.line2}`,

@@ -1,46 +1,49 @@
 /**
- * Central brand + site configuration for Velyn Beauty & Essentials.
- * Sourced from the Brand Charter & Positioning Document.
+ * Central brand and site configuration for Nuvene Beauty.
+ * Sourced from the Nuvene Brand Charter and Positioning Document (2026 relaunch).
  */
 
 export const site = {
-  name: "Velyn Beauty & Essentials",
-  shortName: "Velyn",
-  legalName: "Velyn Beauty & Essentials Ltd",
-  tagline: "Beauty & Essentials",
+  name: "Nuvene Beauty",
+  shortName: "Nuvene",
+  // CAC registration of the new name is pending; add "Ltd" once confirmed.
+  legalName: "Nuvene Beauty",
   slogan: "Beauty you can trust",
+  positioning: "Concern matched. Transparently sourced.",
   description:
-    "Velyn Beauty & Essentials is Nigeria's trusted distributor of authentic skincare, sourced directly from manufacturers and curated for real results. Retail, wholesale and brand partnerships across all 36 states.",
-  url: process.env.NEXT_PUBLIC_SITE_URL || "https://velynbeauty.com",
+    "Nuvene Beauty is an Abuja skincare company. We match your real skin concern to an original product, name the distributor it came from, and replace or refund anything confirmed counterfeit.",
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://nuvenebeauty.com",
   locale: "en_NG",
 
   contact: {
-    email: "hello@velynbeauty.com",
-    phoneAirtel: "+2349028828977",
-    phoneMtn: "+2348141741207",
-    whatsapp: "2348141741207",
-    whatsappDisplay: "+234 814 174 1207",
+    email: "nuvenebeauty@gmail.com",
+    phones: [
+      { label: "Abuja", tel: "+2347047024403", display: "0704 702 4403" },
+      { label: "Lagos", tel: "+2349064210147", display: "0906 421 0147" },
+    ],
+    // The charter lists WhatsApp Business as still to be confirmed; the Abuja line stands in.
+    whatsapp: "2347047024403",
+    whatsappDisplay: "0704 702 4403",
     address: {
-      line1: "Suite A20, ES-EM Plaza",
-      line2: "Shettima Monguno Crescent, Utako",
+      line1: "Shop CG 056, Patience Jonathan Block",
+      line2: "Wuye Market, Wuye",
       city: "Abuja",
       country: "Nigeria",
     },
-    hours: "Mon–Fri, 9am–5pm WAT",
+    hours: "Monday to Friday, 9am to 5pm WAT",
   },
 
   social: {
-    instagram: "https://instagram.com/velynbeauty_essentials",
-    tiktok: "https://tiktok.com/@velynbeauty_essentials",
-    facebook: "https://facebook.com/velynbeautyessentials",
+    instagram: "https://instagram.com/nuvenebeauty",
+    tiktok: "https://tiktok.com/@nuvenebeauty",
+    facebook: "https://facebook.com/nuvenebeauty",
   },
 
   stats: [
-    { value: "50+", label: "Global Brands" },
-    { value: "100%", label: "Authentic Products" },
-    { value: "10K+", label: "Happy Customers" },
-    { value: "36", label: "States Covered" },
-    { value: "3", label: "Distribution Channels" },
+    { value: "200+", label: "Products" },
+    { value: "50+", label: "Global brands" },
+    { value: "5", label: "Skin concerns matched" },
+    { value: "1", label: "Guarantee: replace or refund" },
   ],
 } as const;
 
@@ -58,23 +61,23 @@ export const nav = [
 export const footerNav = {
   explore: [
     { label: "Home", href: "/" },
-    { label: "About Us", href: "/about" },
-    { label: "Our Brands", href: "/brands" },
+    { label: "About us", href: "/about" },
+    { label: "Our brands", href: "/brands" },
     { label: "Shop", href: "/shop" },
-    { label: "Education Hub", href: "/education" },
+    { label: "Education hub", href: "/education" },
   ],
   business: [
-    { label: "Wholesale & Retail", href: "/wholesale" },
-    { label: "Partner With Us", href: "/partner" },
-    { label: "Authenticity Policy", href: "/authenticity" },
-    { label: "Wholesale Terms", href: "/wholesale#terms" },
+    { label: "Wholesale", href: "/wholesale" },
+    { label: "Partner with us", href: "/partner" },
+    { label: "Sourcing promise", href: "/authenticity" },
+    { label: "Wholesale terms", href: "/wholesale#terms" },
   ],
   support: [
-    { label: "Contact Us", href: "/contact" },
+    { label: "Contact us", href: "/contact" },
     { label: "FAQs", href: "/faq" },
-    { label: "Order Tracking", href: "/track" },
-    { label: "Returns Policy", href: "/returns" },
-    { label: "Privacy Policy", href: "/privacy" },
+    { label: "Order tracking", href: "/track" },
+    { label: "Returns policy", href: "/returns" },
+    { label: "Privacy policy", href: "/privacy" },
   ],
 } as const;
 
