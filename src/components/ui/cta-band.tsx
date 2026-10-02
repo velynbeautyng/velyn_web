@@ -4,9 +4,9 @@ import { ButtonLink } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 const TONES = {
-  ink: { bg: "bg-ink", title: "text-white", body: "text-white/80", primary: "gold", secondary: "outlineLight" },
-  sage: { bg: "bg-sage-shade", title: "text-white", body: "text-white", primary: "white", secondary: "outlineLight" },
-  gold: { bg: "bg-gold", title: "text-ink", body: "text-ink/80", primary: "ink", secondary: "outline" },
+  ink: { bg: "bg-ink", kicker: "kicker--onDark", title: "text-white", body: "text-white/80", primary: "gold", secondary: "outlineLight" },
+  sage: { bg: "bg-sage-shade", kicker: "text-white", title: "text-white", body: "text-white", primary: "white", secondary: "outlineLight" },
+  gold: { bg: "bg-gold", kicker: "text-ink", title: "text-ink", body: "text-ink/80", primary: "ink", secondary: "outline" },
 } as const;
 
 export function CtaBand({
@@ -32,7 +32,7 @@ export function CtaBand({
           <span
             className={cn(
               "kicker kicker--center mx-auto justify-center",
-              tone === "gold" ? "text-ink" : "kicker--onDark",
+              t.kicker,
             )}
           >
             {kicker}

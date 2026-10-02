@@ -10,7 +10,7 @@ const pillars = [
   {
     n: "02",
     title: "Disclose",
-    body: "We name the distributor each product comes from. Where a brand offers a batch checker, as COSRX does, we run it with you.",
+    body: "We tell you which distributor a product came from. Where a brand offers a batch checker, as COSRX does, we run it with you.",
   },
   {
     n: "03",

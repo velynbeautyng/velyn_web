@@ -76,7 +76,7 @@ export function CheckoutSuccess() {
   if (state.kind === "success") {
     return (
       <Shell>
-        <div className="flex h-16 w-16 items-center justify-center rounded-full bg-sage text-white">
+        <div className="flex h-16 w-16 items-center justify-center rounded-full bg-sage-deep text-white">
           <IconCheck width={30} height={30} strokeWidth={2.2} />
         </div>
         <h1 className="font-serif text-3xl text-ink">Thank you!</h1>

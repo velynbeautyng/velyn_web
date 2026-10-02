@@ -61,7 +61,7 @@ export function WholesaleForm() {
   if (status === "success") {
     return (
       <div className="flex flex-col items-center gap-3 border border-linen-mid bg-white p-10 text-center">
-        <div className="flex h-12 w-12 items-center justify-center rounded-full bg-sage text-white">
+        <div className="flex h-12 w-12 items-center justify-center rounded-full bg-sage-deep text-white">
           <IconCheck width={22} height={22} strokeWidth={2.2} />
         </div>
         <h3 className="font-serif text-xl text-ink">Application received</h3>

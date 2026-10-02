@@ -8,7 +8,7 @@ const audiences = [
     accent: "border-t-gold",
     Icon: IconUser,
     title: "Individual customers",
-    body: "Skincare matched to your concern, with the source named on every product and our replace-or-refund guarantee behind it.",
+    body: "Skincare matched to your concern. Ask which distributor any product came from, and our replace-or-refund guarantee covers it.",
     cta: "Shop by concern",
     href: "/shop",
   },

@@ -77,7 +77,7 @@ export function AddToCartButton({
         size,
         className: cn(
           full && "w-full",
-          added && "!bg-sage !border-sage !text-white",
+          added && "!bg-sage-deep !border-sage-deep !text-white",
           className,
         ),
       })}

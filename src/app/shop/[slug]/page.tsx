@@ -48,7 +48,7 @@ export default async function ProductPage({ params }: { params: Params }) {
   const trust = [
     { icon: IconShield, text: "Replace or refund if ever confirmed counterfeit" },
     { icon: IconTruck, text: "Delivery across Nigeria from Abuja" },
-    { icon: IconCheck, text: "Bought through a named distributor" },
+    { icon: IconCheck, text: "Ask us which distributor it came from" },
   ];
 
   return (

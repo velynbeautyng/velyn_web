@@ -70,7 +70,7 @@ export default async function ArticlePage({ params }: { params: Params }) {
             name: site.name,
             logo: {
               "@type": "ImageObject",
-              url: `${site.url}/brand/PNG/PRIMARY%20LOGO/COLORED%201.png`,
+              url: `${site.url}/brand/nuvene-primary.png`,
             },
           },
           mainEntityOfPage: `${site.url}/education/${article.slug}`,
