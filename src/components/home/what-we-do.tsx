@@ -4,53 +4,42 @@ import { Stagger, StaggerItem } from "@/components/motion/reveal";
 const pillars = [
   {
     n: "01",
-    title: "Authentic Distribution",
-    body: "Direct-from-manufacturer sourcing. Every product verified before it reaches your hands, no counterfeits, no compromise.",
+    title: "Match",
+    body: "Tell us what you're dealing with: acne, dryness, dark spots, sensitivity or sun. We recommend the active and the product that suit it, across every brand we carry.",
   },
   {
     n: "02",
-    title: "Results-Driven Brands",
-    body: "We curate skincare that treats real concerns, acne, hyperpigmentation, uneven tone, formulated for Nigerian skin.",
+    title: "Disclose",
+    body: "We name the distributor each product comes from. Where a brand offers a batch checker, as COSRX does, we run it with you.",
   },
   {
     n: "03",
-    title: "Seamless Market Access",
-    body: "Retail, wholesale and brand-partnership distribution across all 36 states. We make market entry simple.",
+    title: "Guarantee",
+    body: "If a product you bought from us is ever confirmed counterfeit, we replace it or refund you. The risk sits with us.",
   },
 ];
 
 export function WhatWeDo() {
   return (
     <section className="section section-y bg-white">
-      <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
-        <SectionHeading
-          kicker="What We Do"
-          title={
-            <>
-              Connecting Great Skincare
-              <br className="hidden sm:block" /> to the{" "}
-              <em>African Market</em>
-            </>
-          }
-        />
-        <p className="prose-body max-w-md text-[0.95rem] lg:pb-2">
-          We bridge the gap between global skincare innovation and Nigerian
-          consumers who deserve access to authentic, effective products,
-          directly from manufacturers.
-        </p>
-      </div>
-
-      <Stagger className="mt-12 grid gap-px border border-linen-mid bg-linen-mid sm:grid-cols-3">
+      <SectionHeading
+        title={
+          <>
+            Three habits behind <em>every sale</em>
+          </>
+        }
+        intro="We start with your concern, tell you where the product came from, and stand behind it."
+      />
+      <Stagger className="mt-12 grid gap-px border border-linen-mid bg-linen-mid md:grid-cols-3">
         {pillars.map((p) => (
-          <StaggerItem key={p.n} className="group bg-white p-8">
-            <div className="font-serif text-[2.6rem] leading-none text-gold-pale transition-colors duration-300 group-hover:text-gold">
+          <StaggerItem key={p.n} className="group bg-white p-8 lg:p-10">
+            <div className="font-serif text-[2.6rem] leading-none text-gold-pale transition-colors duration-500 group-hover:text-gold">
               {p.n}
             </div>
-            <h3 className="mt-3 font-serif text-lg text-ink">{p.title}</h3>
-            <p className="mt-2 text-[0.85rem] leading-relaxed text-stone">
-              {p.body}
-            </p>
-            <div className="mt-4 h-0.5 w-7 bg-gold transition-all duration-300 group-hover:w-12" />
+            <h3 className="mt-4 font-serif text-xl text-ink">{p.title}</h3>
+            <p className="mt-3 text-[0.88rem] leading-relaxed text-stone">{p.body}</p>
+            {/* scale-x rather than width so the underline animates on the compositor */}
+            <div className="mt-5 h-0.5 w-7 origin-left bg-gold transition-transform duration-500 group-hover:scale-x-[1.7]" />
           </StaggerItem>
         ))}
       </Stagger>
