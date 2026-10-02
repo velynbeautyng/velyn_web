@@ -1,11 +1,7 @@
 import Link from "next/link";
 import { footerNav, site } from "@/lib/site";
-import { NuveneIcon } from "@/components/brand/nuvene-logo";
-import {
-  IconFacebook,
-  IconInstagram,
-  IconTiktok,
-} from "@/components/ui/icons";
+import { NuveneStacked } from "@/components/brand/nuvene-logo";
+import { IconFacebook, IconInstagram, IconTiktok } from "@/components/ui/icons";
 
 const socials = [
   { label: "Instagram", href: site.social.instagram, Icon: IconInstagram },
@@ -23,23 +19,16 @@ export function SiteFooter() {
   return (
     <footer className="bg-ink-surface text-linen">
       <div className="section py-14">
-        <div className="grid gap-10 border-b border-gold/10 pb-12 md:grid-cols-2 lg:grid-cols-[1.6fr_1fr_1fr_1fr]">
+        <div className="grid gap-10 border-b border-gold/15 pb-12 md:grid-cols-2 lg:grid-cols-[1.6fr_1fr_1fr_1fr]">
           <div className="max-w-sm">
-            <div className="flex items-center gap-2.5">
-              <NuveneIcon className="h-9 w-auto text-gold" />
-              <div className="leading-none">
-                <div className="font-serif text-xl tracking-[0.14em] text-linen">
-                  VELYN
-                </div>
-                <div className="mt-1 text-[0.5rem] uppercase tracking-[0.22em] text-gold">
-                  Beauty &amp; Essentials
-                </div>
-              </div>
-            </div>
-            <p className="mt-4 text-sm leading-relaxed text-linen/40">
-              Helping women &amp; men feel confident, radiant &amp; cared for
-              every day. Authentic skincare, sourced with integrity, delivered
-              with care.
+            <NuveneStacked tone="linen" className="h-14 w-auto" />
+            <p className="mt-5 text-sm leading-relaxed text-linen/75">
+              Skincare matched to your concern, bought through named distributors
+              and backed by our replace-or-refund guarantee.
+            </p>
+            <p className="mt-3 text-sm leading-relaxed text-linen/75">
+              {site.contact.address.line1}, {site.contact.address.line2},{" "}
+              {site.contact.address.city}
             </p>
             <div className="mt-5 flex gap-2.5">
               {socials.map(({ label, href, Icon }) => (
@@ -49,7 +38,7 @@ export function SiteFooter() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={label}
-                  className="flex h-9 w-9 items-center justify-center border border-gold/15 bg-gold/[0.04] text-gold transition-colors hover:border-gold/40 hover:bg-gold/10"
+                  className="flex h-9 w-9 items-center justify-center border border-gold/25 text-gold transition-colors hover:border-gold hover:bg-gold hover:text-ink"
                 >
                   <Icon width={16} height={16} />
                 </a>
@@ -59,7 +48,7 @@ export function SiteFooter() {
 
           {columns.map((col) => (
             <div key={col.title}>
-              <h3 className="text-[0.62rem] font-bold uppercase tracking-[0.2em] text-gold">
+              <h3 className="text-[0.62rem] font-semibold uppercase tracking-[0.2em] text-gold">
                 {col.title}
               </h3>
               <ul className="mt-4 flex flex-col gap-2.5">
@@ -67,7 +56,7 @@ export function SiteFooter() {
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-sm text-linen/40 transition-colors hover:text-linen"
+                      className="text-sm text-linen/75 transition-colors hover:text-white"
                     >
                       {link.label}
                     </Link>
@@ -79,33 +68,29 @@ export function SiteFooter() {
         </div>
 
         <div className="flex flex-col items-start justify-between gap-3 pt-6 sm:flex-row sm:items-center">
-          <p className="text-xs text-linen/20">
+          <p className="text-xs text-linen/65">
             © {new Date().getFullYear()} {site.legalName}. All rights reserved.
-            Abuja, Nigeria.
           </p>
-          <div className="flex gap-5">
-            <Link href="/privacy" className="text-xs text-linen/20 hover:text-linen/50">
-              Privacy Policy
+          <div className="flex flex-wrap gap-x-5 gap-y-2">
+            <Link href="/privacy" className="text-xs text-linen/65 hover:text-white">
+              Privacy policy
             </Link>
-            <Link href="/terms" className="text-xs text-linen/20 hover:text-linen/50">
-              Terms of Use
+            <Link href="/terms" className="text-xs text-linen/65 hover:text-white">
+              Terms of use
             </Link>
-            <Link
-              href="/authenticity"
-              className="text-xs text-linen/20 hover:text-linen/50"
-            >
-              Authenticity Guarantee
+            <Link href="/authenticity" className="text-xs text-linen/65 hover:text-white">
+              Sourcing promise
             </Link>
           </div>
         </div>
 
-        <p className="mt-6 border-t border-gold/10 pt-6 text-center text-xs text-linen/25">
-          Built with Love by{" "}
+        <p className="mt-6 border-t border-gold/15 pt-6 text-center text-xs text-linen/65">
+          Built with love by{" "}
           <a
             href="https://wa.me/2348090520578?text=I%20will%20like%20a%20website%20designed"
             target="_blank"
             rel="noopener noreferrer"
-            className="font-semibold text-gold/70 transition-colors hover:text-gold"
+            className="font-semibold text-gold transition-colors hover:text-white"
           >
             PhoenixITNg
           </a>

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { nav, site } from "@/lib/site";
 import { cn } from "@/lib/utils";
 import { cartCount, useCart } from "@/lib/cart-store";
@@ -10,61 +10,91 @@ import { NuveneLockup } from "@/components/brand/nuvene-logo";
 import { IconBag, IconClose, IconMenu } from "@/components/ui/icons";
 import { ButtonLink } from "@/components/ui/button";
 
+const noopSubscribe = () => () => {};
+
 export function SiteHeader() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [lastPath, setLastPath] = useState(pathname);
   const items = useCart((s) => s.items);
   const openCart = useCart((s) => s.open);
-  const [mounted, setMounted] = useState(false);
+  // The cart lives in localStorage, so its count is only real after hydration.
+  const hydrated = useSyncExternalStore(noopSubscribe, () => true, () => false);
+  const menuButton = useRef<HTMLButtonElement>(null);
+  const drawer = useRef<HTMLDivElement>(null);
 
-  useEffect(() => setMounted(true), []);
+  // Close the drawer when the route changes.
+  if (pathname !== lastPath) {
+    setLastPath(pathname);
+    setOpen(false);
+  }
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    const sentinel = document.getElementById("top-sentinel");
+    if (!sentinel) return;
+    const io = new IntersectionObserver(([entry]) => setScrolled(!entry.isIntersecting));
+    io.observe(sentinel);
+    return () => io.disconnect();
   }, []);
 
   useEffect(() => {
-    setOpen(false);
-  }, [pathname]);
+    if (!open) return;
+    const panel = drawer.current;
+    const trigger = menuButton.current;
+    document.body.style.overflow = "hidden";
+    panel?.querySelector<HTMLElement>("button, a")?.focus();
 
-  useEffect(() => {
-    document.body.style.overflow = open ? "hidden" : "";
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setOpen(false);
+        return;
+      }
+      if (e.key !== "Tab" || !panel) return;
+      const focusable = panel.querySelectorAll<HTMLElement>("a[href], button");
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    };
+    document.addEventListener("keydown", onKey);
     return () => {
+      document.removeEventListener("keydown", onKey);
       document.body.style.overflow = "";
+      trigger?.focus();
     };
   }, [open]);
 
-  const count = mounted ? cartCount(items) : 0;
+  const count = hydrated ? cartCount(items) : 0;
   const isActive = (href: string) =>
     href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   return (
     <header className="sticky top-0 z-40">
-      {/* Announcement */}
-      <div className="bg-ink-surface">
-        <div className="section flex items-center justify-between py-2.5">
-          <p className="text-[0.62rem] font-medium uppercase tracking-[0.18em] text-gold">
-            <span aria-hidden>✦</span> Authentic · Sourced Directly from
-            Manufacturers <span className="hidden sm:inline">· Nationwide Delivery</span>
+      <div className="bg-sage-dusk">
+        <div className="section flex items-center justify-between gap-4 py-2.5">
+          <p className="text-[0.62rem] font-medium uppercase tracking-[0.18em] text-white">
+            {site.positioning}
+            <span className="hidden sm:inline"> Delivery across Nigeria.</span>
           </p>
           <Link
-            href="/wholesale"
-            className="hidden text-[0.58rem] uppercase tracking-[0.12em] text-gold/60 underline-offset-4 hover:text-gold hover:underline sm:block"
+            href="/authenticity"
+            className="hidden shrink-0 text-[0.6rem] uppercase tracking-[0.12em] text-white underline-offset-4 hover:underline sm:block"
           >
-            Wholesale Inquiry
+            Our sourcing promise
           </Link>
         </div>
       </div>
 
-      {/* Nav */}
       <div
         className={cn(
           "border-b border-gold-pale bg-white transition-shadow duration-300",
-          scrolled && "shadow-[0_8px_30px_-18px_rgba(0,0,0,0.35)]",
+          scrolled && "shadow-[0_10px_30px_-22px_rgba(0,0,0,0.35)]",
         )}
       >
         <div className="section flex items-center justify-between gap-4 py-3.5">
@@ -72,7 +102,6 @@ export function SiteHeader() {
             <NuveneLockup className="h-8 w-auto sm:h-9" />
           </Link>
 
-          {/* Desktop nav */}
           <nav className="hidden items-center xl:flex" aria-label="Primary">
             {nav.map((item) => (
               <Link
@@ -80,10 +109,8 @@ export function SiteHeader() {
                 href={item.href}
                 aria-current={isActive(item.href) ? "page" : undefined}
                 className={cn(
-                  "border-b-2 border-transparent px-3 py-2 text-[0.66rem] font-medium uppercase tracking-[0.06em] transition-colors",
-                  isActive(item.href)
-                    ? "border-gold text-ink"
-                    : "text-stone hover:text-ink",
+                  "whitespace-nowrap border-b-2 border-transparent px-2.5 py-2 text-[0.66rem] font-medium uppercase tracking-[0.06em] transition-colors 2xl:px-3",
+                  isActive(item.href) ? "border-gold text-ink" : "text-stone hover:text-ink",
                 )}
               >
                 {item.label}
@@ -92,37 +119,37 @@ export function SiteHeader() {
           </nav>
 
           <div className="flex shrink-0 items-center gap-2">
-            {/* Visibility is controlled on the wrapper — putting `hidden` on the
-                ButtonLink itself loses to its base `inline-flex`. */}
-            <span className="hidden xl:inline-flex">
+            {/* Visibility sits on the wrapper: `hidden` on the ButtonLink itself loses to its base `inline-flex`. */}
+            <span className="hidden 2xl:inline-flex">
               <ButtonLink href="/wholesale" variant="outline" size="sm">
                 Wholesale
               </ButtonLink>
             </span>
             <span className="hidden sm:inline-flex">
               <ButtonLink href="/shop" variant="ink" size="sm">
-                Shop Now
+                Shop by concern
               </ButtonLink>
             </span>
 
             <button
               type="button"
               onClick={openCart}
-              className="relative flex h-10 w-10 items-center justify-center text-ink transition-colors hover:text-gold-deep cursor-pointer"
+              className="relative flex h-10 w-10 cursor-pointer items-center justify-center text-ink transition-colors hover:text-gold-deep"
               aria-label={`Open cart, ${count} item${count === 1 ? "" : "s"}`}
             >
               <IconBag />
               {count > 0 && (
-                <span className="absolute -right-0.5 -top-0.5 flex h-4 min-w-4 items-center justify-center rounded-full bg-gold px-1 text-[0.56rem] font-bold text-white">
+                <span className="absolute -right-0.5 -top-0.5 flex h-4 min-w-4 items-center justify-center rounded-full bg-gold px-1 text-[0.56rem] font-bold text-ink">
                   {count}
                 </span>
               )}
             </button>
 
             <button
+              ref={menuButton}
               type="button"
               onClick={() => setOpen(true)}
-              className="flex h-10 w-10 items-center justify-center text-ink xl:hidden cursor-pointer"
+              className="flex h-10 w-10 cursor-pointer items-center justify-center text-ink xl:hidden"
               aria-label="Open menu"
               aria-expanded={open}
             >
@@ -132,22 +159,23 @@ export function SiteHeader() {
         </div>
       </div>
 
-      {/* Mobile drawer */}
       <div
         className={cn(
           "fixed inset-0 z-50 xl:hidden",
           open ? "pointer-events-auto" : "pointer-events-none",
         )}
         aria-hidden={!open}
+        inert={!open}
       >
         <div
           className={cn(
-            "absolute inset-0 bg-ink-surface/60 backdrop-blur-sm transition-opacity duration-300",
+            "absolute inset-0 bg-ink/50 backdrop-blur-sm transition-opacity duration-300",
             open ? "opacity-100" : "opacity-0",
           )}
           onClick={() => setOpen(false)}
         />
         <div
+          ref={drawer}
           className={cn(
             "absolute right-0 top-0 flex h-full w-[min(88vw,22rem)] flex-col bg-linen shadow-2xl transition-transform duration-[400ms] ease-[cubic-bezier(0.16,1,0.3,1)]",
             open ? "translate-x-0" : "translate-x-full",
@@ -157,26 +185,25 @@ export function SiteHeader() {
           aria-label="Menu"
         >
           <div className="flex items-center justify-between border-b border-gold-pale px-6 py-4">
-            <NuveneLockup className="h-8 w-auto sm:h-9" />
+            <NuveneLockup className="h-7 w-auto" />
             <button
               type="button"
               onClick={() => setOpen(false)}
-              className="flex h-10 w-10 items-center justify-center text-ink cursor-pointer"
+              className="flex h-10 w-10 cursor-pointer items-center justify-center text-ink"
               aria-label="Close menu"
             >
               <IconClose />
             </button>
           </div>
-          <nav className="flex flex-col px-2 py-4" aria-label="Mobile">
+          <nav className="flex flex-col overflow-y-auto px-2 py-4" aria-label="Mobile">
             {nav.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
+                aria-current={isActive(item.href) ? "page" : undefined}
                 className={cn(
-                  "flex items-center justify-between px-4 py-3.5 font-serif text-lg transition-colors",
-                  isActive(item.href)
-                    ? "text-gold-deep"
-                    : "text-ink hover:text-gold-deep",
+                  "px-4 py-3.5 font-serif text-lg transition-colors",
+                  isActive(item.href) ? "text-gold-deep" : "text-ink hover:text-gold-deep",
                 )}
               >
                 {item.label}
@@ -185,10 +212,10 @@ export function SiteHeader() {
           </nav>
           <div className="mt-auto flex flex-col gap-3 border-t border-gold-pale p-6">
             <ButtonLink href="/shop" variant="ink" size="md" className="w-full">
-              Shop Authentic Skincare
+              Shop by concern
             </ButtonLink>
             <ButtonLink href="/wholesale" variant="outline" size="md" className="w-full">
-              Apply for Wholesale
+              Apply for wholesale
             </ButtonLink>
           </div>
         </div>
