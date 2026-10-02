@@ -55,27 +55,27 @@ export default async function BrandPage({ params }: { params: Params }) {
       />
 
       <section className="section section-y">
-        <div className="mb-8 flex items-center justify-between border-b border-ivory-mid pb-4">
-          <p className="text-[0.8rem] text-mocha">
-            <span className="font-semibold text-espresso">{items.length}</span>{" "}
+        <div className="mb-8 flex items-center justify-between border-b border-linen-mid pb-4">
+          <p className="text-[0.8rem] text-stone">
+            <span className="font-semibold text-ink">{items.length}</span>{" "}
             {items.length === 1 ? "product" : "products"}
           </p>
           <Link
             href="/shop"
-            className="text-[0.68rem] font-bold uppercase tracking-[0.12em] text-gold-dim hover:text-espresso"
+            className="text-[0.68rem] font-bold uppercase tracking-[0.12em] text-gold-deep hover:text-ink"
           >
             All Products
           </Link>
         </div>
 
         {items.length === 0 ? (
-          <div className="border border-ivory-mid bg-white py-20 text-center">
-            <p className="font-serif text-xl text-espresso">
+          <div className="border border-linen-mid bg-white py-20 text-center">
+            <p className="font-serif text-xl text-ink">
               Products for this brand are coming soon.
             </p>
             <Link
               href="/shop"
-              className="mt-3 inline-block text-[0.7rem] font-bold uppercase tracking-[0.12em] text-gold-dim hover:text-espresso"
+              className="mt-3 inline-block text-[0.7rem] font-bold uppercase tracking-[0.12em] text-gold-deep hover:text-ink"
             >
               Browse the full shop
             </Link>

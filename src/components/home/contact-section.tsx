@@ -27,7 +27,7 @@ const details = [
 
 export function ContactSection() {
   return (
-    <section className="section section-y grid gap-12 bg-espresso lg:grid-cols-2 lg:gap-16">
+    <section className="section section-y grid gap-12 bg-ink lg:grid-cols-2 lg:gap-16">
       <div>
         <SectionHeading
           tone="dark"
@@ -47,8 +47,8 @@ export function ContactSection() {
                   {d.icon}
                 </span>
                 <div>
-                  <div className="font-serif text-base text-ivory">{d.main}</div>
-                  <div className="mt-0.5 text-xs text-ivory/35">{d.sub}</div>
+                  <div className="font-serif text-base text-linen">{d.main}</div>
+                  <div className="mt-0.5 text-xs text-linen/35">{d.sub}</div>
                 </div>
               </div>
             );
@@ -73,10 +73,10 @@ export function ContactSection() {
             <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-[#25D366]" />
           </span>
           <div>
-            <div className="text-sm font-semibold text-ivory">
+            <div className="text-sm font-semibold text-linen">
               Talk to a Skincare Specialist
             </div>
-            <div className="mt-0.5 text-xs text-ivory/35">
+            <div className="mt-0.5 text-xs text-linen/35">
               Usually responds within 30 minutes via WhatsApp
             </div>
           </div>
@@ -84,8 +84,8 @@ export function ContactSection() {
       </div>
 
       <Reveal direction="left" delay={0.15}>
-        <div className="border border-gold/10 bg-ivory/[0.03] p-6 sm:p-8">
-          <h3 className="mb-5 font-serif text-xl text-ivory">Send a Message</h3>
+        <div className="border border-gold/10 bg-linen/[0.03] p-6 sm:p-8">
+          <h3 className="mb-5 font-serif text-xl text-linen">Send a Message</h3>
           <ContactForm tone="dark" />
         </div>
       </Reveal>

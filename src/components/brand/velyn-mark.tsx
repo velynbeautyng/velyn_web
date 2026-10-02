@@ -10,13 +10,13 @@ export function VelynMark({
   tone = "gold",
 }: {
   className?: string;
-  tone?: "gold" | "white" | "espresso";
+  tone?: "gold" | "white" | "ink";
 }) {
   const fill =
     tone === "white"
-      ? "#F7F4EF"
-      : tone === "espresso"
-        ? "#2C1A0E"
+      ? "#E1DAC6"
+      : tone === "ink"
+        ? "#000000"
         : "#BD9468";
 
   return (

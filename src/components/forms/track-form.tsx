@@ -36,9 +36,9 @@ function stagesFor(method: "delivery" | "pickup"): string[] {
 }
 
 const fieldClass =
-  "w-full border border-ivory-mid bg-white px-3.5 py-3 text-sm text-espresso placeholder:text-mocha/60 outline-none transition-colors focus:border-gold";
+  "w-full border border-linen-mid bg-white px-3.5 py-3 text-sm text-ink placeholder:text-stone/60 outline-none transition-colors focus:border-gold";
 const labelClass =
-  "mb-1.5 block text-[0.6rem] font-bold uppercase tracking-[0.14em] text-mocha";
+  "mb-1.5 block text-[0.6rem] font-bold uppercase tracking-[0.14em] text-stone";
 
 export function TrackForm() {
   const [reference, setReference] = useState("");
@@ -106,7 +106,7 @@ export function TrackForm() {
         </div>
         <Button
           type="submit"
-          variant="espresso"
+          variant="ink"
           size="lg"
           disabled={result.kind === "loading"}
           className="w-full"
@@ -154,14 +154,14 @@ function OrderResult({ order }: { order: Order }) {
     : (stages[order.stage - 1] ?? order.stageLabel);
 
   return (
-    <div className="mt-8 border-t border-ivory-mid pt-8">
+    <div className="mt-8 border-t border-linen-mid pt-8">
       <div className="flex flex-wrap items-baseline justify-between gap-2">
         <div>
-          <p className="text-[0.6rem] font-bold uppercase tracking-[0.14em] text-mocha">
+          <p className="text-[0.6rem] font-bold uppercase tracking-[0.14em] text-stone">
             Order {order.reference}
           </p>
           {placed && (
-            <p className="mt-0.5 text-[0.8rem] text-cocoa">Placed {placed}</p>
+            <p className="mt-0.5 text-[0.8rem] text-stone">Placed {placed}</p>
           )}
         </div>
         <span
@@ -169,7 +169,7 @@ function OrderResult({ order }: { order: Order }) {
             "px-2.5 py-1 text-[0.6rem] font-bold uppercase tracking-[0.1em]",
             order.cancelled
               ? "bg-red-50 text-red-600"
-              : "bg-olive-pale text-olive",
+              : "bg-sage-pale text-sage-deep",
           )}
         >
           {statusLabel}
@@ -186,8 +186,8 @@ function OrderResult({ order }: { order: Order }) {
       )}
 
       {order.trackingNote && !order.cancelled && (
-        <p className="mt-6 border border-gold-pale bg-gold-faint px-4 py-3 text-[0.85rem] text-cocoa">
-          <span className="font-semibold text-espresso">Update: </span>
+        <p className="mt-6 border border-gold-pale bg-linen-soft px-4 py-3 text-[0.85rem] text-stone">
+          <span className="font-semibold text-ink">Update: </span>
           {order.trackingNote}
         </p>
       )}
@@ -195,11 +195,11 @@ function OrderResult({ order }: { order: Order }) {
       {order.items.length > 0 && (
         <div className="mt-7">
           <p className={labelClass}>Items</p>
-          <ul className="flex flex-col gap-1.5 border-y border-ivory-mid py-3">
+          <ul className="flex flex-col gap-1.5 border-y border-linen-mid py-3">
             {order.items.map((it, i) => (
               <li
                 key={i}
-                className="flex justify-between text-[0.85rem] text-espresso"
+                className="flex justify-between text-[0.85rem] text-ink"
               >
                 <span>
                   {it.quantity}× {it.name}
@@ -208,8 +208,8 @@ function OrderResult({ order }: { order: Order }) {
             ))}
           </ul>
           <div className="mt-3 flex justify-between text-sm">
-            <span className="uppercase tracking-[0.1em] text-mocha">Total</span>
-            <span className="font-serif text-espresso">
+            <span className="uppercase tracking-[0.1em] text-stone">Total</span>
+            <span className="font-serif text-ink">
               {formatNaira(order.total)}
             </span>
           </div>
@@ -236,17 +236,17 @@ function Stepper({ stage, stages }: { stage: number; stages: string[] }) {
                     ? "bg-transparent"
                     : stepNo <= stage
                       ? "bg-gold"
-                      : "bg-ivory-mid",
+                      : "bg-linen-mid",
                 )}
               />
               <span
                 className={cn(
                   "flex h-8 w-8 shrink-0 items-center justify-center rounded-full border-2 transition-colors",
-                  done && "border-olive bg-olive text-white",
+                  done && "border-sage bg-sage text-white",
                   current && "border-gold bg-gold text-white",
                   !done &&
                     !current &&
-                    "border-ivory-mid bg-white text-mocha/50",
+                    "border-linen-mid bg-white text-stone/50",
                 )}
               >
                 {done ? (
@@ -262,7 +262,7 @@ function Stepper({ stage, stages }: { stage: number; stages: string[] }) {
                     ? "bg-transparent"
                     : stepNo < stage
                       ? "bg-gold"
-                      : "bg-ivory-mid",
+                      : "bg-linen-mid",
                 )}
               />
             </div>
@@ -270,10 +270,10 @@ function Stepper({ stage, stages }: { stage: number; stages: string[] }) {
               className={cn(
                 "mt-2 text-[0.62rem] font-semibold uppercase tracking-[0.08em]",
                 current
-                  ? "text-espresso"
+                  ? "text-ink"
                   : done
-                    ? "text-olive"
-                    : "text-mocha/50",
+                    ? "text-sage-deep"
+                    : "text-stone/50",
               )}
             >
               {label}
@@ -298,16 +298,16 @@ function Fallback({
     ? `Hi Velyn, I'd like an update on my order ${reference}.`
     : "Hi Velyn, I'd like an update on my order.";
   return (
-    <div className="mt-7 border-t border-ivory-mid pt-6 text-center">
-      <h3 className="font-serif text-lg text-espresso">{title}</h3>
-      <p className="mx-auto mt-2 max-w-sm text-[0.85rem] leading-relaxed text-cocoa">
+    <div className="mt-7 border-t border-linen-mid pt-6 text-center">
+      <h3 className="font-serif text-lg text-ink">{title}</h3>
+      <p className="mx-auto mt-2 max-w-sm text-[0.85rem] leading-relaxed text-stone">
         {body}
       </p>
       <a
         href={whatsappLink(message)}
         target="_blank"
         rel="noopener noreferrer"
-        className="mt-4 inline-flex items-center gap-2 border border-espresso px-5 py-2.5 text-[0.7rem] font-bold uppercase tracking-[0.12em] text-espresso transition-colors hover:bg-espresso hover:text-ivory"
+        className="mt-4 inline-flex items-center gap-2 border border-ink px-5 py-2.5 text-[0.7rem] font-bold uppercase tracking-[0.12em] text-ink transition-colors hover:bg-ink hover:text-linen"
       >
         Ask on WhatsApp
       </a>

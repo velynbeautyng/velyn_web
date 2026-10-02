@@ -49,10 +49,10 @@ export function ProductBuyPanel({ product }: { product: Product }) {
       <div className="flex items-end gap-3">
         <Price
           amount={variation?.price ?? product.price}
-          className="font-serif text-3xl text-espresso"
+          className="font-serif text-3xl text-ink"
         />
         {product.compareAtPrice && product.compareAtPrice > product.price && (
-          <span className="pb-1 text-base text-mocha line-through">
+          <span className="pb-1 text-base text-stone line-through">
             <Price amount={product.compareAtPrice} />
           </span>
         )}
@@ -62,10 +62,10 @@ export function ProductBuyPanel({ product }: { product: Product }) {
         <span
           className={cn(
             "h-2 w-2 rounded-full",
-            soldOut ? "bg-mocha" : "bg-olive-mid",
+            soldOut ? "bg-stone" : "bg-sage-mid",
           )}
         />
-        <span className="text-[0.8rem] text-cocoa">
+        <span className="text-[0.8rem] text-stone">
           {soldOut
             ? "Currently out of stock"
             : max <= 5
@@ -76,7 +76,7 @@ export function ProductBuyPanel({ product }: { product: Product }) {
 
       {hasVariants && (
         <div>
-          <label className="mb-2 block text-[0.62rem] font-bold uppercase tracking-[0.14em] text-mocha">
+          <label className="mb-2 block text-[0.62rem] font-bold uppercase tracking-[0.14em] text-stone">
             Option
           </label>
           <div className="flex flex-wrap gap-2">
@@ -89,8 +89,8 @@ export function ProductBuyPanel({ product }: { product: Product }) {
                 className={cn(
                   "border px-3.5 py-2 text-[0.75rem] transition-colors cursor-pointer disabled:opacity-40",
                   v.id === variationId
-                    ? "border-espresso bg-espresso text-ivory"
-                    : "border-ivory-mid bg-white text-espresso hover:border-gold",
+                    ? "border-ink bg-ink text-linen"
+                    : "border-linen-mid bg-white text-ink hover:border-gold",
                 )}
               >
                 {v.name}
@@ -102,11 +102,11 @@ export function ProductBuyPanel({ product }: { product: Product }) {
 
       {!soldOut && (
         <div className="flex flex-wrap items-center gap-3">
-          <div className="flex items-center border border-ivory-mid">
+          <div className="flex items-center border border-linen-mid">
             <button
               type="button"
               onClick={() => setQty((q) => Math.max(1, q - 1))}
-              className="flex h-11 w-11 items-center justify-center text-espresso hover:bg-ivory-mid cursor-pointer"
+              className="flex h-11 w-11 items-center justify-center text-ink hover:bg-linen-mid cursor-pointer"
               aria-label="Decrease quantity"
             >
               <IconMinus width={16} height={16} />
@@ -115,7 +115,7 @@ export function ProductBuyPanel({ product }: { product: Product }) {
             <button
               type="button"
               onClick={() => setQty((q) => Math.min(max, q + 1))}
-              className="flex h-11 w-11 items-center justify-center text-espresso hover:bg-ivory-mid cursor-pointer"
+              className="flex h-11 w-11 items-center justify-center text-ink hover:bg-linen-mid cursor-pointer"
               aria-label="Increase quantity"
             >
               <IconPlus width={16} height={16} />
@@ -126,7 +126,7 @@ export function ProductBuyPanel({ product }: { product: Product }) {
             onClick={handleAdd}
             variant="gold"
             size="lg"
-            className={cn("flex-1", added && "!bg-olive !border-olive")}
+            className={cn("flex-1", added && "!bg-sage !border-sage")}
           >
             {added ? (
               <>
@@ -145,7 +145,7 @@ export function ProductBuyPanel({ product }: { product: Product }) {
         )}
         target="_blank"
         rel="noopener noreferrer"
-        className="text-center text-[0.72rem] uppercase tracking-[0.12em] text-gold-dim underline-offset-4 hover:underline"
+        className="text-center text-[0.72rem] uppercase tracking-[0.12em] text-gold-deep underline-offset-4 hover:underline"
       >
         Or enquire on WhatsApp
       </a>

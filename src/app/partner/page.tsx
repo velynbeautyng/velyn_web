@@ -75,15 +75,15 @@ export default function PartnerPage() {
           {offerings.map((o, i) => (
             <StaggerItem
               key={o.title}
-              className="border border-ivory-mid bg-white p-7"
+              className="border border-linen-mid bg-white p-7"
             >
               <div className="font-serif text-3xl text-gold-pale">
                 {String(i + 1).padStart(2, "0")}
               </div>
-              <h3 className="mt-3 font-serif text-lg text-espresso">
+              <h3 className="mt-3 font-serif text-lg text-ink">
                 {o.title}
               </h3>
-              <p className="mt-2 text-[0.85rem] leading-relaxed text-cocoa">
+              <p className="mt-2 text-[0.85rem] leading-relaxed text-stone">
                 {o.body}
               </p>
             </StaggerItem>
@@ -92,7 +92,7 @@ export default function PartnerPage() {
       </section>
 
       {/* Criteria + Form */}
-      <section id="criteria" className="section section-y bg-espresso">
+      <section id="criteria" className="section section-y bg-ink">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
           <Reveal>
             <SectionHeading
@@ -110,7 +110,7 @@ export default function PartnerPage() {
                   <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center border border-gold/25 text-gold">
                     <IconCheck width={13} height={13} strokeWidth={2.4} />
                   </span>
-                  <span className="text-[0.9rem] leading-relaxed text-ivory/60">
+                  <span className="text-[0.9rem] leading-relaxed text-linen/60">
                     {c}
                   </span>
                 </li>
@@ -119,11 +119,11 @@ export default function PartnerPage() {
           </Reveal>
 
           <Reveal direction="left">
-            <div className="border border-gold/10 bg-ivory/[0.03] p-6 sm:p-8">
-              <h2 className="mb-1 font-serif text-2xl text-ivory">
+            <div className="border border-gold/10 bg-linen/[0.03] p-6 sm:p-8">
+              <h2 className="mb-1 font-serif text-2xl text-linen">
                 Start a Partnership Conversation
               </h2>
-              <p className="mb-6 text-[0.85rem] text-ivory/45">
+              <p className="mb-6 text-[0.85rem] text-linen/45">
                 Tell us about your brand and we&apos;ll be in touch.
               </p>
               <ContactForm tone="dark" defaultInquiry="Brand Partnership" />

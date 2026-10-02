@@ -32,7 +32,7 @@ export function Pagination({
       {page > 1 && (
         <Link
           href={makeHref(page - 1)}
-          className="flex h-9 items-center border border-ivory-mid bg-white px-3 text-xs uppercase tracking-[0.1em] text-espresso hover:border-gold"
+          className="flex h-9 items-center border border-linen-mid bg-white px-3 text-xs uppercase tracking-[0.1em] text-ink hover:border-gold"
           scroll={false}
         >
           Prev
@@ -40,7 +40,7 @@ export function Pagination({
       )}
       {items.map((it, i) =>
         it === "…" ? (
-          <span key={`e${i}`} className="px-2 text-mocha">
+          <span key={`e${i}`} className="px-2 text-stone">
             …
           </span>
         ) : (
@@ -52,8 +52,8 @@ export function Pagination({
             className={cn(
               "flex h-9 w-9 items-center justify-center border text-xs tabular-nums transition-colors",
               it === page
-                ? "border-espresso bg-espresso text-ivory"
-                : "border-ivory-mid bg-white text-espresso hover:border-gold",
+                ? "border-ink bg-ink text-linen"
+                : "border-linen-mid bg-white text-ink hover:border-gold",
             )}
           >
             {it}
@@ -63,7 +63,7 @@ export function Pagination({
       {page < totalPages && (
         <Link
           href={makeHref(page + 1)}
-          className="flex h-9 items-center border border-ivory-mid bg-white px-3 text-xs uppercase tracking-[0.1em] text-espresso hover:border-gold"
+          className="flex h-9 items-center border border-linen-mid bg-white px-3 text-xs uppercase tracking-[0.1em] text-ink hover:border-gold"
           scroll={false}
         >
           Next

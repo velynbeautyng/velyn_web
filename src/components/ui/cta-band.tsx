@@ -8,17 +8,17 @@ export function CtaBand({
   body,
   primary,
   secondary,
-  tone = "espresso",
+  tone = "ink",
 }: {
   kicker?: string;
   title: ReactNode;
   body?: ReactNode;
   primary: { label: string; href: string };
   secondary?: { label: string; href: string };
-  tone?: "espresso" | "gold" | "olive";
+  tone?: "ink" | "gold" | "sage";
 }) {
   const bg =
-    tone === "gold" ? "bg-gold" : tone === "olive" ? "bg-olive" : "bg-espresso";
+    tone === "gold" ? "bg-gold" : tone === "sage" ? "bg-sage" : "bg-ink";
 
   return (
     <section className={`section section-y ${bg} text-center`}>

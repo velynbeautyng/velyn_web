@@ -80,15 +80,15 @@ export default function AuthenticityPage() {
           {checks.map((c) => (
             <StaggerItem
               key={c.title}
-              className="border border-ivory-mid bg-white p-6"
+              className="border border-linen-mid bg-white p-6"
             >
-              <span className="flex h-9 w-9 items-center justify-center bg-olive-pale text-olive">
+              <span className="flex h-9 w-9 items-center justify-center bg-sage-pale text-sage-deep">
                 <IconCheck width={18} height={18} strokeWidth={2.4} />
               </span>
-              <h3 className="mt-4 font-serif text-base text-espresso">
+              <h3 className="mt-4 font-serif text-base text-ink">
                 {c.title}
               </h3>
-              <p className="mt-2 text-[0.82rem] leading-relaxed text-cocoa">
+              <p className="mt-2 text-[0.82rem] leading-relaxed text-stone">
                 {c.body}
               </p>
             </StaggerItem>
@@ -97,7 +97,7 @@ export default function AuthenticityPage() {
       </section>
 
       <CtaBand
-        tone="olive"
+        tone="sage"
         title={
           <>
             Shop With Complete <em className="text-white/70">Confidence</em>

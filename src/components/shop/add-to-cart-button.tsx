@@ -57,7 +57,7 @@ export function AddToCartButton({
     return (
       <span
         className={cn(
-          "inline-flex items-center justify-center border border-ivory-mid px-3 py-2 text-[0.6rem] font-semibold uppercase tracking-[0.1em] text-mocha",
+          "inline-flex items-center justify-center border border-linen-mid px-3 py-2 text-[0.6rem] font-semibold uppercase tracking-[0.1em] text-stone",
           full && "w-full",
           className,
         )}
@@ -77,7 +77,7 @@ export function AddToCartButton({
         size,
         className: cn(
           full && "w-full",
-          added && "!bg-olive !border-olive !text-white",
+          added && "!bg-sage !border-sage !text-white",
           className,
         ),
       })}

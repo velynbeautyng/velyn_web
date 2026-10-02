@@ -22,8 +22,8 @@ function Group({
   children: React.ReactNode;
 }) {
   return (
-    <div className="border-b border-ivory-mid pb-6">
-      <h3 className="mb-3 text-[0.62rem] font-bold uppercase tracking-[0.18em] text-gold-dim">
+    <div className="border-b border-linen-mid pb-6">
+      <h3 className="mb-3 text-[0.62rem] font-bold uppercase tracking-[0.18em] text-gold-deep">
         {title}
       </h3>
       {children}
@@ -49,8 +49,8 @@ export function FilterRail({
               className={cn(
                 "text-[0.85rem]",
                 !active.concern
-                  ? "font-semibold text-espresso"
-                  : "text-cocoa hover:text-espresso",
+                  ? "font-semibold text-ink"
+                  : "text-stone hover:text-ink",
               )}
             >
               All Concerns
@@ -65,8 +65,8 @@ export function FilterRail({
                 className={cn(
                   "text-[0.85rem]",
                   active.concern === c.slug
-                    ? "font-semibold text-gold-dim"
-                    : "text-cocoa hover:text-espresso",
+                    ? "font-semibold text-gold-deep"
+                    : "text-stone hover:text-ink",
                 )}
               >
                 {c.label}
@@ -78,15 +78,15 @@ export function FilterRail({
 
       <Group title="Brand">
         <div className="relative">
-          <ul className="flex max-h-72 flex-col gap-1.5 overflow-y-auto pr-1 [scrollbar-color:var(--color-gold-dim)_transparent] [scrollbar-width:thin]">
+          <ul className="flex max-h-72 flex-col gap-1.5 overflow-y-auto pr-1 [scrollbar-color:var(--color-gold-deep)_transparent] [scrollbar-width:thin]">
           <li>
             <Link
               href={buildHref(active, { brand: undefined })}
               className={cn(
                 "text-[0.85rem]",
                 !active.brand
-                  ? "font-semibold text-espresso"
-                  : "text-cocoa hover:text-espresso",
+                  ? "font-semibold text-ink"
+                  : "text-stone hover:text-ink",
               )}
             >
               All Brands
@@ -101,13 +101,13 @@ export function FilterRail({
                 className={cn(
                   "flex items-center justify-between gap-2 text-[0.85rem]",
                   active.brand === b.slug
-                    ? "font-semibold text-gold-dim"
-                    : "text-cocoa hover:text-espresso",
+                    ? "font-semibold text-gold-deep"
+                    : "text-stone hover:text-ink",
                 )}
               >
                 {b.name}
                 {typeof b.productCount === "number" && (
-                  <span className="text-[0.7rem] text-mocha">{b.productCount}</span>
+                  <span className="text-[0.7rem] text-stone">{b.productCount}</span>
                 )}
               </Link>
             </li>
@@ -116,12 +116,12 @@ export function FilterRail({
           {brands.length > 8 && (
             <div
               aria-hidden
-              className="pointer-events-none absolute inset-x-0 bottom-0 h-8 bg-gradient-to-t from-ivory to-transparent"
+              className="pointer-events-none absolute inset-x-0 bottom-0 h-8 bg-gradient-to-t from-linen to-transparent"
             />
           )}
         </div>
         {brands.length > 8 && (
-          <p className="mt-2 flex items-center gap-1 text-[0.65rem] font-medium text-mocha">
+          <p className="mt-2 flex items-center gap-1 text-[0.65rem] font-medium text-stone">
             <svg
               width="12"
               height="12"

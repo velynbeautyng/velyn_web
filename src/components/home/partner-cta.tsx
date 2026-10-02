@@ -19,7 +19,7 @@ const points = [
 
 export function PartnerCta() {
   return (
-    <section className="section section-y bg-olive text-center">
+    <section className="section section-y bg-sage text-center">
       <Reveal className="mx-auto max-w-2xl">
         <span className="kicker kicker--center mx-auto justify-center [&::before]:bg-white/35 [&::after]:bg-white/35 text-white/60">
           Foreign Brand Partners
@@ -51,7 +51,7 @@ export function PartnerCta() {
 
       <Stagger className="mx-auto mt-14 grid max-w-4xl gap-px border border-white/10 bg-white/10 sm:grid-cols-3">
         {points.map((p) => (
-          <StaggerItem key={p.title} className="bg-olive p-6 text-left">
+          <StaggerItem key={p.title} className="bg-sage p-6 text-left">
             <h3 className="font-serif text-base text-white">{p.title}</h3>
             <p className="mt-2 text-[0.83rem] leading-relaxed text-white/50">
               {p.body}

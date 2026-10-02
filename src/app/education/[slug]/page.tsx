@@ -88,7 +88,7 @@ export default async function ArticlePage({ params }: { params: Params }) {
       />
 
       <article className="section section-y">
-        <Reveal className="mb-8 flex items-center gap-4 border-b border-ivory-mid pb-6 text-[0.7rem] uppercase tracking-[0.12em] text-mocha">
+        <Reveal className="mb-8 flex items-center gap-4 border-b border-linen-mid pb-6 text-[0.7rem] uppercase tracking-[0.12em] text-stone">
           <span>{article.readMinutes} min read</span>
           <span className="text-gold">·</span>
           <span>
@@ -117,13 +117,13 @@ export default async function ArticlePage({ params }: { params: Params }) {
           </Prose>
         </Reveal>
 
-        <div className="mt-12 border-t border-ivory-mid pt-8">
-          <div className="flex flex-col items-start justify-between gap-5 bg-gold-faint p-7 sm:flex-row sm:items-center">
+        <div className="mt-12 border-t border-linen-mid pt-8">
+          <div className="flex flex-col items-start justify-between gap-5 bg-linen-soft p-7 sm:flex-row sm:items-center">
             <div>
-              <h2 className="font-serif text-xl text-espresso">
+              <h2 className="font-serif text-xl text-ink">
                 Shop verified-authentic skincare
               </h2>
-              <p className="mt-1 text-[0.85rem] text-cocoa">
+              <p className="mt-1 text-[0.85rem] text-stone">
                 Put this into practice with products curated for your concerns.
               </p>
             </div>
@@ -134,22 +134,22 @@ export default async function ArticlePage({ params }: { params: Params }) {
         </div>
       </article>
 
-      <section className="section section-y bg-ivory">
-        <h2 className="font-serif text-2xl text-espresso">Keep reading</h2>
+      <section className="section section-y bg-linen">
+        <h2 className="font-serif text-2xl text-ink">Keep reading</h2>
         <div className="mt-8 grid gap-4 md:grid-cols-3">
           {related.map((post) => (
             <Link
               key={post.slug}
               href={`/education/${post.slug}`}
-              className="group border border-ivory-mid bg-white p-6 transition-shadow duration-300 hover:shadow-[0_20px_40px_-28px_rgba(44,26,14,0.4)]"
+              className="group border border-linen-mid bg-white p-6 transition-shadow duration-300 hover:shadow-[0_20px_40px_-28px_rgba(0,0,0,0.4)]"
             >
-              <span className="text-[0.58rem] font-bold uppercase tracking-[0.12em] text-olive">
+              <span className="text-[0.58rem] font-bold uppercase tracking-[0.12em] text-sage-deep">
                 {post.tag}
               </span>
-              <h3 className="mt-2 font-serif text-base leading-snug text-espresso group-hover:text-gold-dim">
+              <h3 className="mt-2 font-serif text-base leading-snug text-ink group-hover:text-gold-deep">
                 {post.title}
               </h3>
-              <span className="mt-4 inline-flex items-center gap-1.5 text-[0.6rem] font-bold uppercase tracking-[0.12em] text-gold-dim">
+              <span className="mt-4 inline-flex items-center gap-1.5 text-[0.6rem] font-bold uppercase tracking-[0.12em] text-gold-deep">
                 Read <IconArrowRight width={12} height={12} />
               </span>
             </Link>

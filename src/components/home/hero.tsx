@@ -6,7 +6,7 @@ const trust = ["Verified Sourcing", "Direct Manufacturer", "Nationwide Delivery"
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-espresso">
+    <section className="relative overflow-hidden bg-ink">
       {/* Ambient gold glow */}
       <div
         aria-hidden
@@ -28,7 +28,7 @@ export function Hero() {
 
           <Stagger
             as="h1"
-            className="display text-[clamp(2.6rem,6vw,4.5rem)] text-ivory"
+            className="display text-[clamp(2.6rem,6vw,4.5rem)] text-linen"
           >
             <span className="block">Authentic.</span>
             <span className="block italic text-gold">Effective.</span>
@@ -36,7 +36,7 @@ export function Hero() {
           </Stagger>
 
           <Reveal delay={0.15}>
-            <p className="mt-5 max-w-md text-[0.95rem] leading-relaxed text-ivory/55">
+            <p className="mt-5 max-w-md text-[0.95rem] leading-relaxed text-linen/55">
               Sourcing 100% original skincare directly from manufacturers,
               connecting the world&apos;s most trusted brands to the African
               market, with authenticity you can verify.
@@ -60,7 +60,7 @@ export function Hero() {
             {trust.map((t) => (
               <li key={t} className="flex items-center gap-2">
                 <span className="h-1 w-1 rounded-full bg-gold" />
-                <span className="text-xs tracking-[0.05em] text-ivory/40">
+                <span className="text-xs tracking-[0.05em] text-linen/40">
                   {t}
                 </span>
               </li>
@@ -74,7 +74,7 @@ export function Hero() {
           delay={0.2}
           className="relative z-10 mx-auto w-full max-w-md lg:mx-0"
         >
-          <div className="tick-frame relative aspect-[4/5] border border-gold/20 bg-espresso-mid">
+          <div className="tick-frame relative aspect-[4/5] border border-gold/20 bg-ink-mid">
             <span className="tick-bl" />
             <span className="tick-br" />
             <div className="absolute inset-0 flex flex-col items-center justify-center gap-5">

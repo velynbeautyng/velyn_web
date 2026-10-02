@@ -99,9 +99,9 @@ export default async function ShopPage({
 
         <div>
           {/* Result bar */}
-          <div className="mb-6 flex flex-wrap items-center justify-between gap-3 border-b border-ivory-mid pb-4">
-            <p className="text-[0.8rem] text-mocha">
-              <span className="font-semibold text-espresso">{result.total}</span>{" "}
+          <div className="mb-6 flex flex-wrap items-center justify-between gap-3 border-b border-linen-mid pb-4">
+            <p className="text-[0.8rem] text-stone">
+              <span className="font-semibold text-ink">{result.total}</span>{" "}
               {result.total === 1 ? "product" : "products"}
               {activeConcern && <> · {activeConcern.label}</>}
               {activeBrand && <> · {activeBrand.name}</>}
@@ -115,8 +115,8 @@ export default async function ShopPage({
               href="/shop"
               className={`shrink-0 px-3 py-1.5 text-[0.6rem] font-semibold uppercase tracking-[0.1em] ${
                 !query.concern
-                  ? "bg-espresso text-white"
-                  : "border border-ivory-mid bg-white text-mocha"
+                  ? "bg-ink text-white"
+                  : "border border-linen-mid bg-white text-stone"
               }`}
             >
               All
@@ -127,8 +127,8 @@ export default async function ShopPage({
                 href={`/shop?concern=${c.slug}`}
                 className={`shrink-0 px-3 py-1.5 text-[0.6rem] font-semibold uppercase tracking-[0.1em] ${
                   query.concern === c.slug
-                    ? "bg-espresso text-white"
-                    : "border border-ivory-mid bg-white text-mocha"
+                    ? "bg-ink text-white"
+                    : "border border-linen-mid bg-white text-stone"
                 }`}
               >
                 {c.short}
@@ -137,13 +137,13 @@ export default async function ShopPage({
           </div>
 
           {result.items.length === 0 ? (
-            <div className="flex flex-col items-center gap-4 border border-ivory-mid bg-white py-20 text-center">
-              <p className="font-serif text-xl text-espresso">
+            <div className="flex flex-col items-center gap-4 border border-linen-mid bg-white py-20 text-center">
+              <p className="font-serif text-xl text-ink">
                 No products match these filters.
               </p>
               <Link
                 href="/shop"
-                className="text-[0.7rem] font-bold uppercase tracking-[0.12em] text-gold-dim hover:text-espresso"
+                className="text-[0.7rem] font-bold uppercase tracking-[0.12em] text-gold-deep hover:text-ink"
               >
                 Clear filters
               </Link>

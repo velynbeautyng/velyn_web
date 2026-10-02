@@ -21,9 +21,9 @@ import { cn } from "@/lib/utils";
 type Method = "delivery" | "pickup";
 
 const field =
-  "w-full border border-ivory-mid bg-white px-3.5 py-2.5 text-sm text-espresso placeholder:text-mocha/60 outline-none transition-colors focus:border-gold";
+  "w-full border border-linen-mid bg-white px-3.5 py-2.5 text-sm text-ink placeholder:text-stone/60 outline-none transition-colors focus:border-gold";
 const label =
-  "mb-1.5 block text-[0.6rem] font-bold uppercase tracking-[0.14em] text-mocha";
+  "mb-1.5 block text-[0.6rem] font-bold uppercase tracking-[0.14em] text-stone";
 
 export function CheckoutView() {
   const items = useCart((s) => s.items);
@@ -57,11 +57,11 @@ export function CheckoutView() {
     return (
       <div className="section section-y">
         <div className="mx-auto flex max-w-md flex-col items-center gap-5 py-16 text-center">
-          <VelynMark className="h-12 w-auto opacity-20" tone="espresso" />
-          <h1 className="font-serif text-2xl text-espresso">
+          <VelynMark className="h-12 w-auto opacity-20" tone="ink" />
+          <h1 className="font-serif text-2xl text-ink">
             Nothing to check out
           </h1>
-          <ButtonLink href="/shop" variant="espresso" size="lg">
+          <ButtonLink href="/shop" variant="ink" size="lg">
             Return to Shop
           </ButtonLink>
         </div>
@@ -124,7 +124,7 @@ export function CheckoutView() {
     >
       {/* Delivery details */}
       <div>
-        <h2 className="font-serif text-2xl text-espresso">Your Details</h2>
+        <h2 className="font-serif text-2xl text-ink">Your Details</h2>
 
         {/* Delivery method */}
         <div className="mt-6 grid grid-cols-2 gap-3">
@@ -187,22 +187,22 @@ export function CheckoutView() {
               </div>
             </>
           ) : (
-            <div className="border border-gold-pale bg-gold-faint p-5">
-              <p className="text-[0.7rem] font-bold uppercase tracking-[0.14em] text-gold-dim">
+            <div className="border border-gold-pale bg-linen-soft p-5">
+              <p className="text-[0.7rem] font-bold uppercase tracking-[0.14em] text-gold-deep">
                 Pick up from our store
               </p>
-              <p className="mt-2 text-[0.9rem] leading-relaxed text-espresso">
+              <p className="mt-2 text-[0.9rem] leading-relaxed text-ink">
                 {site.contact.address.line1}, {site.contact.address.line2},{" "}
                 {site.contact.address.city}.
               </p>
-              <p className="mt-3 text-[0.83rem] leading-relaxed text-cocoa">
+              <p className="mt-3 text-[0.83rem] leading-relaxed text-stone">
                 We&apos;ll call you when your order is packed and ready to
                 collect. For anything urgent, reach support on{" "}
-                <a href={`tel:${site.contact.phoneMtn}`} className="font-semibold text-espresso hover:text-gold-dim">
+                <a href={`tel:${site.contact.phoneMtn}`} className="font-semibold text-ink hover:text-gold-deep">
                   {site.contact.phoneMtn}
                 </a>{" "}
                 or{" "}
-                <a href={`tel:${site.contact.phoneAirtel}`} className="font-semibold text-espresso hover:text-gold-dim">
+                <a href={`tel:${site.contact.phoneAirtel}`} className="font-semibold text-ink hover:text-gold-deep">
                   {site.contact.phoneAirtel}
                 </a>
                 . No delivery fee is charged for pickup.
@@ -220,33 +220,33 @@ export function CheckoutView() {
       </div>
 
       {/* Summary */}
-      <aside className="h-fit border border-ivory-mid bg-ivory p-6 lg:sticky lg:top-[calc(var(--header-h)+1rem)]">
-        <h2 className="font-serif text-xl text-espresso">Your Order</h2>
-        <ul className="mt-4 flex flex-col gap-3 border-b border-ivory-mid pb-4">
+      <aside className="h-fit border border-linen-mid bg-linen p-6 lg:sticky lg:top-[calc(var(--header-h)+1rem)]">
+        <h2 className="font-serif text-xl text-ink">Your Order</h2>
+        <ul className="mt-4 flex flex-col gap-3 border-b border-linen-mid pb-4">
           {items.map((item) => (
             <li key={item.id} className="flex gap-3">
-              <div className="relative h-14 w-12 shrink-0 overflow-hidden border border-ivory-mid bg-white">
+              <div className="relative h-14 w-12 shrink-0 overflow-hidden border border-linen-mid bg-white">
                 {item.image ? (
                   <Image src={item.image} alt={item.name} fill sizes="48px" className="object-contain p-1" />
                 ) : (
                   <div className="flex h-full items-center justify-center">
-                    <VelynMark className="h-4 w-auto opacity-20" tone="espresso" />
+                    <VelynMark className="h-4 w-auto opacity-20" tone="ink" />
                   </div>
                 )}
-                <span className="absolute -right-1.5 -top-1.5 flex h-4 min-w-4 items-center justify-center rounded-full bg-espresso px-1 text-[0.55rem] font-bold text-ivory">
+                <span className="absolute -right-1.5 -top-1.5 flex h-4 min-w-4 items-center justify-center rounded-full bg-ink px-1 text-[0.55rem] font-bold text-linen">
                   {item.quantity}
                 </span>
               </div>
               <div className="flex flex-1 justify-between gap-2">
                 <div>
-                  <p className="text-[0.55rem] font-semibold uppercase tracking-[0.12em] text-gold-dim">
+                  <p className="text-[0.55rem] font-semibold uppercase tracking-[0.12em] text-gold-deep">
                     {item.brand}
                   </p>
-                  <p className="font-serif text-[0.82rem] leading-tight text-espresso">
+                  <p className="font-serif text-[0.82rem] leading-tight text-ink">
                     {item.name}
                   </p>
                 </div>
-                <span className="whitespace-nowrap text-[0.82rem] text-espresso">
+                <span className="whitespace-nowrap text-[0.82rem] text-ink">
                   {formatNaira(item.price * item.quantity)}
                 </span>
               </div>
@@ -255,14 +255,14 @@ export function CheckoutView() {
         </ul>
         <dl className="mt-4 flex flex-col gap-2 text-[0.85rem]">
           <div className="flex justify-between">
-            <dt className="text-mocha">Subtotal</dt>
-            <dd className="text-espresso">{formatNaira(subtotal)}</dd>
+            <dt className="text-stone">Subtotal</dt>
+            <dd className="text-ink">{formatNaira(subtotal)}</dd>
           </div>
           <div className="flex justify-between">
-            <dt className="text-mocha">
+            <dt className="text-stone">
               {method === "pickup" ? "Pickup" : "Delivery"}
             </dt>
-            <dd className="text-espresso">
+            <dd className="text-ink">
               {method === "pickup"
                 ? "Free"
                 : shipping === 0
@@ -271,11 +271,11 @@ export function CheckoutView() {
             </dd>
           </div>
         </dl>
-        <div className="mt-3 flex justify-between border-t border-ivory-mid pt-3">
-          <span className="text-sm uppercase tracking-[0.1em] text-mocha">Total</span>
+        <div className="mt-3 flex justify-between border-t border-linen-mid pt-3">
+          <span className="text-sm uppercase tracking-[0.1em] text-stone">Total</span>
           <Price
             amount={total}
-            className="font-serif text-2xl text-espresso"
+            className="font-serif text-2xl text-ink"
           />
         </div>
 
@@ -294,12 +294,12 @@ export function CheckoutView() {
         >
           {status === "submitting" ? "Processing…" : "Pay Securely"}
         </Button>
-        <p className="mt-3 flex items-center justify-center gap-1.5 text-center text-[0.7rem] text-mocha">
+        <p className="mt-3 flex items-center justify-center gap-1.5 text-center text-[0.7rem] text-stone">
           <IconShield width={13} height={13} /> Secured payment · Cards &amp; transfers
         </p>
         <Link
           href="/cart"
-          className="mt-3 block text-center text-[0.7rem] uppercase tracking-[0.1em] text-mocha hover:text-espresso"
+          className="mt-3 block text-center text-[0.7rem] uppercase tracking-[0.1em] text-stone hover:text-ink"
         >
           ← Back to Cart
         </Link>
@@ -329,8 +329,8 @@ function MethodCard({
       className={cn(
         "flex flex-col items-start gap-1.5 border p-4 text-left transition-colors cursor-pointer",
         active
-          ? "border-espresso bg-espresso text-ivory"
-          : "border-ivory-mid bg-white text-espresso hover:border-gold",
+          ? "border-ink bg-ink text-linen"
+          : "border-linen-mid bg-white text-ink hover:border-gold",
       )}
     >
       <svg
@@ -342,7 +342,7 @@ function MethodCard({
         strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
-        className={active ? "text-gold" : "text-gold-dim"}
+        className={active ? "text-gold" : "text-gold-deep"}
       >
         {icon}
       </svg>
@@ -350,7 +350,7 @@ function MethodCard({
       <span
         className={cn(
           "text-[0.7rem] leading-tight",
-          active ? "text-ivory/60" : "text-mocha",
+          active ? "text-linen/60" : "text-stone",
         )}
       >
         {subtitle}

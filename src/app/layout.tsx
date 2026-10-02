@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { EB_Garamond, Manrope } from "next/font/google";
+import { Cinzel, Poppins } from "next/font/google";
 import "./globals.css";
 import { SmoothScroll } from "@/components/motion/smooth-scroll";
 import { SiteHeader } from "@/components/layout/site-header";
@@ -8,19 +8,18 @@ import { CartDrawer } from "@/components/cart/cart-drawer";
 import { site } from "@/lib/site";
 import { OrganizationJsonLd } from "@/components/seo/json-ld";
 
-const serif = EB_Garamond({
-  variable: "--font-eb-garamond",
+const display = Cinzel({
+  variable: "--font-cinzel",
   subsets: ["latin"],
   display: "swap",
   weight: ["400", "500", "600"],
-  style: ["normal", "italic"],
 });
 
-const sans = Manrope({
-  variable: "--font-manrope",
+const sans = Poppins({
+  variable: "--font-poppins",
   subsets: ["latin"],
   display: "swap",
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["300", "400", "500", "600"],
 });
 
 export const metadata: Metadata = {
@@ -59,7 +58,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#2C1A0E",
+  themeColor: "#4F6A54",
   colorScheme: "light",
 };
 
@@ -67,8 +66,8 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${serif.variable} ${sans.variable}`}>
-      <body className="min-h-dvh flex flex-col bg-ivory text-espresso antialiased">
+    <html lang="en" className={`${display.variable} ${sans.variable}`}>
+      <body className="min-h-dvh flex flex-col bg-linen text-ink antialiased">
         <OrganizationJsonLd />
         <SmoothScroll />
         <a href="#main" className="skip-link">

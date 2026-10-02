@@ -106,22 +106,22 @@ export default function AboutPage() {
         </Reveal>
 
         <Reveal direction="left" className="grid gap-4 sm:grid-cols-2">
-          <div className="flex flex-col justify-between border border-ivory-mid bg-white p-6">
+          <div className="flex flex-col justify-between border border-linen-mid bg-white p-6">
             <VelynMark className="h-8 w-auto" tone="gold" />
             <div className="mt-8">
-              <h3 className="font-serif text-lg text-espresso">Our Vision</h3>
-              <p className="mt-2 text-[0.85rem] leading-relaxed text-cocoa">
+              <h3 className="font-serif text-lg text-ink">Our Vision</h3>
+              <p className="mt-2 text-[0.85rem] leading-relaxed text-stone">
                 To become one of Nigeria&apos;s most trusted beauty distribution
                 platforms, recognised for sustainability, quality, and as a
                 channel for global beauty brands entering the Nigerian market.
               </p>
             </div>
           </div>
-          <div className="flex flex-col justify-between bg-espresso p-6 text-ivory">
+          <div className="flex flex-col justify-between bg-ink p-6 text-linen">
             <IconShield width={26} height={26} className="text-gold" />
             <div className="mt-8">
               <h3 className="font-serif text-lg">Our Mission</h3>
-              <p className="mt-2 text-[0.85rem] leading-relaxed text-ivory/55">
+              <p className="mt-2 text-[0.85rem] leading-relaxed text-linen/55">
                 To deliver quality, results-driven beauty products and seamless
                 access by partnering directly with trusted global manufacturers,
                 serving Nigerian consumers with integrity, education and
@@ -133,7 +133,7 @@ export default function AboutPage() {
       </section>
 
       {/* Values */}
-      <section className="section section-y bg-ivory">
+      <section className="section section-y bg-linen">
         <SectionHeading
           kicker="Our Brand Values"
           title={
@@ -143,14 +143,14 @@ export default function AboutPage() {
           }
           intro="Six commitments that shape every sourcing decision and every customer interaction."
         />
-        <Stagger className="mt-12 grid gap-px border border-ivory-mid bg-ivory-mid sm:grid-cols-2 lg:grid-cols-3">
+        <Stagger className="mt-12 grid gap-px border border-linen-mid bg-linen-mid sm:grid-cols-2 lg:grid-cols-3">
           {values.map((v) => (
             <StaggerItem key={v.n} className="group bg-white p-7">
               <div className="font-serif text-3xl text-gold-pale transition-colors group-hover:text-gold">
                 {v.n}
               </div>
-              <h3 className="mt-3 font-serif text-lg text-espresso">{v.title}</h3>
-              <p className="mt-2 text-[0.85rem] leading-relaxed text-cocoa">
+              <h3 className="mt-3 font-serif text-lg text-ink">{v.title}</h3>
+              <p className="mt-2 text-[0.85rem] leading-relaxed text-stone">
                 {v.body}
               </p>
             </StaggerItem>
@@ -162,7 +162,7 @@ export default function AboutPage() {
       <section className="section section-y">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
           <Reveal>
-            <span className="flex h-12 w-12 items-center justify-center bg-olive-pale text-olive">
+            <span className="flex h-12 w-12 items-center justify-center bg-sage-pale text-sage-deep">
               <IconLeaf width={24} height={24} />
             </span>
             <SectionHeading
@@ -187,10 +187,10 @@ export default function AboutPage() {
             {sdgs.map((s) => (
               <div
                 key={s.code}
-                className="border border-olive-mid/30 bg-olive-pale/40 p-5"
+                className="border border-sage-mid/30 bg-sage-pale/40 p-5"
               >
-                <div className="font-serif text-lg text-olive">{s.code}</div>
-                <div className="mt-1 text-[0.8rem] leading-snug text-cocoa">
+                <div className="font-serif text-lg text-sage-deep">{s.code}</div>
+                <div className="mt-1 text-[0.8rem] leading-snug text-stone">
                   {s.label}
                 </div>
               </div>

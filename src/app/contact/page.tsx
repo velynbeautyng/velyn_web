@@ -70,18 +70,18 @@ export default function ContactPage() {
           <Reveal className="flex flex-col gap-4">
             {details.map((d) => {
               const Inner = (
-                <div className="flex items-start gap-4 border border-ivory-mid bg-white p-5 transition-colors hover:border-gold">
-                  <span className="flex h-11 w-11 shrink-0 items-center justify-center bg-gold-faint text-gold-dim">
+                <div className="flex items-start gap-4 border border-linen-mid bg-white p-5 transition-colors hover:border-gold">
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center bg-linen-soft text-gold-deep">
                     <d.icon width={18} height={18} />
                   </span>
                   <div>
-                    <div className="text-[0.6rem] font-bold uppercase tracking-[0.14em] text-gold-dim">
+                    <div className="text-[0.6rem] font-bold uppercase tracking-[0.14em] text-gold-deep">
                       {d.label}
                     </div>
-                    <div className="mt-1 font-serif text-base text-espresso">
+                    <div className="mt-1 font-serif text-base text-ink">
                       {d.value}
                     </div>
-                    <div className="mt-0.5 text-[0.78rem] text-mocha">
+                    <div className="mt-0.5 text-[0.78rem] text-stone">
                       {d.sub}
                     </div>
                   </div>
@@ -104,16 +104,16 @@ export default function ContactPage() {
               )}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-4 flex items-center gap-4 bg-espresso p-5 transition-opacity hover:opacity-90"
+              className="mt-4 flex items-center gap-4 bg-ink p-5 transition-opacity hover:opacity-90"
             >
               <span className="flex h-11 w-11 shrink-0 items-center justify-center bg-[#25D366]/15 text-[#25D366]">
                 <IconWhatsapp width={20} height={20} />
               </span>
               <div>
-                <div className="text-sm font-semibold text-ivory">
+                <div className="text-sm font-semibold text-linen">
                   Chat on WhatsApp
                 </div>
-                <div className="mt-0.5 text-xs text-ivory/40">
+                <div className="mt-0.5 text-xs text-linen/40">
                   Usually responds within 30 minutes
                 </div>
               </div>
@@ -121,14 +121,14 @@ export default function ContactPage() {
           </Reveal>
 
           <Reveal delay={0.15} className="mt-4">
-            <div className="flex flex-wrap gap-4 border-t border-ivory-mid pt-6 text-[0.72rem] uppercase tracking-[0.12em] text-mocha">
-              <a href={site.social.instagram} target="_blank" rel="noopener noreferrer" className="hover:text-espresso">
+            <div className="flex flex-wrap gap-4 border-t border-linen-mid pt-6 text-[0.72rem] uppercase tracking-[0.12em] text-stone">
+              <a href={site.social.instagram} target="_blank" rel="noopener noreferrer" className="hover:text-ink">
                 Instagram
               </a>
-              <a href={site.social.tiktok} target="_blank" rel="noopener noreferrer" className="hover:text-espresso">
+              <a href={site.social.tiktok} target="_blank" rel="noopener noreferrer" className="hover:text-ink">
                 TikTok
               </a>
-              <a href={site.social.facebook} target="_blank" rel="noopener noreferrer" className="hover:text-espresso">
+              <a href={site.social.facebook} target="_blank" rel="noopener noreferrer" className="hover:text-ink">
                 Facebook
               </a>
             </div>
@@ -136,8 +136,8 @@ export default function ContactPage() {
         </div>
 
         <Reveal direction="left">
-          <div className="border border-ivory-mid bg-white p-6 sm:p-8">
-            <h2 className="mb-5 font-serif text-2xl text-espresso">
+          <div className="border border-linen-mid bg-white p-6 sm:p-8">
+            <h2 className="mb-5 font-serif text-2xl text-ink">
               Send a Message
             </h2>
             <ContactForm tone="light" />

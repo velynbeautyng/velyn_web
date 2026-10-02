@@ -36,15 +36,15 @@ export default function TrackPage() {
       />
       <section className="section section-y">
         <Reveal className="mx-auto max-w-xl">
-          <div className="border border-ivory-mid bg-white p-6 sm:p-8">
+          <div className="border border-linen-mid bg-white p-6 sm:p-8">
             <TrackForm />
-            <p className="mt-5 border-t border-ivory-mid pt-5 text-[0.83rem] leading-relaxed text-cocoa">
+            <p className="mt-5 border-t border-linen-mid pt-5 text-[0.83rem] leading-relaxed text-stone">
               Your order reference is on your confirmation page and email (it
-              starts with <strong className="text-espresso">VB-</strong>). Prefer
+              starts with <strong className="text-ink">VB-</strong>). Prefer
               to talk? Reach us directly at{" "}
               <a
                 href={`mailto:${site.contact.email}`}
-                className="text-gold-dim underline underline-offset-2 hover:text-espresso"
+                className="text-gold-deep underline underline-offset-2 hover:text-ink"
               >
                 {site.contact.email}
               </a>{" "}
