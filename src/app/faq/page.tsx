@@ -91,7 +91,7 @@ export default function FaqPage() {
             Still have <em>a question?</em>
           </>
         }
-        body="Our team responds within 24 business hours, or reach a specialist instantly on WhatsApp."
+        body="Send us a message, or chat with us on WhatsApp about your skin concern or an order."
         primary={{ label: "Contact Us", href: "/contact" }}
       />
     </>

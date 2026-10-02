@@ -26,6 +26,11 @@ const BANNED: [string, RegExp][] = [
   ["superlative", /\bpremier\b/i],
   ["brand protection claim", /brand protection/i],
   ["batch claim", /every batch/i],
+  // The charter has no response-time commitments, and no product page names its distributor.
+  [
+    "unbacked promise",
+    /respond(?:s)? within|inquiries:?\s*\d+ hours|within \d+ hours\)|\binstantly\b|source named on every product/i,
+  ],
   ["em or en dash", /[\u2013\u2014]/],
   [
     "inflated vocabulary",

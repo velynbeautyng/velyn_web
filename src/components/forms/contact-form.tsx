@@ -66,7 +66,7 @@ export function ContactForm({
           dark ? "border-gold/15 bg-linen/[0.03]" : "border-linen-mid bg-white",
         )}
       >
-        <div className="flex h-12 w-12 items-center justify-center rounded-full bg-sage text-white">
+        <div className="flex h-12 w-12 items-center justify-center rounded-full bg-sage-deep text-white">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <path d="M4 12.5 9 17.5 20 6.5" />
           </svg>
@@ -75,8 +75,8 @@ export function ContactForm({
           Message received
         </h3>
         <p className={cn("max-w-xs text-sm", dark ? "text-linen/75" : "text-stone")}>
-          Thank you for reaching out. Our team responds within 24 business hours
-          (wholesale inquiries within 48 hours).
+          Thank you for reaching out. Our team will get back to you by email or
+          phone.
         </p>
       </div>
     );
@@ -148,7 +148,7 @@ export function ContactForm({
         {status === "submitting" ? "Sending…" : "Send Message"}
       </Button>
       <p className={cn("text-center text-[0.7rem] leading-relaxed", dark ? "text-linen/70" : "text-stone")}>
-        We respond within 24 business hours. Wholesale inquiries: 48 hours.
+        We reply by email or phone. For a quicker answer, message us on WhatsApp.
       </p>
     </form>
   );

@@ -2,7 +2,8 @@ import { NextResponse } from "next/server";
 import { randomUUID } from "node:crypto";
 import { resolveCart, type ClientCartItem } from "@/lib/ops/checkout";
 import { initializeTransaction, isPaystackConfigured } from "@/lib/paystack";
-import { site, whatsappLink } from "@/lib/site";
+import { whatsappLink } from "@/lib/site";
+import { checkoutCallbackUrl } from "@/lib/checkout-url";
 import { formatNaira } from "@/lib/utils";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -120,7 +121,7 @@ export async function POST(request: Request) {
       email: customer.email,
       amount: Math.round(total * 100), // kobo
       reference,
-      callbackUrl: `${site.url}/checkout/success`,
+      callbackUrl: checkoutCallbackUrl(request.url),
       metadata: {
         reference,
         customer,

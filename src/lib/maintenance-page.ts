@@ -153,7 +153,7 @@ export const maintenancePage = `<!doctype html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${site.name}, back shortly</title>
 <meta name="description" content="${site.name} is briefly offline. Orders and enquiries continue on WhatsApp, phone and email.">
-<link rel="icon" href="/icon.svg" type="image/svg+xml">
+<link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj4KICA8cmVjdCB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgcng9IjExMiIgZmlsbD0iIzJDMUEwRSIvPgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEwNSAxMzUpIiBmaWxsPSIjQkQ5NDY4Ij4KICAgIDxwYXRoIGQ9Ik0xNjIuMTIsOTAuMTFjMjksOS44MywxMS40MSw1NS42OS0xNyw0NS44Ny0uNjYtLjE0LTEuMzktLjctLjY1LTEuMzEsMTUuMzEtOC41LDI0LjE1LTI3LjM5LDE2LjMtNDMuOTEtLjI1LS44OS42OS0uOTQsMS4zMS0uNjVaIi8+CiAgICA8cGF0aCBkPSJNMjg5LjM2LDBIMTc3QTEzLjI1LDEzLjI1LDAsMCwwLDE2NCwxNS41YTExOC41NCwxMTguNTQsMCwwLDAsNC40OCwxNy4yN2M0LjE2LDE0LjQ1LDYuMzgsMTQsMTMuNTYsMzQuMTcsNywxOS43OSwxMC41NCwyOS45Miw5LjQsNDEuOC0uODksMjIuMzctMTQuNiwzOS41NS0zNi45Myw0Mi4xMy0uNSwwLTEsMC0xLjU4LDBzLTEuMDgsMC0xLjU3LDBjLTIyLjM3LTIuNTgtMzYuMDgtMTkuNzUtMzctNDIuMTMtMS4xMS0xMS44OCwyLjM5LTIyLDkuNDQtNDEuOCw3LjE3LTIwLjE2LDkuMzYtMTkuNzIsMTMuNTYtMzQuMTdhMTE5Ljc0LDExOS43NCwwLDAsMCw0LjQ3LTE3LjI3QTEzLjI1LDEzLjI1LDAsMCwwLDEyOC43OCwwSDEzLjI1QTEzLjI0LDEzLjI0LDAsMCwwLDEuNzksMTkuODVsMTI4Ljc4LDIyM2g0MS40OGwxMjguNzctMjIzQTEzLjIzLDEzLjIzLDAsMCwwLDI4OS4zNiwwWiIvPgogIDwvZz4KPC9zdmc+" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=Manrope:wght@300;500&display=swap">
