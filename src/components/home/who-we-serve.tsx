@@ -1,102 +1,68 @@
 import Link from "next/link";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { Stagger, StaggerItem } from "@/components/motion/reveal";
-import { IconArrowRight } from "@/components/ui/icons";
+import { IconArrowRight, IconGlobe, IconStorefront, IconUser } from "@/components/ui/icons";
 
 const audiences = [
   {
     accent: "border-t-gold",
-    title: "Individual Customers",
-    body: "Shop authentic skincare curated for Nigerian skin concerns. Every product verified original, no fakes, no compromises.",
-    cta: "Shop Products",
+    Icon: IconUser,
+    title: "Individual customers",
+    body: "Skincare matched to your concern, with the source named on every product and our replace-or-refund guarantee behind it.",
+    cta: "Shop by concern",
     href: "/shop",
-    ctaClass: "text-gold",
-    icon: (
-      <svg width="18" height="18" viewBox="0 0 16 16" fill="none">
-        <circle cx="8" cy="5" r="2.5" stroke="#BD9468" strokeWidth="1.3" />
-        <path
-          d="M2.5 14c0-3 2.5-5 5.5-5s5.5 2 5.5 5"
-          stroke="#BD9468"
-          strokeWidth="1.3"
-          strokeLinecap="round"
-        />
-      </svg>
-    ),
   },
   {
-    accent: "border-t-sage",
-    title: "Retailers & Wholesalers",
-    body: "Pharmacies, clinics, beauty stores, guaranteed supply, verified authenticity, competitive wholesale pricing and product education.",
-    cta: "Apply for Wholesale",
+    accent: "border-t-sage-mid",
+    Icon: IconStorefront,
+    title: "Retailers and wholesalers",
+    body: "Pharmacies, clinics, spas and beauty stores get original stock from named distributors, steady supply and one price list for everyone.",
+    cta: "Apply for wholesale",
     href: "/wholesale",
-    ctaClass: "text-sage-mid",
-    icon: (
-      <svg width="18" height="18" viewBox="0 0 16 16" fill="none">
-        <rect x="2" y="7" width="12" height="7" rx="1" stroke="#8FA893" strokeWidth="1.3" />
-        <path d="M5 7V5a3 3 0 016 0v2" stroke="#8FA893" strokeWidth="1.3" strokeLinecap="round" />
-      </svg>
-    ),
   },
   {
-    accent: "border-t-linen/25",
-    title: "Foreign Brand Partners",
-    body: "International brands entering Africa gain a trusted partner with deep market knowledge, brand protection and distribution infrastructure.",
-    cta: "Start a Conversation",
+    accent: "border-t-linen/50",
+    Icon: IconGlobe,
+    title: "International brand partners",
+    body: "Effective brands that are new to Nigeria get a structured, honest route to customers, retailers and skincare professionals.",
+    cta: "Start a conversation",
     href: "/partner",
-    ctaClass: "text-linen/60",
-    icon: (
-      <svg width="18" height="18" viewBox="0 0 16 16" fill="none">
-        <circle cx="8" cy="8" r="6" stroke="rgba(225,218,198,0.5)" strokeWidth="1.3" />
-        <path
-          d="M2 8h12M8 2c-1.5 2-2 4-2 6s.5 4 2 6"
-          stroke="rgba(225,218,198,0.5)"
-          strokeWidth="1.3"
-          strokeLinecap="round"
-        />
-      </svg>
-    ),
   },
 ];
 
 export function WhoWeServe() {
   return (
-    <section className="section section-y bg-ink">
-      <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
-        <SectionHeading
-          tone="dark"
-          kicker="Who We Serve"
-          title={
-            <>
-              Three Audiences,
-              <br className="hidden sm:block" /> <em>One Trusted Partner</em>
-            </>
-          }
-        />
-        <p className="max-w-xs text-[0.85rem] leading-relaxed text-linen/35 lg:pb-2">
-          Whether buying for yourself, running retail, or entering a new market,
-          Velyn is built for you.
-        </p>
-      </div>
-
+    <section className="section section-y bg-sage-night">
+      <SectionHeading
+        tone="dark"
+        kicker="Who we serve"
+        title={
+          <>
+            Three ways to <em>work with us</em>
+          </>
+        }
+      />
       <Stagger className="mt-12 grid gap-4 md:grid-cols-3">
-        {audiences.map((a) => (
+        {audiences.map(({ accent, Icon, title, body, cta, href }) => (
           <StaggerItem
-            key={a.title}
-            className={`flex flex-col gap-4 border border-gold/10 border-t-2 ${a.accent} bg-ink-mid/30 p-7 transition-colors duration-300 hover:bg-ink-mid/60`}
+            key={title}
+            className={`flex flex-col gap-4 border border-t-2 border-linen/15 ${accent} bg-white/[0.03] p-7 transition-colors duration-300 hover:bg-white/[0.07]`}
           >
-            <span className="flex h-11 w-11 items-center justify-center border border-gold/15">
-              {a.icon}
+            <span className="flex h-11 w-11 items-center justify-center border border-linen/25 text-linen">
+              <Icon width={20} height={20} />
             </span>
-            <h3 className="font-serif text-lg text-linen">{a.title}</h3>
-            <p className="text-[0.85rem] leading-relaxed text-linen/40">
-              {a.body}
-            </p>
+            <h3 className="font-serif text-lg text-white">{title}</h3>
+            <p className="text-[0.88rem] leading-relaxed text-white/85">{body}</p>
             <Link
-              href={a.href}
-              className={`mt-1 inline-flex items-center gap-1.5 text-[0.62rem] font-bold uppercase tracking-[0.14em] ${a.ctaClass}`}
+              href={href}
+              className="group/cta mt-auto inline-flex items-center gap-1.5 pt-2 text-[0.62rem] font-semibold uppercase tracking-[0.14em] text-linen"
             >
-              {a.cta}
-              <IconArrowRight width={14} height={14} />
+              {cta}
+              <IconArrowRight
+                width={14}
+                height={14}
+                className="transition-transform duration-300 group-hover/cta:translate-x-1"
+              />
             </Link>
           </StaggerItem>
         ))}

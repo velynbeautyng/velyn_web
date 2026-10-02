@@ -47,24 +47,24 @@ export function ProductCard({ product, className }: { product: Product; classNam
       </Link>
 
       <div className="flex flex-1 flex-col p-4 sm:p-5">
-        <div className="flex items-center justify-between gap-2">
-          <p className="truncate text-[0.6rem] font-semibold uppercase tracking-[0.16em] text-gold-deep">
-            {product.brand}
-          </p>
-          <span className="auth-tag shrink-0">
-            <IconCheck width={10} height={10} strokeWidth={2.4} /> Original
-          </span>
-        </div>
+        <p className="truncate text-[0.6rem] font-semibold uppercase tracking-[0.16em] text-gold-deep">
+          {product.brand}
+        </p>
         <h3 className="mt-1.5 line-clamp-2 font-serif text-[0.95rem] leading-snug text-ink">
           <Link href={href} className="transition-colors hover:text-gold-deep">
             {product.name}
           </Link>
         </h3>
-        {concern && (
-          <span className="mt-2.5 w-fit bg-sage-pale px-2 py-1 text-[0.56rem] font-semibold uppercase tracking-[0.08em] text-sage-deep">
-            {concernShort(concern)}
+        <div className="mt-2.5 flex flex-wrap gap-1.5">
+          <span className="auth-tag">
+            <IconCheck width={10} height={10} strokeWidth={2.4} /> Original
           </span>
-        )}
+          {concern && (
+            <span className="border border-sage/40 px-2 py-[0.22rem] text-[0.56rem] font-semibold uppercase tracking-[0.08em] text-sage-deep">
+              {concernShort(concern)}
+            </span>
+          )}
+        </div>
         <div className="mt-auto flex flex-col gap-2.5 border-t border-linen-mid pt-3.5 sm:flex-row sm:items-center sm:justify-between sm:gap-2">
           <div className="flex flex-col leading-none">
             <Price amount={product.price} className="font-serif text-lg text-ink" />

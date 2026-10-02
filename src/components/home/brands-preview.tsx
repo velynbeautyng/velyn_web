@@ -4,6 +4,7 @@ import { brandLogoSrc } from "@/lib/brand-logos";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { Stagger, StaggerItem } from "@/components/motion/reveal";
 import { ButtonLink } from "@/components/ui/button";
+import { IconArrowRight } from "@/components/ui/icons";
 
 export async function BrandsPreview() {
   const all = await getBrands();
@@ -15,23 +16,17 @@ export async function BrandsPreview() {
   ].slice(0, 12);
 
   return (
-    <section className="section section-y bg-white">
+    <section className="section section-y bg-linen">
       <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
         <SectionHeading
-          kicker="Our Brand Portfolio"
           title={
             <>
-              Trusted Global <em>Brands</em>
+              Brands we <em>carry</em>
             </>
           }
         />
-        <ButtonLink
-          href="/brands"
-          variant="outlineLight"
-          size="sm"
-          className="w-fit"
-        >
-          View All Brands
+        <ButtonLink href="/brands" variant="outlineGold" size="sm" className="w-fit">
+          View all brands
         </ButtonLink>
       </div>
 
@@ -42,7 +37,7 @@ export async function BrandsPreview() {
             <StaggerItem key={b.slug}>
               <Link
                 href={`/brands/${b.slug}`}
-                className="group flex h-20 items-center justify-center border border-linen-mid bg-white px-3 text-center transition-colors duration-300 hover:border-gold hover:bg-linen-soft"
+                className="group flex h-20 items-center justify-center border border-linen-mid bg-white px-3 text-center transition-colors duration-300 hover:border-gold"
               >
                 {logo ? (
                   // eslint-disable-next-line @next/next/no-img-element
@@ -50,10 +45,10 @@ export async function BrandsPreview() {
                     src={logo}
                     alt={b.name}
                     loading="lazy"
-                    className="max-h-9 w-auto max-w-[85%] object-contain opacity-90 transition-opacity duration-300 group-hover:opacity-100"
+                    className="max-h-9 w-auto max-w-[85%] object-contain opacity-85 grayscale transition duration-300 group-hover:opacity-100 group-hover:grayscale-0"
                   />
                 ) : (
-                  <span className="font-serif text-sm tracking-wide text-ink/70 transition-colors group-hover:text-ink">
+                  <span className="font-serif text-sm tracking-wide text-ink/80 transition-colors group-hover:text-ink">
                     {b.name}
                   </span>
                 )}
@@ -63,24 +58,15 @@ export async function BrandsPreview() {
         })}
       </Stagger>
 
-      <div className="mt-4 flex flex-col items-start justify-between gap-4 border border-gold-pale bg-linen-soft px-6 py-6 sm:flex-row sm:items-center">
-        <div>
-          <h3 className="font-serif text-lg text-ink">
-            Looking to enter the African market?
-          </h3>
-          <p className="mt-1 text-[0.85rem] text-stone">
-            Velyn provides proven market entry, distribution infrastructure, and
-            brand protection for international skincare brands.
-          </p>
-        </div>
-        <ButtonLink
-          href="/partner"
-          variant="gold"
-          size="md"
-          className="shrink-0"
+      <div className="mt-4 flex flex-col items-start justify-between gap-3 border border-gold-pale bg-linen-soft px-6 py-5 sm:flex-row sm:items-center">
+        <p className="font-serif text-base text-ink">Bringing your brand to Nigeria?</p>
+        <a
+          href="#partners"
+          className="inline-flex items-center gap-1.5 text-[0.62rem] font-semibold uppercase tracking-[0.14em] text-gold-deep hover:text-ink"
         >
-          Partner With Velyn
-        </ButtonLink>
+          How partnerships work
+          <IconArrowRight width={14} height={14} />
+        </a>
       </div>
     </section>
   );

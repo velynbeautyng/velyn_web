@@ -61,6 +61,18 @@ describe("inferConcerns", () => {
     expect(inferConcerns("Aqua Protect 70ml", "Sunscreen")).toEqual(["Sun protection"]);
   });
 
+  it("treats hydroquinone creams as dark-spot treatments, not moisturisers", () => {
+    expect(inferConcerns("Abbot Melalite Hydroquinone USP 30g", "face cream")[0]).toBe(
+      "Dark spots & uneven tone",
+    );
+  });
+
+  it("treats licorice as a brightening ingredient", () => {
+    expect(inferConcerns("Acwell 5.5 Licorice pH Balancing Cleansing Toner 150ml")).toContain(
+      "Dark spots & uneven tone",
+    );
+  });
+
   it("returns nothing for products with no concern signal", () => {
     expect(inferConcerns("100% Cotton Pads 80pcs")).toEqual([]);
   });
