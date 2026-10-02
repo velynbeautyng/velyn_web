@@ -1,4 +1,5 @@
-import type { Product, ProductVariation, SkinConcern } from "./types";
+import type { Product, ProductVariation } from "./types";
+import { inferConcerns } from "./concerns";
 import { slugify } from "@/lib/utils";
 import { cleanProductHtml } from "@/lib/product-html";
 import { opsConfig } from "./config";
@@ -42,25 +43,9 @@ const num = (v: string | number | undefined | null): number => {
   return Number.isFinite(n) ? n : 0;
 };
 
-/** Keyword → skin concern inference, since ops has no native concern field. */
-const CONCERN_RULES: [RegExp, SkinConcern][] = [
-  [/acne|blemish|effaclar|spot|salicylic|bha|tea tree/i, "Acne-Prone"],
-  [/pigment|dark spot|brighten|arbutin|vitamin c|tranexamic|niacinamide|tone/i, "Hyperpigmentation"],
-  [/hydrat|moistur|hyaluronic|dry|barrier|ceramide/i, "Dry Skin"],
-  [/sensitiv|soothe|calm|centella|cica|heartleaf|redness/i, "Sensitive Skin"],
-  [/oil|sebum|pore|mattif/i, "Oily Skin"],
-  [/age|wrinkle|firm|retinol|peptide|collagen/i, "Anti-Ageing"],
-];
-
-function inferConcerns(name: string, category?: string): SkinConcern[] {
-  const hay = `${name} ${category ?? ""}`;
-  const found = CONCERN_RULES.filter(([re]) => re.test(hay)).map(([, c]) => c);
-  return found.length ? Array.from(new Set(found)) : ["All Skin Types"];
-}
-
 export function normalizeProduct(raw: RawOpsProduct): Product {
   // Brands are managed in ops. A product with no brand there stays brandless
-  // (rather than inventing a fake "Velyn" brand on the storefront).
+  // (rather than inventing a house brand on the storefront).
   const brand = raw.brand?.name?.trim() ?? "";
   const category = raw.category?.name ?? undefined;
   const wantedLocation = opsConfig.locationId;
