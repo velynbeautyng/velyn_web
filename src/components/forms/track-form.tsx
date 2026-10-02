@@ -36,7 +36,7 @@ function stagesFor(method: "delivery" | "pickup"): string[] {
 }
 
 const fieldClass =
-  "w-full border border-linen-mid bg-white px-3.5 py-3 text-sm text-ink placeholder:text-stone/60 outline-none transition-colors focus:border-gold";
+  "w-full border border-linen-mid bg-white px-3.5 py-3 text-base sm:text-sm text-ink placeholder:text-stone outline-none transition-colors focus:border-gold";
 const labelClass =
   "mb-1.5 block text-[0.6rem] font-bold uppercase tracking-[0.14em] text-stone";
 

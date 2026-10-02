@@ -35,8 +35,8 @@ export async function FeaturedProducts() {
               href={chip.href}
               className={
                 i === 0
-                  ? "shrink-0 border border-ink bg-ink px-3.5 py-2 text-[0.62rem] font-semibold uppercase tracking-[0.1em] text-white"
-                  : "shrink-0 border border-linen-mid bg-white px-3.5 py-2 text-[0.62rem] font-semibold uppercase tracking-[0.1em] text-stone transition-colors hover:border-ink hover:text-ink"
+                  ? "inline-flex min-h-11 shrink-0 items-center border border-ink bg-ink px-4 text-[0.62rem] font-semibold uppercase tracking-[0.1em] text-white"
+                  : "inline-flex min-h-11 shrink-0 items-center border border-linen-mid bg-white px-4 text-[0.62rem] font-semibold uppercase tracking-[0.1em] text-stone transition-colors hover:border-ink hover:text-ink"
               }
             >
               {chip.label}

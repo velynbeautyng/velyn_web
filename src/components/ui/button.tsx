@@ -22,7 +22,7 @@ const sizes: Record<Size, string> = {
 };
 
 const baseClass =
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap font-semibold uppercase tracking-[0.14em] cursor-pointer transition-[color,background-color,border-color,transform] duration-200 active:translate-y-px disabled:opacity-50 disabled:cursor-not-allowed select-none";
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap font-semibold uppercase tracking-[0.14em] cursor-pointer transition-[color,background-color,border-color,transform] duration-[160ms] ease-[cubic-bezier(0.23,1,0.32,1)] active:scale-[0.97] disabled:opacity-50 disabled:cursor-not-allowed select-none";
 
 export function buttonClass({
   variant = "ink",

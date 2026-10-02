@@ -258,39 +258,12 @@ body {
   max-width: 68ch;
 }
 
-.hairline {
-  height: 2px;
-  width: 1.75rem;
-  background: var(--color-gold);
-}
-
 /* Naira symbol: force a font with the correct double-bar glyph. */
 .naira-symbol {
   font-family: "Segoe UI", Roboto, "Noto Sans", Arial, var(--font-poppins),
     sans-serif;
   margin-right: 0.02em;
 }
-}
-
-@keyframes drift {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-.animate-float {
-  animation: drift 6s ease-in-out infinite;
-}
-.still .animate-float {
-  animation: none;
-}
-@media (prefers-reduced-motion: reduce) {
-  .animate-float {
-    animation: none;
-  }
 }
 
 /* Hero headline: each line rises out of its own mask on first paint. */

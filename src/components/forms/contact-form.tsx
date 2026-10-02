@@ -26,7 +26,7 @@ export function ContactForm({
 
   const dark = tone === "dark";
   const fieldClass = cn(
-    "w-full border px-3.5 py-2.5 text-sm outline-none transition-colors",
+    "w-full border px-3.5 py-2.5 text-base sm:text-sm outline-none transition-colors",
     dark
       ? "border-gold/30 bg-linen/[0.04] text-linen placeholder:text-linen/60 focus:border-gold"
       : "border-linen-mid bg-white text-ink placeholder:text-stone focus:border-gold",

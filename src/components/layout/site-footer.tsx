@@ -38,7 +38,7 @@ export function SiteFooter() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={label}
-                  className="flex h-9 w-9 items-center justify-center border border-gold/25 text-gold transition-colors hover:border-gold hover:bg-gold hover:text-ink"
+                  className="flex h-11 w-11 items-center justify-center border border-gold/25 text-gold transition-colors hover:border-gold hover:bg-gold hover:text-ink"
                 >
                   <Icon width={16} height={16} />
                 </a>

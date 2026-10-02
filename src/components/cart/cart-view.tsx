@@ -151,7 +151,7 @@ function CartRow({ item }: { item: CartItem }) {
           <button
             type="button"
             onClick={() => remove(item.id)}
-            className="h-fit shrink-0 cursor-pointer text-stone hover:text-ink"
+            className="-m-3 flex h-fit shrink-0 cursor-pointer p-3 text-stone hover:text-ink"
             aria-label={`Remove ${item.name}`}
           >
             <IconTrash width={16} height={16} />
