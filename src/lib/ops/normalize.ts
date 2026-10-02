@@ -43,10 +43,24 @@ const num = (v: string | number | undefined | null): number => {
   return Number.isFinite(n) ? n : 0;
 };
 
+/**
+ * Ops names lead with the brand ("EOS Vanilla Cashmere Body Wash") so staff can
+ * search the POS by it. The storefront prints the brand on its own line, so
+ * the prefix is dropped here.
+ */
+function withoutBrand(name: string, brand: string): string {
+  const trimmed = name.trim();
+  if (!brand) return trimmed;
+  const prefix = `${brand.toLowerCase()} `;
+  const rest = trimmed.toLowerCase().startsWith(prefix) ? trimmed.slice(prefix.length).trim() : "";
+  return rest || trimmed;
+}
+
 export function normalizeProduct(raw: RawOpsProduct): Product {
   // Brands are managed in ops. A product with no brand there stays brandless
   // (rather than inventing a house brand on the storefront).
   const brand = raw.brand?.name?.trim() ?? "";
+  const name = withoutBrand(raw.name, brand);
   const category = raw.category?.name ?? undefined;
   const wantedLocation = opsConfig.locationId;
   // When stock tracking is off in ops, items are always purchasable; when on,
@@ -92,8 +106,8 @@ export function normalizeProduct(raw: RawOpsProduct): Product {
 
   return {
     id: String(raw.id),
-    slug: slugify(`${brand}-${raw.name}-${raw.id}`),
-    name: raw.name,
+    slug: slugify(`${brand}-${name}-${raw.id}`),
+    name,
     brand,
     brandSlug: slugify(brand),
     category,
