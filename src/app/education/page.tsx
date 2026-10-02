@@ -5,7 +5,7 @@ import { site } from "@/lib/site";
 import { PageHero } from "@/components/ui/page-hero";
 import { CtaBand } from "@/components/ui/cta-band";
 import { Stagger, StaggerItem } from "@/components/motion/reveal";
-import { VelynMark } from "@/components/brand/velyn-mark";
+import { NuveneIcon } from "@/components/brand/nuvene-logo";
 import { IconArrowRight } from "@/components/ui/icons";
 import { BreadcrumbJsonLd } from "@/components/seo/json-ld";
 
@@ -59,10 +59,7 @@ export default async function EducationPage() {
                 className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
             ) : (
-              <VelynMark
-                className="h-16 w-auto opacity-20 transition-transform duration-500 group-hover:scale-110"
-                tone="gold"
-              />
+              <NuveneIcon className="h-16 w-auto opacity-20 transition-transform duration-500 group-hover:scale-110 text-gold" />
             )}
           </div>
           <div className="flex flex-col justify-center p-8 lg:p-12">
@@ -96,10 +93,7 @@ export default async function EducationPage() {
                       className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                   ) : (
-                    <VelynMark
-                      className="h-10 w-auto opacity-20 transition-transform duration-500 group-hover:scale-110"
-                      tone="gold"
-                    />
+                    <NuveneIcon className="h-10 w-auto opacity-20 transition-transform duration-500 group-hover:scale-110 text-gold" />
                   )}
                 </div>
                 <div className="flex flex-1 flex-col p-5">

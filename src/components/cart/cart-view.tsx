@@ -10,7 +10,7 @@ import {
 import { formatNaira } from "@/lib/utils";
 import { Price } from "@/components/ui/price";
 import { ButtonLink } from "@/components/ui/button";
-import { VelynMark } from "@/components/brand/velyn-mark";
+import { NuveneIcon } from "@/components/brand/nuvene-logo";
 import { IconMinus, IconPlus, IconTrash } from "@/components/ui/icons";
 
 const FREE_SHIPPING = Number(
@@ -26,7 +26,7 @@ export function CartView() {
     return (
       <div className="section section-y">
         <div className="mx-auto flex max-w-md flex-col items-center gap-5 py-16 text-center">
-          <VelynMark className="h-12 w-auto opacity-20" tone="ink" />
+          <NuveneIcon className="h-12 w-auto opacity-20 text-ink" />
           <h1 className="font-serif text-2xl text-ink">
             Your cart is empty
           </h1>
@@ -128,7 +128,7 @@ function CartRow({ item }: { item: CartItem }) {
           />
         ) : (
           <div className="flex h-full items-center justify-center">
-            <VelynMark className="h-6 w-auto opacity-20" tone="ink" />
+            <NuveneIcon className="h-6 w-auto opacity-20 text-ink" />
           </div>
         )}
       </Link>

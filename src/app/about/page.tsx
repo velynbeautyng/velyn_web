@@ -4,7 +4,7 @@ import { PageHero } from "@/components/ui/page-hero";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { CtaBand } from "@/components/ui/cta-band";
 import { Reveal, Stagger, StaggerItem } from "@/components/motion/reveal";
-import { VelynMark } from "@/components/brand/velyn-mark";
+import { NuveneIcon } from "@/components/brand/nuvene-logo";
 import { IconLeaf, IconShield } from "@/components/ui/icons";
 import { BreadcrumbJsonLd } from "@/components/seo/json-ld";
 
@@ -107,7 +107,7 @@ export default function AboutPage() {
 
         <Reveal direction="left" className="grid gap-4 sm:grid-cols-2">
           <div className="flex flex-col justify-between border border-linen-mid bg-white p-6">
-            <VelynMark className="h-8 w-auto" tone="gold" />
+            <NuveneIcon className="h-8 w-auto text-gold" />
             <div className="mt-8">
               <h3 className="font-serif text-lg text-ink">Our Vision</h3>
               <p className="mt-2 text-[0.85rem] leading-relaxed text-stone">

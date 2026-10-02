@@ -12,7 +12,7 @@ import { cn } from "@/lib/utils";
 import { Price } from "@/components/ui/price";
 import { IconClose, IconMinus, IconPlus, IconTrash } from "@/components/ui/icons";
 import { ButtonLink } from "@/components/ui/button";
-import { VelynMark } from "@/components/brand/velyn-mark";
+import { NuveneIcon } from "@/components/brand/nuvene-logo";
 
 export function CartDrawer() {
   const isOpen = useCart((s) => s.isOpen);
@@ -70,7 +70,7 @@ export function CartDrawer() {
 
         {items.length === 0 ? (
           <div className="flex flex-1 flex-col items-center justify-center gap-4 px-6 text-center">
-            <VelynMark className="h-10 w-auto opacity-30" tone="ink" />
+            <NuveneIcon className="h-10 w-auto opacity-30 text-ink" />
             <p className="prose-body text-stone">Your cart is empty.</p>
             <ButtonLink href="/shop" variant="ink" size="md" onClick={close}>
               Browse Products
@@ -137,7 +137,7 @@ function CartLine({ item }: { item: CartItem }) {
           />
         ) : (
           <div className="flex h-full items-center justify-center">
-            <VelynMark className="h-5 w-auto opacity-20" tone="ink" />
+            <NuveneIcon className="h-5 w-auto opacity-20 text-ink" />
           </div>
         )}
       </div>

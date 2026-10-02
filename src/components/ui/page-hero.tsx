@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { Reveal } from "@/components/motion/reveal";
-import { VelynMark } from "@/components/brand/velyn-mark";
+import { NuveneIcon } from "@/components/brand/nuvene-logo";
 
 export function PageHero({
   kicker,
@@ -20,7 +20,7 @@ export function PageHero({
         aria-hidden
         className="pointer-events-none absolute -right-24 -top-24 opacity-[0.06]"
       >
-        <VelynMark className="h-72 w-auto" tone="gold" />
+        <NuveneIcon className="h-72 w-auto text-gold" />
       </div>
       <div className="section relative z-10 py-14 lg:py-20">
         {breadcrumb && (

@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Product } from "@/lib/ops/types";
 import { cn } from "@/lib/utils";
-import { VelynMark } from "@/components/brand/velyn-mark";
+import { NuveneIcon } from "@/components/brand/nuvene-logo";
 import { IconCheck } from "@/components/ui/icons";
 import { Price } from "@/components/ui/price";
 import { AddToCartButton } from "./add-to-cart-button";
@@ -49,7 +49,7 @@ export function ProductCard({
           />
         ) : (
           <div className="flex h-full flex-col items-center justify-center gap-3">
-            <VelynMark className="h-9 w-auto opacity-15" tone="ink" />
+            <NuveneIcon className="h-9 w-auto opacity-15 text-ink" />
             <span className="text-[0.6rem] uppercase tracking-[0.14em] text-ink/25">
               {product.brand}
             </span>

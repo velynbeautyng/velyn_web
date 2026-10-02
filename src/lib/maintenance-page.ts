@@ -1,4 +1,4 @@
-import { VELYN_LOCKUP_SVG } from "@/components/brand/velyn-lockup-svg";
+import { VELYN_LOCKUP_SVG } from "@/lib/maintenance-velyn-lockup";
 import { site, whatsappLink } from "@/lib/site";
 
 const wa = whatsappLink(

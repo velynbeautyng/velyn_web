@@ -1,5 +1,5 @@
 import { ButtonLink } from "@/components/ui/button";
-import { VelynMark } from "@/components/brand/velyn-mark";
+import { NuveneIcon } from "@/components/brand/nuvene-logo";
 import { Reveal, Stagger } from "@/components/motion/reveal";
 
 const trust = ["Verified Sourcing", "Direct Manufacturer", "Nationwide Delivery"];
@@ -78,7 +78,7 @@ export function Hero() {
             <span className="tick-bl" />
             <span className="tick-br" />
             <div className="absolute inset-0 flex flex-col items-center justify-center gap-5">
-              <VelynMark className="h-24 w-auto animate-float opacity-90" tone="gold" />
+              <NuveneIcon className="h-24 w-auto animate-float opacity-90 text-gold" />
               <span className="text-[0.62rem] uppercase tracking-[0.3em] text-gold/50">
                 Beauty You Can Trust
               </span>

@@ -5,7 +5,7 @@ import { useSearchParams } from "next/navigation";
 import { useCart } from "@/lib/cart-store";
 import { formatNaira } from "@/lib/utils";
 import { ButtonLink } from "@/components/ui/button";
-import { VelynMark } from "@/components/brand/velyn-mark";
+import { NuveneIcon } from "@/components/brand/nuvene-logo";
 import { IconCheck } from "@/components/ui/icons";
 
 type State =
@@ -113,7 +113,7 @@ export function CheckoutSuccess() {
   if (state.kind === "pending") {
     return (
       <Shell>
-        <VelynMark className="h-12 w-auto opacity-30" tone="ink" />
+        <NuveneIcon className="h-12 w-auto opacity-30 text-ink" />
         <h1 className="font-serif text-2xl text-ink">
           Payment not completed
         </h1>
@@ -136,7 +136,7 @@ export function CheckoutSuccess() {
 
   return (
     <Shell>
-      <VelynMark className="h-12 w-auto opacity-30" tone="ink" />
+      <NuveneIcon className="h-12 w-auto opacity-30 text-ink" />
       <h1 className="font-serif text-2xl text-ink">
         Something went wrong
       </h1>

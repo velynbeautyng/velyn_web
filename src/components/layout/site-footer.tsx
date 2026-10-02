@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { footerNav, site } from "@/lib/site";
-import { VelynMark } from "@/components/brand/velyn-mark";
+import { NuveneIcon } from "@/components/brand/nuvene-logo";
 import {
   IconFacebook,
   IconInstagram,
@@ -26,7 +26,7 @@ export function SiteFooter() {
         <div className="grid gap-10 border-b border-gold/10 pb-12 md:grid-cols-2 lg:grid-cols-[1.6fr_1fr_1fr_1fr]">
           <div className="max-w-sm">
             <div className="flex items-center gap-2.5">
-              <VelynMark className="h-9 w-auto" tone="gold" />
+              <NuveneIcon className="h-9 w-auto text-gold" />
               <div className="leading-none">
                 <div className="font-serif text-xl tracking-[0.14em] text-linen">
                   VELYN
