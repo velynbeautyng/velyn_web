@@ -4,7 +4,7 @@ import { getOrderStatus } from "@/lib/ops/order-status";
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 /**
- * Order tracking lookup — proxies the ops order-status endpoint so ops
+ * Order tracking lookup. Proxies the ops order-status endpoint so ops
  * credentials stay server-side. Requires the order reference AND the email
  * used at checkout, so orders can't be enumerated.
  */

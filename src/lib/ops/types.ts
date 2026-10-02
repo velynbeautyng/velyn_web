@@ -8,7 +8,7 @@ import type { SkinConcern } from "./concerns";
 export type { SkinConcern } from "./concerns";
 
 export type ProductVariation = {
-  /** ops variation id — stable per purchasable unit. */
+  /** ops variation id, stable per purchasable unit. */
   id: string;
   name: string;
   sku: string;

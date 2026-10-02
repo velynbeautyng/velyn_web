@@ -23,7 +23,7 @@ export default function ReturnsPage() {
       />
       <PageHero
         kicker="Support"
-        title={<>Returns Policy</>}
+        title={<>Returns policy</>}
         intro="We want you to shop with confidence. Here's how returns work."
         breadcrumb={[
           { name: "Home", href: "/" },
@@ -74,7 +74,7 @@ export default function ReturnsPage() {
             <h2>Refunds</h2>
             <p>
               Approved refunds are processed to your original payment method or via
-              bank transfer, typically within 5–10 business days of the returned
+              bank transfer, typically within 5 to 10 business days of the returned
               item being received and inspected. Delivery fees are non-refundable
               except where the return is due to our error.
             </p>

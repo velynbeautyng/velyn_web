@@ -36,7 +36,7 @@ const faqs: QA[] = [
   },
   {
     q: "How do I become a wholesale partner?",
-    a: "Submit the wholesale application on our Wholesale page. We verify business credentials within 48 hours and send your pricing catalogue and onboarding details.",
+    a: "Submit the wholesale application on our Wholesale page. We review your application, then send your pricing catalogue and onboarding details.",
   },
   {
     q: "I represent an international brand. How do I partner with Nuvene?",
@@ -69,7 +69,7 @@ export default function FaqPage() {
         kicker="Support"
         title={
           <>
-            Frequently Asked <em>Questions</em>
+            Frequently asked <em>questions</em>
           </>
         }
         intro="Everything you need to know about our sourcing, ordering, delivery and partnerships."
@@ -88,7 +88,7 @@ export default function FaqPage() {
       <CtaBand
         title={
           <>
-            Still Have a <em className="text-white/70">Question?</em>
+            Still have <em>a question?</em>
           </>
         }
         body="Our team responds within 24 business hours, or reach a specialist instantly on WhatsApp."

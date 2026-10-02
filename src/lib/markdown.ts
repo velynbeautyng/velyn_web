@@ -1,7 +1,7 @@
 /**
  * Minimal, dependency-free Markdown → HTML renderer for blog posts authored
  * in the ops admin. Deliberately small: it covers the constructs a beauty
- * brand's articles use — headings, paragraphs, bold/italic, links, images,
+ * brand's articles use: headings, paragraphs, bold/italic, links, images,
  * bullet & numbered lists, blockquotes, code, and horizontal rules.
  *
  * Security: all raw HTML is escaped FIRST, so the only tags in the output are

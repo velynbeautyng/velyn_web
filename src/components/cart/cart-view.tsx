@@ -70,7 +70,7 @@ export function CartView() {
 
       {/* Summary */}
       <aside className="h-fit border border-linen-mid bg-linen p-6 lg:sticky lg:top-[calc(var(--header-h)+1rem)]">
-        <h2 className="font-serif text-xl text-ink">Order Summary</h2>
+        <h2 className="font-serif text-xl text-ink">Order summary</h2>
         <dl className="mt-5 flex flex-col gap-2.5 text-[0.88rem]">
           <div className="flex justify-between">
             <dt className="text-stone">Subtotal</dt>

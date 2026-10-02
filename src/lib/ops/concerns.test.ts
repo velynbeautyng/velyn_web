@@ -93,7 +93,7 @@ describe("resolveConcernSlug", () => {
     expect(resolveConcernSlug("dryness")).toBe("dryness");
   });
 
-  it("maps legacy Velyn slugs", () => {
+  it("maps slugs from the old site", () => {
     expect(resolveConcernSlug("acne-prone")).toBe("acne-oily");
     expect(resolveConcernSlug("oily-skin")).toBe("acne-oily");
     expect(resolveConcernSlug("hyperpigmentation")).toBe("dark-spots");

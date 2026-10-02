@@ -105,7 +105,7 @@ export async function opsFetch<T>(
   });
 
   if (res.status === 401) {
-    // Token may have been revoked — clear cache so the next call re-auths.
+    // Token may have been revoked: clear cache so the next call re-auths.
     tokenCache = null;
     throw new OpsError("ops unauthorized", 401);
   }

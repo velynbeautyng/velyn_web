@@ -23,7 +23,7 @@ export default function TermsPage() {
       />
       <PageHero
         kicker="Legal"
-        title={<>Terms of Use</>}
+        title={<>Terms of use</>}
         intro="Please read these terms carefully before using our website and services."
         breadcrumb={[
           { name: "Home", href: "/" },

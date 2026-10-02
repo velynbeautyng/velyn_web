@@ -1,7 +1,7 @@
 /**
  * Sanitize + tidy the product description HTML coming from ops (imported from
- * WooCommerce). Descriptions carry real structure — <h4>Benefits</h4>,
- * <h4>Key Ingredients</h4>, <h4>How to Use</h4> etc. — that we want to render
+ * WooCommerce). Descriptions carry real structure (<h4>Benefits</h4>,
+ * <h4>Key Ingredients</h4>, <h4>How to Use</h4> etc.) that we want to render
  * as proper sub-headings instead of one flat blob.
  *
  * Security: only a small allowlist of structural tags survives; ALL attributes
@@ -36,7 +36,7 @@ export function cleanProductHtml(input: string): string {
   // Drop script/style blocks entirely (content included).
   html = html.replace(/<(script|style)[^>]*>[\s\S]*?<\/\1>/gi, "");
 
-  // Remove the redundant WooCommerce-appended "How to use:" paragraph — the
+  // Remove the redundant WooCommerce-appended "How to use:" paragraph; the
   // structured <h4>How to Use</h4> section already covers it.
   html = html.replace(
     /<p>\s*<strong>\s*how to use:\s*<\/strong>[\s\S]*?<\/p>/gi,

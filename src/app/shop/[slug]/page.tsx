@@ -169,10 +169,10 @@ export default async function ProductPage({ params }: { params: Params }) {
       {related.length > 0 && (
         <section className="section section-y bg-linen">
           <SectionHeading
-            kicker="You May Also Like"
+            kicker="You may also like"
             title={
               <>
-                Related <em>Skincare</em>
+                Related <em>skincare</em>
               </>
             }
           />

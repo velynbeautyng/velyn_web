@@ -30,7 +30,7 @@ export type ResolvedCart = {
 
 /**
  * Re-price the cart from the authoritative catalogue. Client-supplied prices
- * are ignored entirely — only the product id/slug/quantity are trusted — so a
+ * are ignored entirely (only the product id/slug/quantity are trusted), so a
  * tampered cart cannot change what is charged. Delivery is priced server-side
  * from the ops shipping config and the destination `state`.
  */

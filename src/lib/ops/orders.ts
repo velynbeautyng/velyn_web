@@ -34,7 +34,7 @@ export async function recordOrder(order: OrderRecord): Promise<{
   reason?: string;
 }> {
   if (dataSource() === "demo" || !isOpsConfigured()) {
-    console.info("[order] recorded (manual — ops not live):", {
+    console.info("[order] recorded (manual, ops not live):", {
       reference: order.reference,
       customer: order.customer,
       total: order.cart.total,
@@ -45,8 +45,8 @@ export async function recordOrder(order: OrderRecord): Promise<{
 
   try {
     // Post to our custom storefront order endpoint (auth:api). It creates a
-    // native UltimatePOS sale — CRM contact, stock deduction, payment and an
-    // admin bell notification — and is idempotent on `reference`.
+    // native UltimatePOS sale (CRM contact, stock deduction, payment and an
+    // admin bell notification) and is idempotent on `reference`.
     const payload = {
       reference: order.reference,
       location_id: opsConfig.locationId

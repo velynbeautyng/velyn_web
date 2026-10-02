@@ -5,7 +5,7 @@ import type { ResolvedCart } from "@/lib/ops/checkout";
 import type { Customer } from "@/lib/ops/orders";
 
 /**
- * Verify a Paystack reference and, on success, record the order in ops.
+ * Check a Paystack reference and, on success, record the order in ops.
  * Order details come from the Paystack transaction metadata set at
  * initialization, so no interim datastore is required.
  */
@@ -65,9 +65,9 @@ export async function GET(request: Request) {
       recorded,
     });
   } catch (err) {
-    console.error("[checkout] verify failed:", err);
+    console.error("[checkout] payment check failed:", err);
     return NextResponse.json(
-      { error: "Could not verify payment." },
+      { error: "Could not confirm payment." },
       { status: 502 },
     );
   }

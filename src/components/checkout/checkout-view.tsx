@@ -124,7 +124,7 @@ export function CheckoutView() {
     >
       {/* Delivery details */}
       <div>
-        <h2 className="font-serif text-2xl text-ink">Your Details</h2>
+        <h2 className="font-serif text-2xl text-ink">Your details</h2>
 
         {/* Delivery method */}
         <div className="mt-6 grid grid-cols-2 gap-3">
@@ -222,7 +222,7 @@ export function CheckoutView() {
 
       {/* Summary */}
       <aside className="h-fit border border-linen-mid bg-linen p-6 lg:sticky lg:top-[calc(var(--header-h)+1rem)]">
-        <h2 className="font-serif text-xl text-ink">Your Order</h2>
+        <h2 className="font-serif text-xl text-ink">Your order</h2>
         <ul className="mt-4 flex flex-col gap-3 border-b border-linen-mid pb-4">
           {items.map((item) => (
             <li key={item.id} className="flex gap-3">

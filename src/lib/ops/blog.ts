@@ -46,7 +46,7 @@ function toArticle(p: RawOpsPost, withBody: boolean): Article {
   };
 }
 
-/** The full Education Hub list — ops published posts if any, else in-repo. */
+/** The full Education Hub list: ops published posts if any, else in-repo. */
 export async function getEducationArticles(): Promise<Article[]> {
   if (isOpsConfigured()) {
     try {
@@ -75,7 +75,7 @@ async function opsHasPublishedPosts(): Promise<boolean> {
 
 /**
  * A single article by slug. Ops posts win. Once ops has *any* published post,
- * the in-repo sample articles are retired — an unknown slug 404s instead of
+ * the in-repo sample articles are retired, so an unknown slug 404s instead of
  * falling back. The in-repo articles only serve while ops is empty or
  * unreachable, so publishing your first post cleanly replaces the samples.
  */
@@ -87,7 +87,7 @@ export async function getEducationArticle(slug: string): Promise<Article | null>
       );
       if (res.data) return toArticle(res.data, true);
     } catch (err) {
-      // Ops reachable but no such published post: honour "ops mode" — if any
+      // Ops reachable but no such published post: honour "ops mode": if any
       // posts exist, the samples are gone (404). Only a truly-empty or
       // unreachable ops falls through to the in-repo article.
       if (err instanceof OpsError && err.status === 404) {

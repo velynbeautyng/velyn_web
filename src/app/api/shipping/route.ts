@@ -3,7 +3,7 @@ import { getShippingConfig } from "@/lib/ops/shipping";
 
 /**
  * Public shipping config for the client checkout (so the live delivery total
- * reflects the selected state). Only fees — no secrets. Cached via ISR.
+ * reflects the selected state). Only fees, no secrets. Cached via ISR.
  */
 export const revalidate = 300;
 

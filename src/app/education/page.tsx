@@ -31,10 +31,10 @@ export default async function EducationPage() {
         ]}
       />
       <PageHero
-        kicker="Education Hub"
+        kicker="Education hub"
         title={
           <>
-            Know Your Skin, <em>Trust Your Routine</em>
+            Know your skin, <em>trust your routine</em>
           </>
         }
         intro="Evidence-based insights that translate complex dermatology into clear, practical guidance, so you can make confident, well-informed choices."
@@ -117,7 +117,7 @@ export default async function EducationPage() {
       <CtaBand
         title={
           <>
-            Ready to Build Your <em className="text-white/70">Routine?</em>
+            Ready to build <em>your routine?</em>
           </>
         }
         body="Shop original skincare matched to your concern, or ask us on WhatsApp."
