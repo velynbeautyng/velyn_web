@@ -1,58 +1,47 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { site } from "@/lib/site";
+import shelves from "@/assets/photos/store-shelves.jpg";
 import { PageHero } from "@/components/ui/page-hero";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { CtaBand } from "@/components/ui/cta-band";
 import { Reveal, Stagger, StaggerItem } from "@/components/motion/reveal";
 import { NuveneIcon } from "@/components/brand/nuvene-logo";
-import { IconLeaf, IconShield } from "@/components/ui/icons";
+import { IconShield } from "@/components/ui/icons";
 import { BreadcrumbJsonLd } from "@/components/seo/json-ld";
 
 export const metadata: Metadata = {
-  title: "About Us",
+  title: "About us",
   description:
-    "Velyn Beauty & Essentials is a Nigerian skincare distribution company built on authenticity, effectiveness and trust, bridging global manufacturers and the African market.",
+    "Nuvene Beauty is an Abuja skincare company built on honesty, results and trust. Learn where the name comes from and what we promise.",
   alternates: { canonical: `${site.url}/about` },
 };
 
 const values = [
   {
-    n: "01",
-    title: "Authenticity First",
-    body: "Every product we sell is original, verified, and sourced directly from manufacturers or authorised partners.",
+    title: "Honesty first",
+    body: "Every product we sell is original and bought through named distributors and authorised suppliers. We're open about what can and can't be checked.",
   },
   {
-    n: "02",
-    title: "Results-Driven Skincare",
-    body: "We focus on products that work, solutions for acne, blemishes, hyperpigmentation and uneven tone, not passing trends.",
+    title: "Concern led",
+    body: "Every recommendation starts with your concern: acne, dryness, dark spots, sensitivity or sun protection. Results matter more than trends.",
   },
   {
-    n: "03",
-    title: "Education & Trust",
-    body: "We don't just sell skincare, we educate. Knowledge builds confidence, and confidence builds trust.",
+    title: "Education",
+    body: "We explain what each product does, why it works and who it suits, so you can choose with confidence.",
   },
   {
-    n: "04",
-    title: "Exceptional Customer Care",
-    body: "Clear, honest communication and consistent support before, during and after every purchase.",
+    title: "A promise we can keep",
+    body: "If a product is ever confirmed counterfeit, we replace it or refund you. You never carry that risk alone.",
   },
   {
-    n: "05",
-    title: "Seamless Distribution",
-    body: "A smooth, reliable flow from manufacturer to distributor to retailer to consumer, integrity protected at every stage.",
+    title: "Customer care",
+    body: "Clear answers, quick fixes and steady support before, during and after every purchase.",
   },
   {
-    n: "06",
-    title: "Sustainability",
-    body: "We align with the UN SDGs, responsible sourcing, reduced packaging waste, and partners who share our environmental values.",
+    title: "Careful distribution",
+    body: "From distributor to Nuvene to retailer to you, we protect each product and keep the paperwork that shows where it came from.",
   },
-];
-
-const sdgs = [
-  { code: "SDG 3", label: "Good Health & Well-Being" },
-  { code: "SDG 12", label: "Responsible Consumption & Production" },
-  { code: "SDG 13", label: "Climate Action" },
-  { code: "SDG 14 / 15", label: "Life Below Water & On Land" },
 ];
 
 export default function AboutPage() {
@@ -65,149 +54,128 @@ export default function AboutPage() {
         ]}
       />
       <PageHero
-        kicker="Who We Are"
+        kicker="About Nuvene"
         title={
           <>
-            Building a Trusted Beauty{" "}
-            <em>Distribution Ecosystem</em>
+            Where the new <em>begins</em>
           </>
         }
-        intro="Velyn Beauty & Essentials is a Nigerian skincare distribution company built on authenticity, effectiveness and trust, connecting global brands to African consumers with integrity."
+        intro="Nuvene Beauty is an Abuja skincare company built on honesty, results and trust. We match each customer's real skin concern to an original product and back every purchase with a guarantee we can keep."
         breadcrumb={[
           { name: "Home", href: "/" },
           { name: "About", href: "/about" },
         ]}
       />
 
-      {/* Story */}
-      <section className="section section-y grid gap-12 lg:grid-cols-2 lg:gap-16">
+      <section className="section section-y grid gap-12 bg-white lg:grid-cols-2 lg:gap-16">
         <Reveal>
           <SectionHeading
-            kicker="Our Story"
             title={
               <>
-                Bridging Manufacturers and the{" "}
-                <em>Nigerian Market</em>
+                Global skincare, <em>honestly sourced</em>
               </>
             }
           />
           <p className="prose-body mt-5">
-            We operate across two core categories: established, high-demand
-            skincare brands with proven performance, and emerging international
-            brands seeking credible entry into the African market. Our role is to
-            ensure original products reach retailers and consumers exactly as the
-            manufacturer intended.
+            We carry two kinds of brands. Established names with a proven
+            record, like CeraVe, The Ordinary, COSRX and Dove. And effective
+            international brands that are new to Nigeria and want a careful,
+            credible way in.
           </p>
           <p className="prose-body mt-4">
-            We are not just selling skincare, we are building a trusted
-            distribution ecosystem defined by authenticity, sustainability,
-            education, and scalable partnerships.
+            We buy through established distribution channels and authorised
+            suppliers, and we say so openly. We don&apos;t claim import rights we
+            don&apos;t hold, or checks we can&apos;t run. What we promise, we keep.
           </p>
         </Reveal>
 
         <Reveal direction="left" className="grid gap-4 sm:grid-cols-2">
-          <div className="flex flex-col justify-between border border-linen-mid bg-white p-6">
-            <NuveneIcon className="h-8 w-auto text-gold" />
+          <div className="flex flex-col justify-between border border-linen-mid bg-linen-soft p-6">
+            <NuveneIcon className="h-8 w-auto text-sage" />
             <div className="mt-8">
-              <h3 className="font-serif text-lg text-ink">Our Vision</h3>
+              <h3 className="font-serif text-lg text-ink">Our vision</h3>
               <p className="mt-2 text-[0.85rem] leading-relaxed text-stone">
-                To become one of Nigeria&apos;s most trusted beauty distribution
-                platforms, recognised for sustainability, quality, and as a
-                channel for global beauty brands entering the Nigerian market.
+                To become one of Nigeria&apos;s most trusted skincare platforms,
+                known for honest sourcing, real results, and as a credible route
+                into Nigeria for global beauty brands.
               </p>
             </div>
           </div>
-          <div className="flex flex-col justify-between bg-ink p-6 text-linen">
-            <IconShield width={26} height={26} className="text-gold" />
+          <div className="flex flex-col justify-between bg-sage-night p-6">
+            <IconShield width={26} height={26} className="text-linen" />
             <div className="mt-8">
-              <h3 className="font-serif text-lg">Our Mission</h3>
-              <p className="mt-2 text-[0.85rem] leading-relaxed text-linen/55">
-                To deliver quality, results-driven beauty products and seamless
-                access by partnering directly with trusted global manufacturers,
-                serving Nigerian consumers with integrity, education and
-                excellence.
+              <h3 className="font-serif text-lg text-white">Our mission</h3>
+              <p className="mt-2 text-[0.85rem] leading-relaxed text-white/85">
+                To match every customer with skincare that suits their real
+                concern, disclose where every product comes from, and stand
+                behind every purchase.
               </p>
             </div>
           </div>
         </Reveal>
       </section>
 
-      {/* Values */}
-      <section className="section section-y bg-linen">
+      <section className="section section-y grid items-center gap-12 bg-linen lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
+        <Reveal>
+          <div className="relative aspect-[16/10] overflow-hidden border border-linen-mid">
+            <Image
+              src={shelves}
+              alt="Shelves of skincare in a bright Nuvene Beauty store"
+              fill
+              placeholder="blur"
+              sizes="(max-width: 1024px) 100vw, 55vw"
+              className="object-cover"
+            />
+          </div>
+        </Reveal>
+        <Reveal direction="left">
+          <SectionHeading
+            kicker="The name"
+            title={
+              <>
+                Nuvene: where the <em>new begins</em>
+              </>
+            }
+          />
+          <p className="prose-body mt-5">
+            It&apos;s for the customer starting a new routine, and for us,
+            relaunching with a clear identity. We want Nuvene to feel calm,
+            natural and considered, never loud.
+          </p>
+        </Reveal>
+      </section>
+
+      <section className="section section-y bg-white">
         <SectionHeading
-          kicker="Our Brand Values"
           title={
             <>
-              What We Stand <em>For</em>
+              What we <em>stand for</em>
             </>
           }
-          intro="Six commitments that shape every sourcing decision and every customer interaction."
+          intro="Six commitments behind every sourcing decision and every conversation with a customer."
         />
         <Stagger className="mt-12 grid gap-px border border-linen-mid bg-linen-mid sm:grid-cols-2 lg:grid-cols-3">
-          {values.map((v) => (
-            <StaggerItem key={v.n} className="group bg-white p-7">
+          {values.map((v, i) => (
+            <StaggerItem key={v.title} className="group bg-white p-7">
               <div className="font-serif text-3xl text-gold-pale transition-colors group-hover:text-gold">
-                {v.n}
+                {String(i + 1).padStart(2, "0")}
               </div>
               <h3 className="mt-3 font-serif text-lg text-ink">{v.title}</h3>
-              <p className="mt-2 text-[0.85rem] leading-relaxed text-stone">
-                {v.body}
-              </p>
+              <p className="mt-2 text-[0.85rem] leading-relaxed text-stone">{v.body}</p>
             </StaggerItem>
           ))}
         </Stagger>
       </section>
 
-      {/* ESG */}
-      <section className="section section-y">
-        <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
-          <Reveal>
-            <span className="flex h-12 w-12 items-center justify-center bg-sage-pale text-sage-deep">
-              <IconLeaf width={24} height={24} />
-            </span>
-            <SectionHeading
-              className="mt-5"
-              kicker="ESG & Sustainability"
-              title={
-                <>
-                  A Sustainable Distribution{" "}
-                  <em>Bridge</em>
-                </>
-              }
-            />
-            <p className="prose-body mt-5">
-              Sustainability is integrated into our long-term strategy. We align
-              our operations with the United Nations Sustainable Development
-              Goals, ensuring access to safe, authentic products, discouraging
-              counterfeit circulation, and supporting partners who prioritise
-              ethical sourcing and responsible manufacturing.
-            </p>
-          </Reveal>
-          <Reveal direction="left" className="grid gap-3 self-center sm:grid-cols-2">
-            {sdgs.map((s) => (
-              <div
-                key={s.code}
-                className="border border-sage-mid/30 bg-sage-pale/40 p-5"
-              >
-                <div className="font-serif text-lg text-sage-deep">{s.code}</div>
-                <div className="mt-1 text-[0.8rem] leading-snug text-stone">
-                  {s.label}
-                </div>
-              </div>
-            ))}
-          </Reveal>
-        </div>
-      </section>
-
       <CtaBand
+        tone="sage"
         title={
           <>
-            Skincare You Can <em className="text-white/70">Trust</em>
+            Find what works <em>for your skin</em>
           </>
         }
-        body="Explore our authenticated range, or partner with us to grow your brand in Nigeria."
-        primary={{ label: "Shop the Range", href: "/shop" }}
-        secondary={{ label: "Partner With Us", href: "/partner" }}
+        primary={{ label: "Shop by concern", href: "/shop" }}
+        secondary={{ label: "Our sourcing promise", href: "/authenticity" }}
       />
     </>
   );
