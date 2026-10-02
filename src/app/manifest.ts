@@ -9,13 +9,10 @@ export default function manifest(): MetadataRoute.Manifest {
     start_url: "/",
     display: "standalone",
     background_color: "#E1DAC6",
-    theme_color: "#000000",
+    theme_color: "#4F6A54",
     icons: [
-      {
-        src: "/brand/PNG/ICON/COLORED.png",
-        sizes: "any",
-        type: "image/png",
-      },
+      { src: "/brand/nuvene-icon-192.png", sizes: "192x192", type: "image/png" },
+      { src: "/brand/nuvene-icon-512.png", sizes: "512x512", type: "image/png" },
     ],
   };
 }

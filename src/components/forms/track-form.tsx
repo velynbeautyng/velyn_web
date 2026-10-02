@@ -295,8 +295,8 @@ function Fallback({
   reference: string;
 }) {
   const message = reference
-    ? `Hi Velyn, I'd like an update on my order ${reference}.`
-    : "Hi Velyn, I'd like an update on my order.";
+    ? `Hi Nuvene, I'd like an update on my order ${reference}.`
+    : "Hi Nuvene, I'd like an update on my order.";
   return (
     <div className="mt-7 border-t border-linen-mid pt-6 text-center">
       <h3 className="font-serif text-lg text-ink">{title}</h3>

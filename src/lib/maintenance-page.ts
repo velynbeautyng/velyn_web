@@ -1,9 +1,31 @@
 import { VELYN_LOCKUP_SVG } from "@/lib/maintenance-velyn-lockup";
-import { site, whatsappLink } from "@/lib/site";
 
-const wa = whatsappLink(
+// velynbeauty.com keeps its old details until the domain redirects to Nuvene,
+// so this page no longer reads the shared site config.
+const site = {
+  name: "Velyn Beauty & Essentials",
+  legalName: "Velyn Beauty & Essentials Ltd",
+  contact: {
+    email: "hello@velynbeauty.com",
+    phonePrimary: "+2348141741207",
+    phonePrimaryDisplay: "+234 814 174 1207",
+    phoneSecondary: "+2349028828977",
+    address: {
+      line1: "Suite A20, ES-EM Plaza",
+      line2: "Shettima Monguno Crescent, Utako",
+      city: "Abuja",
+    },
+  },
+  social: {
+    instagram: "https://instagram.com/velynbeauty_essentials",
+    tiktok: "https://tiktok.com/@velynbeauty_essentials",
+    facebook: "https://facebook.com/velynbeautyessentials",
+  },
+};
+
+const wa = `https://wa.me/2348141741207?text=${encodeURIComponent(
   "Hello Velyn, I'd like to place an order while the website is paused.",
-);
+)}`;
 
 const styles = `
   :root {
@@ -148,7 +170,7 @@ export const maintenancePage = `<!doctype html>
     <a class="btn btn-ghost" href="mailto:${site.contact.email}">Email us</a>
   </div>
   <div class="details">
-    <p><a href="tel:${site.contact.phoneMtn}">${site.contact.whatsappDisplay}</a> or <a href="tel:${site.contact.phoneAirtel}">+234 902 882 8977</a></p>
+    <p><a href="tel:${site.contact.phonePrimary}">${site.contact.phonePrimaryDisplay}</a> or <a href="tel:${site.contact.phoneSecondary}">+234 902 882 8977</a></p>
     <p>Mon to Fri, 9am to 5pm WAT</p>
     <p>${site.contact.address.line1}, ${site.contact.address.line2}, ${site.contact.address.city}</p>
   </div>

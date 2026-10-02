@@ -198,13 +198,14 @@ export function CheckoutView() {
               <p className="mt-3 text-[0.83rem] leading-relaxed text-stone">
                 We&apos;ll call you when your order is packed and ready to
                 collect. For anything urgent, reach support on{" "}
-                <a href={`tel:${site.contact.phoneMtn}`} className="font-semibold text-ink hover:text-gold-deep">
-                  {site.contact.phoneMtn}
-                </a>{" "}
-                or{" "}
-                <a href={`tel:${site.contact.phoneAirtel}`} className="font-semibold text-ink hover:text-gold-deep">
-                  {site.contact.phoneAirtel}
-                </a>
+                {site.contact.phones.map((p, i) => (
+                  <span key={p.tel}>
+                    {i > 0 && " or "}
+                    <a href={`tel:${p.tel}`} className="font-semibold text-ink hover:text-gold-deep">
+                      {p.display}
+                    </a>
+                  </span>
+                ))}
                 . No delivery fee is charged for pickup.
               </p>
             </div>

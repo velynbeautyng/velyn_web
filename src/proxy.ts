@@ -10,7 +10,7 @@ import { maintenancePage } from "@/lib/maintenance-page";
  * page is up: visit /?preview=<token> once and the session is exempt.
  */
 const OFF_VALUES = new Set(["0", "off", "false", "no"]);
-const PREVIEW_COOKIE = "velyn_preview";
+const PREVIEW_COOKIE = "site_preview";
 const PREVIEW_MAX_AGE = 60 * 60 * 24 * 7;
 
 const maintenanceOn = !OFF_VALUES.has(

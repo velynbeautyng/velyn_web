@@ -63,7 +63,7 @@ export async function POST(request: Request) {
   });
 
   const apiKey = process.env.RESEND_API_KEY;
-  const to = process.env.CONTACT_INBOX || "hello@velynbeauty.com";
+  const to = process.env.CONTACT_INBOX || "nuvenebeauty@gmail.com";
 
   if (apiKey) {
     try {
@@ -74,7 +74,7 @@ export async function POST(request: Request) {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          from: process.env.CONTACT_FROM || "Velyn Website <noreply@velynbeauty.com>",
+          from: process.env.CONTACT_FROM || "Nuvene Website <noreply@nuvenebeauty.com>",
           to: [to],
           reply_to: email,
           subject: `New ${inquiry.inquiryType}: ${name}`,

@@ -15,7 +15,7 @@ const details = [
     icon: <IconPhone width={16} height={16} className="text-gold" />,
     main: site.contact.whatsappDisplay,
     sub: site.contact.hours,
-    href: `tel:${site.contact.phoneMtn}`,
+    href: `tel:${site.contact.phones[0].tel}`,
   },
   {
     icon: <IconPin width={16} height={16} className="text-gold" />,

@@ -14,7 +14,7 @@ import { BreadcrumbJsonLd } from "@/components/seo/json-ld";
 export const metadata: Metadata = {
   title: "Contact Us",
   description:
-    "Get in touch with Velyn Beauty & Essentials. Email, call or WhatsApp our team in Abuja, we respond within 24 business hours (wholesale within 48).",
+    "Get in touch with Nuvene Beauty in Wuye, Abuja. Email, call or WhatsApp us about your skin concern, an order, wholesale or brand partnerships.",
   alternates: { canonical: `${site.url}/contact` },
 };
 
@@ -23,21 +23,21 @@ const details = [
     icon: IconMail,
     label: "Email",
     value: site.contact.email,
-    sub: "General inquiries",
+    sub: "General enquiries",
     href: `mailto:${site.contact.email}`,
   },
-  {
+  ...site.contact.phones.map((p) => ({
     icon: IconPhone,
-    label: "Phone",
-    value: site.contact.whatsappDisplay,
+    label: `Phone, ${p.label}`,
+    value: p.display,
     sub: site.contact.hours,
-    href: `tel:${site.contact.phoneMtn}`,
-  },
+    href: `tel:${p.tel}`,
+  })),
   {
     icon: IconPin,
-    label: "Office",
+    label: "Store",
     value: `${site.contact.address.line1}, ${site.contact.address.line2}`,
-    sub: `${site.contact.address.city} · Serving all 36 states`,
+    sub: `${site.contact.address.city}, delivering across Nigeria`,
     href: undefined,
   },
 ];
@@ -52,13 +52,13 @@ export default function ContactPage() {
         ]}
       />
       <PageHero
-        kicker="Contact Us"
+        kicker="Contact"
         title={
           <>
-            Let&apos;s Talk <em>Skincare</em>
+            Let&apos;s talk <em>skincare</em>
           </>
         }
-        intro="Whether you're a customer, a retailer, or a global brand, we'd love to hear from you."
+        intro="Whether you're shopping for your skin, stocking a store or bringing a brand to Nigeria, we'd like to hear from you."
         breadcrumb={[
           { name: "Home", href: "/" },
           { name: "Contact", href: "/contact" },
@@ -88,7 +88,7 @@ export default function ContactPage() {
                 </div>
               );
               return d.href ? (
-                <a key={d.label} href={d.href}>
+                <a key={d.label} href={d.href} className="block">
                   {Inner}
                 </a>
               ) : (
@@ -100,21 +100,21 @@ export default function ContactPage() {
           <Reveal delay={0.1}>
             <a
               href={whatsappLink(
-                "Hello Velyn, I'd like to speak with a skincare specialist.",
+                "Hello Nuvene, I'd like help choosing a product for my skin concern.",
               )}
               target="_blank"
               rel="noopener noreferrer"
               className="mt-4 flex items-center gap-4 bg-ink p-5 transition-opacity hover:opacity-90"
             >
-              <span className="flex h-11 w-11 shrink-0 items-center justify-center bg-[#25D366]/15 text-[#25D366]">
+              <span className="flex h-11 w-11 shrink-0 items-center justify-center border border-gold/30 text-gold">
                 <IconWhatsapp width={20} height={20} />
               </span>
               <div>
-                <div className="text-sm font-semibold text-linen">
-                  Chat on WhatsApp
+                <div className="text-sm font-semibold text-white">
+                  Chat with us on WhatsApp
                 </div>
-                <div className="mt-0.5 text-xs text-linen/40">
-                  Usually responds within 30 minutes
+                <div className="mt-0.5 text-xs text-linen/75">
+                  Tell us your skin concern and we&apos;ll suggest what to try.
                 </div>
               </div>
             </a>
@@ -138,7 +138,7 @@ export default function ContactPage() {
         <Reveal direction="left">
           <div className="border border-linen-mid bg-white p-6 sm:p-8">
             <h2 className="mb-5 font-serif text-2xl text-ink">
-              Send a Message
+              Send a message
             </h2>
             <ContactForm tone="light" />
           </div>
