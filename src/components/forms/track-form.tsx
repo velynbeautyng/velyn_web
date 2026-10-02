@@ -242,11 +242,11 @@ function Stepper({ stage, stages }: { stage: number; stages: string[] }) {
               <span
                 className={cn(
                   "flex h-8 w-8 shrink-0 items-center justify-center rounded-full border-2 transition-colors",
-                  done && "border-sage bg-sage text-white",
-                  current && "border-gold bg-gold text-white",
+                  done && "border-sage-deep bg-sage-deep text-white",
+                  current && "border-gold bg-gold text-ink",
                   !done &&
                     !current &&
-                    "border-linen-mid bg-white text-stone/50",
+                    "border-linen-mid bg-white text-stone",
                 )}
               >
                 {done ? (

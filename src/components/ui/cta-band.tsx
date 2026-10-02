@@ -1,6 +1,13 @@
 import type { ReactNode } from "react";
 import { Reveal } from "@/components/motion/reveal";
 import { ButtonLink } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
+
+const TONES = {
+  ink: { bg: "bg-ink", title: "text-white", body: "text-white/80", primary: "gold", secondary: "outlineLight" },
+  sage: { bg: "bg-sage-shade", title: "text-white", body: "text-white", primary: "white", secondary: "outlineLight" },
+  gold: { bg: "bg-gold", title: "text-ink", body: "text-ink/80", primary: "ink", secondary: "outline" },
+} as const;
 
 export function CtaBand({
   kicker,
@@ -15,38 +22,42 @@ export function CtaBand({
   body?: ReactNode;
   primary: { label: string; href: string };
   secondary?: { label: string; href: string };
-  tone?: "ink" | "gold" | "sage";
+  tone?: keyof typeof TONES;
 }) {
-  const bg =
-    tone === "gold" ? "bg-gold" : tone === "sage" ? "bg-sage" : "bg-ink";
-
+  const t = TONES[tone];
   return (
-    <section className={`section section-y ${bg} text-center`}>
+    <section className={cn("section section-y text-center", t.bg)}>
       <Reveal className="mx-auto max-w-2xl">
         {kicker && (
-          <span className="kicker kicker--center kicker--onDark mx-auto justify-center">
+          <span
+            className={cn(
+              "kicker kicker--center mx-auto justify-center",
+              tone === "gold" ? "text-ink" : "kicker--onDark",
+            )}
+          >
             {kicker}
           </span>
         )}
-        <h2 className="display mt-3 text-[clamp(1.9rem,3.8vw,2.8rem)] text-white">
+        <h2
+          className={cn(
+            "display mt-3 text-[clamp(1.8rem,3.6vw,2.6rem)]",
+            tone === "gold" ? "[&_em]:text-ink" : "[&_em]:text-linen",
+            t.title,
+          )}
+        >
           {title}
         </h2>
         {body && (
-          <p className="mx-auto mt-4 max-w-xl text-[0.98rem] leading-relaxed text-white/60">
+          <p className={cn("mx-auto mt-4 max-w-xl text-[0.98rem] leading-relaxed", t.body)}>
             {body}
           </p>
         )}
         <div className="mt-8 flex flex-wrap justify-center gap-3">
-          <ButtonLink href={primary.href} variant="white" size="lg">
+          <ButtonLink href={primary.href} variant={t.primary} size="lg">
             {primary.label}
           </ButtonLink>
           {secondary && (
-            <ButtonLink
-              href={secondary.href}
-              variant="outlineLight"
-              size="lg"
-              className="!border-white/30 !text-white/80 hover:!border-white hover:!text-white"
-            >
+            <ButtonLink href={secondary.href} variant={t.secondary} size="lg">
               {secondary.label}
             </ButtonLink>
           )}
