@@ -273,7 +273,7 @@ function Stepper({ stage, stages }: { stage: number; stages: string[] }) {
                   ? "text-ink"
                   : done
                     ? "text-sage-deep"
-                    : "text-stone/50",
+                    : "text-stone",
               )}
             >
               {label}
