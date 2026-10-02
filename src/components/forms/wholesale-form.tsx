@@ -17,7 +17,7 @@ const businessTypes = [
 type Status = "idle" | "submitting" | "success" | "error";
 
 const field =
-  "w-full border border-linen-mid bg-white px-3.5 py-2.5 text-sm text-ink placeholder:text-stone/60 outline-none transition-colors focus:border-gold";
+  "w-full border border-linen-mid bg-white px-3.5 py-2.5 text-base sm:text-sm text-ink placeholder:text-stone outline-none transition-colors focus:border-gold";
 const label =
   "mb-1.5 block text-[0.6rem] font-bold uppercase tracking-[0.14em] text-stone";
 

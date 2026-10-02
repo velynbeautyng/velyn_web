@@ -134,7 +134,7 @@ export function SiteHeader() {
             <button
               type="button"
               onClick={openCart}
-              className="relative flex h-10 w-10 cursor-pointer items-center justify-center text-ink transition-colors hover:text-gold-deep"
+              className="relative flex h-11 w-11 cursor-pointer items-center justify-center text-ink transition-colors hover:text-gold-deep"
               aria-label={`Open cart, ${count} item${count === 1 ? "" : "s"}`}
             >
               <IconBag />
@@ -149,7 +149,7 @@ export function SiteHeader() {
               ref={menuButton}
               type="button"
               onClick={() => setOpen(true)}
-              className="flex h-10 w-10 cursor-pointer items-center justify-center text-ink xl:hidden"
+              className="flex h-11 w-11 cursor-pointer items-center justify-center text-ink xl:hidden"
               aria-label="Open menu"
               aria-expanded={open}
             >
@@ -189,7 +189,7 @@ export function SiteHeader() {
             <button
               type="button"
               onClick={() => setOpen(false)}
-              className="flex h-10 w-10 cursor-pointer items-center justify-center text-ink"
+              className="flex h-11 w-11 cursor-pointer items-center justify-center text-ink"
               aria-label="Close menu"
             >
               <IconClose />

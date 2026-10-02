@@ -16,7 +16,7 @@ export function ProductCard({ product, className }: { product: Product; classNam
   return (
     <article
       className={cn(
-        "group flex flex-col border border-linen-mid bg-white transition-[transform,box-shadow] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 hover:shadow-[0_26px_40px_-32px_rgba(0,0,0,0.4)] motion-reduce:hover:translate-y-0",
+        "group flex flex-col border border-linen-mid bg-white transition-[transform,box-shadow] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 hover:shadow-[0_26px_40px_-32px_rgba(0,0,0,0.4)] motion-reduce:hover:translate-y-0",
         className,
       )}
     >
@@ -37,7 +37,7 @@ export function ProductCard({ product, className }: { product: Product; classNam
             alt=""
             fill
             sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 22vw"
-            className="object-contain p-[11%] mix-blend-multiply transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]"
+            className="object-contain p-[11%] mix-blend-multiply transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]"
           />
         ) : (
           <div className="flex h-full items-center justify-center">

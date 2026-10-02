@@ -55,10 +55,10 @@ export default function PartnerPage() {
           }
         />
         <Stagger className="mt-10 grid gap-px border border-linen-mid bg-linen-mid md:grid-cols-3">
-          {partnerPoints.map((o, i) => (
+          {partnerPoints.map((o) => (
             <StaggerItem key={o.title} className="bg-white p-7">
-              <div className="font-serif text-3xl text-gold-pale">{String(i + 1).padStart(2, "0")}</div>
-              <h3 className="mt-3 font-serif text-lg text-ink">{o.title}</h3>
+              <div className="h-0.5 w-7 bg-gold" />
+              <h3 className="mt-5 font-serif text-lg text-ink">{o.title}</h3>
               <p className="mt-2 text-[0.85rem] leading-relaxed text-stone">{o.body}</p>
             </StaggerItem>
           ))}

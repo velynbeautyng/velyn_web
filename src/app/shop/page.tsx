@@ -112,7 +112,7 @@ export default async function ShopPage({
           <div className="mb-6 flex gap-1.5 overflow-x-auto pb-1 lg:hidden">
             <Link
               href="/shop"
-              className={`shrink-0 px-3 py-1.5 text-[0.6rem] font-semibold uppercase tracking-[0.1em] ${
+              className={`inline-flex min-h-11 shrink-0 items-center px-4 text-[0.6rem] font-semibold uppercase tracking-[0.1em] ${
                 !query.concern
                   ? "bg-ink text-white"
                   : "border border-linen-mid bg-white text-stone"
@@ -124,7 +124,7 @@ export default async function ShopPage({
               <Link
                 key={c.slug}
                 href={`/shop?concern=${c.slug}`}
-                className={`shrink-0 px-3 py-1.5 text-[0.6rem] font-semibold uppercase tracking-[0.1em] ${
+                className={`inline-flex min-h-11 shrink-0 items-center px-4 text-[0.6rem] font-semibold uppercase tracking-[0.1em] ${
                   query.concern === c.slug
                     ? "bg-ink text-white"
                     : "border border-linen-mid bg-white text-stone"

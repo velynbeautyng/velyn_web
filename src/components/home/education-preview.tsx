@@ -33,7 +33,7 @@ export async function EducationPreview() {
           <StaggerItem key={post.slug}>
             <Link
               href={`/education/${post.slug}`}
-              className="group flex h-full flex-col border border-linen-mid bg-white transition-[transform,box-shadow] duration-500 hover:-translate-y-1 hover:shadow-[0_26px_40px_-32px_rgba(0,0,0,0.4)] motion-reduce:hover:translate-y-0"
+              className="group flex h-full flex-col border border-linen-mid bg-white transition-[transform,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-[0_26px_40px_-32px_rgba(0,0,0,0.4)] motion-reduce:hover:translate-y-0"
             >
               <div
                 className={`relative flex aspect-[16/9] items-center justify-center overflow-hidden ${COVERS[i % COVERS.length]}`}
@@ -44,10 +44,10 @@ export async function EducationPreview() {
                     alt=""
                     fill
                     sizes="(max-width: 768px) 100vw, 33vw"
-                    className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                    className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
                   />
                 ) : (
-                  <NuveneIcon className="h-12 opacity-40 transition-transform duration-700 group-hover:scale-110" />
+                  <NuveneIcon className="h-12 opacity-40 transition-transform duration-500 group-hover:scale-110" />
                 )}
               </div>
               <div className="flex flex-1 flex-col p-5">

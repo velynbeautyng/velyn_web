@@ -155,12 +155,10 @@ export default function AboutPage() {
           intro="Six commitments behind every sourcing decision and every conversation with a customer."
         />
         <Stagger className="mt-12 grid gap-px border border-linen-mid bg-linen-mid sm:grid-cols-2 lg:grid-cols-3">
-          {values.map((v, i) => (
+          {values.map((v) => (
             <StaggerItem key={v.title} className="group bg-white p-7">
-              <div className="font-serif text-3xl text-gold-pale transition-colors group-hover:text-gold">
-                {String(i + 1).padStart(2, "0")}
-              </div>
-              <h3 className="mt-3 font-serif text-lg text-ink">{v.title}</h3>
+              <div className="h-0.5 w-7 origin-left bg-gold transition-transform duration-300 group-hover:scale-x-[1.7]" />
+              <h3 className="mt-5 font-serif text-lg text-ink">{v.title}</h3>
               <p className="mt-2 text-[0.85rem] leading-relaxed text-stone">{v.body}</p>
             </StaggerItem>
           ))}
