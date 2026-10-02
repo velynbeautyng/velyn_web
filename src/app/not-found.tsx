@@ -1,11 +1,11 @@
 import { ButtonLink } from "@/components/ui/button";
-import { VelynMark } from "@/components/brand/velyn-mark";
+import { NuveneIcon } from "@/components/brand/nuvene-logo";
 
 export default function NotFound() {
   return (
     <section className="section flex min-h-[60vh] items-center justify-center py-20">
       <div className="flex max-w-md flex-col items-center gap-5 text-center">
-        <VelynMark className="h-14 w-auto opacity-30" tone="ink" />
+        <NuveneIcon className="h-14 w-auto opacity-30 text-ink" />
         <p className="kicker">Error 404</p>
         <h1 className="display text-[clamp(2rem,5vw,3rem)] text-ink">
           This page has <em>drifted away</em>

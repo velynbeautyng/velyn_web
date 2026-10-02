@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { nav, site } from "@/lib/site";
 import { cn } from "@/lib/utils";
 import { cartCount, useCart } from "@/lib/cart-store";
-import { VelynLockup } from "@/components/brand/velyn-mark";
+import { NuveneLockup } from "@/components/brand/nuvene-logo";
 import { IconBag, IconClose, IconMenu } from "@/components/ui/icons";
 import { ButtonLink } from "@/components/ui/button";
 
@@ -69,7 +69,7 @@ export function SiteHeader() {
       >
         <div className="section flex items-center justify-between gap-4 py-3.5">
           <Link href="/" aria-label={`${site.name} home`} className="shrink-0">
-            <VelynLockup />
+            <NuveneLockup className="h-8 w-auto sm:h-9" />
           </Link>
 
           {/* Desktop nav */}
@@ -157,7 +157,7 @@ export function SiteHeader() {
           aria-label="Menu"
         >
           <div className="flex items-center justify-between border-b border-gold-pale px-6 py-4">
-            <VelynLockup />
+            <NuveneLockup className="h-8 w-auto sm:h-9" />
             <button
               type="button"
               onClick={() => setOpen(false)}

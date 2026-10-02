@@ -14,7 +14,7 @@ import { site } from "@/lib/site";
 import { Price } from "@/components/ui/price";
 import { NIGERIAN_STATES } from "@/lib/ng-states";
 import { Button, ButtonLink } from "@/components/ui/button";
-import { VelynMark } from "@/components/brand/velyn-mark";
+import { NuveneIcon } from "@/components/brand/nuvene-logo";
 import { IconShield } from "@/components/ui/icons";
 import { cn } from "@/lib/utils";
 
@@ -57,7 +57,7 @@ export function CheckoutView() {
     return (
       <div className="section section-y">
         <div className="mx-auto flex max-w-md flex-col items-center gap-5 py-16 text-center">
-          <VelynMark className="h-12 w-auto opacity-20" tone="ink" />
+          <NuveneIcon className="h-12 w-auto opacity-20 text-ink" />
           <h1 className="font-serif text-2xl text-ink">
             Nothing to check out
           </h1>
@@ -230,7 +230,7 @@ export function CheckoutView() {
                   <Image src={item.image} alt={item.name} fill sizes="48px" className="object-contain p-1" />
                 ) : (
                   <div className="flex h-full items-center justify-center">
-                    <VelynMark className="h-4 w-auto opacity-20" tone="ink" />
+                    <NuveneIcon className="h-4 w-auto opacity-20 text-ink" />
                   </div>
                 )}
                 <span className="absolute -right-1.5 -top-1.5 flex h-4 min-w-4 items-center justify-center rounded-full bg-ink px-1 text-[0.55rem] font-bold text-linen">

@@ -10,7 +10,7 @@ import { site } from "@/lib/site";
 import { PageHero } from "@/components/ui/page-hero";
 import { ProductBuyPanel } from "@/components/shop/product-buy-panel";
 import { ProductCard } from "@/components/shop/product-card";
-import { VelynMark } from "@/components/brand/velyn-mark";
+import { NuveneIcon } from "@/components/brand/nuvene-logo";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { Reveal, Stagger, StaggerItem } from "@/components/motion/reveal";
 import { JsonLd, BreadcrumbJsonLd } from "@/components/seo/json-ld";
@@ -109,7 +109,7 @@ export default async function ProductPage({ params }: { params: Params }) {
               />
             ) : (
               <div className="flex h-full flex-col items-center justify-center gap-4">
-                <VelynMark className="h-16 w-auto opacity-15" tone="ink" />
+                <NuveneIcon className="h-16 w-auto opacity-15 text-ink" />
                 <span className="text-[0.7rem] uppercase tracking-[0.14em] text-ink/25">
                   {product.brand}
                 </span>
