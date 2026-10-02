@@ -21,6 +21,13 @@ describe("site config", () => {
     }
   });
 
+  it("uses the details the company confirmed on 2 October 2026", () => {
+    expect(site.contact.email).toBe("hello@nuvenebeauty.com");
+    expect(site.contact.whatsapp).toBe("2347047024403");
+    expect(site.contact.hours).toMatch(/24\/7/);
+    expect(site.social.facebook).toBe("https://www.facebook.com/profile.php?id=61594144782677");
+  });
+
   it("builds WhatsApp links from digits only", () => {
     expect(whatsappLink("Hello")).toBe(
       `https://wa.me/${site.contact.whatsapp}?text=Hello`,

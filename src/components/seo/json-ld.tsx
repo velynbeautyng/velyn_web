@@ -49,6 +49,7 @@ export function OrganizationJsonLd() {
           addressCountry: "NG",
         },
         areaServed: "NG",
+        openingHours: "Mo-Su 00:00-23:59",
         sameAs: [
           site.social.instagram,
           site.social.tiktok,
