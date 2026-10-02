@@ -1,6 +1,6 @@
 /**
  * Shipping model shared by server (authoritative pricing) and client (live
- * checkout display). Pure — no server-only imports — so both can use it.
+ * checkout display). Pure (no server-only imports), so both can use it.
  *
  * Config comes from ops (GET /api/storefront/shipping); the env values are the
  * fallback defaults when ops is unreachable or unconfigured.

@@ -12,7 +12,7 @@ export default function CheckoutPage() {
     <>
       <PageHero
         kicker="Checkout"
-        title={<>Secure Checkout</>}
+        title={<>Secure checkout</>}
         breadcrumb={[
           { name: "Home", href: "/" },
           { name: "Cart", href: "/cart" },

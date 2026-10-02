@@ -124,7 +124,7 @@ export default async function ArticlePage({ params }: { params: Params }) {
                 Shop original skincare
               </h2>
               <p className="mt-1 text-[0.85rem] text-stone">
-                Put this into practice with products curated for your concerns.
+                Put this into practice with products matched to your concern.
               </p>
             </div>
             <ButtonLink href="/shop" variant="gold" size="md" className="shrink-0">

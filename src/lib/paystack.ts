@@ -87,7 +87,7 @@ export async function verifyTransaction(
 
   const data = await res.json();
   if (!res.ok || !data.status) {
-    throw new Error(data?.message || `Paystack verify failed (${res.status})`);
+    throw new Error(data?.message || `Paystack transaction check failed (${res.status})`);
   }
 
   return {

@@ -1,6 +1,6 @@
 /**
  * Configuration for the UltimatePOS (ops.velynbeauty.com) Connector API.
- * All secrets come from environment variables — never hard-coded.
+ * All secrets come from environment variables, never hard-coded.
  *
  * Required for live data (set in .env.local / Vercel project env):
  *   OPS_API_URL            e.g. https://ops.velynbeauty.com

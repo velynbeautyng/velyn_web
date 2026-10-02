@@ -66,8 +66,8 @@ export function WholesaleForm() {
         </div>
         <h3 className="font-serif text-xl text-ink">Application received</h3>
         <p className="max-w-sm text-sm text-stone">
-          Thank you. Our wholesale team verifies business credentials within 48
-          hours and will be in touch with pricing and next steps.
+          Thank you. Our wholesale team will review your application and get in
+          touch with pricing and next steps.
         </p>
       </div>
     );

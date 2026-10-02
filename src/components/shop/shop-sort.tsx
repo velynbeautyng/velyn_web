@@ -7,7 +7,7 @@ const options = [
   { value: "featured", label: "Featured" },
   { value: "price-asc", label: "Price: Low to High" },
   { value: "price-desc", label: "Price: High to Low" },
-  { value: "name", label: "Name: A–Z" },
+  { value: "name", label: "Name: A to Z" },
 ];
 
 export function ShopSort() {

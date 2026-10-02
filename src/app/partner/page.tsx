@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 
 const criteria = [
   "Effective formulations with evidence behind them",
-  "A real commitment to product quality and safety",
+  "High standards for product quality and safety",
   "Traceable supply through the manufacturer or an authorised distributor",
   "Shared values on honesty and customer education",
   "Interest in a structured, long-term partnership",

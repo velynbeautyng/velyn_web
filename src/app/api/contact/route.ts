@@ -53,7 +53,7 @@ export async function POST(request: Request) {
     receivedAt: new Date().toISOString(),
   };
 
-  // Durable record in ops (best-effort — never blocks the email or response).
+  // Durable record in ops (best-effort: never blocks the email or response).
   await recordEnquiry({
     name,
     email,

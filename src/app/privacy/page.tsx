@@ -23,7 +23,7 @@ export default function PrivacyPage() {
       />
       <PageHero
         kicker="Legal"
-        title={<>Privacy Policy</>}
+        title={<>Privacy policy</>}
         intro="Your privacy matters to us. This policy explains what we collect and why."
         breadcrumb={[
           { name: "Home", href: "/" },

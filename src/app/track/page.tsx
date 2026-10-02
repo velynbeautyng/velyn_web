@@ -25,7 +25,7 @@ export default function TrackPage() {
         kicker="Support"
         title={
           <>
-            Track Your <em>Order</em>
+            Track your <em>order</em>
           </>
         }
         intro="Enter your order reference and email to see exactly where your order is, from confirmed to delivered."
