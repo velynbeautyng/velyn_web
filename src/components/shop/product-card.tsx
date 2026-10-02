@@ -24,8 +24,11 @@ export function ProductCard({ product, className }: { product: Product; classNam
         href={href}
         tabIndex={-1}
         aria-hidden
-        className="relative block aspect-[4/5] overflow-hidden bg-linen-soft"
+        className="relative block aspect-[4/5] overflow-hidden border-b border-linen-mid bg-linen-soft"
       >
+        <span className="auth-tag absolute left-2.5 top-2.5 z-10 border border-sage-mid">
+          <IconCheck width={10} height={10} strokeWidth={2.4} /> Original
+        </span>
         {discounted && (
           <span className="absolute right-0 top-0 z-10 bg-ink px-2 py-1 text-[0.55rem] font-semibold uppercase tracking-[0.1em] text-white">
             Sale
@@ -55,16 +58,11 @@ export function ProductCard({ product, className }: { product: Product; classNam
             {product.name}
           </Link>
         </h3>
-        <div className="mt-2.5 flex flex-wrap gap-1.5">
-          <span className="auth-tag">
-            <IconCheck width={10} height={10} strokeWidth={2.4} /> Original
+        {concern && (
+          <span className="mt-2.5 w-fit bg-sage-pale px-2 py-1 text-[0.56rem] font-semibold uppercase tracking-[0.08em] text-sage-deep">
+            {concernShort(concern)}
           </span>
-          {concern && (
-            <span className="border border-sage/40 px-2 py-[0.22rem] text-[0.56rem] font-semibold uppercase tracking-[0.08em] text-sage-deep">
-              {concernShort(concern)}
-            </span>
-          )}
-        </div>
+        )}
         <div className="mt-auto flex flex-col gap-2.5 border-t border-linen-mid pt-3.5 sm:flex-row sm:items-center sm:justify-between sm:gap-2">
           <div className="flex flex-col leading-none">
             <Price amount={product.price} className="font-serif text-lg text-ink" />

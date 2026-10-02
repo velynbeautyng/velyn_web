@@ -38,11 +38,14 @@ export const site = {
     facebook: "https://www.facebook.com/profile.php?id=61594144782677",
   },
 
+  // Five figures, as in the client wireframe; each one is backed by the charter
+  // or the company (24/7 confirmed on 2 October 2026).
   stats: [
-    { value: "200+", label: "Products" },
     { value: "50+", label: "Global brands" },
-    { value: "5", label: "Skin concerns matched" },
-    { value: "1", label: "Guarantee: replace or refund" },
+    { value: "100%", label: "Original products" },
+    { value: "200+", label: "Products" },
+    { value: "24/7", label: "Open every day" },
+    { value: "3", label: "Distribution channels" },
   ],
 } as const;
 

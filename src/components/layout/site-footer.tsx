@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { footerNav, site } from "@/lib/site";
-import { NuveneStacked } from "@/components/brand/nuvene-logo";
+import { NuveneLockup } from "@/components/brand/nuvene-logo";
 import { IconFacebook, IconInstagram, IconTiktok } from "@/components/ui/icons";
 
 const socials = [
@@ -21,14 +21,10 @@ export function SiteFooter() {
       <div className="section py-14">
         <div className="grid gap-10 border-b border-gold/15 pb-12 md:grid-cols-2 lg:grid-cols-[1.6fr_1fr_1fr_1fr]">
           <div className="max-w-sm">
-            <NuveneStacked tone="linen" className="h-14 w-auto" />
+            <NuveneLockup tone="linen" className="h-11 w-auto" />
             <p className="mt-5 text-sm leading-relaxed text-linen/75">
-              Skincare matched to your concern, bought through named distributors
-              and backed by our replace-or-refund guarantee.
-            </p>
-            <p className="mt-3 text-sm leading-relaxed text-linen/75">
-              {site.contact.address.line1}, {site.contact.address.line2},{" "}
-              {site.contact.address.city}
+              Helping women and men feel confident, radiant and cared for every
+              day. Original skincare, honestly sourced, delivered with care.
             </p>
             <div className="mt-5 flex gap-2.5">
               {socials.map(({ label, href, Icon }) => (
@@ -69,7 +65,7 @@ export function SiteFooter() {
 
         <div className="flex flex-col items-start justify-between gap-3 pt-6 sm:flex-row sm:items-center">
           <p className="text-xs text-linen/65">
-            © {new Date().getFullYear()} {site.legalName}. All rights reserved.
+            © {new Date().getFullYear()} {site.legalName}. All rights reserved. Abuja, Nigeria.
           </p>
           <div className="flex flex-wrap gap-x-5 gap-y-2">
             <Link href="/privacy" className="text-xs text-linen/65 hover:text-white">

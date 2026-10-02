@@ -79,14 +79,17 @@ export function SiteHeader() {
       <div className="bg-sage-dusk">
         <div className="section flex items-center justify-between gap-4 py-2.5">
           <p className="text-[0.62rem] font-medium uppercase tracking-[0.18em] text-white">
+            <span aria-hidden>✦&nbsp;&nbsp;</span>
             {site.positioning}
-            <span className="hidden sm:inline"> Delivery across Nigeria.</span>
+            <span className="hidden sm:inline">
+              <span aria-hidden>&nbsp;&nbsp;✦&nbsp;&nbsp;</span>Nationwide delivery
+            </span>
           </p>
           <Link
-            href="/authenticity"
-            className="hidden shrink-0 text-[0.6rem] uppercase tracking-[0.12em] text-white underline-offset-4 hover:underline sm:block"
+            href="/wholesale"
+            className="hidden shrink-0 border-b border-white/50 pb-px text-[0.6rem] uppercase tracking-[0.12em] text-white hover:border-white sm:block"
           >
-            Our sourcing promise
+            Wholesale enquiry
           </Link>
         </div>
       </div>
@@ -109,7 +112,7 @@ export function SiteHeader() {
                 href={item.href}
                 aria-current={isActive(item.href) ? "page" : undefined}
                 className={cn(
-                  "whitespace-nowrap border-b-2 border-transparent px-2.5 py-2 text-[0.66rem] font-medium uppercase tracking-[0.06em] transition-colors 2xl:px-3",
+                  "whitespace-nowrap border-b-2 border-transparent px-2 py-2 text-[0.64rem] font-medium uppercase tracking-[0.06em] transition-colors 2xl:px-3",
                   isActive(item.href) ? "border-gold text-ink" : "text-stone hover:text-ink",
                 )}
               >
@@ -120,14 +123,14 @@ export function SiteHeader() {
 
           <div className="flex shrink-0 items-center gap-2">
             {/* Visibility sits on the wrapper: `hidden` on the ButtonLink itself loses to its base `inline-flex`. */}
-            <span className="hidden 2xl:inline-flex">
-              <ButtonLink href="/wholesale" variant="outline" size="sm">
+            <span className="hidden xl:inline-flex">
+              <ButtonLink href="/wholesale" variant="outlineGold" size="sm">
                 Wholesale
               </ButtonLink>
             </span>
             <span className="hidden sm:inline-flex">
               <ButtonLink href="/shop" variant="ink" size="sm">
-                Shop by concern
+                Shop now
               </ButtonLink>
             </span>
 

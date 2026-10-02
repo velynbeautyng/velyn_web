@@ -148,7 +148,7 @@ export function ContactForm({
         {status === "submitting" ? "Sending…" : "Send Message"}
       </Button>
       <p className={cn("text-center text-[0.7rem] leading-relaxed", dark ? "text-linen/70" : "text-stone")}>
-        We reply by email or phone. For a quicker answer, message us on WhatsApp.
+        We're open 24/7. We reply by email, phone or WhatsApp.
       </p>
     </form>
   );
