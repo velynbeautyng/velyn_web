@@ -48,6 +48,8 @@ const BODY: [string, string][] = [
   ["white", "sage-dusk"],
   ["white", "sage-night"],
   ["linen", "sage-night"],
+  ["gold-pale", "sage-night"],
+  ["sage-pale", "sage-night"],
 ];
 
 // Pairings used only for 24px+ type.

@@ -19,9 +19,10 @@ export async function FeaturedProducts() {
     <section className="section section-y bg-linen">
       <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
         <SectionHeading
+          kicker="Featured products"
           title={
             <>
-              Shop by <em>skin concern</em>
+              Shop <em>original</em> skincare
             </>
           }
         />

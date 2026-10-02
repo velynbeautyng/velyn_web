@@ -2,7 +2,9 @@ import { site, whatsappLink } from "@/lib/site";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { Reveal } from "@/components/motion/reveal";
 import { ContactForm } from "@/components/forms/contact-form";
-import { IconMail, IconPhone, IconPin, IconWhatsapp } from "@/components/ui/icons";
+import { IconMail, IconPhone, IconPin } from "@/components/ui/icons";
+
+const abuja = site.contact.phones[0];
 
 const details = [
   {
@@ -11,16 +13,16 @@ const details = [
     sub: "General enquiries",
     href: `mailto:${site.contact.email}`,
   },
-  ...site.contact.phones.map((p) => ({
+  {
     icon: <IconPhone width={16} height={16} className="text-gold" />,
-    main: p.display,
-    sub: `${p.label}, ${site.contact.hours}`,
-    href: `tel:${p.tel}`,
-  })),
+    main: abuja.display,
+    sub: site.contact.hours,
+    href: `tel:${abuja.tel}`,
+  },
   {
     icon: <IconPin width={16} height={16} className="text-gold" />,
-    main: `${site.contact.address.line2}, ${site.contact.address.city}`,
-    sub: site.contact.address.line1,
+    main: `${site.contact.address.city}, ${site.contact.address.country}`,
+    sub: "Delivering across Nigeria",
     href: undefined,
   },
 ];
@@ -31,10 +33,11 @@ export function ContactSection() {
       <div>
         <SectionHeading
           tone="dark"
-          kicker="Contact"
+          kicker="Contact us"
           title={
             <>
-              Let&apos;s talk <em className="text-gold">skincare</em>
+              Let&apos;s talk
+              <br className="hidden sm:block" /> <em className="text-gold">skincare</em>
             </>
           }
         />
@@ -42,7 +45,7 @@ export function ContactSection() {
           {details.map((d) => {
             const row = (
               <div className="flex items-start gap-3.5">
-                <span className="flex h-9 w-9 shrink-0 items-center justify-center border border-gold/25">
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center border border-gold/25 bg-gold/[0.07]">
                   {d.icon}
                 </span>
                 <div>
@@ -65,20 +68,19 @@ export function ContactSection() {
           href={whatsappLink("Hello Nuvene, I'd like help choosing a product for my skin concern.")}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-7 flex items-center gap-3.5 border border-gold/25 bg-white/[0.03] px-5 py-4 transition-colors hover:border-gold"
+          className="mt-7 flex items-center gap-3.5 border border-gold/25 bg-gold/[0.06] px-5 py-4 transition-colors hover:border-gold"
         >
-          <IconWhatsapp width={22} height={22} className="shrink-0 text-gold" />
+          {/* The shop is open around the clock, so the green "available" dot is true. */}
+          <span className="h-2 w-2 shrink-0 rounded-full bg-[#25D366]" aria-hidden />
           <div>
-            <div className="text-sm font-semibold text-white">Chat with us on WhatsApp</div>
-            <div className="mt-0.5 text-xs text-linen/75">
-              Tell us your skin concern and we&apos;ll suggest what to try.
-            </div>
+            <div className="text-sm font-semibold text-white">Talk to a skincare specialist</div>
+            <div className="mt-0.5 text-xs text-linen/75">On WhatsApp, 24 hours a day, 7 days a week</div>
           </div>
         </a>
       </div>
 
       <Reveal direction="left" delay={0.15}>
-        <div className="border border-gold/20 bg-white/[0.03] p-6 sm:p-8">
+        <div className="border border-gold/20 bg-linen/[0.03] p-6 sm:p-8">
           <h3 className="mb-5 font-serif text-xl text-white">Send a message</h3>
           <ContactForm tone="dark" />
         </div>

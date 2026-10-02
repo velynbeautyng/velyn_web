@@ -1,35 +1,43 @@
-import { SectionHeading } from "@/components/ui/section-heading";
-import { Stagger, StaggerItem } from "@/components/motion/reveal";
+import { Reveal, Stagger, StaggerItem } from "@/components/motion/reveal";
 
 const pillars = [
   {
     n: "01",
-    title: "Match",
-    body: "Tell us what you're dealing with: acne, dryness, dark spots, sensitivity or sun. We recommend the active and the product that suit it, across every brand we carry.",
+    title: "Honest distribution",
+    body: "Original products bought through named distributors and authorised suppliers. Ask where any product came from, and we replace or refund a confirmed counterfeit.",
   },
   {
     n: "02",
-    title: "Disclose",
-    body: "We tell you which distributor a product came from. Where a brand offers a batch checker, as COSRX does, we run it with you.",
+    title: "Results-driven brands",
+    body: "We carry skincare that treats real concerns: acne, dryness, dark spots, sensitivity and sun damage, chosen for Nigerian skin.",
   },
   {
     n: "03",
-    title: "Guarantee",
-    body: "If a product you bought from us is ever confirmed counterfeit, we replace it or refund you. The risk sits with us.",
+    title: "Simple market access",
+    body: "Retail, wholesale and brand partnerships, with delivery across Nigeria. We make it easy to buy, stock and sell original skincare.",
   },
 ];
 
 export function WhatWeDo() {
   return (
     <section className="section section-y bg-white">
-      <SectionHeading
-        title={
-          <>
-            Three habits behind <em>every sale</em>
-          </>
-        }
-        intro="We start with your concern, tell you where the product came from, and stand behind it."
-      />
+      <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-start">
+        <Reveal className="flex flex-col gap-3">
+          <span className="kicker">What we do</span>
+          <h2 className="display text-[clamp(1.65rem,3vw,2.5rem)] text-ink">
+            Connecting great skincare
+            <br className="hidden sm:block" /> to the <em>Nigerian market</em>
+          </h2>
+        </Reveal>
+        <Reveal delay={0.1}>
+          <p className="prose-body max-w-md text-[0.95rem] lg:pt-9">
+            We bridge the gap between global skincare brands and Nigerian
+            customers who deserve original, effective products, bought through
+            named distributors.
+          </p>
+        </Reveal>
+      </div>
+
       <Stagger className="mt-12 grid gap-px border border-linen-mid bg-linen-mid md:grid-cols-3">
         {pillars.map((p) => (
           <StaggerItem key={p.n} className="group bg-white p-8 lg:p-10">
