@@ -1,146 +1,64 @@
 import type { SVGProps } from "react";
+import {
+  ArrowRightIcon,
+  CaretDownIcon,
+  CheckIcon,
+  EnvelopeSimpleIcon,
+  FacebookLogoIcon,
+  GlobeHemisphereEastIcon,
+  HandbagIcon,
+  InstagramLogoIcon,
+  LeafIcon,
+  ListIcon,
+  MagnifyingGlassIcon,
+  MapPinIcon,
+  MinusIcon,
+  PhoneIcon,
+  PlusIcon,
+  ShieldCheckIcon,
+  StorefrontIcon,
+  TiktokLogoIcon,
+  TrashIcon,
+  TruckIcon,
+  UserIcon,
+  WhatsappLogoIcon,
+  XIcon,
+} from "@phosphor-icons/react/ssr";
+import type { Icon } from "@phosphor-icons/react";
 
-type IconProps = SVGProps<SVGSVGElement>;
+type IconProps = Omit<SVGProps<SVGSVGElement>, "ref">;
 
-const base = {
-  width: 20,
-  height: 20,
-  viewBox: "0 0 24 24",
-  fill: "none",
-  stroke: "currentColor",
-  strokeWidth: 1.6,
-  strokeLinecap: "round" as const,
-  strokeLinejoin: "round" as const,
-};
+// Call sites still pass the width/height/strokeWidth they used with the old
+// hand-drawn set; map them onto Phosphor's size and weight.
+function glyph(G: Icon) {
+  function Glyph({ width, height, strokeWidth, ...rest }: IconProps) {
+    const size = width ?? height ?? 20;
+    const weight = Number(strokeWidth) >= 2.2 ? "bold" : "regular";
+    return <G size={size} weight={weight} aria-hidden {...rest} />;
+  }
+  return Glyph;
+}
 
-export const IconMenu = (p: IconProps) => (
-  <svg {...base} {...p}>
-    <path d="M3 6h18M3 12h18M3 18h18" />
-  </svg>
-);
-
-export const IconClose = (p: IconProps) => (
-  <svg {...base} {...p}>
-    <path d="M6 6l12 12M18 6L6 18" />
-  </svg>
-);
-
-export const IconBag = (p: IconProps) => (
-  <svg {...base} {...p}>
-    <path d="M6 8h12l-1 12H7L6 8Z" />
-    <path d="M9 8V6a3 3 0 0 1 6 0v2" />
-  </svg>
-);
-
-export const IconSearch = (p: IconProps) => (
-  <svg {...base} {...p}>
-    <circle cx="11" cy="11" r="7" />
-    <path d="m20 20-3.2-3.2" />
-  </svg>
-);
-
-export const IconArrowRight = (p: IconProps) => (
-  <svg {...base} {...p}>
-    <path d="M5 12h14M13 6l6 6-6 6" />
-  </svg>
-);
-
-export const IconCheck = (p: IconProps) => (
-  <svg {...base} {...p}>
-    <path d="M4 12.5 9 17.5 20 6.5" />
-  </svg>
-);
-
-export const IconMail = (p: IconProps) => (
-  <svg {...base} {...p}>
-    <rect x="3" y="5" width="18" height="14" rx="2" />
-    <path d="m3 7 9 6 9-6" />
-  </svg>
-);
-
-export const IconPhone = (p: IconProps) => (
-  <svg {...base} {...p}>
-    <path d="M5 3h3l1.5 5-2 1.5a11 11 0 0 0 5 5L19 17l-1.5 4a2 2 0 0 1-2 1A16 16 0 0 1 2 5a2 2 0 0 1 1-2Z" />
-  </svg>
-);
-
-export const IconPin = (p: IconProps) => (
-  <svg {...base} {...p}>
-    <path d="M12 21s7-6.5 7-11a7 7 0 0 0-14 0c0 4.5 7 11 7 11Z" />
-    <circle cx="12" cy="10" r="2.5" />
-  </svg>
-);
-
-export const IconChevronDown = (p: IconProps) => (
-  <svg {...base} {...p}>
-    <path d="m6 9 6 6 6-6" />
-  </svg>
-);
-
-export const IconPlus = (p: IconProps) => (
-  <svg {...base} {...p}>
-    <path d="M12 5v14M5 12h14" />
-  </svg>
-);
-
-export const IconMinus = (p: IconProps) => (
-  <svg {...base} {...p}>
-    <path d="M5 12h14" />
-  </svg>
-);
-
-export const IconTrash = (p: IconProps) => (
-  <svg {...base} {...p}>
-    <path d="M4 7h16M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2M6 7l1 13h10l1-13" />
-  </svg>
-);
-
-export const IconShield = (p: IconProps) => (
-  <svg {...base} {...p}>
-    <path d="M12 3 5 6v6c0 4.5 3 7.5 7 9 4-1.5 7-4.5 7-9V6l-7-3Z" />
-    <path d="m9 12 2 2 4-4" />
-  </svg>
-);
-
-export const IconTruck = (p: IconProps) => (
-  <svg {...base} {...p}>
-    <path d="M3 7h11v9H3zM14 10h4l3 3v3h-7z" />
-    <circle cx="7" cy="18" r="1.6" />
-    <circle cx="17" cy="18" r="1.6" />
-  </svg>
-);
-
-export const IconLeaf = (p: IconProps) => (
-  <svg {...base} {...p}>
-    <path d="M4 20c0-8 6-14 16-14 0 10-6 16-16 14Z" />
-    <path d="M9 15c2-3 5-5 8-6" />
-  </svg>
-);
-
-export const IconInstagram = (p: IconProps) => (
-  <svg {...base} {...p}>
-    <rect x="4" y="4" width="16" height="16" rx="4.5" />
-    <circle cx="12" cy="12" r="3.5" />
-    <circle cx="17" cy="7" r="0.6" fill="currentColor" />
-  </svg>
-);
-
-export const IconTiktok = (p: IconProps) => (
-  <svg {...base} {...p}>
-    <path d="M14 4v9.5a3.5 3.5 0 1 1-3-3.46" />
-    <path d="M14 4c.4 2.4 2 4 4.5 4.2" />
-  </svg>
-);
-
-export const IconFacebook = (p: IconProps) => (
-  <svg {...base} {...p}>
-    <path d="M14 8h2V5h-2a3 3 0 0 0-3 3v2H9v3h2v6h3v-6h2l1-3h-3V8.5A.5.5 0 0 1 14.5 8Z" />
-  </svg>
-);
-
-export const IconWhatsapp = (p: IconProps) => (
-  <svg {...base} {...p}>
-    <path d="M4 20l1.4-4A8 8 0 1 1 9 19.5L4 20Z" />
-    <path d="M9 9.5c0 3 2.5 5.5 5.5 5.5.7 0 1.2-.6 1.2-.6l-1.4-1-1.3.7c-1-.5-2-1.4-2.4-2.5l.7-1.2-1-1.4s-.6.5-.6 1.2Z" />
-  </svg>
-);
+export const IconMenu = glyph(ListIcon);
+export const IconClose = glyph(XIcon);
+export const IconBag = glyph(HandbagIcon);
+export const IconSearch = glyph(MagnifyingGlassIcon);
+export const IconArrowRight = glyph(ArrowRightIcon);
+export const IconCheck = glyph(CheckIcon);
+export const IconMail = glyph(EnvelopeSimpleIcon);
+export const IconPhone = glyph(PhoneIcon);
+export const IconPin = glyph(MapPinIcon);
+export const IconChevronDown = glyph(CaretDownIcon);
+export const IconPlus = glyph(PlusIcon);
+export const IconMinus = glyph(MinusIcon);
+export const IconTrash = glyph(TrashIcon);
+export const IconShield = glyph(ShieldCheckIcon);
+export const IconTruck = glyph(TruckIcon);
+export const IconLeaf = glyph(LeafIcon);
+export const IconInstagram = glyph(InstagramLogoIcon);
+export const IconTiktok = glyph(TiktokLogoIcon);
+export const IconFacebook = glyph(FacebookLogoIcon);
+export const IconWhatsapp = glyph(WhatsappLogoIcon);
+export const IconUser = glyph(UserIcon);
+export const IconStorefront = glyph(StorefrontIcon);
+export const IconGlobe = glyph(GlobeHemisphereEastIcon);
