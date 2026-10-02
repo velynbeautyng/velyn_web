@@ -1,61 +1,47 @@
-import { SectionHeading } from "@/components/ui/section-heading";
 import { Stagger, StaggerItem, Reveal } from "@/components/motion/reveal";
 import { ButtonLink } from "@/components/ui/button";
 
-const points = [
+export const partnerPoints = [
   {
-    title: "Market Entry Strategy",
-    body: "Guided rollout plans tailored to the Nigerian consumer landscape and competitive beauty market.",
+    title: "Structured market entry",
+    body: "A planned rollout through our retail, wholesale and online channels, starting in Abuja.",
   },
   {
-    title: "Brand Protection",
-    body: "We guard your brand integrity against counterfeiting and ensure authentic representation at every touchpoint.",
+    title: "Honest representation",
+    body: "Your products sold under our match, disclose and guarantee promise, with education for customers and retailers.",
   },
   {
-    title: "Distribution & Intelligence",
-    body: "Active distribution across Nigeria with real customer data fed back to help you grow long-term.",
+    title: "Distribution and feedback",
+    body: "Steady distribution to retailers and skincare professionals, with what customers tell us passed back to you.",
   },
 ];
 
 export function PartnerCta() {
   return (
-    <section className="section section-y bg-sage text-center">
+    <section id="partners" className="section section-y scroll-mt-28 bg-sage-shade text-center">
       <Reveal className="mx-auto max-w-2xl">
-        <span className="kicker kicker--center mx-auto justify-center [&::before]:bg-white/35 [&::after]:bg-white/35 text-white/60">
-          Foreign Brand Partners
-        </span>
-        <h2 className="display mt-3 text-[clamp(2rem,4vw,2.9rem)] text-white">
-          Entering Africa
-          <br className="hidden sm:block" />{" "}
-          <em className="text-white/60">the Right Way</em>
+        <h2 className="display text-[clamp(1.9rem,3.8vw,2.8rem)] text-white">
+          Entering Nigeria <em className="text-linen">the right way</em>
         </h2>
-        <p className="mx-auto mt-4 max-w-xl text-[0.95rem] leading-relaxed text-white/60">
-          Velyn provides market entry strategy, distribution infrastructure,
-          brand protection, and real customer intelligence, everything a global
-          skincare brand needs to grow in Nigeria.
+        <p className="mx-auto mt-4 max-w-xl text-[0.98rem] leading-relaxed text-white">
+          We work with effective international brands that are not yet household
+          names here, and give them a careful, credible way in.
         </p>
         <div className="mt-8 flex flex-wrap justify-center gap-3">
           <ButtonLink href="/partner" variant="white" size="lg">
-            Start a Partnership Conversation
+            Start a conversation
           </ButtonLink>
-          <ButtonLink
-            href="/partner#criteria"
-            variant="outlineLight"
-            size="lg"
-            className="!border-white/30 !text-white/80 hover:!border-white hover:!text-white"
-          >
-            What We Look For
+          <ButtonLink href="/partner#criteria" variant="outlineLight" size="lg">
+            What we look for
           </ButtonLink>
         </div>
       </Reveal>
 
-      <Stagger className="mx-auto mt-14 grid max-w-4xl gap-px border border-white/10 bg-white/10 sm:grid-cols-3">
-        {points.map((p) => (
-          <StaggerItem key={p.title} className="bg-sage p-6 text-left">
+      <Stagger className="mx-auto mt-14 grid max-w-4xl gap-px border border-white/15 bg-white/15 md:grid-cols-3">
+        {partnerPoints.map((p) => (
+          <StaggerItem key={p.title} className="bg-sage-shade p-6 text-left">
             <h3 className="font-serif text-base text-white">{p.title}</h3>
-            <p className="mt-2 text-[0.83rem] leading-relaxed text-white/50">
-              {p.body}
-            </p>
+            <p className="mt-2 text-[0.86rem] leading-relaxed text-white">{p.body}</p>
           </StaggerItem>
         ))}
       </Stagger>

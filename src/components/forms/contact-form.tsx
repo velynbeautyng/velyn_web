@@ -28,12 +28,12 @@ export function ContactForm({
   const fieldClass = cn(
     "w-full border px-3.5 py-2.5 text-sm outline-none transition-colors",
     dark
-      ? "border-gold/15 bg-linen/[0.04] text-linen placeholder:text-linen/35 focus:border-gold"
-      : "border-linen-mid bg-white text-ink placeholder:text-stone/60 focus:border-gold",
+      ? "border-gold/30 bg-linen/[0.04] text-linen placeholder:text-linen/60 focus:border-gold"
+      : "border-linen-mid bg-white text-ink placeholder:text-stone focus:border-gold",
   );
   const labelClass = cn(
     "mb-1.5 block text-[0.6rem] font-bold uppercase tracking-[0.14em]",
-    dark ? "text-linen/45" : "text-stone",
+    dark ? "text-linen/80" : "text-stone",
   );
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -74,7 +74,7 @@ export function ContactForm({
         <h3 className={cn("font-serif text-xl", dark ? "text-linen" : "text-ink")}>
           Message received
         </h3>
-        <p className={cn("max-w-xs text-sm", dark ? "text-linen/50" : "text-stone")}>
+        <p className={cn("max-w-xs text-sm", dark ? "text-linen/75" : "text-stone")}>
           Thank you for reaching out. Our team responds within 24 business hours
           (wholesale inquiries within 48 hours).
         </p>
@@ -147,7 +147,7 @@ export function ContactForm({
       >
         {status === "submitting" ? "Sending…" : "Send Message"}
       </Button>
-      <p className={cn("text-center text-[0.7rem] leading-relaxed", dark ? "text-linen/30" : "text-stone")}>
+      <p className={cn("text-center text-[0.7rem] leading-relaxed", dark ? "text-linen/70" : "text-stone")}>
         We respond within 24 business hours. Wholesale inquiries: 48 hours.
       </p>
     </form>
