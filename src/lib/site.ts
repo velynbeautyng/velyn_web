@@ -16,12 +16,11 @@ export const site = {
   locale: "en_NG",
 
   contact: {
-    email: "nuvenebeauty@gmail.com",
+    email: "hello@nuvenebeauty.com",
     phones: [
       { label: "Abuja", tel: "+2347047024403", display: "0704 702 4403" },
       { label: "Lagos", tel: "+2349064210147", display: "0906 421 0147" },
     ],
-    // The charter lists WhatsApp Business as still to be confirmed; the Abuja line stands in.
     whatsapp: "2347047024403",
     whatsappDisplay: "0704 702 4403",
     address: {
@@ -30,13 +29,13 @@ export const site = {
       city: "Abuja",
       country: "Nigeria",
     },
-    hours: "Monday to Friday, 9am to 5pm WAT",
+    hours: "Open 24/7",
   },
 
   social: {
     instagram: "https://instagram.com/nuvenebeauty",
     tiktok: "https://tiktok.com/@nuvenebeauty",
-    facebook: "https://facebook.com/nuvenebeauty",
+    facebook: "https://www.facebook.com/profile.php?id=61594144782677",
   },
 
   stats: [

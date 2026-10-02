@@ -63,7 +63,7 @@ export async function POST(request: Request) {
   });
 
   const apiKey = process.env.RESEND_API_KEY;
-  const to = process.env.CONTACT_INBOX || "nuvenebeauty@gmail.com";
+  const to = process.env.CONTACT_INBOX || "hello@nuvenebeauty.com";
 
   if (apiKey) {
     try {
