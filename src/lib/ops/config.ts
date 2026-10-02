@@ -1,9 +1,9 @@
 /**
- * Configuration for the UltimatePOS (ops.velynbeauty.com) Connector API.
+ * Configuration for the UltimatePOS (ops.nuvenebeauty.com) Connector API.
  * All secrets come from environment variables, never hard-coded.
  *
  * Required for live data (set in .env.local / Vercel project env):
- *   OPS_API_URL            e.g. https://ops.velynbeauty.com
+ *   OPS_API_URL            e.g. https://ops.nuvenebeauty.com
  *   OPS_CLIENT_ID          Passport OAuth client id
  *   OPS_CLIENT_SECRET      Passport OAuth client secret
  *   OPS_USERNAME           API user (username or email)
@@ -16,7 +16,7 @@
  */
 
 export const opsConfig = {
-  baseUrl: (process.env.OPS_API_URL || "https://ops.velynbeauty.com").replace(
+  baseUrl: (process.env.OPS_API_URL || "https://ops.nuvenebeauty.com").replace(
     /\/$/,
     "",
   ),
