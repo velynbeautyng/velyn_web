@@ -1,42 +1,29 @@
-import { VELYN_LOCKUP_SVG } from "@/lib/maintenance-velyn-lockup";
+import { LOGO_ICON, LOGO_STACKED } from "@/components/brand/nuvene-logo-paths";
+import { site } from "@/lib/site";
 
-// velynbeauty.com keeps its old details until the domain redirects to Nuvene,
-// so this page no longer reads the shared site config.
-const site = {
-  name: "Velyn Beauty & Essentials",
-  legalName: "Velyn Beauty & Essentials Ltd",
-  contact: {
-    email: "hello@velynbeauty.com",
-    phonePrimary: "+2348141741207",
-    phonePrimaryDisplay: "+234 814 174 1207",
-    phoneSecondary: "+2349028828977",
-    address: {
-      line1: "Suite A20, ES-EM Plaza",
-      line2: "Shettima Monguno Crescent, Utako",
-      city: "Abuja",
-    },
-  },
-  social: {
-    instagram: "https://instagram.com/velynbeauty_essentials",
-    tiktok: "https://tiktok.com/@velynbeauty_essentials",
-    facebook: "https://facebook.com/velynbeautyessentials",
-  },
-};
+const { contact, social } = site;
 
-const wa = `https://wa.me/2348141741207?text=${encodeURIComponent(
-  "Hello Velyn, I'd like to place an order while the website is paused.",
+const wa = `https://wa.me/${contact.whatsapp}?text=${encodeURIComponent(
+  "Hello Nuvene, I'd like to place an order while the website is paused.",
+)}`;
+
+// URL-encoded rather than base64 so the page builds without Buffer in any runtime.
+const favicon = `data:image/svg+xml,${encodeURIComponent(
+  `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><rect width="512" height="512" rx="112" fill="#E1DAC6"/><svg x="76" y="76" width="360" height="360" viewBox="${LOGO_ICON.viewBox}" style="--logo-mark:#4F6A54">${LOGO_ICON.body}</svg></svg>`,
 )}`;
 
 const styles = `
   :root {
-    --espresso: #2c1a0e;
-    --espresso-deep: #1e1108;
-    --gold: #bd9468;
-    --gold-soft: #d7b791;
-    --ivory: #f7f4ef;
-    --font-serif: "EB Garamond", Garamond, "Times New Roman", serif;
-    --font-sans: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
-    color-scheme: dark;
+    --ink: #000000;
+    --ink-lift: #242424;
+    --linen: #e1dac6;
+    --linen-soft: #efeadd;
+    --sage: #708e74;
+    --sage-deep: #435e49;
+    --stone: #5f5a50;
+    --font-display: "Cinzel", "Times New Roman", serif;
+    --font-sans: "Poppins", system-ui, -apple-system, "Segoe UI", sans-serif;
+    color-scheme: light;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
@@ -44,80 +31,51 @@ const styles = `
     display: grid;
     place-items: center;
     padding: 3rem 1.25rem;
-    background: var(--espresso-deep);
-    background-image:
-      radial-gradient(70rem 40rem at 50% -10%, rgba(189, 148, 104, 0.22), transparent 65%),
-      linear-gradient(180deg, var(--espresso) 0%, var(--espresso-deep) 100%);
-    color: var(--ivory);
+    background: var(--linen-soft);
+    background-image: radial-gradient(60rem 36rem at 50% -12%, rgba(112, 142, 116, 0.18), transparent 65%);
+    color: var(--ink);
     font-family: var(--font-sans);
     font-weight: 300;
-    line-height: 1.6;
+    line-height: 1.65;
     -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
   }
   main { width: 100%; max-width: 40rem; text-align: center; }
-  .lockup { display: block; width: min(17rem, 72vw); margin: 0 auto 3rem; }
+  .lockup { display: block; width: min(15rem, 66vw); margin: 0 auto 2.75rem; --logo-mark: var(--sage); --logo-word: var(--ink); }
   .lockup svg { display: block; width: 100%; height: auto; }
-  .lockup svg text.cls-1, .lockup svg tspan { fill: var(--ivory); }
-  .lockup svg path.cls-3 { fill: var(--ivory); }
-  .lockup svg path.cls-4, .lockup svg .cls-4 { fill: var(--gold); }
   h1 {
-    font-family: var(--font-serif);
-    font-weight: 400;
-    font-size: clamp(2.1rem, 6.5vw, 3.25rem);
-    line-height: 1.12;
-    letter-spacing: -0.01em;
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: clamp(1.9rem, 6vw, 2.9rem);
+    line-height: 1.15;
+    letter-spacing: 0.02em;
   }
-  .lede {
-    margin: 1.25rem auto 0;
-    max-width: 34rem;
-    font-size: 1.02rem;
-    color: rgba(247, 244, 239, 0.76);
-  }
-  .rule {
-    width: 4rem;
-    height: 1px;
-    margin: 2.5rem auto;
-    background: linear-gradient(90deg, transparent, var(--gold), transparent);
-  }
-  .actions {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.75rem;
-  }
+  .lede { margin: 1.25rem auto 0; max-width: 33rem; font-size: 1rem; color: var(--stone); }
+  .rule { width: 4rem; height: 1px; margin: 2.5rem auto; background: var(--sage); }
+  .actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem; }
   .btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     min-height: 3rem;
     padding: 0 1.6rem;
-    border-radius: 2px;
-    border: 1px solid var(--gold);
+    border-radius: 999px;
+    border: 1px solid var(--ink);
     font-size: 0.78rem;
     font-weight: 500;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
     text-decoration: none;
     white-space: nowrap;
-    transition: background-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.16s ease;
   }
-  .btn-primary { background: var(--gold); color: var(--espresso-deep); }
-  .btn-primary:hover { background: var(--gold-soft); border-color: var(--gold-soft); }
-  .btn-ghost { background: transparent; color: var(--gold-soft); }
-  .btn-ghost:hover { background: rgba(189, 148, 104, 0.14); color: var(--ivory); }
-  .btn:active { transform: translateY(1px); }
-  .btn:focus-visible, a:focus-visible {
-    outline: 2px solid var(--gold-soft);
-    outline-offset: 3px;
-  }
-  .details {
-    margin-top: 2.75rem;
-    font-size: 0.9rem;
-    color: rgba(247, 244, 239, 0.62);
-  }
-  .details a { color: rgba(247, 244, 239, 0.82); text-decoration-color: rgba(189, 148, 104, 0.6); text-underline-offset: 4px; }
-  .details a:hover { color: var(--ivory); }
+  .btn-primary { background: var(--ink); color: var(--linen-soft); }
+  .btn-primary:hover { background: var(--ink-lift); }
+  .btn-ghost { background: transparent; color: var(--ink); }
+  .btn-ghost:hover { background: var(--linen); }
+  .btn:active { transform: scale(0.98); }
+  .btn:focus-visible, a:focus-visible { outline: 2px solid var(--sage-deep); outline-offset: 3px; }
+  .details { margin-top: 2.75rem; font-size: 0.9rem; color: var(--stone); }
+  .details a { color: var(--ink); text-decoration-color: var(--sage); text-underline-offset: 4px; }
   .details p + p { margin-top: 0.4rem; }
   .social {
     margin-top: 2.25rem;
@@ -128,18 +86,16 @@ const styles = `
     letter-spacing: 0.16em;
     text-transform: uppercase;
   }
-  .social a { color: var(--gold-soft); text-decoration: none; }
-  .social a:hover { color: var(--ivory); text-decoration: underline; text-underline-offset: 5px; }
-  footer {
-    margin-top: 3.5rem;
-    font-size: 0.72rem;
-    letter-spacing: 0.08em;
-    color: rgba(247, 244, 239, 0.38);
-  }
-  @media (max-width: 400px) {
-    .btn { width: 100%; }
-  }
+  .social a { color: var(--sage-deep); text-decoration: none; }
+  .social a:hover { color: var(--ink); text-decoration: underline; text-underline-offset: 5px; }
+  footer { margin-top: 3.5rem; font-size: 0.72rem; letter-spacing: 0.08em; color: var(--stone); }
+  @media (max-width: 400px) { .btn { width: 100%; } }
+  @media (prefers-reduced-motion: reduce) { .btn { transition: none; } }
 `;
+
+const phones = contact.phones
+  .map((p) => `${p.label} <a href="tel:${p.tel}">${p.display}</a>`)
+  .join(" &middot; ");
 
 /**
  * Standalone holding page served by the proxy while MAINTENANCE_MODE is on.
@@ -153,31 +109,31 @@ export const maintenancePage = `<!doctype html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${site.name}, back shortly</title>
 <meta name="description" content="${site.name} is briefly offline. Orders and enquiries continue on WhatsApp, phone and email.">
-<link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj4KICA8cmVjdCB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgcng9IjExMiIgZmlsbD0iIzJDMUEwRSIvPgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEwNSAxMzUpIiBmaWxsPSIjQkQ5NDY4Ij4KICAgIDxwYXRoIGQ9Ik0xNjIuMTIsOTAuMTFjMjksOS44MywxMS40MSw1NS42OS0xNyw0NS44Ny0uNjYtLjE0LTEuMzktLjctLjY1LTEuMzEsMTUuMzEtOC41LDI0LjE1LTI3LjM5LDE2LjMtNDMuOTEtLjI1LS44OS42OS0uOTQsMS4zMS0uNjVaIi8+CiAgICA8cGF0aCBkPSJNMjg5LjM2LDBIMTc3QTEzLjI1LDEzLjI1LDAsMCwwLDE2NCwxNS41YTExOC41NCwxMTguNTQsMCwwLDAsNC40OCwxNy4yN2M0LjE2LDE0LjQ1LDYuMzgsMTQsMTMuNTYsMzQuMTcsNywxOS43OSwxMC41NCwyOS45Miw5LjQsNDEuOC0uODksMjIuMzctMTQuNiwzOS41NS0zNi45Myw0Mi4xMy0uNSwwLTEsMC0xLjU4LDBzLTEuMDgsMC0xLjU3LDBjLTIyLjM3LTIuNTgtMzYuMDgtMTkuNzUtMzctNDIuMTMtMS4xMS0xMS44OCwyLjM5LTIyLDkuNDQtNDEuOCw3LjE3LTIwLjE2LDkuMzYtMTkuNzIsMTMuNTYtMzQuMTdhMTE5Ljc0LDExOS43NCwwLDAsMCw0LjQ3LTE3LjI3QTEzLjI1LDEzLjI1LDAsMCwwLDEyOC43OCwwSDEzLjI1QTEzLjI0LDEzLjI0LDAsMCwwLDEuNzksMTkuODVsMTI4Ljc4LDIyM2g0MS40OGwxMjguNzctMjIzQTEzLjIzLDEzLjIzLDAsMCwwLDI4OS4zNiwwWiIvPgogIDwvZz4KPC9zdmc+" type="image/svg+xml">
+<link rel="icon" href="${favicon}" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=Manrope:wght@300;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500&family=Poppins:wght@300;500&display=swap">
 <style>${styles}</style>
 </head>
 <body>
 <main>
-  <span class="lockup" role="img" aria-label="${site.name}">${VELYN_LOCKUP_SVG}</span>
-  <h1>We are offline for a short while</h1>
-  <p class="lede">Our online store is paused while we work on what comes next. The team is still here, and orders, wholesale enquiries and deliveries carry on as normal.</p>
+  <span class="lockup"><svg viewBox="${LOGO_STACKED.viewBox}" role="img" aria-label="${site.name}">${LOGO_STACKED.body}</svg></span>
+  <h1>We'll be back shortly</h1>
+  <p class="lede">Our online shop is paused for a little while. You can still order from us on WhatsApp, by phone or by email, and deliveries carry on as normal.</p>
   <div class="rule"></div>
   <div class="actions">
     <a class="btn btn-primary" href="${wa}">Order on WhatsApp</a>
-    <a class="btn btn-ghost" href="mailto:${site.contact.email}">Email us</a>
+    <a class="btn btn-ghost" href="mailto:${contact.email}">Email us</a>
   </div>
   <div class="details">
-    <p><a href="tel:${site.contact.phonePrimary}">${site.contact.phonePrimaryDisplay}</a> or <a href="tel:${site.contact.phoneSecondary}">+234 902 882 8977</a></p>
-    <p>Mon to Fri, 9am to 5pm WAT</p>
-    <p>${site.contact.address.line1}, ${site.contact.address.line2}, ${site.contact.address.city}</p>
+    <p>${phones}</p>
+    <p>${contact.hours}</p>
+    <p>${contact.address.line1}, ${contact.address.line2}, ${contact.address.city}</p>
   </div>
   <nav class="social" aria-label="Social media">
-    <a href="${site.social.instagram}" rel="noopener">Instagram</a>
-    <a href="${site.social.tiktok}" rel="noopener">TikTok</a>
-    <a href="${site.social.facebook}" rel="noopener">Facebook</a>
+    <a href="${social.instagram}" rel="noopener">Instagram</a>
+    <a href="${social.tiktok}" rel="noopener">TikTok</a>
+    <a href="${social.facebook}" rel="noopener">Facebook</a>
   </nav>
   <footer>&copy; ${new Date().getFullYear()} ${site.legalName}</footer>
 </main>
