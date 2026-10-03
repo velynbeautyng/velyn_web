@@ -81,9 +81,13 @@ export function SiteFooter() {
         </div>
 
         <p className="mt-6 border-t border-gold/15 pt-6 text-center text-xs text-linen/65">
-          Built with love by{" "}
+          Built with{" "}
+          <span role="img" aria-label="love">
+            ❤️
+          </span>{" "}
+          by{" "}
           <a
-            href="https://wa.me/2348090520578?text=I%20will%20like%20a%20website%20designed"
+            href="https://www.phoenixitng.com"
             target="_blank"
             rel="noopener noreferrer"
             className="font-semibold text-gold transition-colors hover:text-white"
