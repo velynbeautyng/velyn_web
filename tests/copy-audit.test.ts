@@ -2,13 +2,7 @@ import { readdirSync, readFileSync } from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
 
-// lib/ops/config.ts keeps the ops hostname as its default until ops moves to
-// ops.nuvenebeauty.com, so it may still mention Velyn.
-const VELYN_ALLOWED = new Set([
-  "lib/maintenance-page.ts",
-  "lib/maintenance-velyn-lockup.ts",
-  "lib/ops/config.ts",
-]);
+const VELYN_ALLOWED = new Set<string>();
 
 const BANNED: [string, RegExp][] = [
   [

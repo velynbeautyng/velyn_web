@@ -2,7 +2,7 @@ import { readdirSync, readFileSync } from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
 
-const ALLOW = new Set(["lib/maintenance-page.ts", "lib/maintenance-velyn-lockup.ts"]);
+const ALLOW = new Set<string>();
 const LEGACY =
   /\b(?:bg|text|border|divide|ring|fill|stroke|from|to|via|outline|decoration|shadow|accent|caret)-(?:espresso|ivory|olive|cocoa|mocha|gold-dim|gold-faint)\b|--color-(?:espresso|ivory|olive|cocoa|mocha)|font-(?:eb-garamond|manrope)/;
 
