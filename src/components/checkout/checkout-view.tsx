@@ -2,14 +2,11 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { cartSubtotal, useCart } from "@/lib/cart-store";
 import { formatNaira } from "@/lib/utils";
-import {
-  computeShipping,
-  DEFAULT_SHIPPING_CONFIG,
-  type ShippingConfig,
-} from "@/lib/shipping";
+import { areaZonesFor, computeShipping, findAreaZone } from "@/lib/shipping";
+import { useShippingConfig } from "@/lib/use-shipping-config";
 import { site } from "@/lib/site";
 import { Price } from "@/components/ui/price";
 import { NIGERIAN_STATES } from "@/lib/ng-states";
@@ -29,29 +26,31 @@ export function CheckoutView() {
   const items = useCart((s) => s.items);
   const subtotal = cartSubtotal(items);
 
-  const [config, setConfig] = useState<ShippingConfig>(DEFAULT_SHIPPING_CONFIG);
+  const config = useShippingConfig();
   const [method, setMethod] = useState<Method>("delivery");
   const [state, setState] = useState("");
+  const [area, setArea] = useState("");
   const [status, setStatus] = useState<"idle" | "submitting">("idle");
   const [error, setError] = useState("");
 
-  // Live delivery pricing from the ops shipping config + selected state.
-  useEffect(() => {
-    let alive = true;
-    fetch("/api/shipping")
-      .then((r) => (r.ok ? r.json() : null))
-      .then((c) => {
-        if (alive && c) setConfig(c as ShippingConfig);
-      })
-      .catch(() => {});
-    return () => {
-      alive = false;
-    };
-  }, []);
-
+  // Abuja is priced by area, so its fee is only known once an area is chosen.
+  const stateAreaZones = areaZonesFor(state, config);
+  const pricePending =
+    method === "delivery" &&
+    (!state || (stateAreaZones.length > 0 && !findAreaZone(state, area, config)));
   const shipping =
-    method === "pickup" ? 0 : computeShipping(subtotal, state, config);
+    method === "pickup" || pricePending ? 0 : computeShipping(subtotal, state, config, area);
   const total = subtotal + shipping;
+  const deliveryLabel =
+    method === "pickup"
+      ? "Free"
+      : !state
+        ? "Choose state"
+        : pricePending
+          ? "Choose area"
+          : shipping === 0
+            ? "Free"
+            : formatNaira(shipping);
 
   if (items.length === 0) {
     return (
@@ -172,19 +171,58 @@ export function CheckoutView() {
               </div>
               <div className="grid gap-4 sm:grid-cols-2">
                 <div>
-                  <label htmlFor="co-city" className={label}>City / Town</label>
-                  <input id="co-city" name="city" required maxLength={60} placeholder="e.g. Utako" className={field} />
-                </div>
-                <div>
                   <label htmlFor="co-state" className={label}>State</label>
-                  <select id="co-state" name="state" required value={state} onChange={(e) => setState(e.target.value)} className={`${field} cursor-pointer appearance-none`}>
+                  <select
+                    id="co-state"
+                    name="state"
+                    required
+                    value={state}
+                    onChange={(e) => {
+                      setState(e.target.value);
+                      setArea("");
+                    }}
+                    className={`${field} cursor-pointer appearance-none`}
+                  >
                     <option value="" disabled>Select state</option>
                     {NIGERIAN_STATES.map((s) => (
                       <option key={s} value={s}>{s}</option>
                     ))}
                   </select>
                 </div>
+                {stateAreaZones.length > 0 ? (
+                  <div>
+                    <label htmlFor="co-city" className={label}>Area</label>
+                    <select
+                      id="co-city"
+                      name="city"
+                      required
+                      value={area}
+                      onChange={(e) => setArea(e.target.value)}
+                      className={`${field} cursor-pointer appearance-none`}
+                    >
+                      <option value="" disabled>Select your area</option>
+                      {stateAreaZones.map((z) => (
+                        <optgroup key={z.name} label={`${z.name} · ${formatNaira(z.fee)}`}>
+                          {[...z.areas].sort((a, b) => a.localeCompare(b)).map((a) => (
+                            <option key={a} value={a}>{a}</option>
+                          ))}
+                        </optgroup>
+                      ))}
+                    </select>
+                  </div>
+                ) : (
+                  <div>
+                    <label htmlFor="co-city" className={label}>City / Town</label>
+                    <input id="co-city" name="city" required maxLength={60} placeholder="e.g. Ikeja" className={field} />
+                  </div>
+                )}
               </div>
+              {stateAreaZones.length > 0 && (
+                <p className="-mt-2 text-[0.78rem] leading-relaxed text-stone">
+                  Area not listed? Choose the nearest one, or message us on WhatsApp and we&apos;ll
+                  confirm your delivery fee.
+                </p>
+              )}
             </>
           ) : (
             <div className="border border-gold-pale bg-linen-soft p-5">
@@ -263,13 +301,7 @@ export function CheckoutView() {
             <dt className="text-stone">
               {method === "pickup" ? "Pickup" : "Delivery"}
             </dt>
-            <dd className="text-ink">
-              {method === "pickup"
-                ? "Free"
-                : shipping === 0
-                  ? "Free"
-                  : formatNaira(shipping)}
-            </dd>
+            <dd className={pricePending ? "text-stone" : "text-ink"}>{deliveryLabel}</dd>
           </div>
         </dl>
         <div className="mt-3 flex justify-between border-t border-linen-mid pt-3">

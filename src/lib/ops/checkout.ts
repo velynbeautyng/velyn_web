@@ -1,7 +1,7 @@
 import "server-only";
 import { getProductBySlug } from "./products";
 import { getShippingConfig } from "./shipping";
-import { computeShipping } from "@/lib/shipping";
+import { computeShipping, deliveryAreaError } from "@/lib/shipping";
 
 export type ClientCartItem = {
   id: string; // variation id
@@ -26,17 +26,21 @@ export type ResolvedCart = {
   shipping: number;
   total: number;
   currency: "NGN";
+  /** Set when the destination needs a listed area (Abuja) and none matched. */
+  areaError: string | null;
 };
 
 /**
  * Re-price the cart from the authoritative catalogue. Client-supplied prices
  * are ignored entirely (only the product id/slug/quantity are trusted), so a
  * tampered cart cannot change what is charged. Delivery is priced server-side
- * from the ops shipping config and the destination `state`.
+ * from the ops shipping config, the destination `state` and, for states priced
+ * by area (Abuja), the customer's `area`.
  */
 export async function resolveCart(
   items: ClientCartItem[],
   state?: string,
+  area?: string,
 ): Promise<ResolvedCart> {
   const lines: ResolvedLine[] = [];
 
@@ -71,7 +75,7 @@ export async function resolveCart(
 
   const subtotal = lines.reduce((sum, l) => sum + l.lineTotal, 0);
   const config = await getShippingConfig();
-  const shipping = computeShipping(subtotal, state, config);
+  const shipping = computeShipping(subtotal, state, config, area);
 
   return {
     lines,
@@ -79,5 +83,6 @@ export async function resolveCart(
     shipping,
     total: subtotal + shipping,
     currency: "NGN",
+    areaError: state ? deliveryAreaError(state, area, config) : null,
   };
 }
