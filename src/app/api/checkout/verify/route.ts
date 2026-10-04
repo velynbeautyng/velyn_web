@@ -46,6 +46,8 @@ export async function GET(request: Request) {
         shipping: meta.shipping ?? 0,
         total: result.amount / 100,
         currency: "NGN",
+        // The area was checked before Paystack was ever called.
+        areaError: null,
       };
       const outcome = await recordOrder({
         reference,

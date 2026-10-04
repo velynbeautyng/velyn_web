@@ -59,14 +59,21 @@ export async function POST(request: Request) {
   }
 
   // Authoritative re-pricing, client amounts are never trusted. Delivery is
-  // priced from the ops shipping config using the destination state; pickup is
-  // always free.
-  const cart = await resolveCart(items, method === "pickup" ? undefined : c.state);
+  // priced from the ops shipping config using the destination state (and, in
+  // Abuja, the area chosen in the City / Area field); pickup is always free.
+  const cart =
+    method === "pickup"
+      ? await resolveCart(items)
+      : await resolveCart(items, c.state, c.city);
   if (cart.lines.length === 0) {
     return NextResponse.json(
       { error: "None of the items in your cart are available." },
       { status: 409 },
     );
+  }
+
+  if (cart.areaError) {
+    return NextResponse.json({ error: cart.areaError }, { status: 422 });
   }
 
   const shipping = method === "pickup" ? 0 : cart.shipping;

@@ -12,15 +12,15 @@ import { Price } from "@/components/ui/price";
 import { ButtonLink } from "@/components/ui/button";
 import { NuveneIcon } from "@/components/brand/nuvene-logo";
 import { IconMinus, IconPlus, IconTrash } from "@/components/ui/icons";
-
-const FREE_SHIPPING = Number(
-  process.env.NEXT_PUBLIC_FREE_SHIPPING_THRESHOLD ?? 50000,
-);
+import { useShippingConfig } from "@/lib/use-shipping-config";
 
 export function CartView() {
   const items = useCart((s) => s.items);
   const subtotal = cartSubtotal(items);
-  const remaining = Math.max(0, FREE_SHIPPING - subtotal);
+  // Free delivery is an ops setting; with no threshold set there is nothing to promise.
+  const { isActive, freeThreshold } = useShippingConfig();
+  const freeDelivery = !isActive || (freeThreshold != null && subtotal >= freeThreshold);
+  const remaining = freeThreshold != null ? Math.max(0, freeThreshold - subtotal) : 0;
 
   if (items.length === 0) {
     return (
@@ -44,14 +44,15 @@ export function CartView() {
   return (
     <div className="section section-y grid gap-10 lg:grid-cols-[1fr_20rem]">
       <div>
-        {remaining > 0 ? (
+        {isActive && freeThreshold != null && remaining > 0 && (
           <p className="mb-5 border border-gold-pale bg-linen-soft px-4 py-2.5 text-[0.82rem] text-stone">
             You&apos;re {formatNaira(remaining)} away from{" "}
             <strong className="text-ink">free delivery.</strong>
           </p>
-        ) : (
+        )}
+        {freeDelivery && (
           <p className="mb-5 border border-sage-mid/30 bg-sage-pale/40 px-4 py-2.5 text-[0.82rem] text-sage-deep">
-            You&apos;ve unlocked <strong>free delivery.</strong>
+            Your order ships with <strong>free delivery.</strong>
           </p>
         )}
 
@@ -79,7 +80,7 @@ export function CartView() {
           <div className="flex justify-between">
             <dt className="text-stone">Delivery</dt>
             <dd className="text-ink">
-              {subtotal >= FREE_SHIPPING ? "Free" : "Calculated at checkout"}
+              {freeDelivery ? "Free" : "Calculated at checkout"}
             </dd>
           </div>
         </dl>
