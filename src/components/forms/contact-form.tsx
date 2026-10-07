@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
+import { contactErrors, type FieldErrors } from "@/lib/form-validation";
 
 const inquiryTypes = [
   "General Inquiry",
@@ -11,6 +12,9 @@ const inquiryTypes = [
   "Brand Partnership",
   "Order Support",
 ];
+
+// Checked in this order, so focus lands on the first field the customer meets.
+const FIELD_ORDER = ["name", "email", "inquiryType", "message"];
 
 type Status = "idle" | "submitting" | "success" | "error";
 
@@ -23,25 +27,48 @@ export function ContactForm({
 }) {
   const [status, setStatus] = useState<Status>("idle");
   const [error, setError] = useState<string>("");
+  const [errors, setErrors] = useState<FieldErrors>({});
 
   const dark = tone === "dark";
-  const fieldClass = cn(
-    "w-full border px-3.5 py-2.5 text-base sm:text-sm outline-none transition-colors",
-    dark
-      ? "border-gold/30 bg-linen/[0.04] text-linen placeholder:text-linen/60 focus:border-gold"
-      : "border-linen-mid bg-white text-ink placeholder:text-stone focus:border-gold",
-  );
+  const fieldClass = (name: string) =>
+    cn(
+      "w-full border px-3.5 py-2.5 text-base sm:text-sm outline-none transition-colors",
+      dark
+        ? "border-gold/30 bg-linen/[0.04] text-linen placeholder:text-linen/60 focus:border-gold"
+        : "border-linen-mid bg-white text-ink placeholder:text-stone focus:border-gold",
+      errors[name] && (dark ? "border-[#ffb4a8]" : "border-[#b42318]"),
+    );
   const labelClass = cn(
     "mb-1.5 block text-[0.6rem] font-bold uppercase tracking-[0.14em]",
     dark ? "text-linen/80" : "text-stone",
   );
+  const errorClass = cn("mt-1.5 text-[0.75rem]", dark ? "text-[#ffb4a8]" : "text-[#b42318]");
+
+  const fieldProps = (name: string) => ({
+    name,
+    "aria-invalid": errors[name] ? true : undefined,
+    "aria-describedby": errors[name] ? `cf-${name}-error` : undefined,
+  });
+
+  function showErrors(form: HTMLFormElement, found: FieldErrors) {
+    setErrors(found);
+    const first = FIELD_ORDER.find((f) => found[f]);
+    if (first) (form.elements.namedItem(first) as HTMLElement | null)?.focus();
+  }
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setStatus("submitting");
-    setError("");
     const form = e.currentTarget;
     const data = Object.fromEntries(new FormData(form));
+    setError("");
+
+    const found = contactErrors(data);
+    if (Object.keys(found).length > 0) {
+      showErrors(form, found);
+      return;
+    }
+    setErrors({});
+    setStatus("submitting");
 
     try {
       const res = await fetch("/api/contact", {
@@ -49,13 +76,31 @@ export function ContactForm({
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
+      if (res.status === 422) {
+        const body = await res.json().catch(() => ({}));
+        if (body.fieldErrors) {
+          setStatus("idle");
+          showErrors(form, body.fieldErrors);
+          return;
+        }
+      }
       if (!res.ok) throw new Error("Request failed");
       setStatus("success");
       form.reset();
     } catch {
       setStatus("error");
-      setError("Something went wrong. Please try again or reach us on WhatsApp.");
+      setError("We couldn't send your message just now. Please try again or reach us on WhatsApp.");
     }
+  }
+
+  function clearError(e: React.FormEvent<HTMLFormElement>) {
+    const name = (e.target as HTMLInputElement).name;
+    if (!name || !errors[name]) return;
+    setErrors((prev) => {
+      const next = { ...prev };
+      delete next[name];
+      return next;
+    });
   }
 
   if (status === "success") {
@@ -83,25 +128,27 @@ export function ContactForm({
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-3.5" noValidate>
+    <form onSubmit={handleSubmit} onChange={clearError} className="flex flex-col gap-3.5" noValidate>
       <div>
         <label htmlFor="cf-name" className={labelClass}>
           Full Name
         </label>
-        <input id="cf-name" name="name" required autoComplete="name" placeholder="Your full name" className={fieldClass} />
+        <input id="cf-name" {...fieldProps("name")} autoComplete="name" placeholder="Your full name" className={fieldClass("name")} />
+        {errors.name && <p id="cf-name-error" className={errorClass}>{errors.name}</p>}
       </div>
       <div className="grid gap-3.5 sm:grid-cols-2">
         <div>
           <label htmlFor="cf-email" className={labelClass}>
             Email Address
           </label>
-          <input id="cf-email" name="email" type="email" required autoComplete="email" placeholder="your@email.com" className={fieldClass} />
+          <input id="cf-email" {...fieldProps("email")} type="email" autoComplete="email" placeholder="your@email.com" className={fieldClass("email")} />
+          {errors.email && <p id="cf-email-error" className={errorClass}>{errors.email}</p>}
         </div>
         <div>
           <label htmlFor="cf-phone" className={labelClass}>
             Phone (optional)
           </label>
-          <input id="cf-phone" name="phone" type="tel" autoComplete="tel" placeholder="+234 ..." className={fieldClass} />
+          <input id="cf-phone" name="phone" type="tel" autoComplete="tel" placeholder="+234 ..." className={fieldClass("phone")} />
         </div>
       </div>
       <div>
@@ -110,10 +157,9 @@ export function ContactForm({
         </label>
         <select
           id="cf-type"
-          name="inquiryType"
+          {...fieldProps("inquiryType")}
           defaultValue={defaultInquiry ?? ""}
-          className={cn(fieldClass, "appearance-none cursor-pointer")}
-          required
+          className={cn(fieldClass("inquiryType"), "appearance-none cursor-pointer")}
         >
           <option value="" disabled>
             Select inquiry type
@@ -124,16 +170,18 @@ export function ContactForm({
             </option>
           ))}
         </select>
+        {errors.inquiryType && <p id="cf-inquiryType-error" className={errorClass}>{errors.inquiryType}</p>}
       </div>
       <div>
         <label htmlFor="cf-message" className={labelClass}>
           Message
         </label>
-        <textarea id="cf-message" name="message" required rows={4} placeholder="How can we help you?" className={cn(fieldClass, "resize-y")} />
+        <textarea id="cf-message" {...fieldProps("message")} rows={4} placeholder="How can we help you?" className={cn(fieldClass("message"), "resize-y")} />
+        {errors.message && <p id="cf-message-error" className={errorClass}>{errors.message}</p>}
       </div>
 
       {status === "error" && (
-        <p className="text-sm text-red-300" role="alert">
+        <p className={cn("text-sm", dark ? "text-[#ffb4a8]" : "text-[#b42318]")} role="alert">
           {error}
         </p>
       )}

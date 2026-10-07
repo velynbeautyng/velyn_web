@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils";
 import { cartCount, useCart } from "@/lib/cart-store";
 import { NuveneLockup } from "@/components/brand/nuvene-logo";
 import { IconBag, IconClose, IconMenu } from "@/components/ui/icons";
+import { HeaderSearch } from "@/components/layout/header-search";
 import { ButtonLink } from "@/components/ui/button";
 
 const noopSubscribe = () => () => {};
@@ -133,6 +134,8 @@ export function SiteHeader() {
                 Shop now
               </ButtonLink>
             </span>
+
+            <HeaderSearch />
 
             <button
               type="button"

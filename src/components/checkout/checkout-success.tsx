@@ -10,7 +10,13 @@ import { IconCheck } from "@/components/ui/icons";
 
 type State =
   | { kind: "verifying" }
-  | { kind: "success"; reference: string; amount?: number }
+  | {
+      kind: "success";
+      reference: string;
+      amount?: number;
+      trackPath: string;
+      emailedTo?: string;
+    }
   | { kind: "failed"; message: string }
   | { kind: "pending"; reference: string };
 
@@ -41,11 +47,19 @@ export function CheckoutSuccess() {
             kind: "success",
             reference: data.reference,
             amount: data.amount,
+            trackPath:
+              data.trackPath || `/track?ref=${encodeURIComponent(data.reference)}`,
+            // Only promise an email that ops actually sent.
+            emailedTo: data.confirmationEmail === "sent" ? data.email : undefined,
           });
         } else if (data.status === "unconfigured") {
           // Gateway not live, treat the returned reference as a placed order.
           clear();
-          setState({ kind: "success", reference });
+          setState({
+            kind: "success",
+            reference,
+            trackPath: `/track?ref=${encodeURIComponent(reference)}`,
+          });
         } else {
           setState({
             kind: "pending",
@@ -81,27 +95,44 @@ export function CheckoutSuccess() {
         </div>
         <h1 className="font-serif text-3xl text-ink">Thank you!</h1>
         <p className="prose-body text-center">
-          Your order has been placed. A confirmation is on its way, and our team
-          will be in touch about delivery.
+          Your order has been placed.{" "}
+          {state.emailedTo ? (
+            <>
+              We&apos;ve emailed your confirmation and tracking link to{" "}
+              <strong className="text-ink">{state.emailedTo}</strong>.
+            </>
+          ) : (
+            <>Our team will be in touch about delivery.</>
+          )}
         </p>
         <div className="flex flex-col items-center gap-1 border border-linen-mid bg-linen px-6 py-4">
           <span className="text-[0.62rem] uppercase tracking-[0.14em] text-stone">
             Order Reference
           </span>
-          <span className="font-serif text-lg text-ink">
-            {state.reference}
+          <span className="flex items-center gap-3">
+            <span className="font-mono text-base font-semibold tracking-wide text-ink">{state.reference}</span>
+            <CopyButton value={state.reference} />
           </span>
           {typeof state.amount === "number" && (
             <span className="text-[0.8rem] text-stone">
               {formatNaira(state.amount)} paid
             </span>
           )}
+          <span className="mt-1 text-[0.75rem] text-stone">
+            Save this reference to track your order.
+          </span>
         </div>
         <div className="flex flex-wrap justify-center gap-3">
           <ButtonLink href="/shop" variant="ink" size="lg">
             Continue Shopping
           </ButtonLink>
-          <ButtonLink href="/track" variant="outline" size="lg">
+          <ButtonLink
+            href={state.trackPath}
+            target="_blank"
+            rel="noopener noreferrer"
+            variant="outline"
+            size="lg"
+          >
             Track Order
           </ButtonLink>
         </div>
@@ -154,5 +185,31 @@ function Shell({ children }: { children: React.ReactNode }) {
         {children}
       </div>
     </div>
+  );
+}
+
+function CopyButton({ value }: { value: string }) {
+  const [copied, setCopied] = useState(false);
+
+  async function copy() {
+    try {
+      await navigator.clipboard.writeText(value);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      // Clipboard can be blocked (e.g. an in-app browser); the reference stays
+      // selectable on the page, so there is nothing else to do.
+    }
+  }
+
+  return (
+    <button
+      type="button"
+      onClick={copy}
+      className="cursor-pointer border border-ink/30 px-2.5 py-1 text-[0.6rem] font-bold uppercase tracking-[0.12em] text-ink transition-colors hover:border-ink hover:bg-ink hover:text-linen"
+      aria-label={copied ? "Reference copied" : "Copy order reference"}
+    >
+      <span aria-live="polite">{copied ? "Copied" : "Copy"}</span>
+    </button>
   );
 }

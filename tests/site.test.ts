@@ -40,3 +40,14 @@ describe("site config", () => {
     expect(stats).not.toMatch(/10K|36|states|customers/i);
   });
 });
+
+describe("home stats", () => {
+  it("does not repeat the hero's 100% Original badge", () => {
+    expect(site.stats.some((s) => /original/i.test(s.label))).toBe(false);
+    expect(site.stats).toContainEqual({ value: "Guaranteed", label: "Replace or refund" });
+  });
+
+  it("lists both phone lines for the home contact block", () => {
+    expect(site.contact.phones.map((p) => p.label)).toEqual(["Abuja", "Lagos"]);
+  });
+});

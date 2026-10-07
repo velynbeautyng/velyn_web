@@ -2,7 +2,9 @@ import { NextResponse } from "next/server";
 import { verifyTransaction, isPaystackConfigured } from "@/lib/paystack";
 import { recordOrder } from "@/lib/ops/orders";
 import type { ResolvedCart } from "@/lib/ops/checkout";
-import type { Customer } from "@/lib/ops/orders";
+import type { ConfirmationEmail, Customer } from "@/lib/ops/orders";
+import { site } from "@/lib/site";
+import { trackPath, trackSecret } from "@/lib/track-link";
 
 /**
  * Check a Paystack reference and, on success, record the order in ops.
@@ -39,6 +41,11 @@ export async function GET(request: Request) {
     };
 
     let recorded = false;
+    let confirmationEmail: ConfirmationEmail | undefined;
+    // Signed link that opens the order status with nothing to type; it goes
+    // into the confirmation email and behind the Track Order button.
+    const email = meta.customer?.email || result.customerEmail || "";
+    const track = email ? trackPath(reference, email, trackSecret()) : `/track?ref=${encodeURIComponent(reference)}`;
     if (meta.customer && meta.lines) {
       const cart: ResolvedCart = {
         lines: meta.lines,
@@ -55,8 +62,10 @@ export async function GET(request: Request) {
         customer: meta.customer,
         paidAt: result.paidAt,
         deliveryMethod: meta.deliveryMethod ?? "delivery",
+        trackUrl: `${site.url}${track}`,
       });
       recorded = outcome.recorded;
+      confirmationEmail = outcome.confirmationEmail;
     }
 
     return NextResponse.json({
@@ -65,6 +74,8 @@ export async function GET(request: Request) {
       amount: result.amount / 100,
       email: result.customerEmail,
       recorded,
+      trackPath: track,
+      confirmationEmail: confirmationEmail ?? "unknown",
     });
   } catch (err) {
     console.error("[checkout] payment check failed:", err);

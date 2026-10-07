@@ -3,6 +3,7 @@ import { opsFetch, OpsError } from "./client";
 import { isOpsConfigured, opsConfig } from "./config";
 import { dataSource } from "./products";
 import type { ResolvedCart } from "./checkout";
+import { site } from "@/lib/site";
 
 export type Customer = {
   name: string;
@@ -20,7 +21,12 @@ export type OrderRecord = {
   customer: Customer;
   paidAt?: string;
   deliveryMethod?: "delivery" | "pickup";
+  /** One-click tracking link for the confirmation email ops sends. */
+  trackUrl?: string;
 };
+
+/** What happened to the customer's confirmation email, as reported by ops. */
+export type ConfirmationEmail = "sent" | "not-configured" | "failed" | "duplicate" | "unknown";
 
 /**
  * Record a completed order in ops (UltimatePOS `sell` API).
@@ -32,6 +38,7 @@ export type OrderRecord = {
 export async function recordOrder(order: OrderRecord): Promise<{
   recorded: boolean;
   reason?: string;
+  confirmationEmail?: ConfirmationEmail;
 }> {
   if (dataSource() === "demo" || !isOpsConfigured()) {
     console.info("[order] recorded (manual, ops not live):", {
@@ -56,6 +63,13 @@ export async function recordOrder(order: OrderRecord): Promise<{
       shipping: order.cart.shipping,
       delivery_method: order.deliveryMethod ?? "delivery",
       customer: order.customer,
+      track_url: order.trackUrl,
+      store: {
+        name: site.name,
+        url: site.url,
+        email: site.contact.email,
+        phones: site.contact.phones.map((p) => `${p.label} ${p.display}`),
+      },
       items: order.cart.lines
         .map((l) => ({
           variation_id: Number(l.id),
@@ -65,15 +79,24 @@ export async function recordOrder(order: OrderRecord): Promise<{
     };
 
     const res = await opsFetch<{
-      data?: { transaction_id?: number; invoice_no?: string };
+      data?: {
+        transaction_id?: number;
+        invoice_no?: string;
+        duplicate?: boolean;
+        confirmation_email?: ConfirmationEmail;
+      };
     }>("order", { method: "POST", body: payload });
 
     console.info("[order] recorded in ops:", {
       reference: order.reference,
       invoice_no: res.data?.invoice_no,
       transaction_id: res.data?.transaction_id,
+      confirmation_email: res.data?.confirmation_email,
     });
-    return { recorded: true };
+    return {
+      recorded: true,
+      confirmationEmail: res.data?.duplicate ? "duplicate" : (res.data?.confirmation_email ?? "unknown"),
+    };
   } catch (err) {
     const reason = err instanceof OpsError ? err.message : "unknown";
     console.error("[order] ops order failed, logged for manual entry:", reason, {

@@ -42,7 +42,8 @@ export const site = {
   // or the company (24/7 confirmed on 2 October 2026).
   stats: [
     { value: "50+", label: "Global brands" },
-    { value: "100%", label: "Original products" },
+    // The hero badge already says 100% Original, so this slot carries the guarantee.
+    { value: "Guaranteed", label: "Replace or refund" },
     { value: "200+", label: "Products" },
     { value: "24/7", label: "Open every day" },
     { value: "3", label: "Distribution channels" },

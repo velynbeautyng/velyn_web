@@ -9,6 +9,7 @@ import type {
 import { concernSlug } from "./concerns";
 import { pickFeatured } from "./featured";
 import { opsFetch } from "./client";
+import { matchesSearch } from "@/lib/search";
 import { normalizeProduct, type RawOpsProduct } from "./normalize";
 import { isDemoFallbackEnabled, isOpsConfigured } from "./config";
 import { demoBrands, demoCategories, demoProducts } from "./demo-data";
@@ -88,13 +89,8 @@ function applyQuery(all: Product[], q: ProductQuery): Paginated<Product> {
     );
   }
   if (q.search) {
-    const s = q.search.toLowerCase();
-    items = items.filter(
-      (p) =>
-        p.name.toLowerCase().includes(s) ||
-        p.brand.toLowerCase().includes(s) ||
-        p.concerns.some((c) => c.toLowerCase().includes(s)),
-    );
+    const search = q.search;
+    items = items.filter((p) => matchesSearch(p, search));
   }
 
   switch (q.sort) {

@@ -1,23 +1,36 @@
 import { NextResponse } from "next/server";
 import { getOrderStatus } from "@/lib/ops/order-status";
+import { normalizeReference } from "@/lib/order-reference";
+import { emailFromTrackToken, trackSecret } from "@/lib/track-link";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 /**
  * Order tracking lookup. Proxies the ops order-status endpoint so ops
- * credentials stay server-side. Requires the order reference AND the email
- * used at checkout, so orders can't be enumerated.
+ * credentials stay server-side. Requires the order reference AND either the
+ * email used at checkout or a signed link token (from the confirmation email
+ * or Thank You page), so orders can't be enumerated.
  */
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
-  const reference = (searchParams.get("reference") || "").trim();
-  const email = (searchParams.get("email") || "").trim();
+  const reference = normalizeReference(searchParams.get("reference") || "");
+  const token = (searchParams.get("k") || "").trim();
+  let email = (searchParams.get("email") || "").trim();
 
-  if (!reference || !email) {
-    return NextResponse.json(
-      { error: "Enter your order reference and email." },
-      { status: 400 },
-    );
+  if (!reference) {
+    return NextResponse.json({ error: "Enter your order reference." }, { status: 400 });
+  }
+  if (!email && token) {
+    email = emailFromTrackToken(reference, token, trackSecret()) ?? "";
+    if (!email) {
+      return NextResponse.json(
+        { error: "This tracking link is incomplete. Enter the email you used at checkout." },
+        { status: 400 },
+      );
+    }
+  }
+  if (!email) {
+    return NextResponse.json({ error: "Enter the email you used at checkout." }, { status: 400 });
   }
   if (!EMAIL_RE.test(email)) {
     return NextResponse.json(

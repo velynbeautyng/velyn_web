@@ -14,7 +14,14 @@ export function StatsBar() {
                 i === site.stats.length - 1 ? "col-span-2 sm:col-span-1" : ""
               }`}
             >
-              <span className="font-serif text-[1.75rem] leading-none text-ink">{stat.value}</span>
+              {/* Word values (Guaranteed) step down on phones so they clear the dividers. */}
+              <span
+                className={`font-serif leading-none text-ink ${
+                  stat.value.length > 6 ? "text-[1.3rem] sm:text-[1.75rem]" : "text-[1.75rem]"
+                }`}
+              >
+                {stat.value}
+              </span>
               <span className="text-[0.6rem] font-medium uppercase tracking-[0.16em] text-ink/80">
                 {stat.label}
               </span>

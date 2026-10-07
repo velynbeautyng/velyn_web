@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { recordEnquiry } from "@/lib/ops/enquiries";
+import { contactErrors } from "@/lib/form-validation";
 
 /**
  * Contact / inquiry endpoint. Validates the payload, records it in ops (so it
@@ -31,15 +32,12 @@ export async function POST(request: Request) {
   const email = body.email?.trim();
   const message = body.message?.trim();
 
-  if (!name || !email || !message) {
+  // Same messages the form shows, so a field the browser let through still
+  // gets a specific answer. Inquiry type defaults below, so it is never missing.
+  const fieldErrors = contactErrors({ name, email, message, inquiryType: "set" });
+  if (!name || !email || !message || !EMAIL_RE.test(email) || Object.keys(fieldErrors).length > 0) {
     return NextResponse.json(
-      { error: "Name, email and message are required." },
-      { status: 422 },
-    );
-  }
-  if (!EMAIL_RE.test(email)) {
-    return NextResponse.json(
-      { error: "Please provide a valid email address." },
+      { error: "Please check the highlighted fields.", fieldErrors },
       { status: 422 },
     );
   }

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { site } from "@/lib/site";
 import { PageHero } from "@/components/ui/page-hero";
 import { Reveal } from "@/components/motion/reveal";
@@ -37,11 +38,15 @@ export default function TrackPage() {
       <section className="section section-y">
         <Reveal className="mx-auto max-w-xl">
           <div className="border border-linen-mid bg-white p-6 sm:p-8">
-            <TrackForm />
+            {/* The form reads ?ref= from the link, which needs a Suspense boundary. */}
+            <Suspense fallback={null}>
+              <TrackForm />
+            </Suspense>
             <p className="mt-5 border-t border-linen-mid pt-5 text-[0.83rem] leading-relaxed text-stone">
-              Your order reference is on your confirmation page and email (it
-              starts with <strong className="text-ink">VB-</strong>). Prefer
-              to talk? Reach us directly at{" "}
+              Your order reference is on your confirmation page and email. It
+              starts with <strong className="text-ink">NB-</strong> (orders
+              placed before October 2026 start with VB-). Prefer to talk? Reach
+              us directly at{" "}
               <a
                 href={`mailto:${site.contact.email}`}
                 className="text-gold-deep underline underline-offset-2 hover:text-ink"

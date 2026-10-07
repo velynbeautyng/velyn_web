@@ -5,6 +5,7 @@ import { initializeTransaction, isPaystackConfigured } from "@/lib/paystack";
 import { whatsappLink } from "@/lib/site";
 import { checkoutCallbackUrl } from "@/lib/checkout-url";
 import { formatNaira } from "@/lib/utils";
+import { newOrderReference } from "@/lib/order-reference";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -79,7 +80,7 @@ export async function POST(request: Request) {
   const shipping = method === "pickup" ? 0 : cart.shipping;
   const total = cart.subtotal + shipping;
 
-  const reference = `VB-${Date.now().toString(36).toUpperCase()}-${randomUUID().slice(0, 6).toUpperCase()}`;
+  const reference = newOrderReference(Date.now(), randomUUID().slice(0, 6));
 
   const customer = {
     name: c.name.slice(0, 50),
