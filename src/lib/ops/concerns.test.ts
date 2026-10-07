@@ -73,8 +73,10 @@ describe("inferConcerns", () => {
     );
   });
 
-  it("returns nothing for products with no concern signal", () => {
-    expect(inferConcerns("100% Cotton Pads 80pcs")).toEqual([]);
+  // The client asked (7 Oct 2026) for every product to sit under a concern,
+  // so accessories like cotton pads now count as gentle on sensitive skin.
+  it("files cotton pads under sensitive skin", () => {
+    expect(inferConcerns("100% Cotton Pads 80pcs")).toEqual(["Sensitive skin"]);
   });
 });
 
@@ -106,5 +108,32 @@ describe("resolveConcernSlug", () => {
     expect(resolveConcernSlug("all-skin-types")).toBeUndefined();
     expect(resolveConcernSlug(undefined)).toBeUndefined();
     expect(resolveConcernSlug("")).toBeUndefined();
+  });
+});
+
+describe("every product has a concern", () => {
+  it("gives each of the 223 catalogue products at least one concern", async () => {
+    const { default: catalogue } = await import("../../../tests/fixtures/catalogue.json");
+    const missing = catalogue.filter((p) => inferConcerns(p.name, p.category).length === 0);
+    expect(missing.map((p) => `${p.sku} ${p.brand} ${p.name}`)).toEqual([]);
+  });
+
+  it("tags the products the client found untagged", () => {
+    expect(inferConcerns("SA Smoothing Cleanser 236ml", "Cleansers")[0]).toBe("Acne & oily skin");
+    expect(inferConcerns("Bamboo Face Mask", "Face masks")).toContain("Dryness");
+  });
+
+  it("reads retinoids and B3 as dark-spot treatments", () => {
+    expect(inferConcerns("Retinol Serum 2% 30ml", "Serums")).toContain("Dark spots & uneven tone");
+    expect(inferConcerns("Vita B3 Source Serum 40ml", "Serums")).toContain("Dark spots & uneven tone");
+  });
+
+  it("falls back to the category for a new product with no keywords", () => {
+    expect(inferConcerns("Mystery Product 50ml", "Body washes")).toEqual(["Dryness"]);
+    expect(inferConcerns("Mystery Product 50ml", "Sunscreens")).toEqual(["Sun protection"]);
+  });
+
+  it("still returns nothing when there is neither a keyword nor a known category", () => {
+    expect(inferConcerns("Mystery Product 50ml")).toEqual([]);
   });
 });

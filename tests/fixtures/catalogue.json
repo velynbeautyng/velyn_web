@@ -1,0 +1,1340 @@
+[
+ {
+  "sku": "NB001",
+  "name": "Niacinamide 10% + Zinc 1% 30ml",
+  "brand": "The Ordinary",
+  "category": "Serums"
+ },
+ {
+  "sku": "NB002",
+  "name": "Glycolic Acid 7% Exfoliating Toner 240ml",
+  "brand": "The Ordinary",
+  "category": "Toners"
+ },
+ {
+  "sku": "NB003",
+  "name": "Restore & Clarify Salicylic Acid Serum 30ml",
+  "brand": "Face Facts",
+  "category": "Serums"
+ },
+ {
+  "sku": "NB004",
+  "name": "Glow + Resurface Lactic Acid (AHA) Serum 30ml",
+  "brand": "Face Facts",
+  "category": "Serums"
+ },
+ {
+  "sku": "NB005",
+  "name": "Brighten + Illuminate Vitamin C Serum 50ml",
+  "brand": "Face Facts",
+  "category": "Serums"
+ },
+ {
+  "sku": "NB006",
+  "name": "Soothe & Glow Niacinamide Serum (1%) 30ml",
+  "brand": "Face Facts",
+  "category": "Serums"
+ },
+ {
+  "sku": "NB007",
+  "name": "Ceramide Blemish Clarifying Foaming Cleanser 400ml",
+  "brand": "Face Facts",
+  "category": "Cleansers"
+ },
+ {
+  "sku": "NB008",
+  "name": "Ceramide Hydrating Gentle Cleanser 400ml",
+  "brand": "Face Facts",
+  "category": "Cleansers"
+ },
+ {
+  "sku": "NB009",
+  "name": "Ceramide Foaming Cleanser 400ml",
+  "brand": "Face Facts",
+  "category": "Cleansers"
+ },
+ {
+  "sku": "NB010",
+  "name": "Ceramide Oil Control Foaming Cleanser 400ml",
+  "brand": "Face Facts",
+  "category": "Cleansers"
+ },
+ {
+  "sku": "NB011",
+  "name": "Revive + Refresh Hyaluronic Face Serum 30ml",
+  "brand": "Face Facts",
+  "category": "Serums"
+ },
+ {
+  "sku": "NB012",
+  "name": "Ceramide Nourish + Restore Serum 30ml",
+  "brand": "Face Facts",
+  "category": "Serums"
+ },
+ {
+  "sku": "NB013",
+  "name": "Wonder Cream (Instant Glow Reviver) 50ml",
+  "brand": "Face Facts",
+  "category": "Moisturisers"
+ },
+ {
+  "sku": "NB014",
+  "name": "Ceramide Oil Control Hydrating Toner 200ml",
+  "brand": "Face Facts",
+  "category": "Toners"
+ },
+ {
+  "sku": "NB015",
+  "name": "Hyaluronic Body Lotion 400ml",
+  "brand": "Face Facts",
+  "category": "Body lotions"
+ },
+ {
+  "sku": "NB016",
+  "name": "Vitamin C Body Lotion 400ml",
+  "brand": "Face Facts",
+  "category": "Body lotions"
+ },
+ {
+  "sku": "NB017",
+  "name": "Kojic Acid with Retinol Body Lotion 400ml",
+  "brand": "Face Facts",
+  "category": "Body lotions"
+ },
+ {
+  "sku": "NB018",
+  "name": "Ceramide Moisturising Gel Cream 50ml",
+  "brand": "Face Facts",
+  "category": "Moisturisers"
+ },
+ {
+  "sku": "NB019",
+  "name": "SA Smoothing Cleanser 236ml",
+  "brand": "CeraVe",
+  "category": "Cleansers"
+ },
+ {
+  "sku": "NB020",
+  "name": "Moisturizing Lotion 236ml",
+  "brand": "CeraVe",
+  "category": "Moisturisers"
+ },
+ {
+  "sku": "NB021",
+  "name": "Moisturizing Lotion 473ml",
+  "brand": "CeraVe",
+  "category": "Moisturisers"
+ },
+ {
+  "sku": "NB022",
+  "name": "Hydrating Cleanser 236ml",
+  "brand": "CeraVe",
+  "category": "Cleansers"
+ },
+ {
+  "sku": "NB023",
+  "name": "Heartleaf Quercetinol Pore Deep Cleansing Foam 150ml",
+  "brand": "Anua",
+  "category": "Cleansers"
+ },
+ {
+  "sku": "NB024",
+  "name": "Niacinamide 10% + TXA 4% Dark Spot Correcting Serum 30ml",
+  "brand": "Anua",
+  "category": "Serums"
+ },
+ {
+  "sku": "NB025",
+  "name": "10% Azelaic Acid Serum 30ml",
+  "brand": "Anua",
+  "category": "Serums"
+ },
+ {
+  "sku": "NB026",
+  "name": "Heartleaf 77% Soothing Toner 250ml",
+  "brand": "Anua",
+  "category": "Toners"
+ },
+ {
+  "sku": "NB027",
+  "name": "Peach 77 Niacin Essence Toner 250ml",
+  "brand": "Anua",
+  "category": "Toners"
+ },
+ {
+  "sku": "NB028",
+  "name": "Kind to Skin Refreshing Facial Wash 150ml",
+  "brand": "Simple",
+  "category": "Cleansers"
+ },
+ {
+  "sku": "NB029",
+  "name": "Kind to Skin Soothing Facial Toner 200ml",
+  "brand": "Simple",
+  "category": "Toners"
+ },
+ {
+  "sku": "NB030",
+  "name": "Replenishing Rich Moisturiser 125ml",
+  "brand": "Simple",
+  "category": "Moisturisers"
+ },
+ {
+  "sku": "NB031",
+  "name": "Hydrating Light Moisturiser 125ml",
+  "brand": "Simple",
+  "category": "Moisturisers"
+ },
+ {
+  "sku": "NB032",
+  "name": "5.5 Licorice pH Balancing Cleansing Toner 150ml",
+  "brand": "Acwell",
+  "category": "Toners"
+ },
+ {
+  "sku": "NB033",
+  "name": "5% Niacinamide Serum (Vitamin B3) 52ml",
+  "brand": "Advanced Clinicals",
+  "category": "Serums"
+ },
+ {
+  "sku": "NB034",
+  "name": "Vitamin C Anti-Aging Serum 52ml",
+  "brand": "Advanced Clinicals",
+  "category": "Serums"
+ },
+ {
+  "sku": "NB035",
+  "name": "Turmeric Oil Serum 53ml",
+  "brand": "Advanced Clinicals",
+  "category": "Serums"
+ },
+ {
+  "sku": "NB036",
+  "name": "10% Glycolic + Lactic Acid Serum 52ml",
+  "brand": "Advanced Clinicals",
+  "category": "Serums"
+ },
+ {
+  "sku": "NB037",
+  "name": "Peptide Anti-Wrinkle Serum 52ml",
+  "brand": "Advanced Clinicals",
+  "category": "Serums"
+ },
+ {
+  "sku": "NB038",
+  "name": "Vitamin C + Hyaluronic Brightening Cream 444ml",
+  "brand": "Advanced Clinicals",
+  "category": "Body creams"
+ },
+ {
+  "sku": "NB039",
+  "name": "Retinol Advanced Firming Cream 454g",
+  "brand": "Advanced Clinicals",
+  "category": "Body creams"
+ },
+ {
+  "sku": "NB040",
+  "name": "Vitamin C Advanced Brightening Cream 454g",
+  "brand": "Advanced Clinicals",
+  "category": "Body creams"
+ },
+ {
+  "sku": "NB041",
+  "name": "Hyaluronic Acid Instant Skin Hydrator Body Cream 454g",
+  "brand": "Advanced Clinicals",
+  "category": "Body creams"
+ },
+ {
+  "sku": "NB042",
+  "name": "Anthelios UVMune 400 Oil Control Invisible Fluid SPF 50 Sunscreen 50ml",
+  "brand": "La Roche-Posay",
+  "category": "Sunscreens"
+ },
+ {
+  "sku": "NB043",
+  "name": "Anthelios UVMune 400 Oil Control Fluid SPF 50 Sunscreen 50ml",
+  "brand": "La Roche-Posay",
+  "category": "Sunscreens"
+ },
+ {
+  "sku": "NB044",
+  "name": "Anthelios UVMune 400 Anti-Dark Spot Fluid SPF 50 Sunscreen 50ml",
+  "brand": "La Roche-Posay",
+  "category": "Sunscreens"
+ },
+ {
+  "sku": "NB045",
+  "name": "Body Lotion 400ml",
+  "brand": "La Roche-Posay",
+  "category": "Body lotions"
+ },
+ {
+  "sku": "NB046",
+  "name": "Oil-Free Acne Wash Pink Grapefruit Cleanser 269ml",
+  "brand": "Neutrogena",
+  "category": "Cleansers"
+ },
+ {
+  "sku": "NB047",
+  "name": "Hydro Boost Water Gel 50ml",
+  "brand": "Neutrogena",
+  "category": "Moisturisers"
+ },
+ {
+  "sku": "NB048",
+  "name": "Hydro Boost Body Lotion 453g",
+  "brand": "Neutrogena",
+  "category": "Body creams"
+ },
+ {
+  "sku": "NB049",
+  "name": "Body Oil 473ml",
+  "brand": "Neutrogena",
+  "category": "Body oils"
+ },
+ {
+  "sku": "NB050",
+  "name": "Acne Creamy Wash (4% Benzoyl Peroxide) 170g",
+  "brand": "PanOxyl",
+  "category": "Cleansers"
+ },
+ {
+  "sku": "NB051",
+  "name": "Advanced Snail 96 Mucin Power Essence 100ml",
+  "brand": "COSRX",
+  "category": "Serums"
+ },
+ {
+  "sku": "NB052",
+  "name": "Salicylic Acid Daily Gentle Cleanser 150ml",
+  "brand": "COSRX",
+  "category": "Cleansers"
+ },
+ {
+  "sku": "NB053",
+  "name": "Low pH Good Morning Gel Cleanser 150ml",
+  "brand": "COSRX",
+  "category": "Cleansers"
+ },
+ {
+  "sku": "NB054",
+  "name": "Advanced Snail 92 All in One Cream 100g",
+  "brand": "COSRX",
+  "category": "Moisturisers"
+ },
+ {
+  "sku": "NB055",
+  "name": "UV Super Water SPF 50 Sunscreen 100ml",
+  "brand": "Nivea",
+  "category": "Sunscreens"
+ },
+ {
+  "sku": "NB056",
+  "name": "Tone Brightening Vitamin C Serum Body Wash 591ml",
+  "brand": "Olay",
+  "category": "Body washes"
+ },
+ {
+  "sku": "NB057",
+  "name": "Retinol 24 Smoothing Body Lotion 502ml",
+  "brand": "Olay",
+  "category": "Body lotions"
+ },
+ {
+  "sku": "NB058",
+  "name": "Age Defying Niacinamide Body Lotion 502ml",
+  "brand": "Olay",
+  "category": "Body lotions"
+ },
+ {
+  "sku": "NB059",
+  "name": "Dark Spot Correcting AHA & Vitamin C Body Lotion 502ml",
+  "brand": "Olay",
+  "category": "Body lotions"
+ },
+ {
+  "sku": "NB060",
+  "name": "Super Serum Body Wash (Rough & Bumpy Skin) 547ml",
+  "brand": "Olay",
+  "category": "Body washes"
+ },
+ {
+  "sku": "NB061",
+  "name": "Super Serum Body Wash (Normal Skin) 547ml",
+  "brand": "Olay",
+  "category": "Body washes"
+ },
+ {
+  "sku": "NB062",
+  "name": "UV Aqua Rich Watery Essence SPF 50 50ml",
+  "brand": "Biore",
+  "category": "Sunscreens"
+ },
+ {
+  "sku": "NB063",
+  "name": "UV Aqua Rich Aqua Protect SPF 50 Sunscreen 70ml",
+  "brand": "Biore",
+  "category": "Sunscreens"
+ },
+ {
+  "sku": "NB064",
+  "name": "Vitamin C + Turmeric Body Cream 444ml",
+  "brand": "Medix 5.5",
+  "category": "Body creams"
+ },
+ {
+  "sku": "NB065",
+  "name": "Healthy Bright UV Extra Bright Lotion 500ml",
+  "brand": "Vaseline",
+  "category": "Body lotions"
+ },
+ {
+  "sku": "NB066",
+  "name": "Cocoa Radiant Body Oil 200ml",
+  "brand": "Vaseline",
+  "category": "Body oils"
+ },
+ {
+  "sku": "NB067",
+  "name": "Fresh & Cozy Body Lotion 473ml",
+  "brand": "EOS",
+  "category": "Body lotions"
+ },
+ {
+  "sku": "NB068",
+  "name": "Jasmine Peach Body Lotion 473ml",
+  "brand": "EOS",
+  "category": "Body lotions"
+ },
+ {
+  "sku": "NB069",
+  "name": "Strawberry Dream Body Lotion 473ml",
+  "brand": "EOS",
+  "category": "Body lotions"
+ },
+ {
+  "sku": "NB070",
+  "name": "Pink Champagne Body Wash 473ml",
+  "brand": "EOS",
+  "category": "Body washes"
+ },
+ {
+  "sku": "NB071",
+  "name": "Vanilla Cashmere Body Lotion 473ml",
+  "brand": "EOS",
+  "category": "Body lotions"
+ },
+ {
+  "sku": "NB072",
+  "name": "Vanilla Cashmere Body Wash 473ml",
+  "brand": "EOS",
+  "category": "Body washes"
+ },
+ {
+  "sku": "NB073",
+  "name": "Coconut Waters Body Wash 473ml",
+  "brand": "EOS",
+  "category": "Body washes"
+ },
+ {
+  "sku": "NB074",
+  "name": "15% TXA + Niacinamide Serum 30ml",
+  "brand": "Medicube",
+  "category": "Serums"
+ },
+ {
+  "sku": "NB075",
+  "name": "16% Azelaic Acid Serum 30ml",
+  "brand": "Medicube",
+  "category": "Serums"
+ },
+ {
+  "sku": "NB076",
+  "name": "PDRN Peptide Serum 30ml",
+  "brand": "Medicube",
+  "category": "Serums"
+ },
+ {
+  "sku": "NB077",
+  "name": "Triple Collagen Serum 55ml",
+  "brand": "Medicube",
+  "category": "Serums"
+ },
+ {
+  "sku": "NB078",
+  "name": "Kojic Acid Turmeric & Niacinamide Serum 30ml",
+  "brand": "Medicube",
+  "category": "Serums"
+ },
+ {
+  "sku": "NB079",
+  "name": "Hyaluronic Multi Peptide Serum 30ml",
+  "brand": "Medicube",
+  "category": "Serums"
+ },
+ {
+  "sku": "NB080",
+  "name": "Red Succinic Acid Peeling Pad 155g",
+  "brand": "Medicube",
+  "category": "Toner pads"
+ },
+ {
+  "sku": "NB081",
+  "name": "Super Cica Pad 150g",
+  "brand": "Medicube",
+  "category": "Toner pads"
+ },
+ {
+  "sku": "NB082",
+  "name": "Vita C Pad 150g",
+  "brand": "Medicube",
+  "category": "Toner pads"
+ },
+ {
+  "sku": "NB083",
+  "name": "UV Super Moisture Gel SPF 50+ 110g",
+  "brand": "Skin Aqua",
+  "category": "Sunscreens"
+ },
+ {
+  "sku": "NB084",
+  "name": "Tone Up UV Essence SPF 50+ 80g",
+  "brand": "Skin Aqua",
+  "category": "Sunscreens"
+ },
+ {
+  "sku": "NB085",
+  "name": "Daily Moisturizing Body Lotion Sheer Hydration 530ml",
+  "brand": "Aveeno",
+  "category": "Body lotions"
+ },
+ {
+  "sku": "NB086",
+  "name": "Tone & Texture Daily Renewing Lotion 532ml",
+  "brand": "Aveeno",
+  "category": "Body lotions"
+ },
+ {
+  "sku": "NB087",
+  "name": "Daily Moisturizing Body Oil 200ml",
+  "brand": "Aveeno",
+  "category": "Body oils"
+ },
+ {
+  "sku": "NB088",
+  "name": "Cocoa Butter Formula with Vitamin E 400ml",
+  "brand": "Palmer's",
+  "category": "Body lotions"
+ },
+ {
+  "sku": "NB089",
+  "name": "Cocoa Butter Skin Therapy Oil 150ml",
+  "brand": "Palmer's",
+  "category": "Body oils"
+ },
+ {
+  "sku": "NB090",
+  "name": "Dark Spot Correcting Glow Serum 50ml",
+  "brand": "AXIS-Y",
+  "category": "Serums"
+ },
+ {
+  "sku": "NB091",
+  "name": "Vita B3 Source Serum 40ml",
+  "brand": "TIAM",
+  "category": "Serums"
+ },
+ {
+  "sku": "NB092",
+  "name": "Vita B3 Source Toner 200ml",
+  "brand": "TIAM",
+  "category": "Toners"
+ },
+ {
+  "sku": "NB093",
+  "name": "Niacinamide Spots Fading Face Serum 30ml",
+  "brand": "Estelin",
+  "category": "Serums"
+ },
+ {
+  "sku": "NB094",
+  "name": "Salicylic Acid Shrink Pores Face Serum 30ml",
+  "brand": "Estelin",
+  "category": "Serums"
+ },
+ {
+  "sku": "NB095",
+  "name": "Rice Collagen Firming Face Serum 30ml",
+  "brand": "Estelin",
+  "category": "Serums"
+ },
+ {
+  "sku": "NB096",
+  "name": "Turmeric Vitamin C Brightening Face Serum 30ml",
+  "brand": "Estelin",
+  "category": "Serums"
+ },
+ {
+  "sku": "NB097",
+  "name": "Azelaic Acid Gel 20% w/w 15g",
+  "brand": "Ezanic",
+  "category": "Moisturisers"
+ },
+ {
+  "sku": "NB098",
+  "name": "Melalite Hydroquinone USP 30g",
+  "brand": "Abbott",
+  "category": "Moisturisers"
+ },
+ {
+  "sku": "NB099",
+  "name": "Tretinoin Gel 0.025% 20g",
+  "brand": "Menarini",
+  "category": "Moisturisers"
+ },
+ {
+  "sku": "NB100",
+  "name": "Cream (Hydroquinone USP + Tretinoin 0.05%) 15g",
+  "brand": "Tri-Luma",
+  "category": "Moisturisers"
+ },
+ {
+  "sku": "NB101",
+  "name": "345 Relief Cream 50g",
+  "brand": "Dr. Althea",
+  "category": "Moisturisers"
+ },
+ {
+  "sku": "NB102",
+  "name": "Glow Getter Multi-Oil Body Wash 500ml",
+  "brand": "Naturium",
+  "category": "Body washes"
+ },
+ {
+  "sku": "NB103",
+  "name": "Bio-Lipid Restoring Body Lotion 414ml",
+  "brand": "Naturium",
+  "category": "Body lotions"
+ },
+ {
+  "sku": "NB104",
+  "name": "Glow & Radiance Body Wash with Vitamin C & Citrus 710ml",
+  "brand": "Dr Teal's",
+  "category": "Body washes"
+ },
+ {
+  "sku": "NB105",
+  "name": "Shea Sugar Scrub with Rose Oil 538g",
+  "brand": "Dr Teal's",
+  "category": "Body scrubs"
+ },
+ {
+  "sku": "NB106",
+  "name": "Pink Himalayan Salt Scrub 454g",
+  "brand": "Dr Teal's",
+  "category": "Body scrubs"
+ },
+ {
+  "sku": "NB107",
+  "name": "Shea Sugar Scrub with Shea Butter & Almond Oil 538g",
+  "brand": "Dr Teal's",
+  "category": "Body scrubs"
+ },
+ {
+  "sku": "NB108",
+  "name": "Shea Sugar Scrub with Black Elderberry 538g",
+  "brand": "Dr Teal's",
+  "category": "Body scrubs"
+ },
+ {
+  "sku": "NB109",
+  "name": "Shea Sugar Scrub with Avocado Oil 538g",
+  "brand": "Dr Teal's",
+  "category": "Body scrubs"
+ },
+ {
+  "sku": "NB110",
+  "name": "Shea Sugar Scrub with Probiotic Lemon Balm 538g",
+  "brand": "Dr Teal's",
+  "category": "Body scrubs"
+ },
+ {
+  "sku": "NB111",
+  "name": "Shea Sugar Scrub with Citrus & Vitamin C 538g",
+  "brand": "Dr Teal's",
+  "category": "Body scrubs"
+ },
+ {
+  "sku": "NB112",
+  "name": "Ceramide Avocado Oil Body Lotion 532ml",
+  "brand": "Dr Teal's",
+  "category": "Body lotions"
+ },
+ {
+  "sku": "NB113",
+  "name": "Vitamin C Body Lotion 532ml",
+  "brand": "Dr Teal's",
+  "category": "Body lotions"
+ },
+ {
+  "sku": "NB114",
+  "name": "Bright and Smooth Lotion 500ml",
+  "brand": "Advanced Korean Skin",
+  "category": "Body lotions"
+ },
+ {
+  "sku": "NB115",
+  "name": "Bright and Moisture Lotion 500ml",
+  "brand": "Advanced Korean Skin",
+  "category": "Body lotions"
+ },
+ {
+  "sku": "NB116",
+  "name": "Bright and Dewy Radiance Body Lotion 500ml",
+  "brand": "Advanced Korean Skin",
+  "category": "Body lotions"
+ },
+ {
+  "sku": "NB117",
+  "name": "Lightening & Barrier Repair Body Lotion 500ml",
+  "brand": "Advanced Korean Skin",
+  "category": "Body lotions"
+ },
+ {
+  "sku": "NB118",
+  "name": "Bright and Clear Body Gel Wash 1200ml",
+  "brand": "Advanced Korean Skin",
+  "category": "Body washes"
+ },
+ {
+  "sku": "NB119",
+  "name": "Bright and Exfoliate Mint Body Gel Wash 1200ml",
+  "brand": "Advanced Korean Skin",
+  "category": "Body washes"
+ },
+ {
+  "sku": "NB120",
+  "name": "Bright and Fair Body Gel Wash 500ml",
+  "brand": "Advanced Korean Skin",
+  "category": "Body washes"
+ },
+ {
+  "sku": "NB121",
+  "name": "Skin Active Fair Cream 100g",
+  "brand": "Advanced Korean Skin",
+  "category": "Moisturisers"
+ },
+ {
+  "sku": "NB122",
+  "name": "Bright + Balance Body Lotion 500ml",
+  "brand": "Aqua Rich",
+  "category": "Body lotions"
+ },
+ {
+  "sku": "NB123",
+  "name": "Bright + Glow Body Wash 1000ml",
+  "brand": "Aqua Rich",
+  "category": "Body washes"
+ },
+ {
+  "sku": "NB124",
+  "name": "Hydrate + Protect Body Wash 1000ml",
+  "brand": "Aqua Rich",
+  "category": "Body washes"
+ },
+ {
+  "sku": "NB125",
+  "name": "Vitamin C Brightening Face Cream 100g",
+  "brand": "Aqua Rich",
+  "category": "Moisturisers"
+ },
+ {
+  "sku": "NB126",
+  "name": "Niacinamide + Alpha Arbutin Face Cream 100g",
+  "brand": "Aqua Rich",
+  "category": "Moisturisers"
+ },
+ {
+  "sku": "NB127",
+  "name": "Beauty Cream Bar 90g",
+  "brand": "Dove",
+  "category": "Bar soaps"
+ },
+ {
+  "sku": "NB128",
+  "name": "Gentle Exfoliating Beauty Bar 90g",
+  "brand": "Dove",
+  "category": "Bar soaps"
+ },
+ {
+  "sku": "NB129",
+  "name": "Exfoliating Body Polish with Pomegranate Seeds & Shea Butter 298g",
+  "brand": "Dove",
+  "category": "Body scrubs"
+ },
+ {
+  "sku": "NB130",
+  "name": "Exfoliating Body Polish with Crushed Macadamia & Rice Milk 298g",
+  "brand": "Dove",
+  "category": "Body scrubs"
+ },
+ {
+  "sku": "NB131",
+  "name": "Exfoliating Body Polish with Crushed Lavender & Coconut Milk 298g",
+  "brand": "Dove",
+  "category": "Body scrubs"
+ },
+ {
+  "sku": "NB132",
+  "name": "Skin Lightening Soap (Single Bar) 135g",
+  "brand": "Kojie San",
+  "category": "Bar soaps"
+ },
+ {
+  "sku": "NB133",
+  "name": "Vitamin C Soap 2-in-1 135g",
+  "brand": "Kojie San",
+  "category": "Bar soaps"
+ },
+ {
+  "sku": "NB134",
+  "name": "Skin Lightening Soap 3-in-1 100g",
+  "brand": "Kojie San",
+  "category": "Bar soaps"
+ },
+ {
+  "sku": "NB135",
+  "name": "Whitening Soap 125g",
+  "brand": "Extract",
+  "category": "Bar soaps"
+ },
+ {
+  "sku": "NB136",
+  "name": "Turmeric Salt Scrub 450ml",
+  "brand": "Kuu Spa",
+  "category": "Body scrubs"
+ },
+ {
+  "sku": "NB137",
+  "name": "Vita C Intense Whitening Salt Scrub 450g",
+  "brand": "Kuu Spa",
+  "category": "Body scrubs"
+ },
+ {
+  "sku": "NB138",
+  "name": "Daily Nourish 12% Lactic Acid 567g",
+  "brand": "AmLactin",
+  "category": "Body lotions"
+ },
+ {
+  "sku": "NB139",
+  "name": "SPF 50 Sunscreen 250ml",
+  "brand": "Hatomugi",
+  "category": "Sunscreens"
+ },
+ {
+  "sku": "NB140",
+  "name": "Brightening Care Sunscreen 50ml",
+  "brand": "Celimax",
+  "category": "Sunscreens"
+ },
+ {
+  "sku": "NB141",
+  "name": "Bright & Clear Tube Cream 56.7g",
+  "brand": "Touch",
+  "category": "Moisturisers"
+ },
+ {
+  "sku": "NB142",
+  "name": "Vitamin C Facial Scrub 150ml",
+  "brand": "Beauty Formulas",
+  "category": "Exfoliators"
+ },
+ {
+  "sku": "NB143",
+  "name": "Brightening Vitamin C Facial Tonic 150ml",
+  "brand": "Beauty Formulas",
+  "category": "Toners"
+ },
+ {
+  "sku": "NB144",
+  "name": "Vitamin C Daily Facial Wash 150ml",
+  "brand": "Beauty Formulas",
+  "category": "Cleansers"
+ },
+ {
+  "sku": "NB145",
+  "name": "Vitamin C Daily Moisturiser 100ml",
+  "brand": "Beauty Formulas",
+  "category": "Moisturisers"
+ },
+ {
+  "sku": "NB146",
+  "name": "10% Niacinamide Illuminating Serum 30ml",
+  "brand": "Beauty Formulas",
+  "category": "Serums"
+ },
+ {
+  "sku": "NB147",
+  "name": "2% Vitamin C Glowing Serum 30ml",
+  "brand": "Beauty Formulas",
+  "category": "Serums"
+ },
+ {
+  "sku": "NB148",
+  "name": "1% Hyaluronic Acid Moisture Serum 30ml",
+  "brand": "Beauty Formulas",
+  "category": "Serums"
+ },
+ {
+  "sku": "NB149",
+  "name": "10% AHA + 2% BHA Renewing Serum 30ml",
+  "brand": "Beauty Formulas",
+  "category": "Serums"
+ },
+ {
+  "sku": "NB150",
+  "name": "Ceramides Repairing Serum 30ml",
+  "brand": "Beauty Formulas",
+  "category": "Serums"
+ },
+ {
+  "sku": "NB151",
+  "name": "Foaming Aloe Vera Makeup Remover Wipes 25 pcs",
+  "brand": "Beauty Formulas",
+  "category": "Wipes and pads"
+ },
+ {
+  "sku": "NB152",
+  "name": "Brightening Vitamin C Makeup Remover Wipes 25 pcs",
+  "brand": "Beauty Formulas",
+  "category": "Wipes and pads"
+ },
+ {
+  "sku": "NB153",
+  "name": "Gentle to Skin Sensitive Cleansing Wipes 25 pcs",
+  "brand": "Beauty Formulas",
+  "category": "Wipes and pads"
+ },
+ {
+  "sku": "NB154",
+  "name": "Cucumber Cool Moist Cleansing Facial Wipes 25 pcs",
+  "brand": "Beauty Formulas",
+  "category": "Wipes and pads"
+ },
+ {
+  "sku": "NB155",
+  "name": "Gentle Soft Apricot Cleansing Facial Wipes 25 pcs",
+  "brand": "Beauty Formulas",
+  "category": "Wipes and pads"
+ },
+ {
+  "sku": "NB156",
+  "name": "Argan Oil Cleansing Facial Wipes 25 pcs",
+  "brand": "Beauty Formulas",
+  "category": "Wipes and pads"
+ },
+ {
+  "sku": "NB157",
+  "name": "Tranexamic Acid Niacinamide Body Lotion 300ml",
+  "brand": "APLB",
+  "category": "Body lotions"
+ },
+ {
+  "sku": "NB158",
+  "name": "Glutathione Niacinamide Body Lotion 300ml",
+  "brand": "APLB",
+  "category": "Body lotions"
+ },
+ {
+  "sku": "NB159",
+  "name": "Glutathione Niacinamide Serum 40ml",
+  "brand": "APLB",
+  "category": "Serums"
+ },
+ {
+  "sku": "NB160",
+  "name": "Ferulic Acid Vitamin C Serum 40ml",
+  "brand": "APLB",
+  "category": "Serums"
+ },
+ {
+  "sku": "NB161",
+  "name": "Kojic Acid Vitamin C Serum 40ml",
+  "brand": "APLB",
+  "category": "Serums"
+ },
+ {
+  "sku": "NB162",
+  "name": "Azelaic Acid Peptide Serum 40ml",
+  "brand": "APLB",
+  "category": "Serums"
+ },
+ {
+  "sku": "NB163",
+  "name": "Salicylic Acid BHA Arbutin Serum 40ml",
+  "brand": "APLB",
+  "category": "Serums"
+ },
+ {
+  "sku": "NB164",
+  "name": "Kojic Acid Vitamin C Facial Cream 55ml",
+  "brand": "APLB",
+  "category": "Moisturisers"
+ },
+ {
+  "sku": "NB165",
+  "name": "Ferulic Acid Vitamin C Facial Cream 55ml",
+  "brand": "APLB",
+  "category": "Moisturisers"
+ },
+ {
+  "sku": "NB166",
+  "name": "PDRN Vitamin C Facial Cream 55ml",
+  "brand": "APLB",
+  "category": "Moisturisers"
+ },
+ {
+  "sku": "NB167",
+  "name": "Azelaic Acid Peptide Facial Cream 55ml",
+  "brand": "APLB",
+  "category": "Moisturisers"
+ },
+ {
+  "sku": "NB168",
+  "name": "Glow Booster Lightening Oil 300ml",
+  "brand": "Skeenpoint",
+  "category": "Body oils"
+ },
+ {
+  "sku": "NB169",
+  "name": "Bright Complete Vitamin C Body Lotion 400ml",
+  "brand": "Garnier",
+  "category": "Body lotions"
+ },
+ {
+  "sku": "NB170",
+  "name": "Micellar Vitamin C Cleansing Water 400ml",
+  "brand": "Garnier",
+  "category": "Cleansers"
+ },
+ {
+  "sku": "NB171",
+  "name": "Micellar Cleansing Water 400ml",
+  "brand": "Garnier",
+  "category": "Cleansers"
+ },
+ {
+  "sku": "NB172",
+  "name": "Micellar Cleansing Water All-in-1 400ml",
+  "brand": "Garnier",
+  "category": "Cleansers"
+ },
+ {
+  "sku": "NB173",
+  "name": "Rice Toner 150ml",
+  "brand": "I'm From",
+  "category": "Toners"
+ },
+ {
+  "sku": "NB174",
+  "name": "Brightening & Exfoliating Glow Face Wash 200ml",
+  "brand": "Skin by Zaron",
+  "category": "Cleansers"
+ },
+ {
+  "sku": "NB175",
+  "name": "Acne Control Glow Face Wash 200ml",
+  "brand": "Skin by Zaron",
+  "category": "Cleansers"
+ },
+ {
+  "sku": "NB176",
+  "name": "Vitamin C Brightening & Moisturising Body Lotion 500ml",
+  "brand": "Skin by Zaron",
+  "category": "Body lotions"
+ },
+ {
+  "sku": "NB177",
+  "name": "Skin Glow Therapy Ultra Moisturising Body Lotion 500ml",
+  "brand": "Skin by Zaron",
+  "category": "Body lotions"
+ },
+ {
+  "sku": "NB178",
+  "name": "10% Niacinamide Serum 30ml",
+  "brand": "Skin by Zaron",
+  "category": "Serums"
+ },
+ {
+  "sku": "NB179",
+  "name": "1% Retinol Serum 30ml",
+  "brand": "Skin by Zaron",
+  "category": "Serums"
+ },
+ {
+  "sku": "NB180",
+  "name": "Alpha Arbutin Serum 30ml",
+  "brand": "Skin by Zaron",
+  "category": "Serums"
+ },
+ {
+  "sku": "NB181",
+  "name": "Brightening Body Wash 650ml",
+  "brand": "Skin by Zaron",
+  "category": "Body washes"
+ },
+ {
+  "sku": "NB182",
+  "name": "Vitamin C Body Wash 650ml",
+  "brand": "Skin by Zaron",
+  "category": "Body washes"
+ },
+ {
+  "sku": "NB183",
+  "name": "Vitamin C Brightening Serum 30ml",
+  "brand": "Balance",
+  "category": "Serums"
+ },
+ {
+  "sku": "NB184",
+  "name": "Niacinamide Blemish Recovery Serum 30ml",
+  "brand": "Balance",
+  "category": "Serums"
+ },
+ {
+  "sku": "NB185",
+  "name": "Hyaluronic Deep Moisture Serum 300ml",
+  "brand": "Balance",
+  "category": "Serums"
+ },
+ {
+  "sku": "NB186",
+  "name": "10% Niacinamide + Zinc Face Serum 30ml",
+  "brand": "Cosmo",
+  "category": "Serums"
+ },
+ {
+  "sku": "NB187",
+  "name": "2% Salicylic Acid Face Serum 30ml",
+  "brand": "Cosmo",
+  "category": "Serums"
+ },
+ {
+  "sku": "NB188",
+  "name": "Egg Honey Hand Cream 120g",
+  "brand": "Heaven Dove",
+  "category": "Hand creams"
+ },
+ {
+  "sku": "NB189",
+  "name": "Lavender Hand Cream 120g",
+  "brand": "Heaven Dove",
+  "category": "Hand creams"
+ },
+ {
+  "sku": "NB190",
+  "name": "Ceramide Serum 2% 30ml",
+  "brand": "Sadia",
+  "category": "Serums"
+ },
+ {
+  "sku": "NB191",
+  "name": "Collagen 111 Serum 1.6% 30ml",
+  "brand": "Sadia",
+  "category": "Serums"
+ },
+ {
+  "sku": "NB192",
+  "name": "Glutathione Serum 2% 30ml",
+  "brand": "Sadia",
+  "category": "Serums"
+ },
+ {
+  "sku": "NB193",
+  "name": "Skin Renewal Serum 4.5% 30ml",
+  "brand": "Sadia",
+  "category": "Serums"
+ },
+ {
+  "sku": "NB194",
+  "name": "Bakuchiol Serum 2% 30ml",
+  "brand": "Sadia",
+  "category": "Serums"
+ },
+ {
+  "sku": "NB195",
+  "name": "Hyalu Serum B5 30ml",
+  "brand": "Sadia",
+  "category": "Serums"
+ },
+ {
+  "sku": "NB196",
+  "name": "Alpha Arbutin Serum 4% 30ml",
+  "brand": "Sadia",
+  "category": "Serums"
+ },
+ {
+  "sku": "NB197",
+  "name": "Niacinamide Serum 10% 30ml",
+  "brand": "Sadia",
+  "category": "Serums"
+ },
+ {
+  "sku": "NB198",
+  "name": "Peeling Mask Serum 30% 30ml",
+  "brand": "Sadia",
+  "category": "Serums"
+ },
+ {
+  "sku": "NB199",
+  "name": "Lactic Acid Serum 10% 30ml",
+  "brand": "Sadia",
+  "category": "Serums"
+ },
+ {
+  "sku": "NB200",
+  "name": "Tranexamic Acid Serum 5% 30ml",
+  "brand": "Sadia",
+  "category": "Serums"
+ },
+ {
+  "sku": "NB201",
+  "name": "Vitamin C Serum 10% 30ml",
+  "brand": "Sadia",
+  "category": "Serums"
+ },
+ {
+  "sku": "NB202",
+  "name": "Retinol Serum 2% 30ml",
+  "brand": "Sadia",
+  "category": "Serums"
+ },
+ {
+  "sku": "NB203",
+  "name": "Caffeine Eye Serum 2% 30ml",
+  "brand": "Sadia",
+  "category": "Serums"
+ },
+ {
+  "sku": "NB204",
+  "name": "Azelaic Acid Serum 30ml",
+  "brand": "Sadia",
+  "category": "Serums"
+ },
+ {
+  "sku": "NB205",
+  "name": "7% Glycolic Acid Exfoliating Toner 240ml",
+  "brand": "Sadia",
+  "category": "Toners"
+ },
+ {
+  "sku": "NB206",
+  "name": "2% Salicylic Acid Acne Treatment Topical Liquid 240ml",
+  "brand": "Sadia",
+  "category": "Toners"
+ },
+ {
+  "sku": "NB207",
+  "name": "2% Salicylic Acid Skin Perfecting Toner 150ml",
+  "brand": "Sadia",
+  "category": "Toners"
+ },
+ {
+  "sku": "NB208",
+  "name": "2% Ceramide Skin Hydrating Toner 150ml",
+  "brand": "Sadia",
+  "category": "Toners"
+ },
+ {
+  "sku": "NB209",
+  "name": "12% Vitamin C Skin Brightening Toner 150ml",
+  "brand": "Sadia",
+  "category": "Toners"
+ },
+ {
+  "sku": "NB210",
+  "name": "Retinal Liposome 2% + Black Ginseng 30ml",
+  "brand": "Seoul 1988",
+  "category": "Serums"
+ },
+ {
+  "sku": "NB211",
+  "name": "Niacinamide 20 Serum 40ml",
+  "brand": "Jumiso",
+  "category": "Serums"
+ },
+ {
+  "sku": "NB212",
+  "name": "Rice Niacinamide Serum 50ml",
+  "brand": "Glamfox",
+  "category": "Serums"
+ },
+ {
+  "sku": "NB213",
+  "name": "Soap Free Feminine Wash 250ml",
+  "brand": "Femfresh",
+  "category": "Feminine care"
+ },
+ {
+  "sku": "NB214",
+  "name": "Soap Free Feminine Wash 150ml",
+  "brand": "Femfresh",
+  "category": "Feminine care"
+ },
+ {
+  "sku": "NB215",
+  "name": "Cotton Pads 80 pcs",
+  "brand": "Cool & Cool",
+  "category": "Wipes and pads"
+ },
+ {
+  "sku": "NB216",
+  "name": "Vitamin C Serum Facial Mask",
+  "brand": "Mooyam",
+  "category": "Face masks"
+ },
+ {
+  "sku": "NB217",
+  "name": "Seaweed Oil Control Facial Mask",
+  "brand": "Mooyam",
+  "category": "Face masks"
+ },
+ {
+  "sku": "NB218",
+  "name": "Bamboo Face Mask",
+  "brand": "Mooyam",
+  "category": "Face masks"
+ },
+ {
+  "sku": "NB219",
+  "name": "Moisturising Honey Facial Mask",
+  "brand": "Mooyam",
+  "category": "Face masks"
+ },
+ {
+  "sku": "NB220",
+  "name": "Repairing Coconut Facial Mask",
+  "brand": "Mooyam",
+  "category": "Face masks"
+ },
+ {
+  "sku": "NB221",
+  "name": "Brightening Lemon Facial Mask",
+  "brand": "Mooyam",
+  "category": "Face masks"
+ },
+ {
+  "sku": "NB222",
+  "name": "Purifying Turmeric Facial Mask",
+  "brand": "Mooyam",
+  "category": "Face masks"
+ },
+ {
+  "sku": "NB223",
+  "name": "Lightening & Moisturising Orange Facial Mask",
+  "brand": "Mooyam",
+  "category": "Face masks"
+ }
+]

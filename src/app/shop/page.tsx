@@ -5,7 +5,8 @@ import type { ProductQuery } from "@/lib/ops/types";
 import { site } from "@/lib/site";
 import { PageHero } from "@/components/ui/page-hero";
 import { ProductCard } from "@/components/shop/product-card";
-import { FilterRail } from "@/components/shop/filter-rail";
+import { BrandFilter, FilterRail } from "@/components/shop/filter-rail";
+import { IconSearch } from "@/components/ui/icons";
 import { ShopSort } from "@/components/shop/shop-sort";
 import { Pagination } from "@/components/shop/pagination";
 import { DemoNotice } from "@/components/shop/demo-notice";
@@ -48,6 +49,15 @@ export default async function ShopPage({
 
   const activeConcern = CONCERN_OPTIONS.find((c) => c.slug === query.concern);
   const activeBrand = brands.find((b) => b.slug === query.brand);
+
+  function clearSearchHref() {
+    const params = new URLSearchParams();
+    if (query.concern) params.set("concern", query.concern);
+    if (query.brand) params.set("brand", query.brand);
+    if (query.sort && query.sort !== "featured") params.set("sort", query.sort);
+    const qs = params.toString();
+    return qs ? `/shop?${qs}` : "/shop";
+  }
 
   function makeHref(page: number) {
     const params = new URLSearchParams();
@@ -97,11 +107,54 @@ export default async function ShopPage({
         </div>
 
         <div>
+          {/* Search keeps any concern or brand filter that is already applied. */}
+          <form action="/shop" method="get" role="search" className="mb-5 flex">
+            {query.concern && <input type="hidden" name="concern" value={query.concern} />}
+            {query.brand && <input type="hidden" name="brand" value={query.brand} />}
+            <label htmlFor="shop-search" className="sr-only">
+              Search products
+            </label>
+            <div className="relative flex-1">
+              <IconSearch
+                width={16}
+                height={16}
+                aria-hidden
+                className="pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 text-stone"
+              />
+              <input
+                id="shop-search"
+                type="search"
+                name="q"
+                defaultValue={query.search}
+                placeholder="Search products, brands or concerns"
+                className="h-12 w-full border border-r-0 border-linen-mid bg-white pl-10 pr-3 text-base text-ink placeholder:text-stone outline-none transition-colors focus:border-gold sm:text-sm"
+              />
+            </div>
+            <button
+              type="submit"
+              className="h-12 shrink-0 cursor-pointer bg-ink px-5 text-[0.65rem] font-bold uppercase tracking-[0.14em] text-linen transition-colors hover:bg-ink-lift"
+            >
+              Search
+            </button>
+          </form>
+
           {/* Result bar */}
           <div className="mb-6 flex flex-wrap items-center justify-between gap-3 border-b border-linen-mid pb-4">
             <p className="text-[0.8rem] text-stone">
               <span className="font-semibold text-ink">{result.total}</span>{" "}
               {result.total === 1 ? "product" : "products"}
+              {query.search && (
+                <>
+                  {" "}for <span className="text-ink">&ldquo;{query.search}&rdquo;</span>
+                  {" "}
+                  <Link
+                    href={clearSearchHref()}
+                    className="ml-1 text-gold-deep underline underline-offset-2 hover:text-ink"
+                  >
+                    Clear search
+                  </Link>
+                </>
+              )}
               {activeConcern && <> · {activeConcern.label}</>}
               {activeBrand && <> · {activeBrand.name}</>}
             </p>
@@ -135,10 +188,20 @@ export default async function ShopPage({
             ))}
           </div>
 
+          {/* Mobile brand filter, closed until opened */}
+          <div className="mb-6 lg:hidden">
+            <BrandFilter
+              brands={brands}
+              active={{ concern: query.concern, brand: query.brand }}
+            />
+          </div>
+
           {result.items.length === 0 ? (
             <div className="flex flex-col items-center gap-4 border border-linen-mid bg-white py-20 text-center">
               <p className="font-serif text-xl text-ink">
-                No products match these filters.
+                {query.search
+                  ? `No products match “${query.search}”.`
+                  : "No products match these filters."}
               </p>
               <Link
                 href="/shop"

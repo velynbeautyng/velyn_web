@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import { whatsappLink } from "@/lib/site";
 import { Button } from "@/components/ui/button";
 import { formatNaira } from "@/lib/utils";
@@ -41,20 +42,28 @@ const labelClass =
   "mb-1.5 block text-[0.6rem] font-bold uppercase tracking-[0.14em] text-stone";
 
 export function TrackForm() {
-  const [reference, setReference] = useState("");
+  const params = useSearchParams();
+  const [reference, setReference] = useState(() => params.get("ref") ?? "");
   const [email, setEmail] = useState("");
   const [result, setResult] = useState<Result>({ kind: "idle" });
+  const autoRan = useRef(false);
 
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    const ref = reference.trim();
-    const em = email.trim();
-    if (!ref || !em) return;
+  // A link from the Thank You page or the confirmation email carries the
+  // reference (and a signed token instead of the email), so the status can
+  // show without the customer typing anything.
+  useEffect(() => {
+    const ref = params.get("ref");
+    const token = params.get("k");
+    if (autoRan.current || !ref || !token) return;
+    autoRan.current = true;
+    void lookup(ref, { k: token });
+  }, [params]);
+
+  async function lookup(ref: string, auth: { email: string } | { k: string }) {
     setResult({ kind: "loading" });
+    const query = new URLSearchParams({ reference: ref, ...auth });
     try {
-      const res = await fetch(
-        `/api/track?reference=${encodeURIComponent(ref)}&email=${encodeURIComponent(em)}`,
-      );
+      const res = await fetch(`/api/track?${query}`);
       const data = await res.json();
       if (data.status === "ok") setResult({ kind: "found", order: data.order });
       else if (data.status === "not-found")
@@ -64,14 +73,29 @@ export function TrackForm() {
       else
         setResult({
           kind: "error",
-          message: data.error || "Something went wrong.",
+          message: data.error || "We couldn't check your order right now. Please try again.",
         });
     } catch {
       setResult({
         kind: "error",
-        message: "Something went wrong. Please try again.",
+        message: "We couldn't reach the tracking service. Please try again.",
       });
     }
+  }
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const ref = reference.trim();
+    const em = email.trim();
+    if (!ref) {
+      setResult({ kind: "error", message: "Please enter your order reference." });
+      return;
+    }
+    if (!em) {
+      setResult({ kind: "error", message: "Please enter the email you used at checkout." });
+      return;
+    }
+    await lookup(ref, { email: em });
   }
 
   return (
@@ -85,7 +109,7 @@ export function TrackForm() {
             id="track-ref"
             value={reference}
             onChange={(e) => setReference(e.target.value)}
-            placeholder="e.g. VB-1AB2C3-4D5E6F"
+            placeholder="e.g. NB-MUY0VGN0-FF2F01"
             className={fieldClass}
             required
           />

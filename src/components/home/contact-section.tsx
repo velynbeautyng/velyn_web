@@ -4,8 +4,6 @@ import { Reveal } from "@/components/motion/reveal";
 import { ContactForm } from "@/components/forms/contact-form";
 import { IconMail, IconPhone, IconPin } from "@/components/ui/icons";
 
-const abuja = site.contact.phones[0];
-
 const details = [
   {
     icon: <IconMail width={16} height={16} className="text-gold" />,
@@ -13,12 +11,12 @@ const details = [
     sub: "General enquiries",
     href: `mailto:${site.contact.email}`,
   },
-  {
+  ...site.contact.phones.map((phone) => ({
     icon: <IconPhone width={16} height={16} className="text-gold" />,
-    main: abuja.display,
-    sub: site.contact.hours,
-    href: `tel:${abuja.tel}`,
-  },
+    main: phone.display,
+    sub: `${phone.label} line · ${site.contact.hours}`,
+    href: `tel:${phone.tel}`,
+  })),
   {
     icon: <IconPin width={16} height={16} className="text-gold" />,
     main: `${site.contact.address.city}, ${site.contact.address.country}`,

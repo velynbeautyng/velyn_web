@@ -19,19 +19,19 @@ export type SkinConcern = (typeof CONCERNS)[number]["label"];
 const RULES: [RegExp, ConcernSlug][] = [
   [/\bspf\b|sunscreen|\buv\b|\bsun\b/i, "sun"],
   [
-    /acne|blemish|salicylic|\bbha\b|benzoyl|tea tree|oil[ -]?control|oil[ -]?free|\bpores?\b|zinc|effaclar|clarif/i,
+    /acne|blemish|salicylic|\bsa\b|\bbha\b|benzoyl|tea tree|oil[ -]?control|oil[ -]?free|\bpores?\b|zinc|effaclar|clarif|succinic|retino|retinal|low ph/i,
     "acne-oily",
   ],
   [
-    /dark spot|spots? fading|pigment|hydroquinone|melasma|licorice|bright|arbutin|vitamin c|\bvit\.? ?c\b|vita c|tranexamic|\btxa\b|kojic|niacin|azelaic|azealic|\btone\b|glutathione|lightening|whitening|turmeric|glow|glycolic|lactic|\baha\b|exfoliat/i,
+    /dark spot|spots? fading|pigment|hydroquinone|melasma|licorice|bright|arbutin|vitamin c|\bvit\.? ?c\b|vita c|tranexamic|\btxa\b|kojic|niacin|\bb3\b|azelaic|azealic|\btone\b|glutathione|lightening|whitening|turmeric|glow|glycolic|lactic|\baha\b|exfoliat|retino|retinal|bakuchiol|caffeine|\brice\b|renewal|peeling|rough/i,
     "dark-spots",
   ],
   [
-    /sensitiv|sooth|calm|cica|centella|heartleaf|barrier|gentle|redness|relief|fragrance[ -]?free/i,
+    /sensitiv|sooth|calm|cica|centella|heartleaf|barrier|gentle|redness|relief|fragrance[ -]?free|micellar|aloe|cucumber|feminine|\bph\b|kind to skin|soap[ -]?free|cotton|bakuchiol/i,
     "sensitive",
   ],
   [
-    /ceramide|hyaluron|hyalu|moistur|hydrat|\bhydro\b|lotion|body oil|butter|\bdry\b|nourish|\bcream\b|replenish/i,
+    /ceramide|hyaluron|hyalu|moistur|\bmoist\b|hydrat|\bhydro\b|lotion|body oil|butter|\bdry\b|nourish|\bcream\b|replenish|peptide|collagen|snail|mucin|body wash|scrub|coconut|argan|bamboo|shea|avocado|firming|repair/i,
     "dryness",
   ],
 ];
@@ -51,11 +51,36 @@ const LEGACY_SLUGS: Record<string, ConcernSlug> = {
   "sensitive-skin": "sensitive",
 };
 
+// When no keyword matches, the product's category decides, so a new product
+// added in ops always lands under at least one concern filter.
+const CATEGORY_FALLBACK: Record<string, ConcernSlug> = {
+  sunscreens: "sun",
+  moisturisers: "dryness",
+  "body lotions": "dryness",
+  "body creams": "dryness",
+  "body oils": "dryness",
+  "body washes": "dryness",
+  "body scrubs": "dryness",
+  "hand creams": "dryness",
+  "face masks": "dryness",
+  "bar soaps": "dryness",
+  cleansers: "sensitive",
+  toners: "sensitive",
+  "wipes and pads": "sensitive",
+  "feminine care": "sensitive",
+  serums: "dark-spots",
+  exfoliators: "dark-spots",
+  "toner pads": "dark-spots",
+};
+
 export function inferConcerns(name: string, category?: string): SkinConcern[] {
   const hay = `${name} ${category ?? ""}`;
-  return RULES.filter(([re]) => re.test(hay)).map(
+  const found = RULES.filter(([re]) => re.test(hay)).map(
     ([, slug]) => bySlug.get(slug)!.label,
   );
+  if (found.length > 0) return found;
+  const fallback = category ? CATEGORY_FALLBACK[category.trim().toLowerCase()] : undefined;
+  return fallback ? [bySlug.get(fallback)!.label] : [];
 }
 
 export function concernSlug(label: SkinConcern): ConcernSlug {
