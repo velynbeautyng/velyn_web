@@ -1,10 +1,9 @@
-# Velyn Beauty & Essentials — Website
+# Nuvene Beauty website
 
-Premium, animated, SEO-first e-commerce storefront for **Velyn Beauty &
-Essentials** — Nigeria's trusted distributor of authentic skincare. Built with
-Next.js (App Router) and deployed on Vercel. Products, stock and pricing are
-managed from **ops.velynbeauty.com** (UltimatePOS) via its Connector REST API;
-payments run through **Paystack**.
+The storefront for **Nuvene Beauty** at www.nuvenebeauty.com. Built with
+Next.js (App Router) and deployed on Vercel. Products, stock, prices, delivery
+rates and orders are managed in **ops.nuvenebeauty.com** (UltimatePOS) through
+its storefront API; payments run through **Paystack**.
 
 ## Stack
 
@@ -36,7 +35,7 @@ scroll — useful for full-page headless screenshots.
 
 ## Integrations
 
-### Products — ops.velynbeauty.com (UltimatePOS Connector)
+### Products: ops.nuvenebeauty.com (UltimatePOS)
 
 1. In ops: **Connector → register an API app** to get `client_id` /
    `client_secret` (Laravel Passport OAuth2).
@@ -69,7 +68,7 @@ server-side.
 2. Import it in Vercel → framework auto-detected as Next.js.
 3. Add the environment variables from `.env.example` in the Vercel project
    settings (use Paystack **live** keys for production).
-4. Point `velynbeauty.com` at the Vercel deployment.
+4. Point `nuvenebeauty.com` at the Vercel deployment (www is the main address).
 
 > Node ≥ 20.19 is recommended (Next 16 engine requirement).
 

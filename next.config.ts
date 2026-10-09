@@ -10,11 +10,7 @@ const opsHost = (() => {
   }
 })();
 
-// Both ops addresses stay allowed through the domain move, so pages cached with
-// the old image links keep rendering until they revalidate.
-const opsHosts = [
-  ...new Set([opsHost, "ops.nuvenebeauty.com", "ops.velynbeauty.com"]),
-];
+const opsHosts = [...new Set([opsHost, "ops.nuvenebeauty.com"])];
 
 const nextConfig: NextConfig = {
   // Pin the workspace root so Next doesn't infer a parent lockfile.
@@ -25,8 +21,6 @@ const nextConfig: NextConfig = {
     formats: ["image/avif", "image/webp"],
     remotePatterns: [
       ...opsHosts.map((hostname) => ({ protocol: "https" as const, hostname })),
-      { protocol: "https", hostname: "velynbeauty.com" },
-      { protocol: "https", hostname: "www.velynbeauty.com" },
     ],
   },
   poweredByHeader: false,
