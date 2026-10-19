@@ -1,9 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { Product } from "@/lib/ops/types";
 import { useCart } from "@/lib/cart-store";
 import { cn } from "@/lib/utils";
+import { trackPixel } from "@/lib/meta-pixel";
 import { Price } from "@/components/ui/price";
 import { Button } from "@/components/ui/button";
 import { IconCheck, IconMinus, IconPlus } from "@/components/ui/icons";
@@ -24,6 +25,18 @@ export function ProductBuyPanel({ product }: { product: Product }) {
     product.variations.length > 1 ||
     (product.variations[0] && product.variations[0].name !== "Default");
 
+  // This panel only renders on the product page, so it reports the view.
+  useEffect(() => {
+    const first = product.variations[0];
+    trackPixel("ViewContent", {
+      value: first?.price ?? product.price,
+      currency: "NGN",
+      content_ids: first ? [first.sku] : [],
+      content_name: product.name,
+      content_type: "product",
+    });
+  }, [product]);
+
   function handleAdd() {
     if (!variation) return;
     add(
@@ -40,6 +53,14 @@ export function ProductBuyPanel({ product }: { product: Product }) {
       },
       qty,
     );
+    trackPixel("AddToCart", {
+      value: variation.price * qty,
+      currency: "NGN",
+      content_ids: [variation.sku],
+      content_name: product.name,
+      content_type: "product",
+      contents: [{ id: variation.sku, quantity: qty }],
+    });
     setAdded(true);
     window.setTimeout(() => setAdded(false), 1800);
   }

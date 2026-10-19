@@ -9,6 +9,7 @@ import {
 import { site } from "@/lib/site";
 import { PageHero } from "@/components/ui/page-hero";
 import { ProductBuyPanel } from "@/components/shop/product-buy-panel";
+import { displaySku } from "@/lib/utils";
 import { ProductCard } from "@/components/shop/product-card";
 import { NuveneIcon } from "@/components/brand/nuvene-logo";
 import { SectionHeading } from "@/components/ui/section-heading";
@@ -44,6 +45,7 @@ export default async function ProductPage({ params }: { params: Params }) {
   if (!product) notFound();
 
   const related = await getRelatedProducts(product, 4);
+  const sku = displaySku(product.variations[0]?.sku);
 
   const trust = [
     { icon: IconShield, text: "Replace or refund if ever confirmed counterfeit" },
@@ -126,6 +128,11 @@ export default async function ProductPage({ params }: { params: Params }) {
           <h2 className="mt-2 font-serif text-[clamp(1.6rem,3vw,2.2rem)] leading-tight text-ink">
             {product.name}
           </h2>
+          {sku && (
+            <p className="mt-1.5 text-[0.7rem] uppercase tracking-[0.12em] text-stone">
+              SKU <span className="text-ink">{sku}</span>
+            </p>
+          )}
 
           {product.concerns.length > 0 && (
             <div className="mt-4 flex flex-wrap gap-1.5">

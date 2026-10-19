@@ -14,6 +14,7 @@ import { Button, ButtonLink } from "@/components/ui/button";
 import { NuveneIcon } from "@/components/brand/nuvene-logo";
 import { IconShield } from "@/components/ui/icons";
 import { cn } from "@/lib/utils";
+import { trackPixel } from "@/lib/meta-pixel";
 
 type Method = "delivery" | "pickup";
 
@@ -72,6 +73,12 @@ export function CheckoutView() {
     e.preventDefault();
     setStatus("submitting");
     setError("");
+    trackPixel("InitiateCheckout", {
+      value: subtotal,
+      currency: "NGN",
+      num_items: items.reduce((n, i) => n + i.quantity, 0),
+      contents: items.map((i) => ({ id: String(i.id), quantity: i.quantity })),
+    });
     const fd = new FormData(e.currentTarget);
     const customer = {
       name: fd.get("name"),
@@ -101,12 +108,12 @@ export function CheckoutView() {
       if (!res.ok) throw new Error(data?.error || "Checkout failed.");
 
       if (data.mode === "paystack" && data.authorizationUrl) {
-        window.location.href = data.authorizationUrl;
+        window.location.assign(data.authorizationUrl);
         return;
       }
       if (data.mode === "manual" && data.whatsapp) {
         // Payment gateway not live yet, hand off to WhatsApp to finalise.
-        window.location.href = data.whatsapp;
+        window.location.assign(data.whatsapp);
         return;
       }
       throw new Error("Unexpected checkout response.");
