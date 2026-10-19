@@ -26,3 +26,13 @@ export function slugify(input: string): string {
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-+|-+$/g, "");
 }
+
+/**
+ * The product code to print on a product page, or null. The ops API falls back
+ * to the numeric variation id when a product has no SKU, which means nothing
+ * to a shopper, so that is hidden.
+ */
+export function displaySku(sku: string | undefined): string | null {
+  const code = sku?.trim();
+  return code && !/^\d+$/.test(code) ? code : null;
+}

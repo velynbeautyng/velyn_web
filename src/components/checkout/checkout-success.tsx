@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { useCart } from "@/lib/cart-store";
 import { formatNaira } from "@/lib/utils";
+import { claimPurchase, trackPixel } from "@/lib/meta-pixel";
 import { ButtonLink } from "@/components/ui/button";
 import { NuveneIcon } from "@/components/brand/nuvene-logo";
 import { IconCheck } from "@/components/ui/icons";
@@ -43,6 +44,10 @@ export function CheckoutSuccess() {
         const data = await res.json();
         if (data.status === "success") {
           clear();
+          if (typeof data.amount === "number" && claimPurchase(data.reference, window.localStorage)) {
+            // The order reference doubles as the event ID, so a repeat is dropped by Meta too.
+            trackPixel("Purchase", { value: data.amount, currency: "NGN" }, data.reference);
+          }
           setState({
             kind: "success",
             reference: data.reference,

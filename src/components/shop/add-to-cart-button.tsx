@@ -4,6 +4,7 @@ import { useState } from "react";
 import type { Product } from "@/lib/ops/types";
 import { useCart } from "@/lib/cart-store";
 import { cn } from "@/lib/utils";
+import { trackPixel } from "@/lib/meta-pixel";
 import { buttonClass } from "@/components/ui/button";
 import { IconCheck } from "@/components/ui/icons";
 
@@ -49,6 +50,14 @@ export function AddToCartButton({
       },
       quantity,
     );
+    trackPixel("AddToCart", {
+      value: variation.price * quantity,
+      currency: "NGN",
+      content_ids: [variation.sku],
+      content_name: product.name,
+      content_type: "product",
+      contents: [{ id: variation.sku, quantity: quantity }],
+    });
     setAdded(true);
     window.setTimeout(() => setAdded(false), 1600);
   }
