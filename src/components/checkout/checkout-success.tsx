@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { useCart } from "@/lib/cart-store";
 import { formatNaira } from "@/lib/utils";
-import { claimPurchase, trackPixel } from "@/lib/meta-pixel";
+import { claimPurchase, trackPixel } from "@/lib/pixels";
 import { ButtonLink } from "@/components/ui/button";
 import { NuveneIcon } from "@/components/brand/nuvene-logo";
 import { IconCheck } from "@/components/ui/icons";

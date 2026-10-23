@@ -4,7 +4,7 @@ import { useState } from "react";
 import type { Product } from "@/lib/ops/types";
 import { useCart } from "@/lib/cart-store";
 import { cn } from "@/lib/utils";
-import { trackPixel } from "@/lib/meta-pixel";
+import { trackPixel } from "@/lib/pixels";
 import { buttonClass } from "@/components/ui/button";
 import { IconCheck } from "@/components/ui/icons";
 

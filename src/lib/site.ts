@@ -13,6 +13,12 @@ export const site = {
   description:
     "Nuvene Beauty is an Abuja skincare company. We match your real skin concern to an original product, name the distributor it came from, and replace or refund anything confirmed counterfeit.",
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://nuvenebeauty.com",
+  // Ad pixel IDs from the client (22 Oct 2026). They are public by design (every
+  // page carries them); the env vars only exist to switch to another account.
+  pixels: {
+    meta: process.env.NEXT_PUBLIC_META_PIXEL_ID || "1840816177105938",
+    tiktok: process.env.NEXT_PUBLIC_TIKTOK_PIXEL_ID || "DB822QBC77U45L31JUL0",
+  },
   locale: "en_NG",
 
   contact: {
