@@ -14,7 +14,7 @@ import { Button, ButtonLink } from "@/components/ui/button";
 import { NuveneIcon } from "@/components/brand/nuvene-logo";
 import { IconShield } from "@/components/ui/icons";
 import { cn } from "@/lib/utils";
-import { trackPixel } from "@/lib/meta-pixel";
+import { trackPixel } from "@/lib/pixels";
 
 type Method = "delivery" | "pickup";
 

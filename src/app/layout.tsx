@@ -7,7 +7,7 @@ import { SiteFooter } from "@/components/layout/site-footer";
 import { CartDrawer } from "@/components/cart/cart-drawer";
 import { site } from "@/lib/site";
 import { OrganizationJsonLd } from "@/components/seo/json-ld";
-import { MetaPixel } from "@/components/seo/meta-pixel";
+import { Pixels } from "@/components/seo/pixels";
 
 const display = Cinzel({
   variable: "--font-cinzel",
@@ -84,7 +84,7 @@ export default function RootLayout({
         </main>
         <SiteFooter />
         <CartDrawer />
-        <MetaPixel />
+        <Pixels />
       </body>
     </html>
   );
